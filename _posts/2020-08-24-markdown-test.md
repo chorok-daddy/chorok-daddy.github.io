@@ -17,6 +17,7 @@
 ##### H5
 ###### H6
 
+
 ### list 관련
 (태그)<br>
 <code>
@@ -27,6 +28,7 @@
     \1. list 1
 \2. list 2
 </code>
+
 (결과)
 - list 1
     - list 2
@@ -35,3 +37,21 @@
 1. list 1
     1. list 1
 2. list 2
+
+
+### code 관련
+(태그)<br>
+<code>
+'''python
+for i in range(10):
+    if i>5:
+        print(i)
+'''
+</code>
+
+(결과)
+'''python
+for i in range(10):
+    if i>5:
+        print(i)
+'''
