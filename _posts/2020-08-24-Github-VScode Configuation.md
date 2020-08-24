@@ -16,15 +16,14 @@ Github의 편리한 사용 + VScode가 요즘 hot하다고 하여,,
 
 ### Git repository 연결
 - Local folder open (해당 folder에 .git이 있다고 git remote 설정한 적이 있다면 자동으로 연결됨)
-![Local folder open menu](../img/local_folder_open1.png)
-![Local folder open](../img/local_folder_open2.png)
+![Local folder open menu](../img/local_folder_open1.png) {:width="20%"} ![Local folder open](../img/local_folder_open2.png) {:width="80%"}
 - 비어있는 폴더라면, remode git 추가 (터미널에서 'git remote add origin repository_URL'
 - 파일을 생성(또는 변경)하고 메뉴에서 commit한 후 push 하면 완료
 
 
 ### 이후 작업
 - 파일 수정 후 저장하면 왼쪽 메뉴바 changes에 추가되는 것을 볼 수 있다
-![Changes](../img/changes.png)
+![Changes](../img/changes.png) {:width="50%"}
 - 수정된 파일들 중 적용할 파일을 골라서 + 
 - commit 후 push
 
