@@ -39,17 +39,15 @@
 
 ### code 관련
 (태그)<br>
-<code>
-'''python
-for i in range(10):
-    if i>5:
-        print(i)
-'''
-</code>
+\`\`\`python <br>
+for i in range(10):<br>
+    if i>5:<br>
+        print(i)<br>
+\`\`\`
 
 (결과)
-'''python
+```python
 for i in range(10):
     if i>5:
         print(i)
-'''
+```
