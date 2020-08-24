@@ -23,9 +23,9 @@
 \- list 1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;\- list 2<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\- list 3<br>
-\1. list 1<br>
-&nbsp;&nbsp;&nbsp;&nbsp;\1. list 1<br>
-\2. list 2<br>
+1\. list 1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1\. list 1<br>
+2\. list 2<br>
 (결과)
 - list 1
     - list 2
