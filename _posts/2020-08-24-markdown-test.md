@@ -42,7 +42,7 @@
 
 ### [code 관련]
 (태그)
-~~~markdown
+~~~
 ```python
 for i in range(10):
     if i>5:
