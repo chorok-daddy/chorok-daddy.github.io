@@ -1,4 +1,4 @@
-## Markdown 태그가 github page에서 어떻게 표시되는지 테스트
+### Markdown 태그가 github page에서 어떻게 표시되는지 테스트
 ------
 
 ### \# 태그 관련
