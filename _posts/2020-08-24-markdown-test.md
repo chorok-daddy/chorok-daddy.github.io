@@ -1,7 +1,7 @@
 ### Markdown 태그가 github page에서 어떻게 표시되는지 테스트
 ------
 
-### title 관련
+### [title 관련]
 (태그)<br>
 \# H1<br>
 \#\# H2<br>
@@ -18,7 +18,7 @@
 ###### H6
 
 
-### list 관련
+### [list 관련]
 (태그)<br>
 \- list 1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;\- list 2<br>
@@ -36,7 +36,7 @@
 2. list 2
 
 
-### code 관련
+### [code 관련]
 (태그)<br>
 \`\`\`python <br>
 for i in range(10):<br>
