@@ -42,13 +42,13 @@
 
 ### [code 관련]
 (태그)
-```markdown
-\`\`\`python
+~~~markdown
+```python
 for i in range(10):
     if i>5:
         print(i)
-\`\`\`
 ```
+~~~
 (결과)
 ```python
 for i in range(10):
