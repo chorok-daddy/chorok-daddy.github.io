@@ -18,8 +18,8 @@ Github의 편리한 사용 + VScode가 요즘 hot하다고 하여,,
 - Local folder open (해당 folder에 .git이 있다고 git remote 설정한 적이 있다면 자동으로 연결됨)
 <table>
 <tr>
-    <td><img src="../img/local_folder_open1.png" width="20%"></td>
-    <td><img src="../img/local_folder_open2.png" width="70%"></td>
+    <td width="20%"><img src="../img/local_folder_open1.png"></td>
+    <td width="80%"><img src="../img/local_folder_open2.png"></td>
 </tr>
 </table>
 - 비어있는 폴더라면, remode git 추가 (터미널에서 'git remote add origin repository_URL'
