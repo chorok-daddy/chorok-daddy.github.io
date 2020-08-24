@@ -19,18 +19,19 @@
 
 ### list 관련
 (태그)<br>
-'''
+<code>
 \- list 1
     \- list 2
         \- list 3
 \1. list 1
     \1. list 1
 \2. list 2
-'''
+</code>
 (결과)
 - list 1
     - list 2
         - list 3
+
 1. list 1
     1. list 1
 2. list 2
