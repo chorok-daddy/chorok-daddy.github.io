@@ -2,9 +2,8 @@
 title: Github-VScode Configuration
 ---
 
-### 목적 
-Github의 편리한 사용 + VScode가 요즘 hot하다고 하여,, 
-<!--break-->
+## Github의 편리한 사용 + VScode가 요즘 hot하다고 하여 정리
+------
 ### VScode 설치
 <https://code.visualstudio.com/> 접속, 다운로드 및 설치
 ![VScode Install](../img/VScode_install.png)
