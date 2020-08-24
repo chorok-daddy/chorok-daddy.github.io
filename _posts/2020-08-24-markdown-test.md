@@ -20,14 +20,12 @@
 
 ### list 관련
 (태그)<br>
-<code>
-\- list 1
-    \- list 2
-        \- list 3
-\1. list 1
-    \1. list 1
-\2. list 2
-</code>
+\- list 1<br>
+    \- list 2<br>
+        \- list 3<br>
+\1. list 1<br>
+    \1. list 1<br>
+\2. list 2<br>
 
 (결과)
 - list 1
