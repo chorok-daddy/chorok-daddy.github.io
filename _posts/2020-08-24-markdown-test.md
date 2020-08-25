@@ -1,6 +1,14 @@
+---
+layout: post
+title: Markdown Test
+comments: true
+tags:
+- Markdown
+---
+
 ### Markdown 태그가 github page에서 어떻게 표시되는지 테스트
 ------
-<!--break-->
+
 ### [title 관련]
 (태그)
 ```markdown
