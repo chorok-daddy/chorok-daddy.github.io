@@ -1,5 +1,10 @@
 ---
+layout: post
 title: Github-VScode Configuration
+comments: true
+tags:
+- Github
+- VScode
 ---
 
 ### Github의 편리한 사용 + VScode가 요즘 hot하다고 하여 정리
