@@ -5,13 +5,11 @@
   {% else %}
     {% assign tags = page.tags %}
   {% endif %}
+  {% if tags.size == 0 %}
+    {%assign tags = "없음" %}
+  {% endif %}
   {% for tag in tags %}
   <a href="/tags/#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
   {% endfor %}
-  {% if tags %}
-    {% %}
-  {% else %}
-    <p>없음</p>
-  {% endif %}
 </div>
 <br/>
