@@ -7,6 +7,7 @@
   {% endif %}
   {% if tags.size == 0 %}
     {%assign tags = "없음" %}
+    {%assign post.tags = "없음" %}
   {% endif %}
   {% for tag in tags %}
   <a href="/tags/#{{tag|slugize}}">{{tag}}</a>{% unless forloop.last %},{% endunless %}
