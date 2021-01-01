@@ -19,3 +19,5 @@ tags:
 
 ### VS 와 Docker 연동
 - cmd(ctrl)+shift+p 후 remote-Containers: Attach to Running Container 입력
+- 구동중인 container가 없는데 테스트해보고 싶다면, docker extension icon을 클릭한 후 보유중인 image를 run interactive 하여 bash를 실행시켜둔 후 테스트하면 좋다
+
