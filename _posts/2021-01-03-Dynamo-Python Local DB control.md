@@ -15,7 +15,6 @@ tags:
 - Sample code
 <script src="https://gist.github.com/chorok-daddy/760343100b1a5f8174df7ee47e02dd6b.js"></script>
 - 몇 가지 상식
-    * Primary key: 보통 첫 번째 column에 들어가는 index이며, primary key로 지정된 column에는 중복된 item이 들어갈 수 없어야 하므로 대개 ID나 고유명 등등이 좋은 예이다 
     * Key type: hash(일치하는 값만 query 가능), range (범위지정 query 가능)
     * Data type: Scalar (number, string, binary, bool, null), Document (list, map(json)), Set (string set, number set, binary set)
     * Attribute type: S(String), N(Number), B(Binary), BOOL(bool), BS(Binary Set), ...
