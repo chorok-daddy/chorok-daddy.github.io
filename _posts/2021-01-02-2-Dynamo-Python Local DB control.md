@@ -11,7 +11,7 @@ tags:
 ------
 ([공식문서링크](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html))
 
-### Table 만들기
+### Create table
 - Sample code
 <script src="https://gist.github.com/chorok-daddy/760343100b1a5f8174df7ee47e02dd6b.js"></script>
 - 몇 가지 상식
@@ -77,4 +77,80 @@ else:
 ```
 
 ### Update data
-- 
+- update_item() 함수로 처리되는 점은 간단하나, 다음과 같이 조금 복잡한 절차를 거친다
+    * key를 이용해 query
+    * update expression에 어떤 attribute가 바뀌는지 표시
+    * 실제 attribute 값이 어떻게 대입되는지 표시
+    * 결과 return 형식 (예, UPDATED_NEW >> update된 attribute만 return)
+    * 이외에 좀 더 복잡한 기작들은 최상단 공식문서 링크를 참조하면 된다
+```python
+response = table.update_item(
+    Key={
+        'year': year,
+        'title': title
+    },
+    UpdateExpression="set info.rating=:r, info.plot=:p, info.actors=:a",
+    ExpressionAttributeValues={
+        ':r': Decimal(rating),
+        ':p': plot,
+        ':a': actors
+    },
+    ReturnValues="UPDATED_NEW"
+)
+return response
+```
+
+### Remove data
+- delete_item() 함수를 이용, 아래와 같이 조건을 추가할 수 있다
+```python
+try:
+    response = table.delete_item(
+        Key={
+            'year': year,
+            'title': title
+        },
+        ConditionExpression="info.rating <= :val",
+        ExpressionAttributeValues={
+            ":val": Decimal(rating)
+        }
+    )
+except ClientError as e:
+    if e.response['Error']['Code'] == "ConditionalCheckFailedException":
+        print(e.response['Error']['Message'])
+    else:
+        raise
+else:
+    return response
+```
+- 만약 조건이 필요 없다면, 그냥 간단하게
+```python
+response = table.delete_item(
+    Key={
+        'year': year,
+        'title': title
+    }
+) 
+```
+
+### Query data
+- Hash key 기반 '일치' 조건으로 query할 때는 다음과 같이 간단하다
+```python
+response = table.query(
+        KeyConditionExpression=Key('year').eq(year)
+)
+return response['Items']
+```
+- Range key를 추가해 query하고 싶은 경우
+```python
+response = table.query(
+    ProjectionExpression="#yr, title, info.genres, info.actors[0]",
+    ExpressionAttributeNames={"#yr": "year"},
+    KeyConditionExpression=
+        Key('year').eq(year) & Key('title').between(title_range[0], title_range[1])
+)
+return response['Items']
+```
+- key가 아닌 attribute 값으로 검색도 가능한데(scan), 자세한 사항은 공식문서 링크 참조
+
+### Delete table
+- table.delete() 한줄로 끝
