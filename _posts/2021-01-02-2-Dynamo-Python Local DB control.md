@@ -9,6 +9,7 @@ tags:
 
 ### AWS lambda 활용의 준비단계로 DynamoDB를 local에서 control 하는 방법을 정리
 ------
+([공식문서링크](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html))
 
 ### Table 만들기
 - Sample code
@@ -50,5 +51,30 @@ tags:
     }
 }
 ```
+- 물론 아래와 같이 직접 입력도 가능
+```python
+response = table.put_item(
+    Item={
+        'year': year,
+        'title': title,
+        'info': {
+            'plot': plot,
+            'rating': rating
+        }
+    }
+)
+```
 
+### Read data
+- key를 이용해서 query하는데, 아래와 같이 get_item() 함수를 활용
+```python
+try:
+    response = table.get_item(Key={'year': year, 'title': title})
+except ClientError as e:
+    print(e.response['Error']['Message'])
+else:
+    return response['Item']
+```
 
+### Update data
+- 
