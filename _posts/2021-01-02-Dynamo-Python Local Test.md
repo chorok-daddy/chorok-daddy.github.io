@@ -21,31 +21,5 @@ $ pip3 install boto3
 
 ### Test code
 - 다음 소스코드를 실행해본다 (AWS제공 예제 소스코드를 기반으로, aws cli 설정 안해도 실행 가능하게끔 수정하였음)
-```python
-import boto3
-def create_movie_table(dynamodb=None):
-	if not dynamodb:
-		dynamodb = boto3.resource('dynamodb',
-                          aws_access_key_id="anything",
-                          aws_secret_access_key="anything",
-                          region_name="us-west-2",
-                          endpoint_url="http://localhost:8000")
-		table = dynamodb.create_table(TableName='Movies',
-			KeySchema=[
-			{'AttributeName': 'year','KeyType': 'HASH' # Partition key
-			},
-			{'AttributeName': 'title','KeyType': 'RANGE' # Sort key
-			}
-			],
-			AttributeDefinitions=[
-			{'AttributeName': 'year','AttributeType': 'N'},
-			{'AttributeName': 'title','AttributeType': 'S'},
-			],
-			ProvisionedThroughput={'ReadCapacityUnits': 10, 'WriteCapacityUnits': 10}
-		)
-	return table
-if __name__ == '__main__':
-	movie_table = create_movie_table()
-	print("Table status:", movie_table.table_status)
-```
+<script src="https://gist.github.com/chorok-daddy/760343100b1a5f8174df7ee47e02dd6b.js"></script>
 - 정상이라면 'Table status: ACTIVE'을 출력
