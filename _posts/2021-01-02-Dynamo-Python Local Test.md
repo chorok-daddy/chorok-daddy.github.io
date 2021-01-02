@@ -41,7 +41,7 @@ def create_movie_table(dynamodb=None):
 			ProvisionedThroughput={'ReadCapacityUnits': 10, 'WriteCapacityUnits': 10}
 		)
 	return table
-if __name__ == '__main__':
+if \_\_name\_\_ == '\_\_main\_\_':
 	movie_table = create_movie_table()
 	print("Table status:", movie_table.table_status)
 ```
