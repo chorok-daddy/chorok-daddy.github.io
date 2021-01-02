@@ -9,7 +9,7 @@ tags:
 
 ### AWS lambda 활용의 준비단계로 DynamoDB를 local에서 테스트하는 방법을 정리
 ------
-(from [참고자료링크](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html>) )
+(좀더 자세히 알고싶다면, [참고자료링크](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GettingStarted.Python.html>))
 
 ### Prerequisites
 - DynomoDB 로컬 버전을 설치 및 실행 (도커기반) [참조1](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html) [참조2](https://medium.com/@byeonggukgong/using-amazon-dynamodb-in-local-environment-feat-docker-fafbb420e161)
