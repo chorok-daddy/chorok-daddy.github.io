@@ -18,7 +18,8 @@ $ docker pull amazon/dynamodb-local
 $ docker run -d -p 8000:8000 amazon/dynamodb-local
 $ pip3 install boto3
 ```
-- 다음 소스코드를 실행해본다 (AWS제공 예제 소스코드를 기반으로, aws cli 설정 안해도 실행 가능하게끔 수정하였음)```python
+- 다음 소스코드를 실행해본다 (AWS제공 예제 소스코드를 기반으로, aws cli 설정 안해도 실행 가능하게끔 수정하였음)
+```python
 import boto3
 def create_movie_table(dynamodb=None):
 	if not dynamodb:
