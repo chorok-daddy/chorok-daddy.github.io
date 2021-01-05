@@ -39,7 +39,7 @@ tags:
 - 마지막으로 다시 Lambda 함수 만들던 창으로 돌아가서 기존 역할에서 방금 만든 역할을 선택한다
 - '함수 생성'
 - 생성한 함수의 이름을 클릭해 들어가면 디자이너 화면과 함수 코드 입력창이 보인다
-- [이전글](Dynamo-Python Local DB control)에서 사용한 예제를 이용해 테스트해본다
+- [이전글](Dynamo-Python-Local-DB-control)에서 사용한 예제를 이용해 테스트해본다
 - 여기까지의 과정은 [참조유투브](https://www.youtube.com/watch?v=8zhv6GDSDE8)를 참고하면 더 쉽다
 
 ### AWS Lambda에서 외부 라이브러리 사용하기
