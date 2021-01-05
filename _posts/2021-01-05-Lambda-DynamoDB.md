@@ -49,6 +49,9 @@ tags:
 ![UploadZip](../img/2021-01-05-Lambda-DynamoDB/upload zip.png)
 
 - 폴더를 새로 만들고 그 폴더 안에 다음과 같이 라이브러리와 소스코드로 채운다
+
+![ZipFolder](../img/2021-01-05-Lambda-DynamoDB/zip folder.png)
+
 - 예를 들어 터미널을 열고 해당 폴더로 이동한 다음 다음 커멘드를 입력하면 된다 (삭제 과정은 필요없는 캐시 제거)
 ```console
 $ pip install -t . pandas
