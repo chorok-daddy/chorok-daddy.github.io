@@ -1,6 +1,6 @@
 {
-  "release": "course-site-2026-09-10-02",
-  "html_material_version": "2026-2-02",
+  "release": "course-site-2026-09-10-semester",
+  "html_material_version": "2026-2-semester",
   "courses": 2,
-  "lessons": 2
+  "lessons": 30
 }

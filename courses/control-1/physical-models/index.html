@@ -2255,20 +2255,20 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/control-1/physical-models/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/control-1/index.html">제어공학1</a><span aria-hidden="true">/</span><span aria-current="page">2주차</span></nav><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/control-1/physical-models/index.html">학습 자료</a> <a href="/courses/control-1/physical-models/assignment.html">과제 안내</a> <a href="/courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" download>실습 파일 다운로드</a> <a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/control-1/index.html">제어공학1</a><span aria-hidden="true">/</span><span aria-current="page">2주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/control-1/course-setup/index.html">1주차 · 제어 시스템과 MATLAB 시작하기</a></li><li><a aria-current="page" href="/courses/control-1/physical-models/index.html">2주차 · 물리 시스템을 모델로 표현하기</a></li><li><a href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지</a></li><li><a href="/courses/control-1/transfer-blocks/index.html">4주차 · Transfer Function(전달함수)와 블록을 연결하기</a></li><li><a href="/courses/control-1/state-space-one/index.html">5주차 · 상태를 선택해 행렬 모델 만들기</a></li><li><a href="/courses/control-1/state-space-two/index.html">6주차 · State Transition으로 응답 따라가기</a></li><li><a href="/courses/control-1/state-space-three/index.html">7주차 · 모델 표현을 바꾸어도 같은 응답일까?</a></li><li><a href="/courses/control-1/midterm/index.html">8주차 · 중간시험 · 필기와 MATLAB 준비</a></li><li><a href="/courses/control-1/feedback-one/index.html">9주차 · Feedback(피드백)으로 이득 변화 줄이기</a></li><li><a href="/courses/control-1/feedback-two/index.html">10주차 · DC 모터의 Disturbance(외란) 경로 읽기</a></li><li><a href="/courses/control-1/performance-one/index.html">11주차 · 응답 지표로 설계 결과 검증하기</a></li><li><a href="/courses/control-1/performance-two/index.html">12주차 · 2차 시스템의 감쇠와 속도 조절하기</a></li><li><a href="/courses/control-1/performance-three/index.html">13주차 · P와 PI의 Steady-state Error(정상상태 오차) 비교하기</a></li><li><a href="/courses/control-1/stability/index.html">14주차 · 안정성을 먼저 확인하고 성능 비교하기</a></li><li><a href="/courses/control-1/final-exam/index.html">15주차 · 기말시험 · 필기와 MATLAB 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/control-1/physical-models/index.html">학습 자료</a> <a href="/courses/control-1/physical-models/assignment.html">실습 안내</a> <a href="/courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" download>실습 파일 다운로드</a> <a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">학습 순서</h2>
-   
+
   <ul class="collapse">
   <li><a href="#입력과-출력부터-정하기" id="toc-입력과-출력부터-정하기" class="nav-link active" data-scroll-target="#입력과-출력부터-정하기">1. 입력과 출력부터 정하기</a></li>
   <li><a href="#현재-값만으로-설명할-수-있을까" id="toc-현재-값만으로-설명할-수-있을까" class="nav-link" data-scroll-target="#현재-값만으로-설명할-수-있을까">2. 현재 값만으로 설명할 수 있을까?</a></li>
   <li><a href="#병렬-rlc-전류의-합으로-모델-세우기" id="toc-병렬-rlc-전류의-합으로-모델-세우기" class="nav-link" data-scroll-target="#병렬-rlc-전류의-합으로-모델-세우기">3. 병렬 RLC: 전류의 합으로 모델 세우기</a></li>
-  <li><a href="#전달함수는-입출력-관계를-압축한-표현" id="toc-전달함수는-입출력-관계를-압축한-표현" class="nav-link" data-scroll-target="#전달함수는-입출력-관계를-압축한-표현">4. 전달함수는 입출력 관계를 압축한 표현</a></li>
+  <li><a href="#transfer-function는-입출력-관계를-압축한-표현" id="toc-transfer-function는-입출력-관계를-압축한-표현" class="nav-link" data-scroll-target="#transfer-function는-입출력-관계를-압축한-표현">4. Transfer Function는 입출력 관계를 압축한 표현</a></li>
   <li><a href="#질량스프링댐퍼-힘의-합으로-모델-세우기" id="toc-질량스프링댐퍼-힘의-합으로-모델-세우기" class="nav-link" data-scroll-target="#질량스프링댐퍼-힘의-합으로-모델-세우기">5. 질량–스프링–댐퍼: 힘의 합으로 모델 세우기</a></li>
-  <li><a href="#기계-모델의-전달함수" id="toc-기계-모델의-전달함수" class="nav-link" data-scroll-target="#기계-모델의-전달함수">6. 기계 모델의 전달함수</a></li>
+  <li><a href="#기계-모델의-transfer-function" id="toc-기계-모델의-transfer-function" class="nav-link" data-scroll-target="#기계-모델의-transfer-function">6. 기계 모델의 Transfer Function</a></li>
   <li><a href="#matlab에서-계수로-모델-만들기" id="toc-matlab에서-계수로-모델-만들기" class="nav-link" data-scroll-target="#matlab에서-계수로-모델-만들기">7. MATLAB에서 계수로 모델 만들기</a></li>
   <li><a href="#계단응답을-어떻게-읽을까" id="toc-계단응답을-어떻게-읽을까" class="nav-link" data-scroll-target="#계단응답을-어떻게-읽을까">8. 계단응답을 어떻게 읽을까?</a></li>
   <li><a href="#실습에서는-한-가지를-바꾸고-비교하기" id="toc-실습에서는-한-가지를-바꾸고-비교하기" class="nav-link" data-scroll-target="#실습에서는-한-가지를-바꾸고-비교하기">9. 실습에서는 한 가지를 바꾸고 비교하기</a></li>
@@ -2289,11 +2289,11 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 <div class="quarto-title-meta">
 
-    
-  
-    
+
+
+
   </div>
-  
+
 
 
 </header>
@@ -2438,7 +2438,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>i</mi><mi>L</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>i</mi><mi>L</mi></msub><mo stretchy="false" form="prefix">(</mo><mn>0</mn><mo stretchy="false" form="postfix">)</mo><mo>+</mo><mfrac><mn>1</mn><mi>L</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mi>d</mi><mi>τ</mi></mrow><annotation encoding="application/x-tex">i_L(t)=i_L(0)+\frac{1}{L}\int_0^t v(\tau)\,d\tau</annotation></semantics></math></p>
 <p>입니다. <code>τ</code>는 적분 안에서 시간을 세는 기호입니다. <code>iL(0)</code>은 시작할 때 인덕터에 흐르던 전류입니다. 처음 전류가 0인 경우에는 다음처럼 정리됩니다.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>i</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><mi>R</mi></mfrac><mo>+</mo><mi>C</mi><mfrac><mrow><mi>d</mi><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>+</mo><mfrac><mn>1</mn><mi>L</mi></mfrac><msubsup><mo>∫</mo><mn>0</mn><mi>t</mi></msubsup><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>τ</mi><mo stretchy="false" form="postfix">)</mo><mspace width="0.167em"></mspace><mi>d</mi><mi>τ</mi></mrow><annotation encoding="application/x-tex">i_{in}(t)=\frac{v(t)}{R}+C\frac{dv(t)}{dt}+\frac{1}{L}\int_0^t v(\tau)\,d\tau</annotation></semantics></math></p>
-<p>각 항의 단위는 모두 A입니다. 이 식은 전류 보존 법칙에 각 소자의 관계식을 넣은 결과입니다. 적분항도 포함하므로 엄밀히는 적분·미분 관계식입니다. 양변을 미분하면 미분방정식으로도 표현할 수 있지만, 여기서는 이 형태에서 전달함수로 넘어가겠습니다.</p>
+<p>각 항의 단위는 모두 A입니다. 이 식은 전류 보존 법칙에 각 소자의 관계식을 넣은 결과입니다. 적분항도 포함하므로 엄밀히는 적분·미분 관계식입니다. 양변을 미분하면 미분방정식으로도 표현할 수 있지만, 여기서는 이 형태에서 Transfer Function(전달함수)로 넘어가겠습니다.</p>
 </details>
 <details class="check">
 <summary>
@@ -2447,14 +2447,14 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>이상적인 도선으로 같은 두 노드 사이에 연결되어 있으므로 세 소자에 걸리는 전압은 같습니다. 반면 각 가지 전류는 서로 다를 수 있고, 그 합이 입력 전류입니다.</p>
 </details>
 </section>
-<section id="전달함수는-입출력-관계를-압축한-표현" class="level2">
-<h2 class="anchored" data-anchor-id="전달함수는-입출력-관계를-압축한-표현">4. 전달함수는 입출력 관계를 압축한 표현</h2>
-<p>오늘은 <strong>초기조건을 0으로 놓고</strong>, 미분·적분 관계를 <code>s</code>에 관한 식으로 바꾸어 계산합니다. 시간 함수 <code>v(t)</code>의 라플라스 변환을 <code>V(s)</code>로 씁니다.</p>
+<section id="transfer-function는-입출력-관계를-압축한-표현" class="level2">
+<h2 class="anchored" data-anchor-id="transfer-function는-입출력-관계를-압축한-표현">4. Transfer Function는 입출력 관계를 압축한 표현</h2>
+<p>오늘은 <strong>초기조건을 0으로 놓고</strong>, 미분·적분 관계를 <code>s</code>에 관한 식으로 바꾸어 계산합니다. 시간 함수 <code>v(t)</code>의 Laplace Transform(라플라스 변환)을 <code>V(s)</code>로 씁니다.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>R</mi><mi>L</mi><mi>C</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>V</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><msub><mi>I</mi><mrow><mi>i</mi><mi>n</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mi>s</mi><mrow><mi>C</mi><msup><mi>s</mi><mn>2</mn></msup><mo>+</mo><mfrac><mn>1</mn><mi>R</mi></mfrac><mi>s</mi><mo>+</mo><mfrac><mn>1</mn><mi>L</mi></mfrac></mrow></mfrac></mrow><annotation encoding="application/x-tex">
 G_{RLC}(s)=\frac{V(s)}{I_{in}(s)}
 =\frac{s}{Cs^2+\frac{1}{R}s+\frac{1}{L}}
 </annotation></semantics></math></p>
-<p>이 <term data-key="transfer">전달함수</term>의 입출력 단위는 <strong>V/A</strong>입니다. ‘출력/입력’이라는 정의와 잘 맞는지 확인하세요.</p>
+<p>이 <term data-key="transfer">Transfer Function</term>의 입출력 단위는 <strong>V/A</strong>입니다. ‘출력/입력’이라는 정의와 잘 맞는지 확인하세요.</p>
 <details class="explain">
 <summary>
 중간 계산을 한 줄씩 보기
@@ -2472,7 +2472,7 @@ G_{RLC}(s)=\frac{V(s)}{I_{in}(s)}
 초기조건을 0으로 둔다는 뜻
 </summary>
 <p>회로라면 시작 시 커패시터 전압과 인덕터 전류가 0인 상태를 생각합니다. 기계 시스템이라면 기준점에서 정지한 상태입니다. 처음에 에너지가 저장되어 있으면 그 초기 상태에 따른 응답도 생깁니다.</p>
-<p>전달함수는 초기 상태가 없는 조건의 <strong>입력에 대한 응답 관계</strong>를 나타냅니다. 초기 상태가 있는 현상을 다룰 수 없다는 뜻은 아니지만, 그 효과는 추가로 계산해야 합니다.</p>
+<p>Transfer Function는 초기 상태가 없는 조건의 <strong>입력에 대한 응답 관계</strong>를 나타냅니다. 초기 상태가 있는 현상을 다룰 수 없다는 뜻은 아니지만, 그 효과는 추가로 계산해야 합니다.</p>
 </details>
 </section>
 <section id="질량스프링댐퍼-힘의-합으로-모델-세우기" class="level2">
@@ -2519,11 +2519,11 @@ G_{RLC}(s)=\frac{V(s)}{I_{in}(s)}
 <p>그림은 수직 시스템이지만 여기서는 <strong>중력으로 생긴 정적 처짐을 기준점에 포함</strong>했습니다. 그래서 평형점에서 얼마나 추가로 움직였는지를 나타내는 식에는 상수 중력항이 남지 않습니다. 늘어나지 않은 스프링 길이를 기준으로 좌표를 정했다면 중력항을 포함해 새로 식을 세워야 합니다.</p>
 </details>
 </section>
-<section id="기계-모델의-전달함수" class="level2">
-<h2 class="anchored" data-anchor-id="기계-모델의-전달함수">6. 기계 모델의 전달함수</h2>
+<section id="기계-모델의-transfer-function" class="level2">
+<h2 class="anchored" data-anchor-id="기계-모델의-transfer-function">6. 기계 모델의 Transfer Function</h2>
 <p>출력 항들을 한쪽에 모으면</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mover><mi>y</mi><mo accent="true">̈</mo></mover><mo>+</mo><mi>b</mi><mover><mi>y</mi><mo accent="true">̇</mo></mover><mo>+</mo><mi>k</mi><mi>y</mi><mo>=</mo><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">M\ddot y+b\dot y+ky=u(t)</annotation></semantics></math></p>
-<p>입니다. 영 초기조건의 라플라스 변환을 적용하면</p>
+<p>입니다. 영 초기조건의 Laplace Transform을 적용하면</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>G</mi><mrow><mi>M</mi><mi>S</mi><mi>D</mi></mrow></msub><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mrow><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>M</mi><msup><mi>s</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi>s</mi><mo>+</mo><mi>k</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">G_{MSD}(s)=\frac{Y(s)}{U(s)}=\frac{1}{Ms^2+bs+k}</annotation></semantics></math></p>
 <p>가 됩니다. 단위는 <strong>m/N</strong>입니다.</p>
 <details class="explain">
@@ -2566,7 +2566,7 @@ G_{RLC}(s)=\frac{V(s)}{I_{in}(s)}
 </section>
 <section id="matlab에서-계수로-모델-만들기" class="level2">
 <h2 class="anchored" data-anchor-id="matlab에서-계수로-모델-만들기">7. MATLAB에서 계수로 모델 만들기</h2>
-<p><code>tf</code>는 분자·분모의 계수를 받아 전달함수 모델을 만듭니다. 계수는 <strong>s의 높은 차수부터</strong> 적습니다. 빠진 차수는 0으로 채웁니다.</p>
+<p><code>tf</code>는 분자·분모의 계수를 받아 Transfer Function 모델을 만듭니다. 계수는 <strong>s의 높은 차수부터</strong> 적습니다. 빠진 차수는 0으로 채웁니다.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">R</span> <span class="op">=</span> <span class="fl">0.5</span><span class="op">;</span> <span class="va">L</span> <span class="op">=</span> <span class="fl">1</span><span class="op">;</span> <span class="va">C</span> <span class="op">=</span> <span class="fl">5</span><span class="op">;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">g_rlc</span> <span class="op">=</span> <span class="va">tf</span>([<span class="fl">1</span> <span class="fl">0</span>]<span class="op">,</span> [<span class="va">C</span> <span class="fl">1</span><span class="op">/</span><span class="va">R</span> <span class="fl">1</span><span class="op">/</span><span class="va">L</span>])<span class="op">;</span></span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
@@ -2602,7 +2602,7 @@ G_{RLC}(s)=\frac{V(s)}{I_{in}(s)}
 <summary>
 전류를 계속 넣는데 왜 전압은 0으로 갈까요?
 </summary>
-<p>직류 <term data-key="steady">정상상태</term>에서 이상적인 인덕터의 전류는 더 이상 변하지 않습니다. 따라서 <code>v=L di/dt</code>에서 전압은 0입니다. 병렬 회로의 공통 전압도 0으로 접근합니다. 입력 전류가 사라진다는 뜻은 아닙니다. 충분히 시간이 지나면 인덕터 가지가 입력 전류를 받습니다.</p>
+<p>직류 <term data-key="steady">Steady State(정상상태)</term>에서 이상적인 인덕터의 전류는 더 이상 변하지 않습니다. 따라서 <code>v=L di/dt</code>에서 전압은 0입니다. 병렬 회로의 공통 전압도 0으로 접근합니다. 입력 전류가 사라진다는 뜻은 아닙니다. 충분히 시간이 지나면 인덕터 가지가 입력 전류를 받습니다.</p>
 <p>시작할 때는 커패시터 전압이 갑자기 뛰지 않으므로 <code>v(0+)=0</code>입니다. 인덕터 초기전류도 0이면, 처음 순간 입력 전류는 커패시터로 흘러 <code>dv/dt(0+)=1/C=0.2 V/s</code>가 됩니다. 여기서는 이상적인 소자 모델을 사용합니다.</p>
 </details>
 <details class="explain">
@@ -2707,7 +2707,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
 <p>자료 버전: <code>2026-2-02</code> · 기준일: 2026-09-10</p>
 </section>
 
-<nav class="lesson-pagination" aria-label="강의 사이 이동"><a href="/courses/control-1/index.html">제어공학1 목차</a></nav></main>
+<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/control-1/course-setup/index.html">← 1주차 · 제어 시스템과 MATLAB 시작하기</a><a href="/courses/control-1/index.html">제어공학1 목차</a><a rel="next" href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지 →</a></nav></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2720,7 +2720,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
     anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
-        if (clz.startsWith('code-annotation-')) {                     
+        if (clz.startsWith('code-annotation-')) {
           return true;
         }
       }
@@ -2740,11 +2740,11 @@ Colab·Markdown 내용도 다시 보고 싶다면
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
         button.setAttribute("data-bs-title", "복사완료!");
-        tooltip = new bootstrap.Tooltip(button, 
-          { trigger: "manual", 
+        tooltip = new bootstrap.Tooltip(button,
+          { trigger: "manual",
             customClass: "code-copy-button-tooltip",
             offset: [0, -8]});
-        tooltip.show();    
+        tooltip.show();
       }
       setTimeout(function() {
         if (tooltip) {
@@ -2821,7 +2821,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
       if (onUntriggerFn) {
         config.onUntrigger = onUntriggerFn;
       }
-      window.tippy(el, config); 
+      window.tippy(el, config);
     }
     const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
     for (var i=0; i<noterefs.length; i++) {
@@ -2896,7 +2896,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
       tippyHover(xref, undefined, function(instance) {
         instance.disable();
         let url = xref.getAttribute('href');
-        let hash = undefined; 
+        let hash = undefined;
         if (url.startsWith('#')) {
           hash = url;
         } else {
@@ -2924,7 +2924,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
               if (note !== null) {
                 const html = processXRef(id, note);
                 instance.setContent(html);
-              } 
+              }
             }).finally(() => {
               instance.enable();
               instance.show();
@@ -2948,7 +2948,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
               }
               const html = processXRef(null, note);
               instance.setContent(html);
-            } 
+            }
           }).finally(() => {
             instance.enable();
             instance.show();
@@ -2988,7 +2988,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
               height = bottom - top;
             }
             if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
+              // cook up a div (if necessary) and position it
               let div = window.document.getElementById("code-annotation-line-highlight");
               if (div === null) {
                 div = window.document.createElement("div");
