@@ -2303,8 +2303,30 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><strong>무엇을 넣고, 무엇을 관찰하는가?</strong> 이 질문에서 시작해 물리 법칙을 식으로 쓰고, MATLAB에서 모델의 반응을 확인합니다.</p>
 </div>
 <p>영상을 본 뒤 <strong>입력·출력 → 물리 법칙 → 모델 → 응답</strong> 순서로 복습하세요. 밑줄 친 용어는 마우스를 올리거나 눌러 뜻을 볼 수 있습니다. 자세한 계산은 필요한 때 펼치면 됩니다.</p>
-<p><a href="https://matControl_Engineering_1_Week02_Physical_Models.mlxathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online에서 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week02_Physical_Models.mlx" download="Control_Engineering_1_Week02_Physical_Models.mlx">실습 파일 다운로드</a></p>
+<p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online에서 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week02_Physical_Models.mlx" download="Control_Engineering_1_Week02_Physical_Models.mlx">실습 파일 다운로드</a></p>
 <p><strong>처음 실행한다면:</strong> 실습 시작 버튼을 누르고 필요한 경우 MathWorks 계정에 로그인하세요. 저장소 복제가 완료되면 이 실습의 <code>Control_Engineering_1_Week02_Physical_Models.mlx</code>이 열립니다. 본인 작업 공간에서 실행하고 저장하세요. 이 파일은 설명·코드·실행 결과를 함께 보는 <code>.mlx</code> 형식의 Live Script입니다. 현재 실습에는 Control System Toolbox가 필요합니다.</p>
+<section id="matlab에서-한-단계씩-실행하기" class="level3">
+<h3 class="anchored" data-anchor-id="matlab에서-한-단계씩-실행하기">MATLAB에서 한 단계씩 실행하기</h3>
+<p>Colab의 셀처럼, 이 문서에서는 <strong>섹션(section)</strong> 단위로 코드를 실행합니다. 설명이나 코드 한 줄을 클릭했다고 그 줄만 실행되는 것은 아닙니다.</p>
+<ol type="1">
+<li><strong>실행할 코드 안을 클릭</strong>한 뒤 상단 <strong>Live Editor → Run Section(섹션 실행)</strong>을 누르세요. 현재 섹션의 코드 전체가 실행됩니다.</li>
+<li>처음에는 <strong>환경 확인 → RLC 기준 실행 → RLC 한 변수씩 변경 → 기계 모델</strong> 순서로 위에서부터 진행하세요. 각 단계에서 먼저 예측을 적고 실행 결과와 비교합니다.</li>
+<li><code>parameter</code>나 <code>factor</code>를 바꿨다면 <strong>그 섹션을 다시 실행</strong>하세요. 값을 입력하는 것만으로 그래프가 갱신되지는 않습니다.</li>
+</ol>
+<p><strong>Run(실행)</strong>은 문서 전체를 실행합니다. 이번 실습에서는 예측과 관찰 사이에 멈출 수 있도록 <strong>Run Section</strong>을 사용하세요. 설명의 빈칸과 표는 직접 수정하는 작성란이며, 실행 버튼을 누를 필요가 없습니다.</p>
+<details class="explain">
+<summary>
+단축키·실행 결과·오류가 헷갈릴 때
+</summary>
+<ul>
+<li>현재 섹션 실행: Windows/Linux <strong>Ctrl+Enter</strong>, Mac <strong>⌘+Enter</strong>. 단축키가 작동하지 않으면 상단 <strong>Run Section</strong> 버튼을 사용하세요.</li>
+<li>출력은 설정에 따라 코드 오른쪽 또는 아래에 나타납니다. 그래프를 확인하고 해당 관찰란에 기록하세요.</li>
+<li><code>R0</code>, <code>g0</code> 등의 변수를 찾을 수 없다는 오류가 나면, 앞의 <strong>RLC 기준 실행</strong> 섹션부터 순서대로 실행하세요. 뒤 섹션은 앞에서 만든 변수를 사용합니다. 세션을 새로 시작했을 때도 위에서부터 실행해야 합니다.</li>
+<li>코드를 바꾸면 관련 결과도 다시 실행해 갱신한 뒤 본인 사본을 저장하세요.</li>
+</ul>
+<p><a href="https://www.mathworks.com/help/matlab/matlab_prog/create-and-run-sections.html">MATLAB 공식 섹션 실행 안내</a> · <a href="https://www.mathworks.com/help/matlab/matlab_prog/editor-keyboard-shortcuts.html">단축키 안내</a></p>
+</details>
+</section>
 <section id="입력과-출력부터-정하기" class="level2">
 <h2 class="anchored" data-anchor-id="입력과-출력부터-정하기">1. 입력과 출력부터 정하기</h2>
 <p>같은 물체도 <strong>무엇을 입력하고 무엇을 측정하느냐</strong>에 따라 모델의 의미가 달라집니다.</p>
