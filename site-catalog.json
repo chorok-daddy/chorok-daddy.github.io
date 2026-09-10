@@ -25,7 +25,7 @@
           "week": 2,
           "title": "물리 시스템을 모델로 표현하기",
           "source": "control/study-guide.html",
-          "lab": "control/lab.m",
+          "lab": "control/Control_Engineering_1_Week02_Physical_Models.mlx",
           "assignment_source": "assignments/control-week02.html"
         }
       ]
