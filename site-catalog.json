@@ -1,0 +1,32 @@
+{
+  "site_title": "강의자료",
+  "origin": "https://chorok-daddy.github.io",
+  "courses": [
+    {
+      "slug": "ai-applications",
+      "title": "인공지능응용",
+      "lessons": [
+        {
+          "slug": "notebook-literacy",
+          "week": 2,
+          "title": "Notebook으로 생각을 설명하기",
+          "source": "ai/study-guide.html",
+          "lab": "ai/lab.ipynb"
+        }
+      ]
+    },
+    {
+      "slug": "control-1",
+      "title": "제어공학1",
+      "lessons": [
+        {
+          "slug": "physical-models",
+          "week": 2,
+          "title": "물리 시스템을 모델로 표현하기",
+          "source": "control/study-guide.html",
+          "lab": "control/lab.m"
+        }
+      ]
+    }
+  ]
+}

@@ -1,17 +1,2 @@
----
-layout: default
----
-<!-- Posts -->
-<ul id="posts">
-
-	{% for post in paginator.posts %}
-
-	  <li class="post">
-	  	<h2><a href="{% if site.baseurl == "/" %}{{ post.url }}{% else %}{{ post.url | prepend: site.baseurl }}{% endif %}">{{ post.title }}</a></h2>
-	  	<time datetime="{{ post.date | date_to_xmlschema }}" class="by-line">{{ post.date | date_to_string }}</time>
-	  	{% include post_tags.html %}
-	  </li>
-
-    {% endfor %}
-
-</ul>
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>강의자료</title><meta name="description" content="인공지능응용·제어공학1 강의자료"><link rel="canonical" href="https://chorok-daddy.github.io/"><link rel="stylesheet" href="/assets/site.css"></head><body><a class="skip-site" href="#main">본문으로</a><main id="main" class="directory"><h1>강의자료</h1><ul class="course-list"><li><a href="/courses/ai-applications/index.html">인공지능응용</a></li><li><a href="/courses/control-1/index.html">제어공학1</a></li></ul></main></body></html>
