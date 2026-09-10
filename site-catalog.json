@@ -11,7 +11,8 @@
           "week": 2,
           "title": "Notebook으로 생각을 설명하기",
           "source": "ai/study-guide.html",
-          "lab": "ai/AI_Applications_Week02_Notebook_Basics.ipynb"
+          "lab": "ai/AI_Applications_Week02_Notebook_Basics.ipynb",
+          "assignment_source": "assignments/ai-week02.html"
         }
       ]
     },
@@ -24,7 +25,8 @@
           "week": 2,
           "title": "물리 시스템을 모델로 표현하기",
           "source": "control/study-guide.html",
-          "lab": "control/lab.m"
+          "lab": "control/lab.m",
+          "assignment_source": "assignments/control-week02.html"
         }
       ]
     }

@@ -4,7 +4,7 @@
 %[text] 이 Live Script는 개편된 실습 교재 원본입니다. 본인 사본에서 실행하고 관찰을 기록합니다.
 %[text] 이번 실습의 순서는 **예측 → 실행 → 관찰 → 물리적으로 설명**입니다. 회로/기계 모델의 식은 자습 HTML에서 확인하세요. 작성란의 빈 내용을 자신의 말로 채웁니다.
 %[text] 특정 제출 파일명/형식은 이 문서에서 새로 정하지 않습니다. 조교와 현재 과제 안내를 따르세요.
-%[text] [현재 실습 안내](https://niilab.notion.site/2-9-10-121888a17b30833785bb81da6130590c?pvs=25)
+%[text] [현재 실습 안내](https://chorok-daddy.github.io/courses/control-1/physical-models/assignment.html)
 %% 실행 환경 확인
 %[text] ## 0. 먼저 확인하기
 %[text] 아래 코드는 MATLAB 버전을 표시하고 필요한 함수를 확인합니다. **Control System Toolbox**가 필요합니다. tf를 찾을 수 없다면 조교에게 환경 확인을 요청하세요.
