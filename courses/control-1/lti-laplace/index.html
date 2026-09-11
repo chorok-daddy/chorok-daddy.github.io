@@ -2291,12 +2291,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <summary>
 눌러 펼쳐보기 · 근사는 Operating Point 근처에서 보충 설명
 </summary>
-<p>Operating Point이 0이 아니면 상수항을 빼고 변화량 δx, δy에 대한 선형 관계를 쓰는 경우가 많습니다. 원래 함수 전체가 선형으로 변한 것은 아닙니다.</p>
+<p>Operating Point가 0이 아니면 상수항을 빼고 변화량 δx, δy에 대한 선형 관계를 쓰는 경우가 많습니다. 원래 함수 전체가 선형으로 변한 것은 아닙니다.</p>
 </details>
 </section>
 <section id="미분을-대수식으로-바꾸기" class="level2">
 <h2 class="anchored" data-anchor-id="미분을-대수식으로-바꾸기">4. 미분을 대수식으로 바꾸기</h2>
-<p>Laplace Transform(라플라스 변환)에서 미분은 s와 초기값으로 표현됩니다. L{x′}=sX−x(0)입니다. 영 초기조건이면 미분방정식에서 입력과 출력의 비율을 구하기 쉬워집니다.</p>
+<p>Laplace Transform(라플라스 변환)에서 미분은 s와 초기값으로 표현됩니다. L{x′}=sX−x(0)입니다. 초기조건이 모두 0이면 미분방정식에서 입력과 출력의 비율을 구하기 쉬워집니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 미분을 대수식으로 바꾸기 보충 설명
@@ -2309,7 +2309,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ul>
 <li><strong>Linearity 반례:</strong> 3x, x², 3x+1, cos(t)x, dx/dt의 Linearity와 Time Invariance를 각각 판별하고 이유를 적으세요.</li>
 <li><strong>Linear Approximation:</strong> |sin(x)−x|≤0.01을 만족하는 0 주변 범위를 코드로 조사하세요. 0.1,0.5,1 rad의 오차를 표로 비교하세요.</li>
-<li><strong>Laplace Transform:</strong> exp(−2t), sin(4t)의 Transform·Inverse를 확인하고 x″+4x′+3x=6u(t), 영 초기조건의 해를 구하세요. 얻은 해를 원래 식에 대입해 검증하세요. Toolbox가 없으면 X(s)=6/[s(s+1)(s+3)]을 A/s+B/(s+1)+C/(s+3)으로 분해하여 계수를 구한 뒤 exp 형태의 해와 도함수를 직접 작성해 검증하세요.</li>
+<li><strong>Laplace Transform:</strong> exp(−2t), sin(4t)의 Transform·Inverse를 확인하고 x″+4x′+3x=6u(t), 초기조건이 모두 0일 때의 해를 구하세요. 얻은 해를 원래 식에 대입해 검증하세요. Toolbox가 없으면 X(s)=6/[s(s+1)(s+3)]을 A/s+B/(s+1)+C/(s+3)으로 분해하여 계수를 구한 뒤 exp 형태의 해와 도함수를 직접 작성해 검증하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
@@ -2317,7 +2317,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ol type="1">
 <li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
-<li>결과가 맞다는 근거를 실제 출력이나 그래프로 제시할 수 있나요?</li>
+<li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
 </ol>
 <p><a href="https://www.mathworks.com/help/matlab/">MATLAB 공식 문서</a> · <a href="https://www.mathworks.com/help/control/">Control System Toolbox</a></p>
 </section>

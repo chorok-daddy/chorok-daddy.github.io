@@ -2291,7 +2291,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <summary>
 눌러 펼쳐보기 · Loss에는 logit을 넣기 보충 설명
 </summary>
-<p>Accuracy는 같아도 올바른 클래스에 주는 점수가 개선되면 loss가 달라질 수 있습니다. 출력 범위와 dtype 오류는 긴 학습 전에 작은 forward로 발견하는 것이 빠릅니다.</p>
+<p>Accuracy는 같아도 올바른 클래스에 주는 점수가 개선되면 loss가 달라질 수 있습니다. 출력 범위와 dtype 오류는 전체 데이터를 학습하기 전에 데이터 몇 개를 모델에 넣어보면 빠르게 찾을 수 있습니다.</p>
 </details>
 </section>
 <section id="오분류를-확인하는-순서" class="level2">
@@ -2317,7 +2317,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ol type="1">
 <li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
-<li>결과가 맞다는 근거를 실제 출력이나 그래프로 제시할 수 있나요?</li>
+<li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
 </ol>
 <p><a href="https://docs.pytorch.org/tutorials/">PyTorch 공식 Tutorials</a></p>
 </section>

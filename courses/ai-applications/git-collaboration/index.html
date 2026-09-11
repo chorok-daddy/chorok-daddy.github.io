@@ -2227,7 +2227,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
   <ul>
   <li><a href="#파일-저장과-commit-구분" id="toc-파일-저장과-commit-구분" class="nav-link active" data-scroll-target="#파일-저장과-commit-구분">1. 파일 저장과 commit 구분</a></li>
-  <li><a href="#branch에서-작은-변경-만들기" id="toc-branch에서-작은-변경-만들기" class="nav-link" data-scroll-target="#branch에서-작은-변경-만들기">2. branch에서 작은 변경 만들기</a></li>
+  <li><a href="#branch를-만들고-파일-한-곳-수정하기" id="toc-branch를-만들고-파일-한-곳-수정하기" class="nav-link" data-scroll-target="#branch를-만들고-파일-한-곳-수정하기">2. branch를 만들고 파일 한 곳 수정하기</a></li>
   <li><a href="#pr은-변경을-검토하는-요청" id="toc-pr은-변경을-검토하는-요청" class="nav-link" data-scroll-target="#pr은-변경을-검토하는-요청">3. PR은 변경을 검토하는 요청</a></li>
   <li><a href="#안전한-실습-기록" id="toc-안전한-실습-기록" class="nav-link" data-scroll-target="#안전한-실습-기록">4. 안전한 실습 기록</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
@@ -2258,7 +2258,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 
 <div class="learning-target">
-<p><strong>이번 주 목표</strong> · 저장소·commit·branch·PR을 하나의 변경 흐름으로 이해합니다.</p>
+<p><strong>이번 주 목표</strong> · Repository에서 파일을 수정하고, commit으로 기록한 뒤 branch와 PR로 변경 사항을 합치는 과정을 익힙니다.</p>
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week04_GitCollaboration.ipynb" download="AI_Applications_Week04_GitCollaboration.ipynb">실습 파일 다운로드</a></p>
@@ -2274,12 +2274,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>git add는 변경을 다음 commit에 포함시키는 단계입니다. commit했다고 GitHub에 자동 전송되지는 않습니다. push가 로컬 이력을 원격으로 보냅니다.</p>
 </details>
 </section>
-<section id="branch에서-작은-변경-만들기" class="level2">
-<h2 class="anchored" data-anchor-id="branch에서-작은-변경-만들기">2. branch에서 작은 변경 만들기</h2>
+<section id="branch를-만들고-파일-한-곳-수정하기" class="level2">
+<h2 class="anchored" data-anchor-id="branch를-만들고-파일-한-곳-수정하기">2. branch를 만들고 파일 한 곳 수정하기</h2>
 <p>branch는 같은 저장소에서 작업 이력을 나누는 이름입니다. main에서 실습용 branch를 만들고 README의 한 부분만 수정하면, 원래 버전과 변경 버전을 쉽게 비교할 수 있습니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · branch에서 작은 변경 만들기 보충 설명
+눌러 펼쳐보기 · branch를 만들고 파일 한 곳 수정하기 보충 설명
 </summary>
 <p>branch를 바꾸기 전에는 저장되지 않은 변경이 있는지 확인하세요. 결과가 예상과 다르면 현재 branch와 git log를 먼저 확인합니다.</p>
 </details>
@@ -2296,7 +2296,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="안전한-실습-기록" class="level2">
 <h2 class="anchored" data-anchor-id="안전한-실습-기록">4. 안전한 실습 기록</h2>
-<p>이 주차의 실제 협업은 GitHub에서 진행합니다. Notebook의 작은 로컬 연습은 commit과 branch를 이해하기 위한 워밍업입니다. 필수 실습은 본인 Repository에서 Branch·PR·Merge를 완성하고 변경을 설명하는 것입니다. 동료 Repository의 Fork·PR은 시간이 남으면 수행합니다.</p>
+<p>이 주차의 실제 협업은 GitHub에서 진행합니다. 먼저 Notebook에서 파일을 수정하고 commit·branch가 어떻게 기록되는지 확인하세요. 필수 실습은 본인 Repository에서 Branch·PR·Merge를 완성하고 변경을 설명하는 것입니다. 동료 Repository의 Fork·PR은 시간이 남으면 수행합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 안전한 실습 기록 보충 설명
@@ -2315,7 +2315,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ol type="1">
 <li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
-<li>결과가 맞다는 근거를 실제 출력이나 그래프로 제시할 수 있나요?</li>
+<li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
 </ol>
 <p><a href="https://docs.github.com/en/get-started/using-git/about-git">GitHub 공식 문서</a></p>
 </section>
