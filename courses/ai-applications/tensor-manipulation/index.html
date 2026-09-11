@@ -2271,7 +2271,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <summary>
 눌러 펼쳐보기 · 숫자 묶음에 축의 의미 붙이기 보충 설명
 </summary>
-<p>dtype도 입력 계약의 일부입니다. 평균·학습 입력에는 float가 흔하고, 클래스 인덱스에는 long을 사용합니다. Tensor(텐서)가 어느 장치에 있는지도 device로 확인하세요.</p>
+<p>입력 데이터의 shape와 함께 dtype도 확인하세요. 평균·학습 입력에는 float가 흔하고, 클래스 인덱스에는 long을 사용합니다. Tensor(텐서)가 어느 장치에 있는지도 device로 확인하세요.</p>
 </details>
 </section>
 <section id="cat과-stack-구분" class="level2">
@@ -2291,7 +2291,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <summary>
 눌러 펼쳐보기 · reshape는 데이터를 늘리지 않는다 보충 설명
 </summary>
-<p>view에는 Memory Layout 조건이 있습니다. transpose 뒤에는 reshape를 쓰거나 contiguous로 contiguous layout을 만든 뒤 view를 사용하세요. 원본과 독립된 데이터가 필요하면 clone을 명시합니다.</p>
+<p><code>view</code>를 쓰려면 데이터가 메모리에 배치된 방식이 조건에 맞아야 합니다. <code>transpose</code> 뒤에는 <code>reshape</code>를 쓰거나, <code>contiguous()</code>로 메모리를 연속적으로 정리한 뒤 <code>view</code>를 사용하세요. 원본과 독립된 데이터가 필요하면 clone을 명시합니다.</p>
 </details>
 </section>
 <section id="어느-축을-줄였는가" class="level2">
