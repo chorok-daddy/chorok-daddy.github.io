@@ -2226,7 +2226,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#어느-입력에-대한-transfer-function전달함수인가" id="toc-어느-입력에-대한-transfer-function전달함수인가" class="nav-link active" data-scroll-target="#어느-입력에-대한-transfer-function전달함수인가">1. 어느 입력에 대한 Transfer Function(전달함수)인가?</a></li>
+  <li><a href="#영상에서-실습으로-기호와-운동-방향-정하기" id="toc-영상에서-실습으로-기호와-운동-방향-정하기" class="nav-link active" data-scroll-target="#영상에서-실습으로-기호와-운동-방향-정하기">영상에서 실습으로 · 기호와 운동 방향 정하기</a></li>
+  <li><a href="#어느-입력에-대한-transfer-function전달함수인가" id="toc-어느-입력에-대한-transfer-function전달함수인가" class="nav-link" data-scroll-target="#어느-입력에-대한-transfer-function전달함수인가">1. 어느 입력에 대한 Transfer Function(전달함수)인가?</a></li>
   <li><a href="#역기전력만-있는-기준-모델" id="toc-역기전력만-있는-기준-모델" class="nav-link" data-scroll-target="#역기전력만-있는-기준-모델">2. 역기전력만 있는 기준 모델</a></li>
   <li><a href="#타코-feedback피드백을-추가하기" id="toc-타코-feedback피드백을-추가하기" class="nav-link" data-scroll-target="#타코-feedback피드백을-추가하기">3. 타코 Feedback(피드백)을 추가하기</a></li>
   <li><a href="#이론과-수치-결과-대조" id="toc-이론과-수치-결과-대조" class="nav-link" data-scroll-target="#이론과-수치-결과-대조">4. 이론과 수치 결과 대조</a></li>
@@ -2264,6 +2265,10 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week10_FeedbackTwo.mlx" download="Control_Engineering_1_Week10_FeedbackTwo.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
+<section id="영상에서-실습으로-기호와-운동-방향-정하기" class="level2">
+<h2 class="anchored" data-anchor-id="영상에서-실습으로-기호와-운동-방향-정하기">영상에서 실습으로 · 기호와 운동 방향 정하기</h2>
+<p>입력 Td는 회전 방향으로 더해지는 Disturbance Torque, 출력 ω는 기준 운전점에서의 속도 변화입니다. Ra는 Armature Resistance, Km은 Torque Constant, Kb는 Back-EMF Constant, J는 Inertia, b는 Viscous Friction입니다. Kt는 속도를 전압으로 바꾸는 Tachometer Gain, Ka는 Amplifier Gain입니다. 목표 속도 변화는 0으로 두고 Disturbance만 가합니다.</p>
+</section>
 <section id="어느-입력에-대한-transfer-function전달함수인가" class="level2">
 <h2 class="anchored" data-anchor-id="어느-입력에-대한-transfer-function전달함수인가">1. 어느 입력에 대한 Transfer Function(전달함수)인가?</h2>
 <p>이번 실습은 모터 목표속도를 따라가는 응답이 아니라 Disturbance 토크 Td가 속도 편차 ω에 미치는 영향입니다. 문제에서 주어진 Disturbance 방향을 양의 방향으로 두고 해석합니다.</p>
@@ -2272,6 +2277,13 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 눌러 펼쳐보기 · 어느 입력에 대한 Transfer Function인가? 보충 설명
 </summary>
 <p>부하 토크를 반대 방향으로 정의하면 부호가 달라집니다. 편차 크기를 비교할 때는 절댓값을 쓰고, 블록선도의 Disturbance 합산 위치를 먼저 확인합니다.</p>
+</details>
+<details class="explain">
+<summary>
+눌러 펼쳐보기 · 모터 분모가 만들어지는 과정
+</summary>
+<p>전기자 인덕턴스를 생략하면 <code>Ra·i = va − Kb·ω</code>입니다. 토크 평형은 <code>J·ω′ + b·ω = Km·i + Td</code>입니다. 기준 모델에서 전압 변화 va=0을 대입하면 <code>J·ω′ + (b+KmKb/Ra)·ω = Td</code>가 됩니다.</p>
+<p>속도가 증가했을 때 전압을 줄이는 Feedback은 <code>va=−KaKt·ω</code>입니다. 이를 같은 식에 대입하면 추가 항 <code>(Km/Ra)KaKt</code>가 분모에 들어갑니다. 그래서 이 단순화 모델에서는 같은 Disturbance에 대한 속도 편차가 줄어듭니다.</p>
 </details>
 </section>
 <section id="역기전력만-있는-기준-모델" class="level2">

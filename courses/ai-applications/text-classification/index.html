@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -2218,7 +2253,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/ai-applications/text-classification/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">14주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN을 shape로 따라가기</a></li><li><a href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/lstm-gru/index.html">13주차 · 긴 Sequence(시퀀스)에서 RNN과 LSTM 비교하기</a></li><li><a aria-current="page" href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/text-classification/index.html">학습 자료</a> <a href="/courses/ai-applications/text-classification/assignment.html">실습 안내</a> <a href="/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">14주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN을 shape로 따라가기</a></li><li><a href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/lstm-gru/index.html">13주차 · Window 데이터로 RNN·LSTM·GRU 비교하기</a></li><li><a aria-current="page" href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/text-classification/index.html">학습 자료</a> <a href="/courses/ai-applications/text-classification/assignment.html">실습 안내</a> <a href="/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -2226,10 +2261,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#문자-예측과-문장-분류-구분" id="toc-문자-예측과-문장-분류-구분" class="nav-link active" data-scroll-target="#문자-예측과-문장-분류-구분">1. 문자 예측과 문장 분류 구분</a></li>
-  <li><a href="#단어를-인덱스로-바꾸기" id="toc-단어를-인덱스로-바꾸기" class="nav-link" data-scroll-target="#단어를-인덱스로-바꾸기">2. 단어를 인덱스로 바꾸기</a></li>
-  <li><a href="#padding을-빼고-평균내기" id="toc-padding을-빼고-평균내기" class="nav-link" data-scroll-target="#padding을-빼고-평균내기">3. Padding을 빼고 평균내기</a></li>
-  <li><a href="#새-문장으로-확인하기" id="toc-새-문장으로-확인하기" class="nav-link" data-scroll-target="#새-문장으로-확인하기">4. 새 문장으로 확인하기</a></li>
+  <li><a href="#영상의-흐름을-지금-코드에서-찾기" id="toc-영상의-흐름을-지금-코드에서-찾기" class="nav-link active" data-scroll-target="#영상의-흐름을-지금-코드에서-찾기">1. 영상의 흐름을 지금 코드에서 찾기</a></li>
+  <li><a href="#주차와-무엇이-달라질까" id="toc-주차와-무엇이-달라질까" class="nav-link" data-scroll-target="#주차와-무엇이-달라질까">2. 12·13주차와 무엇이 달라질까?</a></li>
+  <li><a href="#한-문장을-index로-바꾸기" id="toc-한-문장을-index로-바꾸기" class="nav-link" data-scroll-target="#한-문장을-index로-바꾸기">3. 한 문장을 Index로 바꾸기</a></li>
+  <li><a href="#embedding은-단어-번호로-벡터를-찾는다" id="toc-embedding은-단어-번호로-벡터를-찾는다" class="nav-link" data-scroll-target="#embedding은-단어-번호로-벡터를-찾는다">4. Embedding은 단어 번호로 벡터를 찾는다</a></li>
+  <li><a href="#pad를-빼고-문장-벡터-만들기" id="toc-pad를-빼고-문장-벡터-만들기" class="nav-link" data-scroll-target="#pad를-빼고-문장-벡터-만들기">5. PAD를 빼고 문장 벡터 만들기</a></li>
+  <li><a href="#문장-벡터에서-감정-판정까지" id="toc-문장-벡터에서-감정-판정까지" class="nav-link" data-scroll-target="#문장-벡터에서-감정-판정까지">6. 문장 벡터에서 감정 판정까지</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">스스로 점검하기</a></li>
   </ul>
@@ -2264,65 +2301,212 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week14_TextClassification.ipynb" download="AI_Applications_Week14_TextClassification.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="문자-예측과-문장-분류-구분" class="level2">
-<h2 class="anchored" data-anchor-id="문자-예측과-문장-분류-구분">1. 문자 예측과 문장 분류 구분</h2>
-<p>이번 실습에서는 짧은 예제 Review 문장을 negative·neutral·positive 중 하나로 분류합니다. 입력은 문장이고 정답은 문장당 label 하나입니다.</p>
+<section id="영상의-흐름을-지금-코드에서-찾기" class="level2">
+<h2 class="anchored" data-anchor-id="영상의-흐름을-지금-코드에서-찾기">1. 영상의 흐름을 지금 코드에서 찾기</h2>
+<p>영상의 <strong>문장 → 숫자 표현 → Embedding → 문장을 대표하는 벡터 → 분류</strong>라는 흐름은 그대로 사용합니다. 이번 Notebook에서는 각 단계의 값을 직접 볼 수 있도록 Python과 PyTorch로 구현합니다. 외부 데이터 대신 짧은 영어 Review 12개를 사용하며, 정답은 <code>0: negative</code>, <code>1: neutral</code>, <code>2: positive</code>입니다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>영상에서 본 역할</th>
+<th>이번 Notebook에서 찾을 부분</th>
+<th>확인할 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Text를 계산할 수 있는 형태로 바꾸기</td>
+<td><code>lower().split()</code>과 <code>vocab</code></td>
+<td>단어 목록과 각 단어의 Index</td>
+</tr>
+<tr class="even">
+<td>길이가 다른 문장을 Batch로 묶기</td>
+<td><code>encode()</code></td>
+<td>PAD를 포함한 <code>(N,S)</code> 정수 Tensor</td>
+</tr>
+<tr class="odd">
+<td>단어를 벡터로 표현하기</td>
+<td><code>nn.Embedding</code></td>
+<td><code>(N,S,E)</code> 실수 Tensor</td>
+</tr>
+<tr class="even">
+<td>문장 전체의 정보를 모으기</td>
+<td>Mask를 적용한 Mean Pooling</td>
+<td>문장마다 벡터 하나, <code>(N,E)</code></td>
+</tr>
+<tr class="odd">
+<td>문장의 Class 판정하기</td>
+<td><code>nn.Linear</code>와 <code>argmax</code></td>
+<td><code>(N,3)</code> Logit과 문장별 예측 하나</td>
+</tr>
+</tbody>
+</table>
+<p>N은 문장 수, S는 Batch에서 맞춘 문장 길이, E는 단어 벡터의 크기입니다. 이번에는 E=16을 사용합니다. 표의 각 단계는 아래 설명과 Notebook의 실행 예로 확인할 수 있습니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 문자 예측과 문장 분류 구분 보충 설명
+눌러 펼쳐보기 · 영상과 라이브러리 이름이 다르다면
 </summary>
-<p>12·13주차는 매 시점의 다음 문자 label을 출력했습니다. 이번에는 여러 토큰의 표현을 모아 한 문장을 대표하는 벡터를 만든다는 차이가 있습니다.</p>
+<p>과거 예제의 데이터 로딩·전처리 함수와 지금 코드의 함수 이름이 달라도, 단어를 숫자로 바꾸고 문장 단위로 분류하는 목적은 같습니다. 이번 필수 실습에는 <code>torchtext</code>나 Hugging Face 로그인·모델 다운로드가 필요하지 않습니다. TorchText는 개발이 종료되었으므로, 예전 코드를 실행하기 위해 별도로 설치할 필요도 없습니다. <a href="https://github.com/pytorch/text">TorchText 공식 안내</a></p>
+<p>사전학습 모델을 불러와 추론하는 방법은 별도의 확장입니다. 여기서는 Embedding과 분류기의 Parameter를 이 예제 데이터로 처음부터 학습합니다. 단순한 Mean Pooling이 최신 언어 모델이라는 뜻은 아닙니다. 전처리와 문장 분류의 기본 구조를 직접 확인하기 위한 모델입니다.</p>
 </details>
 </section>
-<section id="단어를-인덱스로-바꾸기" class="level2">
-<h2 class="anchored" data-anchor-id="단어를-인덱스로-바꾸기">2. 단어를 인덱스로 바꾸기</h2>
-<p>공백으로 토큰을 나누고 학습 데이터로 vocabulary를 만듭니다. PAD=0은 길이를 맞추는 자리이고 UNK=1은 사전에 없는 단어의 자리입니다. 처음 보는 단어를 조용히 삭제하지 마세요.</p>
+<section id="주차와-무엇이-달라질까" class="level2">
+<h2 class="anchored" data-anchor-id="주차와-무엇이-달라질까">2. 12·13주차와 무엇이 달라질까?</h2>
+<p>12·13주차에서는 <code>hello</code>를 보고 각 위치의 다음 문자를 맞혔습니다. Input이 <code>hell</code>이면 Target은 <code>ello</code>입니다. 이번에는 <code>great battery</code>라는 <strong>문장 전체에 감정 Label 하나</strong>가 붙습니다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>비교</th>
+<th>12·13주차: 다음 문자 예측</th>
+<th>14주차: 문장 분류</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>한 Token</td>
+<td>문자 하나</td>
+<td>공백으로 나눈 단어 하나</td>
+</tr>
+<tr class="even">
+<td>정답</td>
+<td>각 시점의 다음 문자 Index <code>(N,S)</code></td>
+<td>문장마다 감정 Index <code>(N,)</code></td>
+</tr>
+<tr class="odd">
+<td>모델 출력</td>
+<td>시점별 문자 점수 <code>(N,S,C)</code></td>
+<td>문장별 감정 점수 <code>(N,3)</code></td>
+</tr>
+<tr class="even">
+<td>문맥을 처리하는 방법</td>
+<td>RNN/LSTM이 순서대로 처리</td>
+<td>단어 벡터의 평균으로 문장 요약</td>
+</tr>
+</tbody>
+</table>
+<p>이번 모델에는 RNN/LSTM이 없습니다. <strong>문장 분류라는 문제</strong>와 <strong>그 문제를 푸는 모델 구조</strong>는 구별해야 합니다. RNN/LSTM으로도 문장 분류를 할 수 있지만, 여기서는 Mean Pooling으로 문장당 출력 하나를 만드는 과정을 먼저 확인합니다.</p>
+</section>
+<section id="한-문장을-index로-바꾸기" class="level2">
+<h2 class="anchored" data-anchor-id="한-문장을-index로-바꾸기">3. 한 문장을 Index로 바꾸기</h2>
+<p><code>great battery</code>는 <code>[&#39;great&#39;, &#39;battery&#39;]</code>라는 Token 목록으로 나뉩니다. <code>vocab</code>은 각 단어에 정수 번호를 붙인 사전입니다. 번호의 크기가 긍정·부정의 정도를 뜻하지는 않습니다.</p>
+<p>다음은 설명용 사전입니다. 실제 Notebook의 번호는 <code>vocab</code>을 출력해 확인하세요.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Token</th>
+<th style="text-align: right;">설명용 Index</th>
+<th>역할</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>PAD</td>
+<td style="text-align: right;">0</td>
+<td>길이를 맞추기 위한 빈자리</td>
+</tr>
+<tr class="even">
+<td>UNK</td>
+<td style="text-align: right;">1</td>
+<td>사전에 없는 단어</td>
+</tr>
+<tr class="odd">
+<td>great</td>
+<td style="text-align: right;">2</td>
+<td>실제 단어</td>
+</tr>
+<tr class="even">
+<td>battery</td>
+<td style="text-align: right;">3</td>
+<td>실제 단어</td>
+</tr>
+<tr class="odd">
+<td>bad</td>
+<td style="text-align: right;">4</td>
+<td>실제 단어</td>
+</tr>
+</tbody>
+</table>
+<p><code>great battery</code>와 <code>bad</code>를 묶으면 Index는 <code>[[2,3],[4,0]]</code>이 됩니다. <code>excellent battery</code>처럼 처음 보는 단어가 있으면 <code>[1,3]</code>으로 바꿉니다. PAD는 읽을 단어가 없는 자리이고, UNK는 단어가 있지만 모르는 경우입니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 단어를 인덱스로 바꾸기 보충 설명
+눌러 펼쳐보기 · 전처리 코드 세 줄 읽기
 </summary>
-<p>UNK 처리는 오류를 방지하지만 그 단어의 의미를 자동으로 알아내는 기능은 아닙니다. 학습에서 거의 쓰지 않은 UNK의 표현으로 나온 예측은 특히 조심해서 해석합니다.</p>
+<ul>
+<li><code>text.lower().split()</code>은 소문자로 바꾼 뒤 공백으로 단어를 나눕니다.</li>
+<li><code>vocab.get(word, 1)</code>은 사전의 번호를 찾고, 없으면 UNK 번호 1을 반환합니다.</li>
+<li>짧은 문장 뒤에 0을 붙여 같은 Batch의 문장 길이를 맞춥니다.</li>
+</ul>
+<p>이 Tokenizer는 단순한 영어 예제용입니다. 문장부호를 자동으로 분리하지 않으므로 <code>battery</code>와 <code>battery!</code>는 다르게 처리됩니다. 처음 직접 작성할 문장은 학습 사전의 단어로 만들고, 그다음 모르는 단어나 문장부호를 하나 넣어 차이를 확인하세요.</p>
+<p>Vocabulary는 학습 데이터로 한 번 만듭니다. 새 문장을 예측할 때 사전을 다시 만들면 같은 Index가 다른 단어를 가리킬 수 있으므로 기존 사전을 사용합니다.</p>
 </details>
 </section>
-<section id="padding을-빼고-평균내기" class="level2">
-<h2 class="anchored" data-anchor-id="padding을-빼고-평균내기">3. Padding을 빼고 평균내기</h2>
-<p>Embedding은 각 단어 인덱스를 학습 가능한 벡터로 바꿉니다. (N,S,E)에서 유효 토큰만 합하고 유효 길이로 나누면 문장 벡터 (N,E)가 됩니다. PAD까지 평균에 포함하면 길이에 따라 값이 왜곡됩니다.</p>
+<section id="embedding은-단어-번호로-벡터를-찾는다" class="level2">
+<h2 class="anchored" data-anchor-id="embedding은-단어-번호로-벡터를-찾는다">4. Embedding은 단어 번호로 벡터를 찾는다</h2>
+<p><code>nn.Embedding(len(vocab),16)</code>은 단어마다 길이 16의 벡터를 저장한 표입니다. Index Tensor <code>(N,S)</code>를 넣으면 해당 행을 찾아 <code>(N,S,16)</code>을 돌려줍니다. Index에는 정수형 <code>torch.long</code>을 사용합니다.</p>
+<p>12·13주차의 One-hot은 문자 위치 하나만 1인 고정된 표현이었습니다. 이번 Embedding 벡터는 처음에는 초기값으로 시작하며, Loss를 줄이는 과정에서 분류기와 함께 학습됩니다. <code>nn.Embedding</code>을 만들었다는 사실만으로 단어의 의미를 이미 알고 있는 것은 아닙니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · Padding을 빼고 평균내기 보충 설명
+눌러 펼쳐보기 · 같은 단어는 같은 벡터일까?
 </summary>
-<p>평균 pooling은 순서를 잃습니다. not good과 good not처럼 같은 단어로 된 문장의 순서 차이를 잘 표현하지 못합니다. 단어 순서를 바꿔도 예측이 같게 나오는지 직접 확인하세요.</p>
+<p>이 Embedding Layer에서는 같은 단어 Index가 항상 같은 행을 가리킵니다. 따라서 같은 학습 단계에서는 문장 안 위치가 달라도 같은 벡터를 꺼냅니다. 학습으로 표의 값이 갱신되면 그 단어의 벡터도 바뀝니다.</p>
 </details>
 </section>
-<section id="새-문장으로-확인하기" class="level2">
-<h2 class="anchored" data-anchor-id="새-문장으로-확인하기">4. 새 문장으로 확인하기</h2>
-<p>직접 만든 긍정·중립·부정 문장 각 하나를 같은 전처리로 변환합니다. 예상 의미와 모델 예측을 비교하고, 사전에 없는 단어도 의도적으로 넣어 확인하세요.</p>
+<section id="pad를-빼고-문장-벡터-만들기" class="level2">
+<h2 class="anchored" data-anchor-id="pad를-빼고-문장-벡터-만들기">5. PAD를 빼고 문장 벡터 만들기</h2>
+<p>단어가 세 개이면 벡터 세 개를 더한 뒤 3으로 나눕니다. PAD가 하나 붙어 길이가 4가 되었더라도 실제 단어 수는 3입니다. <strong>PAD의 벡터가 0이어도 4로 나누면 평균이 작아집니다.</strong></p>
+<p>예를 들어 실제 단어 벡터가 <code>[2,0]</code>, <code>[0,2]</code>이고 PAD가 <code>[0,0]</code>이면, 올바른 평균은 <code>[1,1]</code>입니다. PAD까지 개수에 넣으면 <code>[2/3,2/3]</code>으로 달라집니다.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> (ids <span class="op">!=</span> <span class="dv">0</span>).unsqueeze(<span class="op">-</span><span class="dv">1</span>)       <span class="co"># 실제 단어: True, PAD: False</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>embedded <span class="op">=</span> model.embedding(ids)      <span class="co"># (N,S,E)</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pooled <span class="op">=</span> (embedded <span class="op">*</span> mask).<span class="bu">sum</span>(<span class="dv">1</span>) <span class="op">/</span> mask.<span class="bu">sum</span>(<span class="dv">1</span>).clamp_min(<span class="dv">1</span>)</span></code></pre></div><button title="클립보드 복사" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>sum(1)</code>은 문장 안 단어 축을 더합니다. <code>unsqueeze(-1)</code>은 Mask를 <code>(N,S,1)</code>로 만들어 한 단어 벡터의 모든 성분에 같은 선택을 적용하게 합니다. 결과는 문장당 벡터 하나인 <code>(N,E)</code>입니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 새 문장으로 확인하기 보충 설명
+눌러 펼쳐보기 · 실제로 Padding 효과를 보려면
 </summary>
-<p>이 예제 데이터의 Accuracy(정확도)는 입력 문장 처리부터 예측까지 코드가 잘 동작하는지 확인하기 위한 값입니다. 실제 한국어·장문 감정 분석 성능으로 확대 해석하지 않습니다. 사전학습 모델 비교는 별도의 심화 주제입니다.</p>
+<p>기준 학습 문장 중 <code>screen size okay</code>는 세 단어여서 네 단어 문장과 묶으면 PAD가 하나 붙습니다. Notebook의 비교 예에서는 길이가 다른 <code>great battery</code>와 <code>great battery bright screen</code>을 사용합니다. 같은 짧은 문장을 혼자 처리한 결과와 긴 문장과 묶어 처리한 결과가 Mask를 적용했을 때 같은지 확인하세요.</p>
+<p><code>clamp_min(1)</code>은 나눗셈의 분모가 0이 되는 것을 막습니다. 빈 문장을 의미 있는 문장으로 만들어 주지는 않습니다. 이 예제의 <code>encode()</code>는 빈 문장을 UNK 하나로 처리합니다.</p>
+</details>
+</section>
+<section id="문장-벡터에서-감정-판정까지" class="level2">
+<h2 class="anchored" data-anchor-id="문장-벡터에서-감정-판정까지">6. 문장 벡터에서 감정 판정까지</h2>
+<p><code>Linear(16,3)</code>은 문장 벡터를 세 Class의 Logit으로 바꿉니다. 학습에서는 <code>CrossEntropyLoss</code>에 Logit과 정답 Index를 넣습니다. <code>softmax</code>는 결과를 확률 형태로 보여줄 때, <code>argmax</code>는 가장 큰 점수의 Class를 고를 때 사용합니다. 이는 8주차의 Multiclass Classification과 같은 방식입니다.</p>
+<p>Embedding과 Linear의 Parameter를 함께 갱신하되, 전처리 사전과 Label의 뜻은 고정합니다. 이 데이터에서 얻은 Training Accuracy는 12개 학습 문장을 얼마나 잘 맞혔는지를 나타냅니다.</p>
+<details class="explain">
+<summary>
+눌러 펼쳐보기 · Mean Pooling의 한계 확인하기
+</summary>
+<p><code>great battery</code>와 <code>battery great</code>는 단어 벡터의 합이 같아 같은 문장 벡터가 됩니다. 따라서 이 모델은 단어 순서에 따른 의미 차이를 구별하지 못합니다. 두 입력의 Logit을 직접 비교해 보세요. 12·13주차의 RNN/LSTM이 순서대로 입력을 처리한 이유와 비교하면 이 모델의 한계가 분명해집니다.</p>
+<p>모르는 단어를 UNK로 처리해도 그 뜻을 알아내는 것은 아닙니다. 예측값만 보지 말고 실제 Token과 Index도 함께 확인하세요.</p>
 </details>
 </section>
 <section id="실습에서-확인할-것" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
 <ul>
-<li><strong>토큰과 vocabulary:</strong> tokenization·indexing·padding의 각 결과를 출력하세요. PAD와 UNK를 같은 값으로 두면 생길 문제를 설명하세요.</li>
-<li><strong>마스킹한 평균과 학습:</strong> mask를 적용하지 않은 평균과 적용한 평균을 비교하세요. 입력 토큰 순서를 바꾸어도 mean pooling 결과가 같은 이유를 설명하세요.</li>
-<li><strong>새 문장 직접 입력:</strong> 의도한 감정과 예측을 비교하고, vocabulary에 없는 단어 하나를 추가하여 UNK 처리를 확인하세요.</li>
+<li><strong>전처리:</strong> 길이가 다른 두 영어 문장을 Token → Index → PAD 순서로 출력하세요. 학습 사전에 없는 단어 하나를 넣고 UNK 위치를 확인하세요.</li>
+<li><strong>문장 벡터:</strong> 같은 문장을 단독으로 처리할 때와 다른 길이의 문장과 묶을 때, Mask 적용 전후 평균을 비교하세요. 단어 순서를 바꾼 두 문장의 Logit도 비교하세요.</li>
+<li><strong>예측과 해석:</strong> 학습 사전의 단어로 긍정·중립·부정 문장을 하나씩 작성하고 의도한 감정·예측·사용한 Token을 기록하세요. 어긋난 결과가 있어도 단어를 계속 바꿔 정답만 만들 필요는 없습니다. 원인을 설명하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
 <ol type="1">
-<li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
-<li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
-<li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
+<li>12·13주차와 달리 문장당 정답이 하나인 이유를 설명할 수 있나요?</li>
+<li>PAD와 UNK를 구별하고 각 단계의 shape를 따라갈 수 있나요?</li>
+<li>이 모델이 단어 순서를 구별하지 못하는 이유와 Training Accuracy의 의미를 설명할 수 있나요?</li>
 </ol>
-<p><a href="https://docs.pytorch.org/tutorials/">PyTorch 공식 Tutorials</a></p>
+<p><a href="https://docs.pytorch.org/docs/stable/generated/torch.nn.Embedding.html">PyTorch Embedding</a> · <a href="https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html">PyTorch CrossEntropyLoss</a></p>
 </section>
 
-<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/ai-applications/lstm-gru/index.html">← 13주차 · 긴 Sequence(시퀀스)에서 RNN과 LSTM 비교하기</a><a href="/courses/ai-applications/index.html">인공지능응용 목차</a><a rel="next" href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비 →</a></nav></main>
+<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/ai-applications/lstm-gru/index.html">← 13주차 · Window 데이터로 RNN·LSTM·GRU 비교하기</a><a href="/courses/ai-applications/index.html">인공지능응용 목차</a><a rel="next" href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비 →</a></nav></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>긴 Sequence(시퀀스)에서 RNN과 LSTM 비교하기</title>
+<title>Window 데이터로 RNN·LSTM·GRU 비교하기</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -2218,7 +2218,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/ai-applications/lstm-gru/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">13주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN을 shape로 따라가기</a></li><li><a href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a aria-current="page" href="/courses/ai-applications/lstm-gru/index.html">13주차 · 긴 Sequence(시퀀스)에서 RNN과 LSTM 비교하기</a></li><li><a href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/lstm-gru/index.html">학습 자료</a> <a href="/courses/ai-applications/lstm-gru/assignment.html">실습 안내</a> <a href="/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">13주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN을 shape로 따라가기</a></li><li><a href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a aria-current="page" href="/courses/ai-applications/lstm-gru/index.html">13주차 · Window 데이터로 RNN·LSTM·GRU 비교하기</a></li><li><a href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/lstm-gru/index.html">학습 자료</a> <a href="/courses/ai-applications/lstm-gru/assignment.html">실습 안내</a> <a href="/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -2226,10 +2226,11 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#긴-문장에서는-무엇이-어려울까" id="toc-긴-문장에서는-무엇이-어려울까" class="nav-link active" data-scroll-target="#긴-문장에서는-무엇이-어려울까">1. 긴 문장에서는 무엇이 어려울까?</a></li>
-  <li><a href="#lstm의-반환값-읽기" id="toc-lstm의-반환값-읽기" class="nav-link" data-scroll-target="#lstm의-반환값-읽기">2. LSTM의 반환값 읽기</a></li>
-  <li><a href="#비교-조건을-고정하기" id="toc-비교-조건을-고정하기" class="nav-link" data-scroll-target="#비교-조건을-고정하기">3. 비교 조건을 고정하기</a></li>
-  <li><a href="#gpu는-실행-위치다" id="toc-gpu는-실행-위치다" class="nav-link" data-scroll-target="#gpu는-실행-위치다">4. GPU는 실행 위치다</a></li>
+  <li><a href="#같은-예측-문제에서-기억하는-구조를-바꾸기" id="toc-같은-예측-문제에서-기억하는-구조를-바꾸기" class="nav-link active" data-scroll-target="#같은-예측-문제에서-기억하는-구조를-바꾸기">1. 같은 예측 문제에서 기억하는 구조를 바꾸기</a></li>
+  <li><a href="#lstm과-gru의-gate-읽기" id="toc-lstm과-gru의-gate-읽기" class="nav-link" data-scroll-target="#lstm과-gru의-gate-읽기">2. LSTM과 GRU의 Gate 읽기</a></li>
+  <li><a href="#긴-글을-일정-길이의-window로-나누기" id="toc-긴-글을-일정-길이의-window로-나누기" class="nav-link" data-scroll-target="#긴-글을-일정-길이의-window로-나누기">3. 긴 글을 일정 길이의 Window로 나누기</a></li>
+  <li><a href="#같은-조건으로-세-모델-비교하기" id="toc-같은-조건으로-세-모델-비교하기" class="nav-link" data-scroll-target="#같은-조건으로-세-모델-비교하기">4. 같은 조건으로 세 모델 비교하기</a></li>
+  <li><a href="#반환값을-확인하는-순서" id="toc-반환값을-확인하는-순서" class="nav-link" data-scroll-target="#반환값을-확인하는-순서">5. 반환값을 확인하는 순서</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">스스로 점검하기</a></li>
   </ul>
@@ -2239,7 +2240,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">긴 Sequence(시퀀스)에서 RNN과 LSTM 비교하기</h1>
+<h1 class="title">Window 데이터로 RNN·LSTM·GRU 비교하기</h1>
 <p class="subtitle lead">인공지능응용 · 13주차</p>
 </div>
 
@@ -2258,67 +2259,145 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 
 <div class="learning-target">
-<p><strong>이번 주 목표</strong> · 같은 데이터와 조건으로 두 모델의 학습 결과를 비교합니다.</p>
+<p><strong>이번 주 목표</strong> · 같은 Window 데이터에서 RNN·LSTM·GRU를 학습하고 Gate·State와 예측 결과의 차이를 확인합니다.</p>
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week13_LstmGru.ipynb" download="AI_Applications_Week13_LstmGru.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="긴-문장에서는-무엇이-어려울까" class="level2">
-<h2 class="anchored" data-anchor-id="긴-문장에서는-무엇이-어려울까">1. 긴 문장에서는 무엇이 어려울까?</h2>
-<p>RNN은 같은 갱신을 여러 번 반복합니다. 먼 시점의 정보가 학습에 잘 전달되지 않을 수 있어 긴 의존성을 다루기가 어렵습니다. LSTM은 Hidden State(은닉 상태)와 별도로 cell state를 유지하고 gate로 정보를 조절합니다.</p>
+<section id="같은-예측-문제에서-기억하는-구조를-바꾸기" class="level2">
+<h2 class="anchored" data-anchor-id="같은-예측-문제에서-기억하는-구조를-바꾸기">1. 같은 예측 문제에서 기억하는 구조를 바꾸기</h2>
+<p>12주차와 똑같이 각 위치의 다음 문자를 맞힙니다. <strong>Input과 Target을 만드는 규칙, Linear 출력, Loss 계산은 유지</strong>하고 RNN Cell을 LSTM·GRU로 바꾸어 비교합니다.</p>
+<p>RNN은 이전 Hidden State를 매 시점 새 값으로 갱신합니다. Sequence가 길어지면 앞쪽 정보와 학습 신호가 여러 변환을 거치며 약해질 수 있습니다. LSTM과 GRU는 Gate를 이용해 이전 정보와 새 정보가 반영되는 정도를 학습합니다.</p>
+</section>
+<section id="lstm과-gru의-gate-읽기" class="level2">
+<h2 class="anchored" data-anchor-id="lstm과-gru의-gate-읽기">2. LSTM과 GRU의 Gate 읽기</h2>
+<p>Gate는 각 성분에 0~1 사이의 값을 곱해 얼마나 반영할지 정합니다. 사람이 문장마다 if문으로 결정하는 것이 아니라, 학습되는 Parameter가 Gate 값을 계산합니다.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>구조</th>
+<th>유지하는 State</th>
+<th>Gate의 역할</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RNN</td>
+<td>Hidden State</td>
+<td>이전 State와 현재 Input으로 새 State 계산</td>
+</tr>
+<tr class="even">
+<td>LSTM</td>
+<td>Hidden State와 Cell State</td>
+<td>Forget: 이전 Cell State를 남길 정도, Input: 새 정보를 넣을 정도, Output: Hidden State로 드러낼 정도</td>
+</tr>
+<tr class="odd">
+<td>GRU</td>
+<td>Hidden State</td>
+<td>Reset: 후보 State 계산에 과거 정보를 반영할 정도, Update: 이전 State와 후보를 섞는 정도</td>
+</tr>
+</tbody>
+</table>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 긴 문장에서는 무엇이 어려울까? 보충 설명
+눌러 펼쳐보기 · Gate 값 하나로 생각해보기
 </summary>
-<p>LSTM이 모든 데이터에서 더 높은 Accuracy(정확도)를 보장하지는 않습니다. 모델 크기·초기값·학습 시간과 데이터에 따라 결과가 달라집니다.</p>
+<p>이전 Cell State의 한 성분이 2이고 Forget Gate가 0.9이면, 새 정보를 더하기 전에 1.8이 남습니다. Gate가 0.1이면 0.2가 남습니다. LSTM은 여기에 Input Gate로 조절한 새 정보를 더합니다. 이 설명은 숫자 흐름을 보기 위한 예이며, 실제 Gate는 벡터입니다.</p>
+<p>LSTM의 Cell State와 Hidden State는 같은 값이 아닙니다. GRU는 별도 Cell State 없이 Hidden State 안에서 정보를 조절합니다. 세 모델의 성능 순위가 항상 같다고 가정하지 마세요.</p>
 </details>
 </section>
-<section id="lstm의-반환값-읽기" class="level2">
-<h2 class="anchored" data-anchor-id="lstm의-반환값-읽기">2. LSTM의 반환값 읽기</h2>
-<p>output은 각 시점의 출력입니다. (h_n,c_n)은 마지막 Hidden State와 cell state입니다. batch_first=True는 입력과 output의 Batch(배치) 위치를 바꾸지만 h_n의 축 순서까지 바꾸지는 않습니다.</p>
+<section id="긴-글을-일정-길이의-window로-나누기" class="level2">
+<h2 class="anchored" data-anchor-id="긴-글을-일정-길이의-window로-나누기">3. 긴 글을 일정 길이의 Window로 나누기</h2>
+<p>이번에는 긴 영어 문자열에서 길이 20인 Input Window를 만듭니다. Target은 시작 위치를 한 문자 뒤로 옮긴 길이 20의 문자열입니다. 예를 들어 길이를 3으로 줄이면 <code>hello</code>에서 <code>hel → ell</code>, <code>ell → llo</code>를 만들 수 있습니다.</p>
+<p>Notebook은 Window 시작점을 5글자씩 옮깁니다. <code>window_size=20</code>은 한 번에 읽을 길이, <code>window_stride=5</code>는 다음 Window의 시작점을 얼마나 옮길지입니다. 실제 Window 수 N은 문자열 길이와 두 값으로 결정되므로 출력으로 확인하세요.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>값</th>
+<th>shape</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One-hot Input <code>X</code></td>
+<td><code>(N,20,E)</code></td>
+</tr>
+<tr class="even">
+<td>다음 문자 Target <code>Y</code></td>
+<td><code>(N,20)</code></td>
+</tr>
+<tr class="odd">
+<td>각 모델의 최종 Logit</td>
+<td><code>(N,20,C)</code></td>
+</tr>
+</tbody>
+</table>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · LSTM의 반환값 읽기 보충 설명
+눌러 펼쳐보기 · Window를 나누면 기억도 이어지나요?
 </summary>
-<p>단방향 한 층이면 h_n과 c_n은 (1,N,H)입니다. 이번 문자 예측에서는 마지막 시점만 고르지 않고 모든 시점의 output에 Linear를 적용합니다.</p>
+<p>이 실습은 각 Window를 독립된 Sample로 처리합니다. 앞 Window의 마지막 State를 다음 Window에 넘기지 않습니다. Window들이 겹치므로 이들을 무작위로 나누어 얻은 Accuracy를 독립적인 새 문장 성능으로 해석해서도 안 됩니다. 지금 비교하는 값은 같은 학습 Window에서의 Training Accuracy입니다.</p>
 </details>
 </section>
-<section id="비교-조건을-고정하기" class="level2">
-<h2 class="anchored" data-anchor-id="비교-조건을-고정하기">3. 비교 조건을 고정하기</h2>
-<p>동일 문자열, hidden size, epoch, learning rate, optimizer로 RNN과 LSTM을 각각 새로 학습합니다. loss curve와 문자 Accuracy, 실제 예측 문자열을 함께 기록하세요.</p>
+<section id="같은-조건으로-세-모델-비교하기" class="level2">
+<h2 class="anchored" data-anchor-id="같은-조건으로-세-모델-비교하기">4. 같은 조건으로 세 모델 비교하기</h2>
+<p><code>fit_char(&#39;RNN&#39;, ...)</code>, <code>fit_char(&#39;LSTM&#39;, ...)</code>, <code>fit_char(&#39;GRU&#39;, ...)</code>는 같은 데이터를 받아 새 모델을 학습합니다. Hidden Size=32, 300 epoch, Learning Rate=0.01, Adam을 기준으로 비교합니다. 먼저 한 번씩 실행해 Loss·Training Accuracy·첫 Window의 예측 문자열을 나란히 기록하세요.</p>
+<p>새 모델을 같은 Seed로 초기화하더라도 구조와 Parameter 수는 다릅니다. 따라서 이 실험은 학습 조건을 맞춘 구조 비교이며, 모든 상황에서 더 좋은 모델을 결정하는 실험은 아닙니다. 같은 원문을 잘 맞히는 것만으로 긴 문맥을 이해했다고 판단하지 마세요.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 비교 조건을 고정하기 보충 설명
+눌러 펼쳐보기 · 전체 학습을 다시 하지 않고 확인할 수 있는 것
 </summary>
-<p>hidden size가 같아도 두 모델의 파라미터 수는 같지 않습니다. 같은 용량의 엄밀한 비교라기보다 수업 조건을 맞춘 구조 비교라는 점을 기억하세요.</p>
+<p>학습된 모델을 <code>results</code>에 저장합니다. 각 모델의 <code>output</code>, 최종 State, 예측 문자열을 출력하는 데는 재학습이 필요 없습니다. 반복 기록표는 앞서 비교한 세 모델의 결과로 채우면 됩니다. 시간이 남으면 같은 Window 크기를 바꿔 비교하되 세 모델에 동일한 데이터를 사용하세요.</p>
 </details>
 </section>
-<section id="gpu는-실행-위치다" class="level2">
-<h2 class="anchored" data-anchor-id="gpu는-실행-위치다">4. GPU는 실행 위치다</h2>
-<p>GPU 사용은 모델 개념과 구분합니다. 사용 가능하면 모델과 입력을 같은 device로 옮기고, CPU도 실행 가능하도록 구성하세요. GRU는 gate 구조가 다른 순환 모델이며 필요할 때 추가 비교할 수 있습니다.</p>
-<details class="explain">
-<summary>
-눌러 펼쳐보기 · GPU는 실행 위치다 보충 설명
-</summary>
-<p>이번 실습에서는 같은 데이터로 RNN과 LSTM을 학습하고 결과를 비교합니다. 장치가 빠르다고 Accuracy가 자동으로 높아지지 않습니다.</p>
-</details>
+<section id="반환값을-확인하는-순서" class="level2">
+<h2 class="anchored" data-anchor-id="반환값을-확인하는-순서">5. 반환값을 확인하는 순서</h2>
+<p>먼저 2번 실습 Section에서 모델을 만든 뒤 반환값을 확인합니다. 단방향 1개 Layer일 때 다음과 같습니다.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>구조</th>
+<th>모든 시점의 <code>output</code></th>
+<th>마지막 State</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RNN / GRU</td>
+<td><code>(N,S,32)</code></td>
+<td><code>h_n</code>: <code>(1,N,32)</code></td>
+</tr>
+<tr class="even">
+<td>LSTM</td>
+<td><code>(N,S,32)</code></td>
+<td><code>h_n</code>, <code>c_n</code>: 각각 <code>(1,N,32)</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>batch_first=True</code>는 Input과 output을 <code>(N,S,...)</code>로 배치합니다. 마지막 State의 첫 축은 Layer·방향 축이므로 <code>(1,N,32)</code>로 남습니다. 문자 점수는 이 output에 Linear를 적용한 뒤 얻습니다.</p>
 </section>
 <section id="실습에서-확인할-것" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
 <ul>
-<li><strong>긴 문자 Sequence(시퀀스):</strong> Sequence 길이와 문자 종류 수를 기록하세요. batch_first가 h_n과 c_n의 축도 바꾸는지 공식 문서와 출력으로 확인하세요.</li>
-<li><strong>RNN과 LSTM 비교:</strong> 각 모델의 실제 loss·Accuracy·예측을 표에 적고 차이를 설명하세요. LSTM이 반드시 더 좋았다고 쓰지 말고 실험 결과를 근거로 비교하세요.</li>
+<li><strong>Window:</strong> 첫 두 Window의 Input과 Target을 문자로 출력하고 한 글자 이동한 관계인지 확인하세요. N·S·E의 실제 값을 적으세요.</li>
+<li><strong>모델 비교:</strong> RNN·LSTM·GRU의 Loss·Training Accuracy와 첫 Window의 예측을 표로 기록하세요. 같은 문자 사전과 데이터를 썼는지 확인하세요.</li>
+<li><strong>State:</strong> 위 표와 실제 반환값을 비교하고, LSTM에만 c_n이 있는 이유를 Gate 설명과 연결하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
 <ol type="1">
-<li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
-<li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
-<li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
+<li>12주차에서 유지한 부분과 이번 주 바꾼 부분을 말할 수 있나요?</li>
+<li>Window 길이와 Window 이동 간격을 구별할 수 있나요?</li>
+<li>한 실험의 Accuracy로 모델의 우열을 일반화하지 않고 관찰한 결과를 설명할 수 있나요?</li>
 </ol>
-<p><a href="https://docs.pytorch.org/tutorials/">PyTorch 공식 Tutorials</a></p>
+<p><a href="https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html">PyTorch LSTM</a> · <a href="https://docs.pytorch.org/docs/stable/generated/torch.nn.GRU.html">PyTorch GRU</a></p>
 </section>
 
 <nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/ai-applications/recurrent/index.html">← 12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a><a href="/courses/ai-applications/index.html">인공지능응용 목차</a><a rel="next" href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기 →</a></nav></main>

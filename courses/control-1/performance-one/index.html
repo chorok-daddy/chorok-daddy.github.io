@@ -2226,7 +2226,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#이번-주-실습의-연결" id="toc-이번-주-실습의-연결" class="nav-link active" data-scroll-target="#이번-주-실습의-연결">1. 이번 주 실습의 연결</a></li>
+  <li><a href="#영상에서-실습으로-응답-지표를-읽는-기준" id="toc-영상에서-실습으로-응답-지표를-읽는-기준" class="nav-link active" data-scroll-target="#영상에서-실습으로-응답-지표를-읽는-기준">영상에서 실습으로 · 응답 지표를 읽는 기준</a></li>
+  <li><a href="#이번-주-실습의-연결" id="toc-이번-주-실습의-연결" class="nav-link" data-scroll-target="#이번-주-실습의-연결">1. 이번 주 실습의 연결</a></li>
   <li><a href="#빠르기와-정확함은-다른-지표" id="toc-빠르기와-정확함은-다른-지표" class="nav-link" data-scroll-target="#빠르기와-정확함은-다른-지표">2. 빠르기와 정확함은 다른 지표</a></li>
   <li><a href="#최종값을-정확히-지정하기" id="toc-최종값을-정확히-지정하기" class="nav-link" data-scroll-target="#최종값을-정확히-지정하기">3. 최종값을 정확히 지정하기</a></li>
   <li><a href="#표로-설계-근거-남기기" id="toc-표로-설계-근거-남기기" class="nav-link" data-scroll-target="#표로-설계-근거-남기기">4. 표로 설계 근거 남기기</a></li>
@@ -2264,6 +2265,10 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week11_PerformanceOne.mlx" download="Control_Engineering_1_Week11_PerformanceOne.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
+<section id="영상에서-실습으로-응답-지표를-읽는-기준" class="level2">
+<h2 class="anchored" data-anchor-id="영상에서-실습으로-응답-지표를-읽는-기준">영상에서 실습으로 · 응답 지표를 읽는 기준</h2>
+<p>이 실습에서 Rise Time은 최종 변화량의 10%에서 90%까지 도달하는 시간, Settling Time은 최종값 주변 ±2% 범위에 들어간 뒤 머무는 시간입니다. Overshoot는 최종값을 넘은 최대 변화량을 최종 변화량에 대한 %로 표시합니다. 영상의 근사식과 MATLAB 수치가 다르면 먼저 측정 기준을 비교하세요. 여기서는 초기 출력 0, 양의 최종값인 Unit Step Response를 사용합니다.</p>
+</section>
 <section id="이번-주-실습의-연결" class="level2">
 <h2 class="anchored" data-anchor-id="이번-주-실습의-연결">1. 이번 주 실습의 연결</h2>
 <p>10주차에서 Feedback이 Disturbance(외란) 응답을 바꾸는 것을 확인했습니다. 이번에는 표준 2차 모델로 Rise Time·Settling Time·Overshoot를 측정하고, Pole·Zero를 바꿔 성능 변화를 해석합니다.</p>
@@ -2276,7 +2281,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="빠르기와-정확함은-다른-지표" class="level2">
 <h2 class="anchored" data-anchor-id="빠르기와-정확함은-다른-지표">2. 빠르기와 정확함은 다른 지표</h2>
-<p>Rise Time(상승시간)과 Settling Time(정착시간)은 Transient Response(과도 응답)을, 최종 편차는 Steady State(정상상태) 성능을 나타냅니다. Disturbance 응답이 빠르게 작은 값에 수렴하는지 두 관점에서 봅니다.</p>
+<p>Rise Time(상승시간)과 Settling Time(정착시간)은 Transient Response(과도 응답)을, 최종 편차는 Steady State(정상상태) 성능을 나타냅니다. 이번 Unit Step Response가 얼마나 빨리 최종값에 접근하고 얼마나 초과하는지 확인합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 빠르기와 정확함은 다른 지표 보충 설명
@@ -2309,7 +2314,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ul>
 <li><strong>응답을 수치로 측정:</strong> Rise Time·Settling Time·Overshoot의 단위를 적고 그래프의 어느 부분을 측정한 것인지 표시하세요.</li>
 <li><strong>최종값을 잘못 넣은 측정 수정:</strong> 잘못된 최종값 1을 넣었을 때 지표가 달라지는 이유를 설명하세요. T의 DC Gain을 0.25로 바꾸어 같은 오류를 재현하고 수정하세요.</li>
-<li><strong>Pole·Zero 조건 변경:</strong> 세 모델의 지표를 표로 비교하세요. Zero를 −2, 추가 Pole을 −10으로 바꾸어 변화가 작아지거나 커지는지 확인하세요.</li>
+<li><strong>Pole·Zero 조건 변경:</strong> 세 모델의 지표를 표로 비교하세요. Zero를 −2로 바꿀 때는 (s+2)/2, 추가 Pole을 −10으로 바꿀 때는 10/(s+10)을 기준 모델에 곱하세요. DC Gain을 유지한 상태에서 지표의 변화를 비교하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">

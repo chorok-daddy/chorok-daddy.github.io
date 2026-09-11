@@ -2226,7 +2226,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#pole-위치와-transient-response과도-응답" id="toc-pole-위치와-transient-response과도-응답" class="nav-link active" data-scroll-target="#pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response(과도 응답)</a></li>
+  <li><a href="#영상에서-실습으로-최종-오차를-정한-뒤-비교하기" id="toc-영상에서-실습으로-최종-오차를-정한-뒤-비교하기" class="nav-link active" data-scroll-target="#영상에서-실습으로-최종-오차를-정한-뒤-비교하기">영상에서 실습으로 · 최종 오차를 정한 뒤 비교하기</a></li>
+  <li><a href="#pole-위치와-transient-response과도-응답" id="toc-pole-위치와-transient-response과도-응답" class="nav-link" data-scroll-target="#pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response(과도 응답)</a></li>
   <li><a href="#system-type은-루프의-원점-pole-수" id="toc-system-type은-루프의-원점-pole-수" class="nav-link" data-scroll-target="#system-type은-루프의-원점-pole-수">2. System Type은 루프의 원점 Pole 수</a></li>
   <li><a href="#같은-plant에-p와-pi-연결" id="toc-같은-plant에-p와-pi-연결" class="nav-link" data-scroll-target="#같은-plant에-p와-pi-연결">3. 같은 plant에 P와 PI 연결</a></li>
   <li><a href="#유한-시간의-오차와-극한값" id="toc-유한-시간의-오차와-극한값" class="nav-link" data-scroll-target="#유한-시간의-오차와-극한값">4. 유한 시간의 오차와 극한값</a></li>
@@ -2264,6 +2265,10 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week13_PerformanceThree.mlx" download="Control_Engineering_1_Week13_PerformanceThree.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
+<section id="영상에서-실습으로-최종-오차를-정한-뒤-비교하기" class="level2">
+<h2 class="anchored" data-anchor-id="영상에서-실습으로-최종-오차를-정한-뒤-비교하기">영상에서 실습으로 · 최종 오차를 정한 뒤 비교하기</h2>
+<p>이번 실습은 <code>e(t)=r(t)−y(t)</code>로 Tracking Error를 정의합니다. P는 현재 Error에 비례하고, PI는 여기에 Error를 시간에 따라 누적한 값을 더합니다. 영상의 Non-unity Feedback과 Performance Index는 다음 주 실습에서 두 Error 정의와 적분값을 비교하며 이어갑니다. 여기서는 Unity Feedback의 Step·Ramp를 먼저 구별하세요.</p>
+</section>
 <section id="pole-위치와-transient-response과도-응답" class="level2">
 <h2 class="anchored" data-anchor-id="pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response(과도 응답)</h2>
 <p>Pole의 음의 실수부는 감쇠 속도, 허수부는 Oscillation Frequency(진동 주파수)와 연결됩니다. 같은 분모라도 Zero(영점)과 분자에 따라 Transient Response이 달라질 수 있어 Pole만으로 모든 것을 단정하지 않습니다.</p>
@@ -2301,7 +2306,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <summary>
 눌러 펼쳐보기 · 유한 시간의 오차와 극한값 보충 설명
 </summary>
-<p>Kp를 20으로 바꾸는 과제에서는 P의 이론 오차 1/(1+Kp×K)를 계산합니다. 재실행 때 모델도 새로 만들어야 변경된 Controller(제어기)가 반영됩니다.</p>
+<p>이 실습의 Plant DC Gain K는 1입니다. Kp를 20으로 바꾸는 과제에서는 Unit Step의 이론 오차 1/(1+Kp×K)를 계산합니다. 재실행 때 모델도 새로 만들어야 변경된 Controller(제어기)가 반영됩니다.</p>
 </details>
 </section>
 <section id="실습에서-확인할-것" class="level2">

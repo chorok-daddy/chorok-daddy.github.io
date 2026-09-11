@@ -116,7 +116,7 @@
         {
           "slug": "lstm-gru",
           "week": 13,
-          "title": "긴 Sequence(시퀀스)에서 RNN과 LSTM 비교하기",
+          "title": "Window 데이터로 RNN·LSTM·GRU 비교하기",
           "source": "../course-materials/ai/lstm-gru/study-guide.html",
           "lab": "../course-materials/ai/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
           "assignment_source": "assignments/ai-week13.html",

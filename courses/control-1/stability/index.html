@@ -2228,7 +2228,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <ul>
   <li><a href="#먼저-응답이-안정한지-확인" id="toc-먼저-응답이-안정한지-확인" class="nav-link active" data-scroll-target="#먼저-응답이-안정한지-확인">1. 먼저 응답이 안정한지 확인</a></li>
   <li><a href="#비단위-feedback피드백에서-오차-정의" id="toc-비단위-feedback피드백에서-오차-정의" class="nav-link" data-scroll-target="#비단위-feedback피드백에서-오차-정의">2. 비단위 Feedback(피드백)에서 오차 정의</a></li>
-  <li><a href="#같은-시간-구간에서-지수-비교" id="toc-같은-시간-구간에서-지수-비교" class="nav-link" data-scroll-target="#같은-시간-구간에서-지수-비교">3. 같은 시간 구간에서 지수 비교</a></li>
+  <li><a href="#같은-시간-구간에서-performance-index-비교" id="toc-같은-시간-구간에서-performance-index-비교" class="nav-link" data-scroll-target="#같은-시간-구간에서-performance-index-비교">3. 같은 시간 구간에서 Performance Index 비교</a></li>
   <li><a href="#최적화와-저차-근사의-조건" id="toc-최적화와-저차-근사의-조건" class="nav-link" data-scroll-target="#최적화와-저차-근사의-조건">4. 최적화와 저차 근사의 조건</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">스스로 점검하기</a></li>
@@ -2266,7 +2266,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
 <section id="먼저-응답이-안정한지-확인" class="level2">
 <h2 class="anchored" data-anchor-id="먼저-응답이-안정한지-확인">1. 먼저 응답이 안정한지 확인</h2>
-<p>연속시간 유리 Transfer Function(전달함수)의 BIBO 안정성은 상쇄 후 Transfer Function의 Pole이 열린 좌반평면에 있는지로 판정합니다. 내부 안정성은 숨은 불안정 모드까지 고려하는 더 강한 조건입니다.</p>
+<p>BIBO Stability는 크기가 제한된 입력에 출력의 크기도 제한되는 성질입니다. 이 실습의 연속시간 Proper Transfer Function에서는 상쇄 후 모든 Pole의 실수부가 음수인지 확인합니다. 내부 안정성은 숨은 불안정 모드까지 고려하는 더 강한 조건입니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 먼저 응답이 안정한지 확인 보충 설명
@@ -2284,8 +2284,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>K=4,G=1/(s+2),H=2/(s+4)를 사용합니다. 1−dcgain(T)와 1−H(0)dcgain(T)를 따로 계산해 차이를 확인하세요.</p>
 </details>
 </section>
-<section id="같은-시간-구간에서-지수-비교" class="level2">
-<h2 class="anchored" data-anchor-id="같은-시간-구간에서-지수-비교">3. 같은 시간 구간에서 지수 비교</h2>
+<section id="같은-시간-구간에서-performance-index-비교" class="level2">
+<h2 class="anchored" data-anchor-id="같은-시간-구간에서-performance-index-비교">3. 같은 시간 구간에서 Performance Index 비교</h2>
 <p>ISE는 ∫e²dt, IAE는 ∫|e|dt, ITAE는 ∫t|e|dt입니다. Kp=1,2,4 비교에서는 모든 모델에 같은 0~20초, 같은 시간 간격을 사용하고 trapz로 적분합니다.</p>
 <details class="explain">
 <summary>
