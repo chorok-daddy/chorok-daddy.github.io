@@ -2291,7 +2291,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="gradient로-조금씩-갱신하기" class="level2">
 <h2 class="anchored" data-anchor-id="gradient로-조금씩-갱신하기">3. Gradient로 조금씩 갱신하기</h2>
-<p>forward로 예측하고 loss를 계산한 뒤 zero_grad → backward → step을 반복합니다. backward는 현재 파라미터에 대한 Gradient를 계산하고 step은 optimizer 규칙에 따라 파라미터를 바꿉니다.</p>
+<p>먼저 model(x)로 예측하고 정답과 비교해 Loss를 구합니다. zero_grad로 이전 Gradient를 지운 뒤 backward로 현재 Loss의 Gradient를 구합니다. 마지막으로 step이 그 Gradient를 이용해 Weight를 바꿉니다. 바뀐 Weight로 다시 예측하는 것이 다음 학습의 시작입니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · Gradient로 조금씩 갱신하기 보충 설명
@@ -2301,12 +2301,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="반복-학습과-직접-계산-비교" class="level2">
 <h2 class="anchored" data-anchor-id="반복-학습과-직접-계산-비교">4. 반복 학습과 직접 계산 비교</h2>
-<p>선형 최소제곱 문제는 Pseudoinverse(의사역행렬)로도 풀 수 있습니다. pinv(A)<span class="citation" data-cites="B와">@B와</span> 반복 학습 결과를 비교하면 학습이 무엇을 찾는지 확인할 수 있습니다. 결과뿐 아니라 입력 행렬의 shape와 잔차도 기록하세요.</p>
+<p>선형 최소제곱 문제는 Pseudoinverse(의사역행렬)로도 풀 수 있습니다. pinv(A)<span class="citation" data-cites="B와">@B와</span> 반복 학습 결과를 비교하면 학습이 무엇을 찾는지 확인할 수 있습니다. 결과뿐 아니라 입력 행렬의 shape와 함께 예측값에서 정답을 뺀 값(Residual)도 기록하세요.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 반복 학습과 직접 계산 비교 보충 설명
 </summary>
-<p>(AᵀA)⁻¹Aᵀ는 A의 열이 독립인 경우의 식입니다. 일반적인 Pseudoinverse은 pinv로 계산합니다. Learning Rate·반복 횟수·수치 오차에 따라 반복 해가 직접 해와 조금 다를 수 있습니다.</p>
+<p>(AᵀA)⁻¹Aᵀ는 A의 열이 독립인 경우의 식입니다. pinv는 열이 독립이지 않은 경우에도 Pseudoinverse를 계산할 수 있습니다. Learning Rate·반복 횟수·수치 오차에 따라 반복 해가 직접 해와 조금 다를 수 있습니다.</p>
 </details>
 </section>
 <section id="실습에서-확인할-것" class="level2">
@@ -2320,7 +2320,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
 <ol type="1">
-<li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
+<li>코드에 넣을 값은 무엇이며, 결과 배열의 각 행·열은 무엇을 뜻하나요? 물리량을 계산한다면 단위도 확인했나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
 <li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
 </ol>

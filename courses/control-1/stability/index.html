@@ -2276,7 +2276,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="비단위-feedback피드백에서-오차-정의" class="level2">
 <h2 class="anchored" data-anchor-id="비단위-feedback피드백에서-오차-정의">2. 비단위 Feedback(피드백)에서 오차 정의</h2>
-<p>T=GcG/(1+GcGH)일 때 실제 추종오차는 r−y이고 비교점 오차는 r−Hy입니다. H가 1이 아니면 두 값이 다릅니다. 이번 실습은 r−y를 기준으로 계산합니다.</p>
+<p>T=GcG/(1+GcGH)는 목표값 r에서 실제 출력 y까지의 관계입니다. Tracking Error r−y는 목표값에서 실제 출력을 뺀 값입니다. 센서를 거친 측정값 Hy를 목표값에서 빼면 r−Hy이며, Controller는 이 값을 받습니다. 센서가 신호의 크기나 시간에 따른 변화를 바꾸면 두 오차가 다를 수 있습니다. 이번 실습에서는 실제 출력이 목표에 가까운지 보려고 r−y를 사용합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 비단위 Feedback에서 오차 정의 보충 설명
@@ -2286,12 +2286,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="같은-시간-구간에서-performance-index-비교" class="level2">
 <h2 class="anchored" data-anchor-id="같은-시간-구간에서-performance-index-비교">3. 같은 시간 구간에서 Performance Index 비교</h2>
-<p>ISE는 ∫e²dt, IAE는 ∫|e|dt, ITAE는 ∫t|e|dt입니다. Kp=1,2,4 비교에서는 모든 모델에 같은 0~20초, 같은 시간 간격을 사용하고 trapz로 적분합니다.</p>
+<p>오차가 얼마나 오래, 얼마나 크게 남는지를 하나의 수치로 비교합니다. ISE=∫e²dt는 큰 오차에 더 큰 비중을 주고, IAE=∫|e|dt는 오차 크기를 그대로 더합니다. ITAE=∫t|e|dt는 같은 크기의 오차라도 늦게 남아 있으면 더 크게 반영합니다. Kp=1,2,4 비교에서는 모든 모델에 같은 0~20초, 같은 시간 간격을 사용하고 trapz로 적분합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 같은 시간 구간에서 지수 비교 보충 설명
 </summary>
-<p>Steady-state Error가 0이 아니면 무한 시간 ISE는 발산할 수 있습니다. 여기서 계산하는 것은 0~20초 유한 구간 지수입니다. 자동으로 선택된 서로 다른 시간축을 비교하면 공정하지 않습니다.</p>
+<p>Steady-state Error가 0이 아니면 무한 시간 ISE는 발산할 수 있습니다. 여기서 구하는 값은 0~20초 동안 쌓인 오차만을 반영합니다. 자동으로 선택된 서로 다른 시간축을 비교하면 공정하지 않습니다.</p>
 </details>
 </section>
 <section id="최적화와-저차-근사의-조건" class="level2">
@@ -2307,16 +2307,16 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <section id="실습에서-확인할-것" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
 <ul>
-<li><strong>Stability 판별:</strong> s³+3s²+2s+K의 Routh 첫 열을 유도하고 K=1,6,7을 비교하세요. K=6을 strict stable로 분류하면 안 되는 이유를 적으세요.</li>
-<li><strong>Tracking Error와 비교점 Error:</strong> K=2,4,8에서 두 Error를 각각 계산하세요. 어느 Error가 문제의 목표인지 먼저 명시하세요.</li>
-<li><strong>유한 구간 Performance Index:</strong> 구간을 10초·20초·40초로 바꾸어 ISE가 달라지는 이유를 설명하세요. 이 값을 무한 시간 ISE라고 부를 수 있는지 판단하세요.</li>
+<li><strong>Stability 판별:</strong> s³+3s²+2s+K의 Routh 첫 열을 유도하고 K=1,6,7을 비교하세요. K=6에서 Pole을 구하고 실수부가 0인 Pole이 있는지 확인하세요. 모든 Pole의 실수부가 음수인 경우와 응답이 어떻게 다른지 설명하세요.</li>
+<li><strong>Tracking Error와 비교점 Error:</strong> K=2,4,8에서 목표값에서 실제 출력을 뺀 r−y와, 목표값에서 센서 측정값을 뺀 r−Hy를 각각 계산하세요. 실제 출력이 목표값에 가까운지 판단할 때 사용할 오차가 어느 쪽인지 적으세요.</li>
+<li><strong>유한 구간 Performance Index:</strong> 구간을 10초·20초·40초로 바꾸어 ISE가 달라지는 이유를 설명하세요. 종료 시간을 늘려도 적분값이 일정한 값에 가까워지는지 확인하고, 현재 계산한 값이 어느 시간 구간의 결과인지 적으세요.</li>
 <li><strong>Optimization과 Approximation:</strong> K3의 검색 간격을 바꾸어 최적값 오차를 비교하세요. GL의 계수 하나를 10% 바꾸고 Approximation 오차를 기록하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
 <ol type="1">
-<li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
+<li>코드에 넣을 값은 무엇이며, 결과 배열의 각 행·열은 무엇을 뜻하나요? 물리량을 계산한다면 단위도 확인했나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
 <li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
 </ol>

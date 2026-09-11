@@ -2271,7 +2271,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="pole-위치와-transient-response과도-응답" class="level2">
 <h2 class="anchored" data-anchor-id="pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response(과도 응답)</h2>
-<p>Pole의 음의 실수부는 감쇠 속도, 허수부는 Oscillation Frequency(진동 주파수)와 연결됩니다. 같은 분모라도 Zero(영점)과 분자에 따라 Transient Response이 달라질 수 있어 Pole만으로 모든 것을 단정하지 않습니다.</p>
+<p>Pole의 음의 실수부는 감쇠 속도, 허수부는 Oscillation Frequency(진동 주파수)와 연결됩니다. 같은 Pole을 가진 모델도 분자가 다르면 응답의 높이나 모양이 달라질 수 있습니다. 따라서 Pole 위치와 실제 응답 그래프를 함께 확인하세요.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · Pole 위치와 Transient Response 보충 설명
@@ -2281,12 +2281,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="system-type은-루프의-원점-pole-수" class="level2">
 <h2 class="anchored" data-anchor-id="system-type은-루프의-원점-pole-수">2. System Type은 루프의 원점 Pole 수</h2>
-<p>표준 단위 Negative Feedback(음의 피드백)에서 루프 Transfer Function(전달함수) L의 원점 Pole 수가 System Type입니다. 안정한 Closed-loop(폐루프)라는 조건 아래 형에 따라 step·ramp Steady-state Error(정상상태 오차)의 성질이 달라집니다.</p>
+<p>표준 단위 Negative Feedback(음의 피드백)에서 루프 Transfer Function(전달함수) L의 원점 Pole 수가 System Type입니다. Closed-loop가 안정하다면 Type에 따라 일정한 목표값(Step)을 따라갈 때와 일정한 속도로 증가하는 목표값(Ramp)을 따라갈 때 남는 오차가 달라집니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · System Type은 루프의 원점 Pole 수 보충 설명
 </summary>
-<p>분모의 전체 차수가 곧 System Type은 아닙니다. 원점 Pole 수를 확인하고 상쇄 여부도 살펴야 합니다. 불안정하면 표준 Steady-state Error 표를 그대로 적용할 수 없습니다.</p>
+<p>System Type은 분모의 차수가 아니라 s=0인 Pole의 개수입니다. 분자와 분모에서 같은 인수가 약분되는지 확인한 뒤 원점 Pole을 세세요. 불안정하면 표준 Steady-state Error 표를 그대로 적용할 수 없습니다.</p>
 </details>
 </section>
 <section id="같은-plant에-p와-pi-연결" class="level2">
@@ -2301,7 +2301,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="유한-시간의-오차와-극한값" class="level2">
 <h2 class="anchored" data-anchor-id="유한-시간의-오차와-극한값">4. 유한 시간의 오차와 극한값</h2>
-<p>이 예의 PI에는 느린 모드가 있어 5초 끝값이 Steady State(정상상태)와 다를 수 있습니다. 충분히 긴 시간으로 비교하고, step은 dcgain·ramp는 속도 오차 상수와 대조하세요.</p>
+<p>이 예의 PI에서는 오차의 일부가 천천히 줄어들기 때문에 5초 시점에도 최종값에 도달하지 않을 수 있습니다. 관측 시간을 늘려 오차가 더 이상 달라지지 않는지 확인하세요. Unit Step의 이론 오차는 1−dcgain(T), Unit Ramp의 이론 오차는 1/Kv로 계산해 그래프와 비교합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 유한 시간의 오차와 극한값 보충 설명
@@ -2314,13 +2314,13 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ul>
 <li><strong>Pole 위치 비교:</strong> 같은 zeta를 유지하고 wn만 바꾸는 모델 쌍을 만들어 비교하세요. 원래 두 모델과 어떤 조건이 다른지 적으세요.</li>
 <li><strong>P와 PI의 Step 추종:</strong> Kp를 20으로 바꾸어 P의 이론 오차를 검증하세요. Ki=2,5,10에서 PI의 Step 오차와 Transient Response을 비교하세요.</li>
-<li><strong>Ramp 추종:</strong> PI의 Ramp 오차가 0이 아닌 이유를 System Type과 연결해 설명하세요. Ki=10으로 바꾸고 예측·수치 결과를 대조하세요.</li>
+<li><strong>Ramp 추종:</strong> Loop Transfer Function에서 원점 Pole을 세어 System Type을 구하세요. 해당 Type의 Unit Ramp 오차 공식을 적용한 뒤, Ki=10에서 계산한 오차가 시뮬레이션에서 충분히 시간이 지난 뒤의 오차와 같은지 비교하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
 <ol type="1">
-<li>코드 실행 전에 Input과 예상 Output의 shape·단위·범위를 설명할 수 있나요?</li>
+<li>코드에 넣을 값은 무엇이며, 결과 배열의 각 행·열은 무엇을 뜻하나요? 물리량을 계산한다면 단위도 확인했나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
 <li>실행 결과가 예상과 맞나요? 다르다면 출력값이나 그래프를 보고 이유를 설명할 수 있나요?</li>
 </ol>
