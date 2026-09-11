@@ -116,7 +116,7 @@
         {
           "slug": "lstm-gru",
           "week": 13,
-          "title": "Window 데이터로 RNN·LSTM·GRU 비교하기",
+          "title": "긴 글을 나누어 다음 문자 예측하기",
           "source": "../course-materials/ai/lstm-gru/study-guide.html",
           "lab": "../course-materials/ai/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
           "assignment_source": "assignments/ai-week13.html",
