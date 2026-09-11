@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Feedback(피드백)으로 이득 변화 줄이기</title>
+<title>Feedback으로 Gain 변화 줄이기</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -2218,7 +2218,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/control-1/feedback-one/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/control-1/index.html">제어공학1</a><span aria-hidden="true">/</span><span aria-current="page">9주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/control-1/course-setup/index.html">1주차 · 제어 시스템과 MATLAB 시작하기</a></li><li><a href="/courses/control-1/physical-models/index.html">2주차 · 물리 시스템을 모델로 표현하기</a></li><li><a href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지</a></li><li><a href="/courses/control-1/transfer-blocks/index.html">4주차 · Transfer Function(전달함수)와 블록을 연결하기</a></li><li><a href="/courses/control-1/state-space-one/index.html">5주차 · 상태를 선택해 행렬 모델 만들기</a></li><li><a href="/courses/control-1/state-space-two/index.html">6주차 · State Transition으로 응답 따라가기</a></li><li><a href="/courses/control-1/state-space-three/index.html">7주차 · 모델 표현을 바꾸어도 같은 응답일까?</a></li><li><a href="/courses/control-1/midterm/index.html">8주차 · 중간시험 · 필기와 MATLAB 준비</a></li><li><a aria-current="page" href="/courses/control-1/feedback-one/index.html">9주차 · Feedback(피드백)으로 이득 변화 줄이기</a></li><li><a href="/courses/control-1/feedback-two/index.html">10주차 · DC 모터의 Disturbance(외란) 경로 읽기</a></li><li><a href="/courses/control-1/performance-one/index.html">11주차 · 응답 지표로 설계 결과 검증하기</a></li><li><a href="/courses/control-1/performance-two/index.html">12주차 · 2차 시스템의 감쇠와 속도 조절하기</a></li><li><a href="/courses/control-1/performance-three/index.html">13주차 · P와 PI의 Steady-state Error(정상상태 오차) 비교하기</a></li><li><a href="/courses/control-1/stability/index.html">14주차 · 안정성을 먼저 확인하고 성능 비교하기</a></li><li><a href="/courses/control-1/final-exam/index.html">15주차 · 기말시험 · 필기와 MATLAB 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/control-1/feedback-one/index.html">학습 자료</a> <a href="/courses/control-1/feedback-one/assignment.html">실습 안내</a> <a href="/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx" download>실습 파일 다운로드</a> <a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/control-1/index.html">제어공학1</a><span aria-hidden="true">/</span><span aria-current="page">9주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/control-1/course-setup/index.html">1주차 · 제어 시스템과 MATLAB 시작하기</a></li><li><a href="/courses/control-1/physical-models/index.html">2주차 · 물리 시스템을 모델로 표현하기</a></li><li><a href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지</a></li><li><a href="/courses/control-1/transfer-blocks/index.html">4주차 · Transfer Function와 블록을 연결하기</a></li><li><a href="/courses/control-1/state-space-one/index.html">5주차 · 상태를 선택해 행렬 모델 만들기</a></li><li><a href="/courses/control-1/state-space-two/index.html">6주차 · State Transition으로 응답 따라가기</a></li><li><a href="/courses/control-1/state-space-three/index.html">7주차 · 모델 표현을 바꾸어도 같은 응답일까?</a></li><li><a href="/courses/control-1/midterm/index.html">8주차 · 중간시험 · 필기와 MATLAB 준비</a></li><li><a aria-current="page" href="/courses/control-1/feedback-one/index.html">9주차 · Feedback으로 Gain 변화 줄이기</a></li><li><a href="/courses/control-1/feedback-two/index.html">10주차 · DC 모터의 Disturbance(외란) 경로 읽기</a></li><li><a href="/courses/control-1/performance-one/index.html">11주차 · 응답 지표로 설계 결과 검증하기</a></li><li><a href="/courses/control-1/performance-two/index.html">12주차 · 2차 시스템의 감쇠와 속도 조절하기</a></li><li><a href="/courses/control-1/performance-three/index.html">13주차 · P와 PI의 Steady-state Error(Steady-state 오차) 비교하기</a></li><li><a href="/courses/control-1/stability/index.html">14주차 · 안정성을 먼저 확인하고 성능 비교하기</a></li><li><a href="/courses/control-1/final-exam/index.html">15주차 · 기말시험 · 필기와 MATLAB 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/control-1/feedback-one/index.html">학습 자료</a> <a href="/courses/control-1/feedback-one/assignment.html">실습 안내</a> <a href="/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx" download>실습 파일 다운로드</a> <a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -2226,8 +2226,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#open-loop개루프-증폭기의-sensitivity민감도" id="toc-open-loop개루프-증폭기의-sensitivity민감도" class="nav-link active" data-scroll-target="#open-loop개루프-증폭기의-sensitivity민감도">1. Open-loop(개루프) 증폭기의 Sensitivity(민감도)</a></li>
-  <li><a href="#되먹임의-효과를-식으로" id="toc-되먹임의-효과를-식으로" class="nav-link" data-scroll-target="#되먹임의-효과를-식으로">2. 되먹임의 효과를 식으로</a></li>
+  <li><a href="#open-loop개루프-증폭기의-sensitivity민감도" id="toc-open-loop개루프-증폭기의-sensitivity민감도" class="nav-link active" data-scroll-target="#open-loop개루프-증폭기의-sensitivity민감도">1. Open-loop 증폭기의 Sensitivity</a></li>
+  <li><a href="#되먹임의-효과를-식으로" id="toc-되먹임의-효과를-식으로" class="nav-link" data-scroll-target="#되먹임의-효과를-식으로">2. Feedback의 효과를 식으로</a></li>
   <li><a href="#실제-변화와-근사-비교" id="toc-실제-변화와-근사-비교" class="nav-link" data-scroll-target="#실제-변화와-근사-비교">3. 실제 변화와 근사 비교</a></li>
   <li><a href="#결과를-문장으로-해석" id="toc-결과를-문장으로-해석" class="nav-link" data-scroll-target="#결과를-문장으로-해석">4. 결과를 문장으로 해석</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
@@ -2239,7 +2239,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Feedback(피드백)으로 이득 변화 줄이기</h1>
+<h1 class="title">Feedback으로 Gain 변화 줄이기</h1>
 <p class="subtitle lead">제어공학1 · 9주차</p>
 </div>
 
@@ -2258,15 +2258,15 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 
 <div class="learning-target">
-<p><strong>이번 주 목표</strong> · 증폭기의 이득 변화가 최종 출력에 얼마나 전달되는지 비교합니다.</p>
+<p><strong>이번 주 목표</strong> · 증폭기의 Gain 변화가 최종 출력에 얼마나 전달되는지 비교합니다.</p>
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week09_FeedbackOne.mlx" download="Control_Engineering_1_Week09_FeedbackOne.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
 <section id="open-loop개루프-증폭기의-sensitivity민감도" class="level2">
-<h2 class="anchored" data-anchor-id="open-loop개루프-증폭기의-sensitivity민감도">1. Open-loop(개루프) 증폭기의 Sensitivity(민감도)</h2>
-<p>Open-loop 전달 이득은 T=Ka입니다. Ka가 10% 증가하면 T도 10% 증가합니다. 상대 변화끼리의 비율이 1이라는 사실이 Sensitivity의 출발점입니다.</p>
+<h2 class="anchored" data-anchor-id="open-loop개루프-증폭기의-sensitivity민감도">1. Open-loop 증폭기의 Sensitivity</h2>
+<p>Open-loop 전달 Gain은 T=<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>입니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>가 10% 증가하면 T도 10% 증가합니다. 상대 변화끼리의 비율이 1이라는 사실이 Sensitivity의 출발점입니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · Open-loop 증폭기의 Sensitivity 보충 설명
@@ -2278,13 +2278,13 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </details>
 </section>
 <section id="되먹임의-효과를-식으로" class="level2">
-<h2 class="anchored" data-anchor-id="되먹임의-효과를-식으로">2. 되먹임의 효과를 식으로</h2>
+<h2 class="anchored" data-anchor-id="되먹임의-효과를-식으로">2. Feedback의 효과를 식으로</h2>
 <p>이 예에서는 출력에서 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>β</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">\beta y</annotation></semantics></math>만큼을 측정해 목표값과 비교하므로 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><msub><mi>K</mi><mi>a</mi></msub><mo stretchy="false" form="prefix">(</mo><mi>r</mi><mo>−</mo><mi>β</mi><mi>y</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y=K_a(r-\beta y)</annotation></semantics></math>입니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math> 항을 모으면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><msub><mi>K</mi><mi>a</mi></msub><mi>β</mi><mo stretchy="false" form="postfix">)</mo><mi>y</mi><mo>=</mo><msub><mi>K</mi><mi>a</mi></msub><mi>r</mi></mrow><annotation encoding="application/x-tex">(1+K_a\beta)y=K_a r</annotation></semantics></math>이고, 전체 Gain은 다음과 같습니다.</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo>=</mo><mfrac><mi>y</mi><mi>r</mi></mfrac><mo>=</mo><mfrac><msub><mi>K</mi><mi>a</mi></msub><mrow><mn>1</mn><mo>+</mo><msub><mi>K</mi><mi>a</mi></msub><mi>β</mi></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">T=\frac yr=\frac{K_a}{1+K_a\beta}.</annotation></semantics></math></p>
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>가 커지면 분자뿐 아니라 분모도 커집니다. 따라서 전체 Gain은 Amplifier Gain만큼 민감하게 변하지 않습니다. 그 정도를 앞의 Sensitivity 정의로 계산해 보겠습니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 되먹임의 효과를 식으로 보충 설명
+눌러 펼쳐보기 · Feedback의 효과를 식으로 보충 설명
 </summary>
 <p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>를 고정하고 방금 구한 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>T</mi><annotation encoding="application/x-tex">T</annotation></semantics></math>를 미분하면, 분수의 미분법에 따라</p>
 <p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>T</mi></mrow><mrow><mi>d</mi><msub><mi>K</mi><mi>a</mi></msub></mrow></mfrac><mo>=</mo><mfrac><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>β</mi><msub><mi>K</mi><mi>a</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>−</mo><mi>β</mi><msub><mi>K</mi><mi>a</mi></msub></mrow><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>β</mi><msub><mi>K</mi><mi>a</mi></msub><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mo stretchy="false" form="prefix">(</mo><mn>1</mn><mo>+</mo><mi>β</mi><msub><mi>K</mi><mi>a</mi></msub><msup><mo stretchy="false" form="postfix">)</mo><mn>2</mn></msup></mrow></mfrac><mi>.</mi></mrow><annotation encoding="application/x-tex">\frac{dT}{dK_a}=\frac{(1+\beta K_a)-\beta K_a}{(1+\beta K_a)^2}=\frac1{(1+\beta K_a)^2}.</annotation></semantics></math></p>
@@ -2297,7 +2297,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="실제-변화와-근사-비교" class="level2">
 <h2 class="anchored" data-anchor-id="실제-변화와-근사-비교">3. 실제 변화와 근사 비교</h2>
-<p>과제 조건은 Ka=5000, β=0.05입니다. Sensitivity×0.1로 예측한 변화와 Ka를 5500으로 바꿔 직접 계산한 변화율을 비교하세요.</p>
+<p>과제 조건은 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>=5000, β=0.05입니다. Sensitivity×0.1로 예측한 변화와 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>를 5500으로 바꿔 직접 계산한 변화율을 비교하세요.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 실제 변화와 근사 비교 보충 설명
@@ -2312,20 +2312,20 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="결과를-문장으로-해석" class="level2">
 <h2 class="anchored" data-anchor-id="결과를-문장으로-해석">4. 결과를 문장으로 해석</h2>
-<p>Ka, Open-loop 이득, Closed-loop(폐루프) 이득을 표나 곡선으로 비교한 뒤 무엇이 덜 변했는지 설명하세요. Closed-loop 이득 자체가 작다는 말과 변화에 덜 민감하다는 말은 구분합니다.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>, Open-loop Gain, Closed-loop Gain을 표나 곡선으로 비교한 뒤 무엇이 덜 변했는지 설명하세요. Closed-loop Gain 자체가 작다는 말과 변화에 덜 민감하다는 말은 구분합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 결과를 문장으로 해석 보충 설명
 </summary>
-<p>β를 바꾸면 목표 이득도 바뀝니다. 같은 목표를 유지하는 비교인지, Feedback(피드백) 정도를 바꾸는 비교인지 실험 목적을 적으세요.</p>
+<p>β를 바꾸면 목표 Gain도 바뀝니다. 같은 목표를 유지하는 비교인지, Feedback 정도를 바꾸는 비교인지 실험 목적을 적으세요.</p>
 </details>
 </section>
-<aside class="hand-check" id="hand-calculation"><h2>먼저 계산하고 MATLAB으로 확인하기</h2><p>기준 예제를 읽는 10분 중 5–8분을 사용하세요. 설명에 나온 식은 참고해도 되지만, 결과를 출력하는 코드는 계산을 적은 뒤 실행하세요. 종이 또는 Live Script의 설명란에 식을 쓰고, 기존 기준 예측·반복 기록에 포함하세요. 전체 실습 시간은 약 60분입니다.</p><ol><li>변화율 검증 Section을 실행하기 전에 Ka=5000, beta=0.05, delta=0.1을 사용해 손으로 계산하세요. T(Ka)=Ka/(1+beta*Ka)를 미분하고 S=(Ka/T)·dT/dKa에 대입하여 기준 Sensitivity S0를 구하세요.</li><li>근사 계산: S0에 Ka의 상대 증가 비율 0.1을 곱하세요. 정확 계산: T0=T(5000), T1=T(5500)을 각각 구한 뒤 (T1−T0)/T0를 계산하세요. 두 답은 분수로 두어도 됩니다.</li><li>손으로 쓴 두 계산을 저장한 뒤 Section을 실행해 approx·exact와 대조하세요. 차이가 나면 분모에 변경 전 T0를 썼는지 확인하세요. 이후 1%·20% 조건을 반복합니다. 10% 조건은 이미 수행했으므로 다시 할 필요가 없습니다.</li></ol><p><strong>작성란:</strong> 계산 과정 · 실행 결과 · 차이가 난 이유: ⟦직접 입력⟧</p></aside><section id="실습에서-확인할-것" class="level2">
+<aside class="hand-check" id="hand-calculation"><h2>먼저 계산하고 MATLAB으로 확인하기</h2><p>코드를 실행하기 전에 아래 계산을 종이나 Live Script 설명란에 적으세요. 실행 후 자신의 식과 출력값을 비교하고, 다르면 계수·부호·초기조건부터 확인하세요.</p><ol><li>변화율 검증 Section을 실행하기 전에 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>=5000, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>=0.05, delta=0.1을 사용해 손으로 계산하세요. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>T</mi><mo stretchy="false" form="prefix">(</mo><msub><mi>K</mi><mi>a</mi></msub><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><msub><mi>K</mi><mi>a</mi></msub><mrow><mn>1</mn><mo>+</mo><mi>β</mi><msub><mi>K</mi><mi>a</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">T(K_a)=\frac{K_a}{1+\beta K_a}</annotation></semantics></math>를 미분하고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>S</mi><mo>=</mo><mfrac><msub><mi>K</mi><mi>a</mi></msub><mi>T</mi></mfrac><mfrac><mrow><mi>d</mi><mi>T</mi></mrow><mrow><mi>d</mi><msub><mi>K</mi><mi>a</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">S=\frac{K_a}{T}\frac{dT}{dK_a}</annotation></semantics></math>에 대입하여 기준 Sensitivity <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>를 구하세요.</li><li>근사 계산: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>S</mi><mn>0</mn></msub><annotation encoding="application/x-tex">S_0</annotation></semantics></math>에 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>의 상대 증가 비율 0.1을 곱하세요. 정확 계산: <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>0</mn></msub><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mn>5000</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T_0=T(5000)</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>=</mo><mi>T</mi><mo stretchy="false" form="prefix">(</mo><mn>5500</mn><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">T_1=T(5500)</annotation></semantics></math>을 각각 구한 뒤 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><msub><mi>T</mi><mn>1</mn></msub><mo>−</mo><msub><mi>T</mi><mn>0</mn></msub></mrow><msub><mi>T</mi><mn>0</mn></msub></mfrac><annotation encoding="application/x-tex">\frac{T_1-T_0}{T_0}</annotation></semantics></math>를 계산하세요. 두 답은 분수로 두어도 됩니다.</li><li>손으로 쓴 두 계산을 저장한 뒤 Section을 실행해 approx·exact와 대조하세요. 차이가 나면 분모에 변경 전 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>T</mi><mn>0</mn></msub><annotation encoding="application/x-tex">T_0</annotation></semantics></math>를 썼는지 확인하세요. 이후 1%·20% 조건을 반복합니다. 10% 조건은 이미 수행했으므로 다시 할 필요가 없습니다.</li></ol><p><strong>작성란:</strong> 계산 과정 · 실행 결과 · 차이가 난 이유: ⟦직접 입력⟧</p></aside><section id="실습에서-확인할-것" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
 <ul>
-<li><strong>기준 이득과 Sensitivity:</strong> Ka=1000,5000,10000에서 Open-loop·Closed-loop 이득과 Sensitivity를 표로 계산하세요.</li>
+<li><strong>기준 Gain과 Sensitivity:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>=1000,5000,10000에서 Open-loop·Closed-loop Gain과 Sensitivity를 표로 계산하세요.</li>
 <li><strong>변화율 검증:</strong> delta=0.01,0.1,0.2를 비교하세요. 각 delta에서 근사 변화율과 정확한 변화율의 차이를 표로 적으세요. 변화가 클 때 두 값이 더 벌어지는지, Feedback이 없을 때와 비교해 전체 Gain이 얼마나 덜 변하는지 설명하세요.</li>
-<li><strong>반복 검사:</strong> beta=0.01과 0.1을 추가하고 곡선을 비교하세요. 전체 Gain의 값과 Sensitivity를 각각 기록하세요. 출력의 크기가 작아진 것인지, Ka를 바꿨을 때 출력이 덜 변하는 것인지 설명하세요.</li>
+<li><strong>반복 검사:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>β</mi><annotation encoding="application/x-tex">\beta</annotation></semantics></math>=0.01과 0.1을 추가하고 곡선을 비교하세요. 전체 Gain의 값과 Sensitivity를 각각 기록하세요. 출력의 크기가 작아진 것인지, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>a</mi></msub><annotation encoding="application/x-tex">K_a</annotation></semantics></math>를 바꿨을 때 출력이 덜 변하는 것인지 설명하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">

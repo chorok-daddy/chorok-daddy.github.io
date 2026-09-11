@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>P와 PI의 Steady-state Error(정상상태 오차) 비교하기</title>
+<title>P와 PI의 Steady-state Error(Steady-state 오차) 비교하기</title>
 <style>
 
 code{white-space: pre-wrap;}
@@ -2218,7 +2218,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/control-1/performance-three/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/control-1/index.html">제어공학1</a><span aria-hidden="true">/</span><span aria-current="page">13주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/control-1/course-setup/index.html">1주차 · 제어 시스템과 MATLAB 시작하기</a></li><li><a href="/courses/control-1/physical-models/index.html">2주차 · 물리 시스템을 모델로 표현하기</a></li><li><a href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지</a></li><li><a href="/courses/control-1/transfer-blocks/index.html">4주차 · Transfer Function(전달함수)와 블록을 연결하기</a></li><li><a href="/courses/control-1/state-space-one/index.html">5주차 · 상태를 선택해 행렬 모델 만들기</a></li><li><a href="/courses/control-1/state-space-two/index.html">6주차 · State Transition으로 응답 따라가기</a></li><li><a href="/courses/control-1/state-space-three/index.html">7주차 · 모델 표현을 바꾸어도 같은 응답일까?</a></li><li><a href="/courses/control-1/midterm/index.html">8주차 · 중간시험 · 필기와 MATLAB 준비</a></li><li><a href="/courses/control-1/feedback-one/index.html">9주차 · Feedback(피드백)으로 이득 변화 줄이기</a></li><li><a href="/courses/control-1/feedback-two/index.html">10주차 · DC 모터의 Disturbance(외란) 경로 읽기</a></li><li><a href="/courses/control-1/performance-one/index.html">11주차 · 응답 지표로 설계 결과 검증하기</a></li><li><a href="/courses/control-1/performance-two/index.html">12주차 · 2차 시스템의 감쇠와 속도 조절하기</a></li><li><a aria-current="page" href="/courses/control-1/performance-three/index.html">13주차 · P와 PI의 Steady-state Error(정상상태 오차) 비교하기</a></li><li><a href="/courses/control-1/stability/index.html">14주차 · 안정성을 먼저 확인하고 성능 비교하기</a></li><li><a href="/courses/control-1/final-exam/index.html">15주차 · 기말시험 · 필기와 MATLAB 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/control-1/performance-three/index.html">학습 자료</a> <a href="/courses/control-1/performance-three/assignment.html">실습 안내</a> <a href="/courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx" download>실습 파일 다운로드</a> <a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/control-1/index.html">제어공학1</a><span aria-hidden="true">/</span><span aria-current="page">13주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/control-1/course-setup/index.html">1주차 · 제어 시스템과 MATLAB 시작하기</a></li><li><a href="/courses/control-1/physical-models/index.html">2주차 · 물리 시스템을 모델로 표현하기</a></li><li><a href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지</a></li><li><a href="/courses/control-1/transfer-blocks/index.html">4주차 · Transfer Function와 블록을 연결하기</a></li><li><a href="/courses/control-1/state-space-one/index.html">5주차 · 상태를 선택해 행렬 모델 만들기</a></li><li><a href="/courses/control-1/state-space-two/index.html">6주차 · State Transition으로 응답 따라가기</a></li><li><a href="/courses/control-1/state-space-three/index.html">7주차 · 모델 표현을 바꾸어도 같은 응답일까?</a></li><li><a href="/courses/control-1/midterm/index.html">8주차 · 중간시험 · 필기와 MATLAB 준비</a></li><li><a href="/courses/control-1/feedback-one/index.html">9주차 · Feedback으로 Gain 변화 줄이기</a></li><li><a href="/courses/control-1/feedback-two/index.html">10주차 · DC 모터의 Disturbance(외란) 경로 읽기</a></li><li><a href="/courses/control-1/performance-one/index.html">11주차 · 응답 지표로 설계 결과 검증하기</a></li><li><a href="/courses/control-1/performance-two/index.html">12주차 · 2차 시스템의 감쇠와 속도 조절하기</a></li><li><a aria-current="page" href="/courses/control-1/performance-three/index.html">13주차 · P와 PI의 Steady-state Error(Steady-state 오차) 비교하기</a></li><li><a href="/courses/control-1/stability/index.html">14주차 · 안정성을 먼저 확인하고 성능 비교하기</a></li><li><a href="/courses/control-1/final-exam/index.html">15주차 · 기말시험 · 필기와 MATLAB 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/control-1/performance-three/index.html">학습 자료</a> <a href="/courses/control-1/performance-three/assignment.html">실습 안내</a> <a href="/courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx" download>실습 파일 다운로드</a> <a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -2227,7 +2227,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
   <ul>
   <li><a href="#최종-오차를-정한-뒤-비교하기" id="toc-최종-오차를-정한-뒤-비교하기" class="nav-link active" data-scroll-target="#최종-오차를-정한-뒤-비교하기">최종 오차를 정한 뒤 비교하기</a></li>
-  <li><a href="#pole-위치와-transient-response과도-응답" id="toc-pole-위치와-transient-response과도-응답" class="nav-link" data-scroll-target="#pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response(과도 응답)</a></li>
+  <li><a href="#pole-위치와-transient-response과도-응답" id="toc-pole-위치와-transient-response과도-응답" class="nav-link" data-scroll-target="#pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response</a></li>
   <li><a href="#system-type은-루프의-원점-pole-수" id="toc-system-type은-루프의-원점-pole-수" class="nav-link" data-scroll-target="#system-type은-루프의-원점-pole-수">2. System Type은 루프의 원점 Pole 수</a></li>
   <li><a href="#같은-plant에-p와-pi-연결" id="toc-같은-plant에-p와-pi-연결" class="nav-link" data-scroll-target="#같은-plant에-p와-pi-연결">3. 같은 plant에 P와 PI 연결</a></li>
   <li><a href="#유한-시간의-오차와-극한값" id="toc-유한-시간의-오차와-극한값" class="nav-link" data-scroll-target="#유한-시간의-오차와-극한값">4. 유한 시간의 오차와 극한값</a></li>
@@ -2240,7 +2240,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">P와 PI의 Steady-state Error(정상상태 오차) 비교하기</h1>
+<h1 class="title">P와 PI의 Steady-state Error(Steady-state 오차) 비교하기</h1>
 <p class="subtitle lead">제어공학1 · 13주차</p>
 </div>
 
@@ -2259,7 +2259,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 
 
 <div class="learning-target">
-<p><strong>이번 주 목표</strong> · Pole(극점)의 영향과 System Type(시스템 형)에 따른 추종 오차를 구분합니다.</p>
+<p><strong>이번 주 목표</strong> · Pole(Pole)의 영향과 System Type(시스템 형)에 따른 추종 오차를 구분합니다.</p>
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week13_PerformanceThree.mlx" download="Control_Engineering_1_Week13_PerformanceThree.mlx">실습 파일 다운로드</a></p>
@@ -2270,18 +2270,18 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>이번 실습은 <code>e(t)=r(t)−y(t)</code>로 Tracking Error를 정의합니다. P는 현재 Error에 비례하고, PI는 여기에 Error를 시간에 따라 누적한 값을 더합니다. 다음 주에는 Non-unity Feedback에서 Error를 정의하는 방법을 살펴보고, Performance Index로 응답 전체의 오차를 비교합니다. 여기서는 Unity Feedback의 Step·Ramp를 먼저 구별하세요.</p>
 </section>
 <section id="pole-위치와-transient-response과도-응답" class="level2">
-<h2 class="anchored" data-anchor-id="pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response(과도 응답)</h2>
+<h2 class="anchored" data-anchor-id="pole-위치와-transient-response과도-응답">1. Pole 위치와 Transient Response</h2>
 <p>Pole의 음의 실수부는 감쇠 속도, 허수부는 Oscillation Frequency(진동 주파수)와 연결됩니다. 같은 Pole을 가진 모델도 분자가 다르면 응답의 높이나 모양이 달라질 수 있습니다. 따라서 Pole 위치와 실제 응답 그래프를 함께 확인하세요.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · Pole 위치와 Transient Response 보충 설명
 </summary>
-<p>이번 두 모델은 분모 [1 2 10]과 [1 10 100]입니다. 실수부와 허수부, Damping Ratio(감쇠비)가 동시에 달라집니다. 관찰된 차이를 한 요소만의 효과로 해석하지 마세요.</p>
+<p>이번 두 모델은 분모 [1 2 10]과 [1 10 100]입니다. 실수부와 허수부, Damping Ratio(Damping Ratio)가 동시에 달라집니다. 관찰된 차이를 한 요소만의 효과로 해석하지 마세요.</p>
 </details>
 </section>
 <section id="system-type은-루프의-원점-pole-수" class="level2">
 <h2 class="anchored" data-anchor-id="system-type은-루프의-원점-pole-수">2. System Type은 루프의 원점 Pole 수</h2>
-<p>표준 단위 Negative Feedback(음의 피드백)에서 루프 Transfer Function(전달함수) L의 원점 Pole 수가 System Type입니다. Closed-loop가 안정하다면 Type에 따라 일정한 목표값(Step)을 따라갈 때와 일정한 속도로 증가하는 목표값(Ramp)을 따라갈 때 남는 오차가 달라집니다.</p>
+<p>표준 단위 Negative Feedback(음의 피드백)에서 루프 Transfer Function L의 원점 Pole 수가 System Type입니다. Closed-loop가 안정하다면 Type에 따라 일정한 목표값(Step)을 따라갈 때와 일정한 속도로 증가하는 목표값(Ramp)을 따라갈 때 남는 오차가 달라집니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · System Type은 루프의 원점 Pole 수 보충 설명
@@ -2301,20 +2301,20 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="유한-시간의-오차와-극한값" class="level2">
 <h2 class="anchored" data-anchor-id="유한-시간의-오차와-극한값">4. 유한 시간의 오차와 극한값</h2>
-<p>이 예의 PI에서는 오차의 일부가 천천히 줄어들기 때문에 5초 시점에도 최종값에 도달하지 않을 수 있습니다. 관측 시간을 늘려 오차가 더 이상 달라지지 않는지 확인하세요. Unit Step의 이론 오차는 1−dcgain(T), Unit Ramp의 이론 오차는 1/Kv로 계산해 그래프와 비교합니다.</p>
+<p>이 예의 PI에서는 오차의 일부가 천천히 줄어들기 때문에 5초 시점에도 최종값에 도달하지 않을 수 있습니다. 관측 시간을 늘려 오차가 더 이상 달라지지 않는지 확인하세요. Unit Step의 이론 오차는 1−dcgain(T), Unit Ramp의 이론 오차는 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><msub><mi>K</mi><mi>v</mi></msub></mfrac><annotation encoding="application/x-tex">\frac1{K_v}</annotation></semantics></math>로 계산해 그래프와 비교합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 유한 시간의 오차와 극한값 보충 설명
 </summary>
-<p>이 실습의 Plant DC Gain K는 1입니다. Kp를 20으로 바꾸는 과제에서는 Unit Step의 이론 오차 1/(1+Kp×K)를 계산합니다. 재실행 때 모델도 새로 만들어야 변경된 Controller(제어기)가 반영됩니다.</p>
+<p>이 실습의 Plant DC Gain K는 1입니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>p</mi></msub><annotation encoding="application/x-tex">K_p</annotation></semantics></math>를 20으로 바꾸는 과제에서는 Unit Step의 이론 오차 1/(1+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>p</mi></msub><annotation encoding="application/x-tex">K_p</annotation></semantics></math>×K)를 계산합니다. 재실행 때 모델도 새로 만들어야 변경된 Controller(제어기)가 반영됩니다.</p>
 </details>
 </section>
-<aside class="hand-check" id="hand-calculation"><h2>먼저 계산하고 MATLAB으로 확인하기</h2><p>기준 예제를 읽는 10분 중 5–8분을 사용하세요. 설명에 나온 식은 참고해도 되지만, 결과를 출력하는 코드는 계산을 적은 뒤 실행하세요. 종이 또는 Live Script의 설명란에 식을 쓰고, 기존 기준 예측·반복 기록에 포함하세요. 전체 실습 시간은 약 60분입니다.</p><ol><li>P와 PI의 Step 추종 Section에서 PI=10+5/s와 G=1/(0.5*s+1)를 사용하세요. 실행 전에 L=PI*G와 1+L=0에서 얻는 특성다항식을 손으로 쓰세요. 2차 다항식의 세 계수가 양수이면 두 Pole의 실수부가 음수라는 기준으로 안정성을 확인하세요.</li><li>L의 원점 Pole 수로 System Type을 정하고 Kp=lim(s→0)L(s), Kv=lim(s→0)sL(s)를 구하세요. 안정성을 확인한 뒤 Unit Step 오차 1/(1+Kp)와 Unit Ramp 오차 1/Kv를 계산하고 실행 결과와 비교하세요. 이 계산을 Ki=5의 기준 기록으로 사용합니다.</li></ol><p><strong>작성란:</strong> 계산 과정 · 실행 결과 · 차이가 난 이유: ⟦직접 입력⟧</p></aside><section id="실습에서-확인할-것" class="level2">
+<aside class="hand-check" id="hand-calculation"><h2>먼저 계산하고 MATLAB으로 확인하기</h2><p>코드를 실행하기 전에 아래 계산을 종이나 Live Script 설명란에 적으세요. 실행 후 자신의 식과 출력값을 비교하고, 다르면 계수·부호·초기조건부터 확인하세요.</p><ol><li>P와 PI의 Step 추종 Section에서 PI=10+5/s와 G=1/(0.5*s+1)를 사용하세요. 실행 전에 L=PI*G와 1+L=0에서 얻는 특성다항식을 손으로 쓰세요. 2차 다항식의 세 계수가 양수이면 두 Pole의 실수부가 음수라는 기준으로 안정성을 확인하세요.</li><li>L의 원점 Pole 수로 System Type을 정하고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>p</mi></msub><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>s</mi><mo>→</mo><mn>0</mn></mrow></msub><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K_p=\lim_{s\to0}L(s)</annotation></semantics></math>, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>v</mi></msub><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>&#8289;</mo></mrow><mrow><mi>s</mi><mo>→</mo><mn>0</mn></mrow></msub><mi>s</mi><mi>L</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">K_v=\lim_{s\to0}sL(s)</annotation></semantics></math>를 구하세요. 안정성을 확인한 뒤 Unit Step 오차 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><mrow><mn>1</mn><mo>+</mo><msub><mi>K</mi><mi>p</mi></msub></mrow></mfrac><annotation encoding="application/x-tex">\frac1{1+K_p}</annotation></semantics></math>와 Unit Ramp 오차 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mn>1</mn><msub><mi>K</mi><mi>v</mi></msub></mfrac><annotation encoding="application/x-tex">\frac1{K_v}</annotation></semantics></math>를 계산하고 실행 결과와 비교하세요. 이 계산을 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>i</mi></msub><annotation encoding="application/x-tex">K_i</annotation></semantics></math>=5의 기준 기록으로 사용합니다.</li></ol><p><strong>작성란:</strong> 계산 과정 · 실행 결과 · 차이가 난 이유: ⟦직접 입력⟧</p></aside><section id="실습에서-확인할-것" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
 <ul>
-<li><strong>Pole 위치 비교:</strong> 같은 zeta를 유지하고 wn만 바꾸는 모델 쌍을 만들어 비교하세요. 원래 두 모델과 어떤 조건이 다른지 적으세요.</li>
-<li><strong>P와 PI의 Step 추종:</strong> Kp를 20으로 바꾸어 P의 이론 오차를 검증하세요. Ki=2,5,10에서 PI의 Step 오차와 Transient Response을 비교하세요.</li>
-<li><strong>Ramp 추종:</strong> Loop Transfer Function에서 원점 Pole을 세어 System Type을 구하세요. 해당 Type의 Unit Ramp 오차 공식을 적용한 뒤, Ki=10에서 계산한 오차가 시뮬레이션에서 충분히 시간이 지난 뒤의 오차와 같은지 비교하세요.</li>
+<li><strong>Pole 위치 비교:</strong> 같은 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>ζ</mi><annotation encoding="application/x-tex">\zeta</annotation></semantics></math>를 유지하고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>ω</mi><mi>n</mi></msub><annotation encoding="application/x-tex">\omega_n</annotation></semantics></math>만 바꾸는 모델 쌍을 만들어 비교하세요. 원래 두 모델과 어떤 조건이 다른지 적으세요.</li>
+<li><strong>P와 PI의 Step 추종:</strong> <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>p</mi></msub><annotation encoding="application/x-tex">K_p</annotation></semantics></math>를 20으로 바꾸어 P의 이론 오차를 검증하세요. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>i</mi></msub><annotation encoding="application/x-tex">K_i</annotation></semantics></math>=2,5,10에서 PI의 Step 오차와 Transient Response을 비교하세요.</li>
+<li><strong>Ramp 추종:</strong> Loop Transfer Function에서 원점 Pole을 세어 System Type을 구하세요. 해당 Type의 Unit Ramp 오차 공식을 적용한 뒤, <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>i</mi></msub><annotation encoding="application/x-tex">K_i</annotation></semantics></math>=10에서 계산한 오차가 시뮬레이션에서 충분히 시간이 지난 뒤의 오차와 같은지 비교하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
