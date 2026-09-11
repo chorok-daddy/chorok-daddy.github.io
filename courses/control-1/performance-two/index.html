@@ -2309,7 +2309,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>근사식이 만족해도 실제 Settling Time(정착시간)이 다를 수 있습니다. 경계보다 여유 있는 값을 선택하고 결과 그래프와 수치가 일치하는지 확인합니다.</p>
 </details>
 </section>
-<section id="실습에서-확인할-것" class="level2">
+<aside class="hand-check" id="hand-calculation"><h2>먼저 계산하고 MATLAB으로 확인하기</h2><p>기준 예제를 읽는 10분 중 5–8분을 사용하세요. 설명에 나온 식은 참고해도 되지만, 결과를 출력하는 코드는 계산을 적은 뒤 실행하세요. 종이 또는 Live Script의 설명란에 식을 쓰고, 기존 기준 예측·반복 기록에 포함하세요. 전체 실습 시간은 약 60분입니다.</p><ol><li>설계 후 검증 Section의 첫 실행은 zeta=0.7, wn=5로 하세요. 먼저 Mp=100·exp(−pi*zeta/sqrt(1−zeta^2)) [%], Ts≈4/(zeta*wn)로 Overshoot와 Settling Time을 손으로 구하세요. 수치 비교에는 exp(−0.7*pi/sqrt(0.51))≈0.046을 사용하세요.</li><li>Mp≤10%, Ts≤2 s를 각각 만족하는지 판단하고, zeta=0.7을 유지할 때 Ts 조건을 만족하는 wn의 범위를 부등식으로 구하세요. 그 뒤 wn을 5로 수정하고 stepinfo를 실행해 근사식과 측정 결과를 비교하세요. 이 조건을 기존 설계 조합 중 한 개로 기록하세요.</li></ol><p><strong>작성란:</strong> 계산 과정 · 실행 결과 · 차이가 난 이유: ⟦직접 입력⟧</p></aside><section id="실습에서-확인할-것" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
 <ul>
 <li><strong>표준형 변환:</strong> K1=9,K2=3과 K1=16,K2=8을 반복 계산하고 Damping 유형을 판별하세요.</li>
