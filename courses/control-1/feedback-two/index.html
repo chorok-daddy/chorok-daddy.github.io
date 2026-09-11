@@ -2263,7 +2263,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week10_FeedbackTwo.mlx" download="Control_Engineering_1_Week10_FeedbackTwo.mlx">실습 파일 다운로드</a></p>
-<p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
+<p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
 <section id="기호와-운동-방향-정하기" class="level2">
 <h2 class="anchored" data-anchor-id="기호와-운동-방향-정하기">기호와 운동 방향 정하기</h2>
@@ -2288,7 +2288,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="역기전력만-있는-기준-모델" class="level2">
 <h2 class="anchored" data-anchor-id="역기전력만-있는-기준-모델">2. 역기전력만 있는 기준 모델</h2>
-<p>전기자 인덕턴스를 무시한 모델에서 Ω/Td=1/(Js+b+KmKb/Ra)입니다. 일정한 외란 D를 가한 뒤의 최종 속도 편차는 D/(b+KmKb/Ra)입니다. 따라서 분모에서 s가 붙지 않은 항이 커질수록 같은 외란에 대한 최종 편차가 작아집니다.</p>
+<p>전기자 인덕턴스를 무시한 모델에서 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi mathvariant="normal">Ω</mi><msub><mi>T</mi><mi>d</mi></msub></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>J</mi><mi>s</mi><mo>+</mo><mi>b</mi><mo>+</mo><msub><mi>K</mi><mi>m</mi></msub><msub><mi>K</mi><mi>b</mi></msub><mi>/</mi><msub><mi>R</mi><mi>a</mi></msub></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac\Omega{T_d}=\frac1{Js+b+K_mK_b/R_a}</annotation></semantics></math>입니다. 일정한 외란 D를 가한 뒤의 최종 속도 편차는 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mi>D</mi><mrow><mi>b</mi><mo>+</mo><msub><mi>K</mi><mi>m</mi></msub><msub><mi>K</mi><mi>b</mi></msub><mi>/</mi><msub><mi>R</mi><mi>a</mi></msub></mrow></mfrac><annotation encoding="application/x-tex">\frac D{b+K_mK_b/R_a}</annotation></semantics></math>입니다. 따라서 분모에서 s가 붙지 않은 항이 커질수록 같은 외란에 대한 최종 편차가 작아집니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 역기전력만 있는 기준 모델 보충 설명

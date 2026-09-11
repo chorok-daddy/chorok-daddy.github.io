@@ -2262,21 +2262,21 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week05_StateSpaceOne.mlx" download="Control_Engineering_1_Week05_StateSpaceOne.mlx">실습 파일 다운로드</a></p>
-<p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
+<p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
 <section id="상태는-다음-순간을-계산할-정보" class="level2">
 <h2 class="anchored" data-anchor-id="상태는-다음-순간을-계산할-정보">1. 상태는 다음 순간을 계산할 정보</h2>
-<p>기계 시스템에서 위치만 알아서는 다음 위치를 예측하기 어렵습니다. 속도도 함께 알아야 합니다. x1=y, x2=y′로 놓으면 x1′=x2이고 x2′=−(k/M)x1−(b/M)x2+u/M입니다.</p>
+<p>기계 시스템에서 위치만 알아서는 다음 위치를 예측하기 어렵습니다. 속도도 함께 알아야 합니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mi>y</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mover><mi>y</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">x_1=y,\ x_2=\dot y</annotation></semantics></math>로 놓으면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̇</mo></mover><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\dot x_1=x_2</annotation></semantics></math>이고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̇</mo></mover><mn>2</mn></msub><mo>=</mo><mi>−</mi><mfrac><mi>k</mi><mi>M</mi></mfrac><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><mfrac><mi>b</mi><mi>M</mi></mfrac><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mfrac><mi>u</mi><mi>M</mi></mfrac></mrow><annotation encoding="application/x-tex">\dot x_2=-\frac{k}{M}x_1-\frac{b}{M}x_2+\frac{u}{M}</annotation></semantics></math>입니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 상태는 다음 순간을 계산할 정보 보충 설명
 </summary>
-<p>상태와 출력은 같지 않을 수 있습니다. 위치를 출력으로 선택하면 C=[1 0]이고 속도를 출력으로 고르면 C=[0 1]입니다. 시스템 내부 동역학 A는 그대로입니다.</p>
+<p>상태와 출력은 같지 않을 수 있습니다. 위치를 출력으로 선택하면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>1</mn><mo>,</mo><mn>0</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">C=[1,0]</annotation></semantics></math>이고 속도를 출력으로 고르면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>C</mi><mo>=</mo><mo stretchy="false" form="prefix">[</mo><mn>0</mn><mo>,</mo><mn>1</mn><mo stretchy="false" form="postfix">]</mo></mrow><annotation encoding="application/x-tex">C=[0,1]</annotation></semantics></math>입니다. 시스템 내부 동역학 A는 그대로입니다.</p>
 </details>
 </section>
 <section id="abcd의-크기-확인" class="level2">
 <h2 class="anchored" data-anchor-id="abcd의-크기-확인">2. A·B·C·D의 크기 확인</h2>
-<p>상태가 n개, 입력이 m개, 출력이 p개이면 A는 n×n, B는 n×m, C는 p×n, D는 p×m입니다. x′=Ax+Bu와 y=Cx+Du에서 각 곱셈 결과의 크기를 대조하세요.</p>
+<p>상태가 n개, 입력이 m개, 출력이 p개이면 A는 n×n, B는 n×m, C는 p×n, D는 p×m입니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>𝐱</mi><mo accent="true">̇</mo></mover><mo>=</mo><mi>A</mi><mi>𝐱</mi><mo>+</mo><mi>B</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">\dot{\mathbf x}=A\mathbf x+B u</annotation></semantics></math>와 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mi>C</mi><mi>𝐱</mi><mo>+</mo><mi>D</mi><mi>u</mi></mrow><annotation encoding="application/x-tex">y=C\mathbf x+D u</annotation></semantics></math>에서 각 곱셈 결과의 크기를 대조하세요.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · A·B·C·D의 크기 확인 보충 설명

@@ -2263,7 +2263,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week09_Convolution.ipynb" download="AI_Applications_Week09_Convolution.ipynb">실습 파일 다운로드</a></p>
-<p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
+<p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
 <section id="filter-계산부터-layer의-역할까지" class="level2">
 <h2 class="anchored" data-anchor-id="filter-계산부터-layer의-역할까지">Filter 계산부터 Layer의 역할까지</h2>
@@ -2281,7 +2281,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="convolution과-pooling의-크기-계산" class="level2">
 <h2 class="anchored" data-anchor-id="convolution과-pooling의-크기-계산">2. Convolution과 pooling의 크기 계산</h2>
-<p>dilation=1일 때 출력 길이는 floor((입력+2×padding−kernel)/stride)+1입니다. kernel=3, padding=1, stride=1이면 공간 크기가 유지됩니다. 2×2 pooling은 공간 정보를 요약합니다.</p>
+<p>dilation=1일 때 출력 길이는 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mo stretchy="true" form="prefix">⌊</mo><mfrac><mrow><msub><mi>L</mi><mrow><mi mathvariant="normal">i</mi><mi mathvariant="normal">n</mi></mrow></msub><mo>+</mo><mn>2</mn><mi>p</mi><mo>−</mo><mi>k</mi></mrow><mi>s</mi></mfrac><mo stretchy="true" form="postfix">⌋</mo></mrow><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">\left\lfloor\frac{L_{\mathrm{in}}+2p-k}{s}\right\rfloor+1</annotation></semantics></math>입니다. kernel=3, padding=1, stride=1이면 공간 크기가 유지됩니다. 2×2 pooling은 공간 정보를 요약합니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · Convolution과 pooling의 크기 계산 보충 설명

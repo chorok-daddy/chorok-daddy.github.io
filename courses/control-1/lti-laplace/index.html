@@ -2262,21 +2262,21 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </div>
 <p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week03_LtiLaplace.mlx" download="Control_Engineering_1_Week03_LtiLaplace.mlx">실습 파일 다운로드</a></p>
-<p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
+<p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
 <section id="linearity선형성은-두-조건의-결합" class="level2">
 <h2 class="anchored" data-anchor-id="linearity선형성은-두-조건의-결합">1. Linearity(선형성)은 두 조건의 결합</h2>
-<p>입력을 더했을 때 출력도 더해지고, 입력을 a배 하면 출력도 a배가 되어야 선형입니다. y=3x는 선형이지만 y=3x+1은 입력 0에도 출력 1이므로 선형이 아닙니다.</p>
+<p>입력을 더했을 때 출력도 더해지고, 입력을 a배 하면 출력도 a배가 되어야 선형입니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3</mn><mi>x</mi></mrow><annotation encoding="application/x-tex">y=3x</annotation></semantics></math>는 선형이지만 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3</mn><mi>x</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">y=3x+1</annotation></semantics></math>은 입력 0에도 출력 1이므로 선형이 아닙니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · Linearity은 두 조건의 결합 보충 설명
 </summary>
-<p>y=x²은 2를 입력했을 때 4이지만 1을 두 번 따로 입력한 출력의 합은 2입니다. 한 반례로 비선형을 보일 수 있지만 몇 개의 수치 예만으로 모든 입력에 대해 선형임을 증명할 수는 없습니다.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">y=x^2</annotation></semantics></math>은 2를 입력했을 때 4이지만 1을 두 번 따로 입력한 출력의 합은 2입니다. 한 반례로 비선형을 보일 수 있지만 몇 개의 수치 예만으로 모든 입력에 대해 선형임을 증명할 수는 없습니다.</p>
 </details>
 </section>
 <section id="시간-이동과-시스템-변화-구분" class="level2">
 <h2 class="anchored" data-anchor-id="시간-이동과-시스템-변화-구분">2. 시간 이동과 시스템 변화 구분</h2>
-<p>Time Invariance(시불변성)은 같은 입력을 늦게 넣으면 출력도 그만큼 늦게 나오는 성질입니다. y=3x(t)는 시불변이고 y=cos(t)x(t)는 입력 시점에 따라 곱해지는 값이 달라져 시변입니다.</p>
+<p>Time Invariance(Time Invariance)은 같은 입력을 늦게 넣으면 출력도 그만큼 늦게 나오는 성질입니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>3</mn><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y=3x(t)</annotation></semantics></math>는 Time-invariant이고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mrow><mi mathvariant="normal">cos</mi><mo>&#8289;</mo></mrow><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mi>x</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">y=\cos(t)x(t)</annotation></semantics></math>는 입력 시점에 따라 곱해지는 값이 달라져 Time-varying입니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 시간 이동과 시스템 변화 구분 보충 설명
@@ -2286,7 +2286,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section id="근사는-operating-point동작점-근처에서" class="level2">
 <h2 class="anchored" data-anchor-id="근사는-operating-point동작점-근처에서">3. 근사는 Operating Point(동작점) 근처에서</h2>
-<p>sin(x)≈x는 라디안으로 측정한 x가 0 근처일 때의 근사입니다. Operating Point <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math> 주변에서는 f(x)≈f(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math>)+f′(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math>)(x−<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math>)로 씁니다. 오차를 그래프로 확인하면 범위를 판단하기 쉽습니다.</p>
+<p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">sin</mi><mo>&#8289;</mo></mrow><mi>x</mi><mo>≈</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\sin x\approx x</annotation></semantics></math>는 라디안으로 측정한 x가 0 근처일 때의 근사입니다. Operating Point <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math> 주변에서는 f(x)≈f(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math>)+f′(<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math>)(x−<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>𝐱</mi><mn>0</mn></msub><annotation encoding="application/x-tex">\mathbf x_0</annotation></semantics></math>)로 씁니다. 오차를 그래프로 확인하면 범위를 판단하기 쉽습니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 근사는 Operating Point 근처에서 보충 설명
@@ -2309,7 +2309,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ul>
 <li><strong>Linearity 반례:</strong> 3x, x², 3x+1, cos(t)x, dx/dt의 Linearity와 Time Invariance를 각각 판별하고 이유를 적으세요.</li>
 <li><strong>Linear Approximation:</strong> |sin(x)−x|≤0.01을 만족하는 0 주변 범위를 코드로 조사하세요. 0.1,0.5,1 rad의 오차를 표로 비교하세요.</li>
-<li><strong>Laplace Transform:</strong> exp(−2t), sin(4t)의 Transform·Inverse를 확인하고 x″+4x′+3x=6u(t), 초기조건이 모두 0일 때의 해를 구하세요. 얻은 해를 원래 식에 대입해 검증하세요. Toolbox가 없으면 X(s)=6/[s(s+1)(s+3)]을 A/s+B/(s+1)+C/(s+3)으로 분해하여 계수를 구한 뒤 exp 형태의 해와 도함수를 직접 작성해 검증하세요.</li>
+<li><strong>Laplace Transform:</strong> exp(−2t), sin(4t)의 Transform·Inverse를 확인하고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>x</mi><mo accent="true">̈</mo></mover><mo>+</mo><mn>4</mn><mover><mi>x</mi><mo accent="true">̇</mo></mover><mo>+</mo><mn>3</mn><mi>x</mi><mo>=</mo><mn>6</mn><mi>u</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">\ddot x+4\dot x+3x=6u(t)</annotation></semantics></math>, 초기조건이 모두 0일 때의 해를 구하세요. 얻은 해를 원래 식에 대입해 검증하세요. Toolbox가 없으면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>X</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mn>6</mn><mrow><mi>s</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>+</mo><mn>1</mn><mo stretchy="false" form="postfix">)</mo><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo>+</mo><mn>3</mn><mo stretchy="false" form="postfix">)</mo></mrow></mfrac></mrow><annotation encoding="application/x-tex">X(s)=\frac6{s(s+1)(s+3)}</annotation></semantics></math>을 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mi>A</mi><mi>s</mi></mfrac><mo>+</mo><mfrac><mi>B</mi><mrow><mi>s</mi><mo>+</mo><mn>1</mn></mrow></mfrac><mo>+</mo><mfrac><mi>C</mi><mrow><mi>s</mi><mo>+</mo><mn>3</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac As+\frac B{s+1}+\frac C{s+3}</annotation></semantics></math>으로 분해하여 계수를 구한 뒤 exp 형태의 해와 도함수를 직접 작성해 검증하세요.</li>
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
