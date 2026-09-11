@@ -2266,12 +2266,13 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
 <section id="지금-상태에서-다음-상태로" class="level2">
 <h2 class="anchored" data-anchor-id="지금-상태에서-다음-상태로">1. 지금 상태에서 다음 상태로</h2>
-<p>Input이 없으면 x(t)=Φ(t)x(0)입니다. Φ(t)=exp(At)는 현재 State를 시간 t만큼 이동시키는 Matrix입니다. A=[0 1;−2 −3]에서 두 State를 위치와 속도로 두고 초기 상태 [1;0]을 적용해 보세요.</p>
+<p>Input이 없으면 x(t)=Φ(t)x(0)입니다. Φ(t)=e<sup>At</sup>는 초기 State로부터 시간 t가 지난 뒤의 State를 구하는 State Transition Matrix입니다. A=[0 1;−2 −3]에서 두 State를 위치와 속도로 두고 초기 상태 [1;0]을 적용해 보세요.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 지금 상태에서 다음 상태로 보충 설명
 </summary>
-<p><code>expm(A*t)</code>는 State의 시간 변화를 계산하는 Matrix Exponential입니다. <code>exp(A*t)</code>는 행렬의 각 숫자에 지수함수를 따로 적용합니다. 2×2 행렬 A에 대해 <code>expm(A*0)</code>은 대각선만 1인 Identity Matrix, <code>exp(A*0)</code>은 모든 원소가 1인 행렬인지 직접 확인해 보세요.</p>
+<p>수식의 e<sup>At</sup>를 MATLAB으로 계산할 때는 <code>expm(A*t)</code>를 사용합니다. 아직 시간이 지나지 않은 t=0에서는 처음 State가 그대로 남아야 하므로 Φ(0)은 Identity Matrix(단위행렬)입니다. 아래 실습 코드는 <code>expm(A*0)</code>이 이 조건을 만족하는지 확인합니다.</p>
+<p>이름이 비슷한 <code>exp</code>는 행렬의 각 원소에 지수함수를 따로 적용합니다. 따라서 2×2 영행렬에 <code>exp</code>를 적용하면 모든 원소가 1이 됩니다. 이것은 처음 State를 그대로 유지하는 Identity Matrix와 다르므로, 이 실습에서 <code>expm</code> 대신 사용할 수 없습니다.</p>
 </details>
 </section>
 <section id="짧은-시간-이동-두-번" class="level2">

@@ -2237,7 +2237,6 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#matlab-시험-준비" id="toc-matlab-시험-준비" class="nav-link" data-scroll-target="#matlab-시험-준비">MATLAB 시험 준비</a>
   <ul class="collapse">
   <li><a href="#데이터를-처리하고-모델-실행하기" id="toc-데이터를-처리하고-모델-실행하기" class="nav-link" data-scroll-target="#데이터를-처리하고-모델-실행하기">데이터를 처리하고 모델 실행하기</a></li>
-  <li><a href="#state의-시간-변화를-계산하기" id="toc-state의-시간-변화를-계산하기" class="nav-link" data-scroll-target="#state의-시간-변화를-계산하기">State의 시간 변화를 계산하기</a></li>
   <li><a href="#조건을-바꾸어-반복-실행하기" id="toc-조건을-바꾸어-반복-실행하기" class="nav-link" data-scroll-target="#조건을-바꾸어-반복-실행하기">조건을 바꾸어 반복 실행하기</a></li>
   </ul></li>
   <li><a href="#시험-주차의-자료" id="toc-시험-주차의-자료" class="nav-link" data-scroll-target="#시험-주차의-자료">시험 주차의 자료</a></li>
@@ -2298,11 +2297,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <section id="데이터를-처리하고-모델-실행하기" class="level3">
 <h3 class="anchored" data-anchor-id="데이터를-처리하고-모델-실행하기">데이터를 처리하고 모델 실행하기</h3>
 <p>배열에서 조건에 맞는 값을 고르고, 평균이나 최댓값을 구해 보세요. 그래프에는 축 이름과 단위를 표시하고, 수치 적분 결과는 손으로 구할 수 있는 값과 비교합니다.</p>
-<p>물리 모델의 계수를 바꿔 A, B, C, D를 직접 만들고 <code>ss</code>로 모델을 구성하세요. <code>tf</code>로 표현을 바꾼 뒤에도 같은 입력에 대한 출력이 일치하는지 확인합니다. <code>expm(A*t)</code>로 초기 위치·속도에 따른 변화를 계산하는 연습도 하세요. Laplace Transform으로 구한 해는 처음 조건을 만족하는지, 원래 미분방정식에 대입했을 때 맞는지 확인합니다.</p>
-</section>
-<section id="state의-시간-변화를-계산하기" class="level3">
-<h3 class="anchored" data-anchor-id="state의-시간-변화를-계산하기">State의 시간 변화를 계산하기</h3>
-<p>MATLAB의 <code>expm(A*t)</code>는 상태가 시간 t 동안 어떻게 변하는지 계산할 때 사용하는 Matrix Exponential입니다. <code>exp(A*t)</code>는 행렬의 각 숫자에 지수함수를 따로 적용하므로 다른 계산입니다. 예를 들어 2×2 행렬 A에서 <code>expm(A*0)</code>은 대각선만 1인 Identity Matrix이고, <code>exp(A*0)</code>은 모든 원소가 1인 행렬입니다.</p>
+<p>물리 모델의 계수를 바꿔 A, B, C, D를 직접 만들고 <code>ss</code>로 모델을 구성하세요. <code>tf</code>로 표현을 바꾼 뒤에도 같은 입력에 대한 출력이 일치하는지 확인합니다. Laplace Transform으로 구한 해는 처음 조건을 만족하는지, 원래 미분방정식에 대입했을 때 맞는지 확인합니다.</p>
 </section>
 <section id="조건을-바꾸어-반복-실행하기" class="level3">
 <h3 class="anchored" data-anchor-id="조건을-바꾸어-반복-실행하기">조건을 바꾸어 반복 실행하기</h3>
