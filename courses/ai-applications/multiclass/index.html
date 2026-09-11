@@ -2226,7 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#영상에서-실습으로-binary에서-multiclass로-확장하기" id="toc-영상에서-실습으로-binary에서-multiclass로-확장하기" class="nav-link active" data-scroll-target="#영상에서-실습으로-binary에서-multiclass로-확장하기">영상에서 실습으로 · Binary에서 Multiclass로 확장하기</a></li>
+  <li><a href="#binary에서-multiclass로-확장하기" id="toc-binary에서-multiclass로-확장하기" class="nav-link active" data-scroll-target="#binary에서-multiclass로-확장하기">Binary에서 Multiclass로 확장하기</a></li>
   <li><a href="#출력-하나로는-부족한-이유" id="toc-출력-하나로는-부족한-이유" class="nav-link" data-scroll-target="#출력-하나로는-부족한-이유">1. 출력 하나로는 부족한 이유</a></li>
   <li><a href="#점수에서-확률과-판정으로" id="toc-점수에서-확률과-판정으로" class="nav-link" data-scroll-target="#점수에서-확률과-판정으로">2. 점수에서 확률과 판정으로</a></li>
   <li><a href="#loss손실에는-logit을-넣기" id="toc-loss손실에는-logit을-넣기" class="nav-link" data-scroll-target="#loss손실에는-logit을-넣기">3. Loss(손실)에는 logit을 넣기</a></li>
@@ -2265,9 +2265,9 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week08_Multiclass.ipynb" download="AI_Applications_Week08_Multiclass.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="영상에서-실습으로-binary에서-multiclass로-확장하기" class="level2">
-<h2 class="anchored" data-anchor-id="영상에서-실습으로-binary에서-multiclass로-확장하기">영상에서 실습으로 · Binary에서 Multiclass로 확장하기</h2>
-<p>7주차는 점수 하나에서 두 Class를 판정했습니다. 이번에는 C개 Class마다 점수 하나씩 만들므로 출력이 <code>(N,C)</code>가 됩니다. 예를 들어 Logit <code>[1,2,4]</code>의 가장 큰 값은 Class Index 2입니다. 정답이 2일 때 학습용 Label은 숫자 하나이며, Model 출력 세 개와 역할이 다릅니다. 영상의 적은 특징 예제에서 CSV의 특징 16개로 확장하되 학습 순서는 유지합니다.</p>
+<section id="binary에서-multiclass로-확장하기" class="level2">
+<h2 class="anchored" data-anchor-id="binary에서-multiclass로-확장하기">Binary에서 Multiclass로 확장하기</h2>
+<p>7주차는 점수 하나에서 두 Class를 판정했습니다. 이번에는 C개 Class마다 점수 하나씩 만들므로 출력이 <code>(N,C)</code>가 됩니다. 예를 들어 Logit <code>[1,2,4]</code>의 가장 큰 값은 Class Index 2입니다. 정답이 2일 때 학습용 Label은 숫자 하나이며, Model 출력 세 개와 역할이 다릅니다. 이번 CSV에는 표본마다 특징이 16개 있으므로 입력 shape는 <code>(N,16)</code>입니다. 모델은 이 특징들을 이용해 Class별 점수를 계산합니다.</p>
 </section>
 <section id="출력-하나로는-부족한-이유" class="level2">
 <h2 class="anchored" data-anchor-id="출력-하나로는-부족한-이유">1. 출력 하나로는 부족한 이유</h2>

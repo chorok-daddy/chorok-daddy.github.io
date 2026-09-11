@@ -2261,13 +2261,14 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#영상의-흐름을-지금-코드에서-찾기" id="toc-영상의-흐름을-지금-코드에서-찾기" class="nav-link active" data-scroll-target="#영상의-흐름을-지금-코드에서-찾기">1. 영상의 흐름을 지금 코드에서 찾기</a></li>
+  <li><a href="#문장의-감정을-분류하는-과정" id="toc-문장의-감정을-분류하는-과정" class="nav-link active" data-scroll-target="#문장의-감정을-분류하는-과정">1. 문장의 감정을 분류하는 과정</a></li>
   <li><a href="#주차와-무엇이-달라질까" id="toc-주차와-무엇이-달라질까" class="nav-link" data-scroll-target="#주차와-무엇이-달라질까">2. 12·13주차와 무엇이 달라질까?</a></li>
   <li><a href="#한-문장을-index로-바꾸기" id="toc-한-문장을-index로-바꾸기" class="nav-link" data-scroll-target="#한-문장을-index로-바꾸기">3. 한 문장을 Index로 바꾸기</a></li>
   <li><a href="#embedding은-단어-번호로-벡터를-찾는다" id="toc-embedding은-단어-번호로-벡터를-찾는다" class="nav-link" data-scroll-target="#embedding은-단어-번호로-벡터를-찾는다">4. Embedding은 단어 번호로 벡터를 찾는다</a></li>
   <li><a href="#pad를-빼고-문장-벡터-만들기" id="toc-pad를-빼고-문장-벡터-만들기" class="nav-link" data-scroll-target="#pad를-빼고-문장-벡터-만들기">5. PAD를 빼고 문장 벡터 만들기</a></li>
   <li><a href="#문장-벡터에서-감정-판정까지" id="toc-문장-벡터에서-감정-판정까지" class="nav-link" data-scroll-target="#문장-벡터에서-감정-판정까지">6. 문장 벡터에서 감정 판정까지</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
+  <li><a href="#전처리-도구가-바뀌면-무엇을-확인할까" id="toc-전처리-도구가-바뀌면-무엇을-확인할까" class="nav-link" data-scroll-target="#전처리-도구가-바뀌면-무엇을-확인할까">전처리 도구가 바뀌면 무엇을 확인할까?</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">스스로 점검하기</a></li>
   </ul>
 </nav>
@@ -2301,9 +2302,9 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week14_TextClassification.ipynb" download="AI_Applications_Week14_TextClassification.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="영상의-흐름을-지금-코드에서-찾기" class="level2">
-<h2 class="anchored" data-anchor-id="영상의-흐름을-지금-코드에서-찾기">1. 영상의 흐름을 지금 코드에서 찾기</h2>
-<p>영상의 <strong>문장 → 숫자 표현 → Embedding → 문장을 대표하는 벡터 → 분류</strong>라는 흐름은 그대로 사용합니다. 이번 Notebook에서는 각 단계의 값을 직접 볼 수 있도록 Python과 PyTorch로 구현합니다. 외부 데이터 대신 짧은 영어 Review 12개를 사용하며, 정답은 <code>0: negative</code>, <code>1: neutral</code>, <code>2: positive</code>입니다.</p>
+<section id="문장의-감정을-분류하는-과정" class="level2">
+<h2 class="anchored" data-anchor-id="문장의-감정을-분류하는-과정">1. 문장의 감정을 분류하는 과정</h2>
+<p>문장의 감정을 분류하려면 먼저 단어를 숫자로 표현하고, 단어들의 정보를 모아 문장 전체를 나타내야 합니다. <strong>문장 → Token과 Index → Embedding → 문장 벡터 → 감정 분류</strong> 순서로 처리합니다. 짧은 영어 Review 12개로 각 단계의 입력과 출력을 확인하며, 정답은 <code>0: negative</code>, <code>1: neutral</code>, <code>2: positive</code>입니다.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -2312,8 +2313,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </colgroup>
 <thead>
 <tr class="header">
-<th>영상에서 본 역할</th>
-<th>이번 Notebook에서 찾을 부분</th>
+<th>처리 단계</th>
+<th>사용하는 코드</th>
 <th>확인할 결과</th>
 </tr>
 </thead>
@@ -2348,10 +2349,11 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>N은 문장 수, S는 Batch에서 맞춘 문장 길이, E는 단어 벡터의 크기입니다. 이번에는 E=16을 사용합니다. 표의 각 단계는 아래 설명과 Notebook의 실행 예로 확인할 수 있습니다.</p>
 <details class="explain">
 <summary>
-눌러 펼쳐보기 · 영상과 라이브러리 이름이 다르다면
+눌러 펼쳐보기 · IMDB 예제에서 배운 개념과 이번 실습
 </summary>
-<p>과거 예제의 데이터 로딩·전처리 함수와 지금 코드의 함수 이름이 달라도, 단어를 숫자로 바꾸고 문장 단위로 분류하는 목적은 같습니다. 이번 필수 실습에는 <code>torchtext</code>나 Hugging Face 로그인·모델 다운로드가 필요하지 않습니다. TorchText는 개발이 종료되었으므로, 예전 코드를 실행하기 위해 별도로 설치할 필요도 없습니다. <a href="https://github.com/pytorch/text">TorchText 공식 안내</a></p>
-<p>사전학습 모델을 불러와 추론하는 방법은 별도의 확장입니다. 여기서는 Embedding과 분류기의 Parameter를 이 예제 데이터로 처음부터 학습합니다. 단순한 Mean Pooling이 최신 언어 모델이라는 뜻은 아닙니다. 전처리와 문장 분류의 기본 구조를 직접 확인하기 위한 모델입니다.</p>
+<p>강의 영상의 IMDB Review Classification은 영화 리뷰처럼 길이가 다른 문장을 받아, 문장 전체에 Label 하나를 붙이는 문제를 보여줍니다. 여기서 <strong>Digitalize는 글을 계산 가능한 번호로 바꾸는 과정</strong>, <strong>Vocabulary는 단어와 번호의 대응표</strong>, <strong>Embedding은 그 번호로 학습 가능한 벡터를 찾는 Lookup Table</strong>입니다. 사용하는 도구가 달라져도 문장을 신경망에 넣으려면 필요한 역할들입니다.</p>
+<p>Text 처리 도구는 Dataset 읽기, Tokenization, Vocabulary 생성처럼 여러 실험에서 반복되는 작업을 묶어 제공해 왔습니다. 이런 역할을 맡던 TorchText는 개발이 종료되어, 예전 예제의 패키지 조합을 현재 환경에서 그대로 사용하는 데 제약이 있습니다. 이번에는 Python의 문자열 처리와 사전으로 전처리를 작성해, 각 단계의 결과를 직접 확인합니다. <a href="https://github.com/pytorch/text">TorchText 공식 안내</a></p>
+<p>실습 데이터도 짧은 Review 12개와 세 감정 Label로 줄였습니다. 문장 길이와 단어를 직접 바꾸며 Token·PAD·예측이 어떻게 달라지는지 살펴보기 위해서입니다. IMDB처럼 긴 리뷰를 다룰 때도 이 과정을 바탕으로 데이터 처리와 모델을 확장할 수 있습니다. Mean Pooling은 단어 벡터에서 문장 벡터가 만들어지는 과정을 보기 위해 선택한 단순한 모델입니다. 라이브러리의 지원 여부와 별개로, 학습 목적에 맞게 데이터와 모델의 복잡도를 정한 것입니다.</p>
 </details>
 </section>
 <section id="주차와-무엇이-달라질까" class="level2">
@@ -2388,12 +2390,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </tr>
 <tr class="even">
 <td>문맥을 처리하는 방법</td>
-<td>RNN/LSTM이 순서대로 처리</td>
+<td>RNN·LSTM·GRU가 순서대로 처리</td>
 <td>단어 벡터의 평균으로 문장 요약</td>
 </tr>
 </tbody>
 </table>
-<p>이번 모델에는 RNN/LSTM이 없습니다. <strong>문장 분류라는 문제</strong>와 <strong>그 문제를 푸는 모델 구조</strong>는 구별해야 합니다. RNN/LSTM으로도 문장 분류를 할 수 있지만, 여기서는 Mean Pooling으로 문장당 출력 하나를 만드는 과정을 먼저 확인합니다.</p>
+<p>RNN·LSTM·GRU는 단어를 순서대로 읽으면서 State에 문맥을 모을 수 있습니다. Mean Pooling은 각 단어의 벡터를 평균 내어 문장 벡터 하나를 만듭니다. 두 방식 모두 문장 분류에 사용할 수 있으며, 이번에는 계산 과정을 쉽게 확인할 수 있는 Mean Pooling으로 시작합니다. 이후 단어 순서를 바꿔 보면 이 단순화로 어떤 정보가 사라지는지도 알 수 있습니다.</p>
 </section>
 <section id="한-문장을-index로-바꾸기" class="level2">
 <h2 class="anchored" data-anchor-id="한-문장을-index로-바꾸기">3. 한 문장을 Index로 바꾸기</h2>
@@ -2452,7 +2454,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <section id="embedding은-단어-번호로-벡터를-찾는다" class="level2">
 <h2 class="anchored" data-anchor-id="embedding은-단어-번호로-벡터를-찾는다">4. Embedding은 단어 번호로 벡터를 찾는다</h2>
 <p><code>nn.Embedding(len(vocab),16)</code>은 단어마다 길이 16의 벡터를 저장한 표입니다. Index Tensor <code>(N,S)</code>를 넣으면 해당 행을 찾아 <code>(N,S,16)</code>을 돌려줍니다. Index에는 정수형 <code>torch.long</code>을 사용합니다.</p>
-<p>12·13주차의 One-hot은 문자 위치 하나만 1인 고정된 표현이었습니다. 이번 Embedding 벡터는 처음에는 초기값으로 시작하며, Loss를 줄이는 과정에서 분류기와 함께 학습됩니다. <code>nn.Embedding</code>을 만들었다는 사실만으로 단어의 의미를 이미 알고 있는 것은 아닙니다.</p>
+<p>12·13주차의 One-hot은 문자 위치 하나만 1인 고정된 표현이었습니다. 단어 종류가 많아지면 One-hot의 길이도 그만큼 늘어납니다. Embedding은 단어마다 정해진 길이의 벡터를 학습해 사용할 수 있게 합니다. 단어 번호를 곱셈에 사용하는 대신, 그 번호에 해당하는 행을 꺼내는 이유입니다. 이번 Embedding 벡터는 처음에는 초기값으로 시작하며, Loss를 줄이는 과정에서 분류기와 함께 학습됩니다. <code>nn.Embedding</code>을 만들었다는 사실만으로 단어의 의미를 이미 알고 있는 것은 아닙니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 같은 단어는 같은 벡터일까?
@@ -2495,6 +2497,11 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <li><strong>문장 벡터:</strong> 같은 문장을 단독으로 처리할 때와 다른 길이의 문장과 묶을 때, Mask 적용 전후 평균을 비교하세요. 단어 순서를 바꾼 두 문장의 Logit도 비교하세요.</li>
 <li><strong>예측과 해석:</strong> 학습 사전의 단어로 긍정·중립·부정 문장을 하나씩 작성하고 의도한 감정·예측·사용한 Token을 기록하세요. 어긋난 결과가 있어도 단어를 계속 바꿔 정답만 만들 필요는 없습니다. 원인을 설명하세요.</li>
 </ul>
+</section>
+<section id="전처리-도구가-바뀌면-무엇을-확인할까" class="level2">
+<h2 class="anchored" data-anchor-id="전처리-도구가-바뀌면-무엇을-확인할까">전처리 도구가 바뀌면 무엇을 확인할까?</h2>
+<p>함수 이름보다 역할을 기준으로 코드를 읽어 보세요. 새로운 Tokenizer를 사용한다면 <code>great battery!</code>를 어떤 Token으로 나누는지 먼저 확인합니다. Vocabulary가 달라지면 PAD·UNK 번호와 Embedding의 행 수를 확인하고, 모델 출력이 여전히 문장별 Class 점수인지 점검합니다.</p>
+<p>구현 도구가 바뀌어도 <strong>문장을 계산 가능한 표현으로 바꾸고, 그 표현으로 Label을 예측한다</strong>는 핵심은 남습니다. 새 API를 찾는 것에 더해, 그 API가 입력을 어떻게 바꾸는지 설명하고 결과를 확인할 수 있어야 합니다. 이번 실습에서 Token·Index·shape를 단계마다 출력하는 이유도 여기에 있습니다.</p>
 </section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>

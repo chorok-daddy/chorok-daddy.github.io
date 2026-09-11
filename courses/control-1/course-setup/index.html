@@ -2226,7 +2226,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#목표와-실제-출력을-비교하기" id="toc-목표와-실제-출력을-비교하기" class="nav-link active" data-scroll-target="#목표와-실제-출력을-비교하기">1. 목표와 실제 출력을 비교하기</a></li>
+  <li><a href="#도구가-바뀌어도-모델과-응답을-읽기" id="toc-도구가-바뀌어도-모델과-응답을-읽기" class="nav-link active" data-scroll-target="#도구가-바뀌어도-모델과-응답을-읽기">도구가 바뀌어도 모델과 응답을 읽기</a></li>
+  <li><a href="#목표와-실제-출력을-비교하기" id="toc-목표와-실제-출력을-비교하기" class="nav-link" data-scroll-target="#목표와-실제-출력을-비교하기">1. 목표와 실제 출력을 비교하기</a></li>
   <li><a href="#물리-시스템에서-모델로" id="toc-물리-시스템에서-모델로" class="nav-link" data-scroll-target="#물리-시스템에서-모델로">2. 물리 시스템에서 모델로</a></li>
   <li><a href="#matlab-online에서-내-사본-열기" id="toc-matlab-online에서-내-사본-열기" class="nav-link" data-scroll-target="#matlab-online에서-내-사본-열기">3. MATLAB Online에서 내 사본 열기</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
@@ -2263,6 +2264,11 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week01_CourseSetup.mlx" download="Control_Engineering_1_Week01_CourseSetup.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
+<section id="도구가-바뀌어도-모델과-응답을-읽기" class="level2">
+<h2 class="anchored" data-anchor-id="도구가-바뀌어도-모델과-응답을-읽기">도구가 바뀌어도 모델과 응답을 읽기</h2>
+<p>MATLAB의 함수나 화면이 바뀌어도, 물리 법칙으로 모델을 세우고 입력에 대한 응답을 해석하는 과정은 계속 필요합니다. 강의에서는 식과 모델이 뜻하는 바를 이해하고, 실습에서는 계산 도구로 그 결과를 확인합니다.</p>
+<p>사용법이 달라지면 먼저 <strong>어떤 모델에 어떤 입력을 주고 무엇을 구하려는지</strong> 정리하세요. 공식 문서에서 함수의 입력 조건과 출력의 의미를 확인하고, 손으로 예상할 수 있는 간단한 모델에 적용해 보세요. 함수를 외우는 데서 나아가, 새로운 도구의 결과가 타당한지 판단하는 것이 목표입니다.</p>
+</section>
 <section id="목표와-실제-출력을-비교하기" class="level2">
 <h2 class="anchored" data-anchor-id="목표와-실제-출력을-비교하기">1. 목표와 실제 출력을 비교하기</h2>
 <p>온도를 25도로 유지하려면 현재 온도를 측정하고 목표와 비교해야 합니다. Controller(제어기)는 그 차이에 따라 히터 입력을 바꿉니다. 목표값, Controller, Plant(제어 대상), Sensor(센서)를 구분하는 것이 제어 시스템을 읽는 첫 단계입니다.</p>

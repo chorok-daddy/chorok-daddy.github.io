@@ -2226,7 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#영상에서-실습으로-filter-계산부터-layer의-역할까지" id="toc-영상에서-실습으로-filter-계산부터-layer의-역할까지" class="nav-link active" data-scroll-target="#영상에서-실습으로-filter-계산부터-layer의-역할까지">영상에서 실습으로 · Filter 계산부터 Layer의 역할까지</a></li>
+  <li><a href="#filter-계산부터-layer의-역할까지" id="toc-filter-계산부터-layer의-역할까지" class="nav-link active" data-scroll-target="#filter-계산부터-layer의-역할까지">Filter 계산부터 Layer의 역할까지</a></li>
   <li><a href="#이미지에도-축의-순서가-있다" id="toc-이미지에도-축의-순서가-있다" class="nav-link" data-scroll-target="#이미지에도-축의-순서가-있다">1. 이미지에도 축의 순서가 있다</a></li>
   <li><a href="#convolution과-pooling의-크기-계산" id="toc-convolution과-pooling의-크기-계산" class="nav-link" data-scroll-target="#convolution과-pooling의-크기-계산">2. Convolution과 pooling의 크기 계산</a></li>
   <li><a href="#flatten에서도-batch배치는-보존" id="toc-flatten에서도-batch배치는-보존" class="nav-link" data-scroll-target="#flatten에서도-batch배치는-보존">3. Flatten에서도 Batch(배치)는 보존</a></li>
@@ -2265,8 +2265,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week09_Convolution.ipynb" download="AI_Applications_Week09_Convolution.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="영상에서-실습으로-filter-계산부터-layer의-역할까지" class="level2">
-<h2 class="anchored" data-anchor-id="영상에서-실습으로-filter-계산부터-layer의-역할까지">영상에서 실습으로 · Filter 계산부터 Layer의 역할까지</h2>
+<section id="filter-계산부터-layer의-역할까지" class="level2">
+<h2 class="anchored" data-anchor-id="filter-계산부터-layer의-역할까지">Filter 계산부터 Layer의 역할까지</h2>
 <p>Convolution은 입력의 좁은 영역과 Filter의 같은 위치 값을 곱해 더합니다. 예를 들어 입력 Patch <code>[[1,2],[3,4]]</code>와 Filter <code>[[1,0],[0,-1]]</code>의 결과 한 칸은 −3입니다. 같은 Filter를 이동해 Feature Map을 만들며 Filter 값은 학습됩니다. ReLU는 음수를 0으로 만들고, MaxPool은 영역의 최댓값을 남깁니다. 이번 실습은 이 계산들이 shape를 어떻게 바꾸는지 확인합니다.</p>
 </section>
 <section id="이미지에도-축의-순서가-있다" class="level2">

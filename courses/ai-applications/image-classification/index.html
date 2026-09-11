@@ -2226,7 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#영상에서-실습으로-모델에-데이터를-넣기까지" id="toc-영상에서-실습으로-모델에-데이터를-넣기까지" class="nav-link active" data-scroll-target="#영상에서-실습으로-모델에-데이터를-넣기까지">영상에서 실습으로 · 모델에 데이터를 넣기까지</a></li>
+  <li><a href="#모델에-데이터를-넣기까지" id="toc-모델에-데이터를-넣기까지" class="nav-link active" data-scroll-target="#모델에-데이터를-넣기까지">모델에 데이터를 넣기까지</a></li>
   <li><a href="#데이터-하나를-먼저-살펴보기" id="toc-데이터-하나를-먼저-살펴보기" class="nav-link" data-scroll-target="#데이터-하나를-먼저-살펴보기">1. 데이터 하나를 먼저 살펴보기</a></li>
   <li><a href="#dataloader는-batch배치를-만든다" id="toc-dataloader는-batch배치를-만든다" class="nav-link" data-scroll-target="#dataloader는-batch배치를-만든다">2. DataLoader는 Batch(배치)를 만든다</a></li>
   <li><a href="#학습과-평가는-다른-모드" id="toc-학습과-평가는-다른-모드" class="nav-link" data-scroll-target="#학습과-평가는-다른-모드">3. 학습과 평가는 다른 모드</a></li>
@@ -2265,8 +2265,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week10_ImageClassification.ipynb" download="AI_Applications_Week10_ImageClassification.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="영상에서-실습으로-모델에-데이터를-넣기까지" class="level2">
-<h2 class="anchored" data-anchor-id="영상에서-실습으로-모델에-데이터를-넣기까지">영상에서 실습으로 · 모델에 데이터를 넣기까지</h2>
+<section id="모델에-데이터를-넣기까지" class="level2">
+<h2 class="anchored" data-anchor-id="모델에-데이터를-넣기까지">모델에 데이터를 넣기까지</h2>
 <p>9주차의 CNN에 실제 MNIST 이미지를 넣습니다. <code>Dataset[i]</code>는 이미지 한 장과 Label, <code>DataLoader</code>는 여러 장을 묶은 Batch를 제공합니다. <code>ToTensor()</code>를 거친 흑백 이미지 <code>(1,28,28)</code>가 Batch에서 <code>(N,1,28,28)</code>이 됩니다. 학습과 평가 모두 이 변환을 사용하며 원본 정수 Pixel 배열을 그대로 평가 모델에 넣지 않습니다.</p>
 </section>
 <section id="데이터-하나를-먼저-살펴보기" class="level2">

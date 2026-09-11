@@ -2226,7 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#영상에서-실습으로-python에서-numpy로-넘어가기" id="toc-영상에서-실습으로-python에서-numpy로-넘어가기" class="nav-link active" data-scroll-target="#영상에서-실습으로-python에서-numpy로-넘어가기">영상에서 실습으로 · Python에서 NumPy로 넘어가기</a></li>
+  <li><a href="#python에서-numpy로-넘어가기" id="toc-python에서-numpy로-넘어가기" class="nav-link active" data-scroll-target="#python에서-numpy로-넘어가기">Python에서 NumPy로 넘어가기</a></li>
   <li><a href="#값-하나에서-묶음으로" id="toc-값-하나에서-묶음으로" class="nav-link" data-scroll-target="#값-하나에서-묶음으로">1. 값 하나에서 묶음으로</a></li>
   <li><a href="#선택과-모양-변경" id="toc-선택과-모양-변경" class="nav-link" data-scroll-target="#선택과-모양-변경">2. 선택과 모양 변경</a></li>
   <li><a href="#같은-기호가-다른-계산을-한다" id="toc-같은-기호가-다른-계산을-한다" class="nav-link" data-scroll-target="#같은-기호가-다른-계산을-한다">3. 같은 기호가 다른 계산을 한다</a></li>
@@ -2265,9 +2265,9 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week03_PythonArraysPlots.ipynb" download="AI_Applications_Week03_PythonArraysPlots.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="영상에서-실습으로-python에서-numpy로-넘어가기" class="level2">
-<h2 class="anchored" data-anchor-id="영상에서-실습으로-python에서-numpy로-넘어가기">영상에서 실습으로 · Python에서 NumPy로 넘어가기</h2>
-<p>영상의 list·dict는 값을 묶고, for·if는 하나씩 처리하는 방법입니다. NumPy는 같은 계산을 배열 전체에 적용하게 합니다. <code>scores=[72,85,90]</code>에서 <code>[v for v in scores if v&gt;=80]</code>과 <code>np.array(scores)[np.array(scores)&gt;=80]</code>은 모두 85와 90을 고릅니다. 앞 표현은 하나씩 조건을 검사하고, 뒤 표현은 Boolean Mask를 만듭니다. <code>dict</code>는 <code>{&quot;voltage&quot;:220,&quot;current&quot;:1.5}</code>처럼 이름으로 값을 찾을 때 사용합니다.</p>
+<section id="python에서-numpy로-넘어가기" class="level2">
+<h2 class="anchored" data-anchor-id="python에서-numpy로-넘어가기">Python에서 NumPy로 넘어가기</h2>
+<p>Python의 list·dict는 값을 묶고, for·if는 반복과 조건에 따라 값을 처리할 때 사용합니다. NumPy는 같은 계산을 배열 전체에 적용하게 합니다. <code>scores=[72,85,90]</code>에서 <code>[v for v in scores if v&gt;=80]</code>과 <code>np.array(scores)[np.array(scores)&gt;=80]</code>은 모두 85와 90을 고릅니다. 앞 표현은 하나씩 조건을 검사하고, 뒤 표현은 Boolean Mask를 만듭니다. <code>dict</code>는 <code>{&quot;voltage&quot;:220,&quot;current&quot;:1.5}</code>처럼 이름으로 값을 찾을 때 사용합니다.</p>
 </section>
 <section id="값-하나에서-묶음으로" class="level2">
 <h2 class="anchored" data-anchor-id="값-하나에서-묶음으로">1. 값 하나에서 묶음으로</h2>

@@ -2226,7 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
-  <li><a href="#영상에서-실습으로-영상의-학습-흐름과-코드-대응" id="toc-영상에서-실습으로-영상의-학습-흐름과-코드-대응" class="nav-link active" data-scroll-target="#영상에서-실습으로-영상의-학습-흐름과-코드-대응">영상에서 실습으로 · 영상의 학습 흐름과 코드 대응</a></li>
+  <li><a href="#예측-오차를-줄이는-학습-과정" id="toc-예측-오차를-줄이는-학습-과정" class="nav-link active" data-scroll-target="#예측-오차를-줄이는-학습-과정">예측 오차를 줄이는 학습 과정</a></li>
   <li><a href="#먼저-어떤-직선을-찾는지-정하기" id="toc-먼저-어떤-직선을-찾는지-정하기" class="nav-link" data-scroll-target="#먼저-어떤-직선을-찾는지-정하기">1. 먼저 어떤 직선을 찾는지 정하기</a></li>
   <li><a href="#오차-여러-개를-하나의-loss로" id="toc-오차-여러-개를-하나의-loss로" class="nav-link" data-scroll-target="#오차-여러-개를-하나의-loss로">2. 오차 여러 개를 하나의 Loss로</a></li>
   <li><a href="#gradient로-조금씩-갱신하기" id="toc-gradient로-조금씩-갱신하기" class="nav-link" data-scroll-target="#gradient로-조금씩-갱신하기">3. Gradient로 조금씩 갱신하기</a></li>
@@ -2265,9 +2265,9 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week06_LinearRegression.ipynb" download="AI_Applications_Week06_LinearRegression.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 기준 예제 10분 → 조건 변경·반복 30분 → 오류 수정·해석 15분 → 저장·점검 5분.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
-<section id="영상에서-실습으로-영상의-학습-흐름과-코드-대응" class="level2">
-<h2 class="anchored" data-anchor-id="영상에서-실습으로-영상의-학습-흐름과-코드-대응">영상에서 실습으로 · 영상의 학습 흐름과 코드 대응</h2>
-<p>영상의 Hypothesis는 <code>model(x)</code>로 구하는 예측, Cost는 여기서 MSE Loss입니다. <code>nn.Linear</code>가 Weight와 Bias를 저장하고, SGD가 Gradient의 반대 방향으로 값을 조금씩 바꿉니다. 이번 기본 예제는 Bias를 0으로 고정해 Weight 하나에 집중합니다. Bias를 없앤 것은 모든 Linear Regression의 규칙이 아니라 이 예제의 조건입니다.</p>
+<section id="예측-오차를-줄이는-학습-과정" class="level2">
+<h2 class="anchored" data-anchor-id="예측-오차를-줄이는-학습-과정">예측 오차를 줄이는 학습 과정</h2>
+<p>Hypothesis는 입력으로부터 예측값을 구하는 함수이며, 코드에서는 <code>model(x)</code>로 계산합니다. 예측과 정답 사이의 오차를 나타내는 Cost로 MSE Loss를 사용합니다. <code>nn.Linear</code>가 Weight와 Bias를 저장하고, SGD가 Gradient의 반대 방향으로 값을 조금씩 바꿉니다. 이번 기본 예제는 Bias를 0으로 고정해 Weight 하나에 집중합니다. Bias를 없앤 것은 모든 Linear Regression의 규칙이 아니라 이 예제의 조건입니다.</p>
 </section>
 <section id="먼저-어떤-직선을-찾는지-정하기" class="level2">
 <h2 class="anchored" data-anchor-id="먼저-어떤-직선을-찾는지-정하기">1. 먼저 어떤 직선을 찾는지 정하기</h2>
