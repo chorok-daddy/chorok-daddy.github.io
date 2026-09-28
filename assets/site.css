@@ -24,3 +24,12 @@
 @media print{.opening-digest{break-inside:auto;background:white}.digest-question{break-inside:avoid}.digest-next{display:none}}
 
 .opening-digest .digest-answer ul{margin:.8rem 0 0;padding-left:1.3rem}.opening-digest .digest-answer li{margin:.35rem 0;font-size:1.0625rem;line-height:1.75}
+
+/* Week 04: readable process diagram, including narrow screens. */
+.git-cycle { margin: 1.5rem 0; }
+.git-cycle ol { list-style: none; padding: 0; margin: 0; }
+.git-cycle li { position: relative; padding: 1rem 1.2rem; margin: 0 0 1.5rem; border: 1px solid #b9cbd8; border-left: 4px solid #376780; border-radius: .4rem; background: #f4f8fb; color: #203849; }
+.git-cycle li:not(:last-child)::after { content: "↓"; position: absolute; bottom: -1.5rem; left: 1.2rem; font-size: 1.2rem; line-height: 1.5rem; color: #376780; }
+.git-cycle strong, .git-cycle span { display: block; }
+.git-cycle strong { margin-bottom: .35rem; }
+.git-cycle figcaption { font-size: 1em; line-height: 1.65; color: inherit; }

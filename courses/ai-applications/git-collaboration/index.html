@@ -2225,7 +2225,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">학습 순서</h2>
 
-  <ul>
+  <ul><li><a href="#collaboration-cycle" id="toc-collaboration-cycle" class="nav-link" data-scroll-target="#collaboration-cycle">한 사이클로 보기: 외부 사용자가 실행 안내를 개선한다면</a></li>
   <li><a href="#파일-저장과-commit-구분" id="toc-파일-저장과-commit-구분" class="nav-link active" data-scroll-target="#파일-저장과-commit-구분">1. 파일 저장과 commit 구분</a></li>
   <li><a href="#branch를-만들고-파일-한-곳-수정하기" id="toc-branch를-만들고-파일-한-곳-수정하기" class="nav-link" data-scroll-target="#branch를-만들고-파일-한-곳-수정하기">2. branch를 만들고 파일 한 곳 수정하기</a></li>
   <li><a href="#pr은-변경을-검토하는-요청" id="toc-pr은-변경을-검토하는-요청" class="nav-link" data-scroll-target="#pr은-변경을-검토하는-요청">3. PR은 변경을 검토하는 요청</a></li>
@@ -2264,6 +2264,18 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week04_GitCollaboration.ipynb" download="AI_Applications_Week04_GitCollaboration.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
+<section id="collaboration-cycle" class="level2"><h2>한 사이클로 보기: 외부 사용자가 실행 안내를 개선한다면</h2><p><strong>혼자 작업한다면</strong> main에서 직접 수정하고 Commit으로 이력을 남길 수 있습니다. 작은 팀에서 작업을 충분히 조율할 수 있다면, 친구를 Collaborator로 초대해 저장소 수정 권한을 공유하고 직접 반영하는 방식도 가능합니다. 항상 별도의 검토 요청을 거쳐야 하는 것은 아닙니다.</p>
+<p><strong>그런데 처음 보는 사람이 “설명을 고쳐 드릴게요”라고 제안한다면 어떨까요?</strong> 제안은 받아보고 싶지만, 기본 버전을 바로 바꿀 권한까지 줄 필요는 없습니다. 이때 자신의 사본에서 수정한 내용을 제안하고, 관리자가 검토한 뒤 반영하는 흐름이 유용합니다. 서로 아는 팀이라도 여러 사람이 사용하는 기본 버전에는 같은 검토 절차를 둘 수 있습니다.</p><p>공개된 실습 코드를 처음 사용하다가 README에 <strong>실행 준비 단계가 빠진 것을 발견했습니다.</strong> 나는 이 저장소를 직접 수정할 권한이 없지만, 안내를 보완해 관리자에게 제안하려고 합니다.</p><figure class="git-cycle" aria-label="외부 기여자가 실행 안내의 변경을 제안하고 관리자가 원본에 반영하는 사례">
+<ol>
+<li><strong>1. 원본의 현재 안내를 확인합니다 · main</strong><span>원본 Repository의 기본 Branch인 main에서 빠진 설명을 확인합니다. Repository는 파일과 변경 이력을 보관하는 저장소입니다.</span></li>
+<li><strong>2. 내 작업 공간에서 수정합니다 · Fork·Branch</strong><span>원본을 내 계정의 별도 Repository로 복사하는 Fork를 합니다. 그 사본에서 practice Branch를 만들어 안내를 수정합니다. 원본을 직접 바꿀 권한 없이도 변경을 준비할 수 있습니다.</span></li>
+<li><strong>3. 무엇을 고쳤는지 남깁니다 · Commit</strong><span>“실행 전 준비 단계 추가”라는 설명과 함께 변경을 기록합니다. 나중에 안내가 언제, 왜 바뀌었는지 확인하거나 이전 내용과 비교할 수 있습니다.</span></li>
+<li><strong>4. 실제로 따라 할 수 있는지 검토합니다 · Pull Request(PR)</strong><span>내 사본의 practice에서 만든 변경을 원본의 main에 반영해 달라고 요청합니다. 관리자가 “준비를 어디서 하는지 빠졌네요”라고 하면 같은 Branch에서 보완해 Commit합니다. GitHub에 반영된 추가 변경도 같은 PR에서 검토합니다.</span></li>
+<li><strong>5. 검토한 안내를 함께 사용합니다 · Merge</strong><span>관리자가 내용을 확인하고 원본 main에 Merge하면 다른 사용자도 개선된 안내를 보게 됩니다. 다음 작업 때는 내 사본을 원본의 최신 변경에 맞춘 뒤 새 Branch에서 시작합니다.</span></li>
+</ol>
+<figcaption><strong>직접 수정 권한 없이 변경 준비 → 검토 요청 → 관리자가 원본에 반영.</strong> Branch는 작업을 나누고, Commit은 변경을 남기고, PR은 검토를 모으고, Merge는 검토한 변경을 합칩니다.</figcaption>
+</figure><p>필수 실습은 이 흐름을 단순화해 본인 Repository에서 Branch·Commit·PR·Merge를 경험합니다. 본인이 수정자와 검토자의 역할을 모두 맡으므로 Fork는 필요하지 않습니다. 시간이 남으면 동료 Repository를 Fork해 원본에 PR을 제안하는 과정까지 연결합니다.</p><p><strong>이번 실습의 두 작업 공간:</strong> Colab의 임시 Repository에서는 수정·Commit·Branch를 연습합니다. 이어서 GitHub에 별도의 연습 Repository를 만들어 웹에서 PR과 Merge까지 진행합니다. Colab의 예제가 GitHub에 자동으로 올라가는 것은 아닙니다.</p>
+<details><summary>로컬에서 작업할 때 Push는 어디에 들어가나요?</summary><p>컴퓨터나 Colab에서 만든 Commit을 GitHub에도 보내려면 Push가 필요합니다. 즉, 로컬에서 수정·Commit한 뒤 Push하고, GitHub에서 PR을 만듭니다. 이번 GitHub 단계처럼 웹에서 직접 수정·Commit한 내용은 이미 GitHub에 기록되어 있으므로 별도의 로컬 Push가 필요하지 않습니다.</p></details></section>
 <section id="파일-저장과-commit-구분" class="level2">
 <h2 class="anchored" data-anchor-id="파일-저장과-commit-구분">1. 파일 저장과 commit 구분</h2>
 <p>파일 저장은 현재 내용을 디스크에 쓰는 일입니다. commit은 선택한 변경을 설명과 함께 이력으로 남깁니다. 작업 폴더의 변경을 git status로 확인하고, diff로 내용까지 살핀 뒤 commit하세요.</p>
