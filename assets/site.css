@@ -6,9 +6,7 @@
 
 /* Opening conversations: native details keep the discussion usable without JavaScript. */
 .opening-digest{margin:1.5rem 0 2.5rem;padding:clamp(1rem,3vw,2rem);background:#f2f7f8;border:1px solid #c5dce0;border-top:4px solid #006b80;border-radius:12px}
-.opening-digest .digest-eyebrow{margin:0;color:#38606c;font-size:.95rem;font-weight:650;letter-spacing:.05em}
 .opening-digest h2{margin:.2rem 0 .5rem;font-size:1.7rem;line-height:1.4;color:#18364a}
-.opening-digest .digest-intro{margin:.4rem 0 1.3rem;color:#48606b}
 .opening-digest .digest-question{padding:1.15rem 0;border-top:1px solid #c5dce0}
 .opening-digest h3{margin:0 0 .6rem;font-size:1.2rem;line-height:1.55;word-break:keep-all}
 .opening-digest .digest-number{color:#006b80;font-variant-numeric:tabular-nums;margin-right:.35rem}
@@ -24,3 +22,5 @@
 .opening-digest .digest-next{display:inline-block;margin-top:.6rem;font-weight:600}
 @media(max-width:480px){.opening-digest h2{font-size:1.45rem}.opening-digest h3{font-size:1.1rem}}
 @media print{.opening-digest{break-inside:auto;background:white}.digest-question{break-inside:avoid}.digest-next{display:none}}
+
+.opening-digest .digest-answer ul{margin:.8rem 0 0;padding-left:1.3rem}.opening-digest .digest-answer li{margin:.35rem 0;font-size:1.0625rem;line-height:1.75}
