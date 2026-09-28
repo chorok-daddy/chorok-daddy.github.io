@@ -33,3 +33,5 @@
 .git-cycle strong, .git-cycle span { display: block; }
 .git-cycle strong { margin-bottom: .35rem; }
 .git-cycle figcaption { font-size: 1em; line-height: 1.65; color: inherit; }
+
+.lessons .lesson-title{font-size:1.125rem;font-weight:600;color:var(--ink)}
