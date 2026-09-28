@@ -2226,6 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
+<li><a href="#motion-to-state" id="toc-motion-to-state" class="nav-link" data-scroll-target="#motion-to-state">등가속 운동에서 State Space로</a></li>
   <li><a href="#상태는-다음-순간을-계산할-정보" id="toc-상태는-다음-순간을-계산할-정보" class="nav-link active" data-scroll-target="#상태는-다음-순간을-계산할-정보">1. 상태는 다음 순간을 계산할 정보</a></li>
   <li><a href="#abcd의-크기-확인" id="toc-abcd의-크기-확인" class="nav-link" data-scroll-target="#abcd의-크기-확인">2. A·B·C·D의 크기 확인</a></li>
   <li><a href="#rlc의-연결-구조부터-읽기" id="toc-rlc의-연결-구조부터-읽기" class="nav-link" data-scroll-target="#rlc의-연결-구조부터-읽기">3. RLC의 연결 구조부터 읽기</a></li>
@@ -2264,9 +2265,90 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week05_StateSpaceOne.mlx" download="Control_Engineering_1_Week05_StateSpaceOne.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
+<section id="motion-to-state" class="level2 concept-bridge"><h2>등가속 운동에서 State Space로</h2>
+<p>등가속 운동에서는 현재 위치와 속도, 일정한 가속도를 알면 이후 위치를
+구할 수 있었습니다. 이번에는 스프링과 댐퍼가 있어서 가속도가 운동 중에
+달라지는 경우를 생각합니다.</p>
+<p><strong>같은 위치에 있는 두 물체라도 하나는 정지하고, 다른 하나는
+움직이고 있다면 이후 위치가 다릅니다.</strong> 현재 위치만으로는 미래를
+정할 수 없습니다. 현재 속도도 필요합니다.</p>
+<p>2주차에서 세운 힘의 관계를 가속도에 대해 정리하면 다음과 같습니다.
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>는
+평형점으로부터의 위치,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>는
+속도,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math>는
+가하는 힘입니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mover><mi>y</mi><mo accent="true">̈</mo></mover><mo>=</mo><mi>u</mi><mo>−</mo><mi>b</mi><mover><mi>y</mi><mo accent="true">̇</mo></mover><mo>−</mo><mi>k</mi><mi>y</mi><mspace width="1.0em"></mspace><mo>⇒</mo><mspace width="1.0em"></mspace><mover><mi>y</mi><mo accent="true">̇</mo></mover><mo>=</mo><mi>v</mi><mo>,</mo><mspace width="2.0em"></mspace><mover><mi>v</mi><mo accent="true">̇</mo></mover><mo>=</mo><mfrac><mrow><mi>u</mi><mo>−</mo><mi>b</mi><mi>v</mi><mo>−</mo><mi>k</mi><mi>y</mi></mrow><mi>M</mi></mfrac></mrow><annotation encoding="application/x-tex">M\ddot y=u-b\dot y-ky
+\quad\Longrightarrow\quad
+\dot y=v,\qquad \dot v=\frac{u-bv-ky}{M}</annotation></semantics></math></p>
+<ul>
+<li>첫 식: 현재 속도가 위치의 변화율을 결정합니다.</li>
+<li>둘째 식: 현재 위치·속도와 가하는 힘이 속도의 변화율을
+결정합니다.</li>
+</ul>
+<p>따라서 <strong>모델과 이후 Input이 주어졌을 때, 현재 위치와 속도를
+알면 두 값의 변화를 함께 계산할 수 있습니다.</strong> 이 모델에서는 두
+값을 State로 선택합니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold-italic">𝒙</mi><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>y</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mi>v</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow><mo>,</mo><mspace width="2.0em"></mspace><mover><mi mathvariant="bold-italic">𝒙</mi><mo accent="true">̇</mo></mover><mo>=</mo><mrow><mo stretchy="true" form="prefix">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mi>v</mi></mtd></mtr><mtr><mtd columnalign="center" style="text-align: center"><mo stretchy="false" form="prefix">(</mo><mi>u</mi><mo>−</mo><mi>b</mi><mi>v</mi><mo>−</mo><mi>k</mi><mi>y</mi><mo stretchy="false" form="postfix">)</mo><mi>/</mi><mi>M</mi></mtd></mtr></mtable><mo stretchy="true" form="postfix">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathbf{x}=\begin{bmatrix}y\\v\end{bmatrix},\qquad
+\dot{\mathbf{x}}=\begin{bmatrix}v\\(u-bv-ky)/M\end{bmatrix}</annotation></semantics></math></p>
+<p>위치의 2차 미분방정식을 위치·속도에 관한 1차 미분방정식 두 개로 쓴
+것입니다. 가속도는 이 두 State와 Input으로 계산되므로 별도의 State로
+추가하지 않습니다. 여기서
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>,</mo><mi>b</mi><mo>,</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">M,b,k</annotation></semantics></math>는
+장치의 특성을 나타내는 고정된 Parameter입니다.</p>
+<details>
+<summary>
+위치·속도·가속도 중 무엇을 이미 알고 있나요?
+</summary>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th>조건</th>
+<th>위치를 예측하려면 필요한 현재 정보</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>속도의 값이 미리 알려져 있고 계속 일정</td>
+<td>현재 위치</td>
+</tr>
+<tr>
+<td>가속도의 값이 알려져 있고 일정</td>
+<td>현재 위치와 현재 속도</td>
+</tr>
+<tr>
+<td>이번 스프링·댐퍼 모델과 이후 힘이 주어짐</td>
+<td>현재 위치와 현재 속도. 가속도는 모델로 계산</td>
+</tr>
+</tbody>
+</table>
+<p>단순화는 변화의 관계를 쉽게 만들지만 반드시 State의 개수를 줄이지는
+않습니다. 알려진 등속 운동과 달리, 등가속 운동에서는 현재 속도도 계속
+갱신해야 합니다.</p>
+</details>
+<details>
+<summary>
+실제 공간의 위치와 State Space의 점
+</summary>
+<p>카트는 실제 공간에서 직선 위를 움직입니다. State Space에서는 가로축에
+위치, 세로축에 속도를 놓고 현재 상태를 한 점으로 나타낼 수 있습니다.
+같은 위치라도 속도가 다르면 서로 다른 점입니다. 시간이 흐르면 점이
+곡선을 그리지만, 그 곡선 하나를 따라간다는 사실이 State Space의 차원을
+뜻하지는 않습니다.</p>
+</details>
+<p>실습의 초기 State <code>[0;1]</code>은 기준 위치에서 속도 1로
+시작하는 경우이고, <code>[1;0]</code>은 위치 1에서 정지한 채 시작하는
+경우입니다. 같은 모델이라도 출발 정보가 다르면 응답이 달라집니다. 두
+결과를 비교한 뒤 아래의 행렬 표현으로 연결하세요.</p>
+</section>
 <section id="상태는-다음-순간을-계산할-정보" class="level2">
 <h2 class="anchored" data-anchor-id="상태는-다음-순간을-계산할-정보">1. 상태는 다음 순간을 계산할 정보</h2>
-<p>기계 시스템에서 위치만 알아서는 다음 위치를 예측하기 어렵습니다. 속도도 함께 알아야 합니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mi>y</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mover><mi>y</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">x_1=y,\ x_2=\dot y</annotation></semantics></math>로 놓으면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̇</mo></mover><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\dot x_1=x_2</annotation></semantics></math>이고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̇</mo></mover><mn>2</mn></msub><mo>=</mo><mi>−</mi><mfrac><mi>k</mi><mi>M</mi></mfrac><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><mfrac><mi>b</mi><mi>M</mi></mfrac><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mfrac><mi>u</mi><mi>M</mi></mfrac></mrow><annotation encoding="application/x-tex">\dot x_2=-\frac{k}{M}x_1-\frac{b}{M}x_2+\frac{u}{M}</annotation></semantics></math>입니다.</p>
+<p>위에서 선택한 위치와 속도에 번호를 붙여 행렬로 정리하겠습니다. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo>=</mo><mi>y</mi><mo>,</mo><mspace width="0.222em"></mspace><msub><mi>x</mi><mn>2</mn></msub><mo>=</mo><mover><mi>y</mi><mo accent="true">̇</mo></mover></mrow><annotation encoding="application/x-tex">x_1=y,\ x_2=\dot y</annotation></semantics></math>로 놓으면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̇</mo></mover><mn>1</mn></msub><mo>=</mo><msub><mi>x</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">\dot x_1=x_2</annotation></semantics></math>이고 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mover><mi>x</mi><mo accent="true">̇</mo></mover><mn>2</mn></msub><mo>=</mo><mi>−</mi><mfrac><mi>k</mi><mi>M</mi></mfrac><msub><mi>x</mi><mn>1</mn></msub><mo>−</mo><mfrac><mi>b</mi><mi>M</mi></mfrac><msub><mi>x</mi><mn>2</mn></msub><mo>+</mo><mfrac><mi>u</mi><mi>M</mi></mfrac></mrow><annotation encoding="application/x-tex">\dot x_2=-\frac{k}{M}x_1-\frac{b}{M}x_2+\frac{u}{M}</annotation></semantics></math>입니다.</p>
 <details class="explain">
 <summary>
 눌러 펼쳐보기 · 상태는 다음 순간을 계산할 정보 보충 설명

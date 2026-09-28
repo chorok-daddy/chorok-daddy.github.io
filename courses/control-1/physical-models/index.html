@@ -2263,6 +2263,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul class="collapse">
+<li><a href="#motion-assumptions" id="toc-motion-assumptions" class="nav-link" data-scroll-target="#motion-assumptions">등속·등가속 운동도 가정을 둔 모델입니다</a></li>
   <li><a href="#입력과-출력부터-정하기" id="toc-입력과-출력부터-정하기" class="nav-link active" data-scroll-target="#입력과-출력부터-정하기">1. 입력과 출력부터 정하기</a></li>
   <li><a href="#현재-값만으로-설명할-수-있을까" id="toc-현재-값만으로-설명할-수-있을까" class="nav-link" data-scroll-target="#현재-값만으로-설명할-수-있을까">2. 현재 값만으로 설명할 수 있을까?</a></li>
   <li><a href="#병렬-rlc-전류의-합으로-모델-세우기" id="toc-병렬-rlc-전류의-합으로-모델-세우기" class="nav-link" data-scroll-target="#병렬-rlc-전류의-합으로-모델-세우기">3. 병렬 RLC: 전류의 합으로 모델 세우기</a></li>
@@ -2305,6 +2306,79 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>영상을 본 뒤 <strong>입력·출력 → 물리 법칙 → 모델 → 응답</strong> 순서로 복습하세요. 밑줄 친 용어는 마우스를 올리거나 눌러 뜻을 볼 수 있습니다. 자세한 계산은 필요한 때 펼치면 됩니다.</p>
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online에서 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week02_Physical_Models.mlx" download="Control_Engineering_1_Week02_Physical_Models.mlx">실습 파일 다운로드</a></p>
 <p><strong>처음 실행한다면:</strong> 실습 시작 버튼을 누르고 필요한 경우 MathWorks 계정에 로그인하세요. 저장소 복제가 완료되면 이 실습의 <code>Control_Engineering_1_Week02_Physical_Models.mlx</code>이 열립니다. 본인 작업 공간에서 실행하고 저장하세요. 이 파일은 설명·코드·실행 결과를 함께 보는 <code>.mlx</code> 형식의 Live Script입니다. 현재 실습에는 Control System Toolbox가 필요합니다.</p>
+<section id="motion-assumptions" class="level2 concept-bridge"><h2>등속·등가속 운동도 가정을 둔 모델입니다</h2>
+<p>고등학교에서 사용한 운동 식도 특정 조건에서 움직임을 예측하는
+모델입니다. 일직선 운동에서 위치를
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>y</mi><annotation encoding="application/x-tex">y</annotation></semantics></math>,
+속도를
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>v</mi><annotation encoding="application/x-tex">v</annotation></semantics></math>,
+가속도를
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>로
+쓰겠습니다. 아래 식의
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>y</mi><mn>0</mn></msub><mo>,</mo><msub><mi>v</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">y_0,v_0</annotation></semantics></math>는
+시작 시점의 위치와 속도이며,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>t</mi><annotation encoding="application/x-tex">t</annotation></semantics></math>는
+그때부터 지난 시간입니다.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>운동에 둔 가정</th>
+<th>계산할 수 있는 관계</th>
+<th>생략한 변화</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>속도
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>v</mi><mn>0</mn></msub><annotation encoding="application/x-tex">v_0</annotation></semantics></math>가
+일정</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>y</mi><mn>0</mn></msub><mo>+</mo><msub><mi>v</mi><mn>0</mn></msub><mi>t</mi></mrow><annotation encoding="application/x-tex">y(t)=y_0+v_0t</annotation></semantics></math></td>
+<td>속도의 변화</td>
+</tr>
+<tr>
+<td>가속도
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>가
+일정</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>v</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>v</mi><mn>0</mn></msub><mo>+</mo><mi>a</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">v(t)=v_0+at</annotation></semantics></math>,
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo stretchy="false" form="prefix">(</mo><mi>t</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><msub><mi>y</mi><mn>0</mn></msub><mo>+</mo><msub><mi>v</mi><mn>0</mn></msub><mi>t</mi><mo>+</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mi>a</mi><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">y(t)=y_0+v_0t+\frac12at^2</annotation></semantics></math></td>
+<td>가속도의 변화</td>
+</tr>
+</tbody>
+</table>
+<p>등속에서는
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>v</mi><mo accent="true">̇</mo></mover><mo>=</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\dot v=0</annotation></semantics></math>,
+등가속에서는
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>v</mi><mo accent="true">̇</mo></mover><mo>=</mo><mi>a</mi></mrow><annotation encoding="application/x-tex">\dot v=a</annotation></semantics></math>가
+일정합니다. <strong>어떤 값이 변하지 않는다고 두었기 때문에 이후 위치를
+간단한 식으로 구할 수 있습니다.</strong> 실제 움직임을 그 가정으로
+충분히 설명할 수 있는지가 모델 선택의 기준입니다.</p>
+<p>스프링에 연결된 물체는 어떨까요? 스프링 힘은 위치에 따라, 댐퍼 힘은
+속도에 따라 달라집니다. 가하는 힘까지 달라지면 가속도를 하나의 상수로
+두기 어렵습니다. 이때는 힘의 관계를 포함합니다.</p>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mover><mi>y</mi><mo accent="true">̈</mo></mover><mo>=</mo><mi>u</mi><mo>−</mo><mi>b</mi><mover><mi>y</mi><mo accent="true">̇</mo></mover><mo>−</mo><mi>k</mi><mi>y</mi></mrow><annotation encoding="application/x-tex">M\ddot y=u-b\dot y-ky</annotation></semantics></math></p>
+<p>등가속 운동 식을 버리는 것이 아니라, <strong>일정하다고 두었던
+가속도를 현재 위치·속도·힘으로 계산하도록 확장</strong>한 것입니다. 이
+모델에서 스프링과 댐퍼의 영향을 없애고 일정한 힘만 가하면 가속도는 다시
+일정해집니다.</p>
+<details>
+<summary>
+가정을 단순하게 하면 State의 개수도 줄어들까요?
+</summary>
+<p>항상 그렇지는 않습니다. “속도가 일정하다”는 조건과 “속도가 얼마인지
+알고 있다”는 정보는 다릅니다. 등속·등가속이라는 이름만으로 State의
+차원을 정하지 않습니다. 어떤 값이 이미 주어졌고, 미래를 계산하려면 현재
+무엇을 더 알아야 하는지 구분해야 합니다. <a
+href="../state-space-one/index.html#motion-to-state">5주차에서 위치와
+속도를 State로 선택하는 이유</a>를 이어서 살펴봅니다.</p>
+</details>
+<p>이번 실습에서는 스프링·댐퍼의 영향을 포함한 모델의 계수를 바꿉니다.
+그래프가 바뀌는 이유를 각 계수가 나타내는 힘과 연결해 보세요.</p>
+</section>
 <section id="matlab에서-한-단계씩-실행하기" class="level3">
 <h3 class="anchored" data-anchor-id="matlab에서-한-단계씩-실행하기">MATLAB에서 한 단계씩 실행하기</h3>
 <p>Colab의 셀처럼, 이 문서에서는 <strong>섹션(section)</strong> 단위로 코드를 실행합니다. 설명이나 코드 한 줄을 클릭했다고 그 줄만 실행되는 것은 아닙니다.</p>

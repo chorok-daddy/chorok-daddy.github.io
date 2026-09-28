@@ -2226,6 +2226,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
     <h2 id="toc-title">학습 순서</h2>
 
   <ul>
+<li><a href="#model-detail" id="toc-model-detail" class="nav-link" data-scroll-target="#model-detail">모델에 무엇을 포함할지 정하기</a></li>
   <li><a href="#transfer-function전달함수에는-조건이-있다" id="toc-transfer-function전달함수에는-조건이-있다" class="nav-link active" data-scroll-target="#transfer-function전달함수에는-조건이-있다">1. Transfer Function에는 조건이 있다</a></li>
   <li><a href="#계수-배열을-읽는-방향" id="toc-계수-배열을-읽는-방향" class="nav-link" data-scroll-target="#계수-배열을-읽는-방향">2. 계수 배열을 읽는 방향</a></li>
   <li><a href="#feedback피드백의-부호-확인" id="toc-feedback피드백의-부호-확인" class="nav-link" data-scroll-target="#feedback피드백의-부호-확인">3. Feedback의 부호 확인</a></li>
@@ -2264,6 +2265,30 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://matlab.mathworks.com/open/github/v1?repo=chorok-daddy/chorok-daddy.github.io&amp;file=courses/control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx" class="lab-start" target="_blank" rel="noopener noreferrer">MATLAB Online 실습 시작 ↗</a> · <a href="Control_Engineering_1_Week04_TransferBlocks.mlx" download="Control_Engineering_1_Week04_TransferBlocks.mlx">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> MathWorks 로그인 후 내 작업 공간의 <code>.mlx</code>를 엽니다. 코드 안 클릭 → <strong>Live Editor → Run Section</strong>으로 한 Section씩 실행하세요. <strong>Run</strong>은 전체 실행입니다. 값 수정 후에는 관련 Section을 다시 실행해야 합니다. <strong>⟦직접 입력⟧</strong> 작성란은 설명을 직접 수정하며 실행하지 않습니다. Windows/Linux는 Ctrl+Enter, Mac은 ⌘+Enter를 사용할 수 있습니다.</p>
+<section id="model-detail" class="level2 concept-bridge"><h2>모델에 무엇을 포함할지 정하기</h2>
+<p>등속 운동은 속도의 변화를 생략하고, 등가속 운동은 가속도가 일정하다고
+둡니다. 둘 다 목적에 맞는 조건에서 유용한 모델입니다. <a
+href="../physical-models/index.html#motion-assumptions">2주차의 운동
+가정</a>처럼, 먼저 어떤 변화를 설명하려는지 정해야 합니다.</p>
+<p>잠깐 동안 이동한 거리를 추정한다면 일정 속도 모델로 충분할 수
+있습니다. 스프링에 연결된 물체가 힘을 받은 뒤 흔들리고 멈추는 과정을
+알고 싶다면 위치와 속도에 따라 힘이 달라지는 관계까지 필요합니다. 반면
+그 현상을 설명하는 데 영향이 작은 부품의 세부 구조는 생략할 수
+있습니다.</p>
+<p>이번 실습은 이미 세운 질량–스프링–댐퍼 모델을 Transfer Function과
+Simulink 블록으로 표현합니다. <strong>표현 방법을 바꾸는 것과 물리
+현상을 추가하는 것은 다릅니다.</strong> 같은 모델에 같은 Input과
+초기조건을 주었다면 같은 응답을 얻어야 합니다.</p>
+<details>
+<summary>
+모델을 더 자세히 만들어야 하는 때
+</summary>
+<p>예측과 측정의 차이가 목적상 허용할 범위를 넘고, 그 원인이 생략한
+현상에 있다면 모델을 보완합니다. 예를 들어 빠른 동작에서 구동기의 지연이
+중요해질 수 있습니다. 항을 많이 넣는 것 자체가 목표는 아닙니다. 먼저
+단위·계수·Input·초기조건이 맞는지도 확인해야 합니다.</p>
+</details>
+</section>
 <section id="transfer-function전달함수에는-조건이-있다" class="level2">
 <h2 class="anchored" data-anchor-id="transfer-function전달함수에는-조건이-있다">1. Transfer Function에는 조건이 있다</h2>
 <p>질량–스프링–댐퍼의 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mover><mi>y</mi><mo accent="true">̈</mo></mover><mo>+</mo><mi>b</mi><mover><mi>y</mi><mo accent="true">̇</mo></mover><mo>+</mo><mi>k</mi><mi>y</mi><mo>=</mo><mi>u</mi></mrow><annotation encoding="application/x-tex">M\ddot y+b\dot y+ky=u</annotation></semantics></math>를 초기조건이 모두 0인 상태에서 변환하면 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo><mo>=</mo><mfrac><mi>Y</mi><mi>U</mi></mfrac><mo>=</mo><mfrac><mn>1</mn><mrow><mi>M</mi><msup><mi>s</mi><mn>2</mn></msup><mo>+</mo><mi>b</mi><mi>s</mi><mo>+</mo><mi>k</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">G(s)=\frac YU=\frac1{Ms^2+bs+k}</annotation></semantics></math>입니다. 입력 힘과 출력 변위를 바꾸면 다른 Transfer Function이 됩니다.</p>
