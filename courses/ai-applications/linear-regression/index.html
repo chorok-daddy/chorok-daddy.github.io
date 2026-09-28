@@ -2232,7 +2232,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#오차-여러-개를-하나의-loss로" id="toc-오차-여러-개를-하나의-loss로" class="nav-link" data-scroll-target="#오차-여러-개를-하나의-loss로">2. 오차 여러 개를 하나의 Loss로</a></li>
   <li><a href="#gradient로-조금씩-갱신하기" id="toc-gradient로-조금씩-갱신하기" class="nav-link" data-scroll-target="#gradient로-조금씩-갱신하기">3. Gradient로 조금씩 갱신하기</a></li>
   <li><a href="#반복-학습과-직접-계산-비교" id="toc-반복-학습과-직접-계산-비교" class="nav-link" data-scroll-target="#반복-학습과-직접-계산-비교">4. 반복 학습과 직접 계산 비교</a></li>
-  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
+  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습 안내</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">학습 내용 확인</a></li>
   </ul>
 </nav>
@@ -2321,14 +2321,7 @@ Loss 하나로 모으고, Loss가 줄어드는 방향으로 기울기를 조금�
 <p>(AᵀA)⁻¹Aᵀ는 A의 열이 독립인 경우의 식입니다. pinv는 열이 독립이지 않은 경우에도 Pseudoinverse를 계산할 수 있습니다. Learning Rate·반복 횟수·수치 오차에 따라 반복 해가 직접 해와 조금 다를 수 있습니다.</p>
 </details>
 </section>
-<section id="실습에서-확인할-것" class="level2">
-<h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
-<ul>
-<li><strong>원점을 지나는 회귀 문제:</strong> A의 첫 열은 입력 x이고 두 번째 열의 1은 Bias를 계산할 때 쓸 상수입니다. 이번에는 Bias를 쓰지 않으므로 첫 열만 A_prime으로 선택합니다. 이 선택과 bias=False의 관계를 설명하세요. 데이터가 원점을 정확히 지나지 않으면 어떤 오차가 남을지 예측하세요.</li>
-<li><strong>학습과 기록:</strong> Learning Rate 0.001·0.01·0.1로 같은 epoch 수를 비교하세요. loss.backward 직후 weight.grad를 출력하여 Gradient를 관찰하고 zero_grad가 빠지면 생기는 문제를 설명하세요.</li>
-<li><strong>직접 해와 대조:</strong> 이 실습의 A_prime을 사용해 A_prime.T@A_prime이 가역인지 확인하세요. torch.linalg.inv(A_prime.T@A_prime)<span class="citation" data-cites="A_prime.T">@A_prime.T</span><span class="citation" data-cites="B_prime과">@B_prime과</span> pinv(A_prime)<span class="citation" data-cites="B_prime">@B_prime</span>, Gradient 학습 결과를 비교하세요. x=0,1,2,3의 wx와 실제 Target의 차이를 기록하세요.</li>
-</ul>
-</section>
+<section id="실습에서-확인할-것" class="level2"><h2>실습 안내</h2><p>수행할 작업과 비교 조건, 제출 방법은 <a href="assignment.html#lab-activities">이번 주 실습 안내</a>에 정리되어 있습니다.</p></section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">

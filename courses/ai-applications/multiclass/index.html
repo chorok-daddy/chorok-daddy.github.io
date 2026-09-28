@@ -2231,7 +2231,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#점수에서-확률과-판정으로" id="toc-점수에서-확률과-판정으로" class="nav-link" data-scroll-target="#점수에서-확률과-판정으로">2. 점수에서 확률과 판정으로</a></li>
   <li><a href="#loss손실에는-logit을-넣기" id="toc-loss손실에는-logit을-넣기" class="nav-link" data-scroll-target="#loss손실에는-logit을-넣기">3. Loss(손실)에는 logit을 넣기</a></li>
   <li><a href="#오분류를-확인하는-순서" id="toc-오분류를-확인하는-순서" class="nav-link" data-scroll-target="#오분류를-확인하는-순서">4. 오분류를 확인하는 순서</a></li>
-  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
+  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습 안내</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">학습 내용 확인</a></li>
   </ul>
 </nav>
@@ -2301,14 +2301,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>이 실습의 Accuracy는 제공 데이터에서의 학습 결과 확인 지표입니다. 별도 평가 데이터를 사용하지 않았다면 학습 데이터에서 얻은 Accuracy라고 표시하세요.</p>
 </details>
 </section>
-<section id="실습에서-확인할-것" class="level2">
-<h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
-<ul>
-<li><strong>CSV의 입력 확인:</strong> 전처리 전후 shape·dtype·처음 다섯 표본을 확인하세요. 평균과 표준편차를 새 입력에도 동일하게 적용해야 하는 이유를 쓰세요.</li>
-<li><strong>기준 학습 실행:</strong> 같은 초기화와 1000 epoch에서 Learning Rate 0.001·0.01·0.1을 비교하세요. 마지막 Training Loss·Accuracy를 표로 기록하고 Loss와 Accuracy의 변화가 항상 같은지 해석하세요. 이 값은 별도 Test Accuracy가 아닙니다.</li>
-<li><strong>출력을 해석하기:</strong> 첫 10개 표본의 Logit·Probability·예측·정답을 비교하세요. Softmax 합이 표본마다 1인지, Logit과 Probability의 argmax가 같은지 검증하세요. 오분류를 최대 3개 골라 실제 Label과 예측 Label을 적고, 없으면 없다고 기록하세요.</li>
-</ul>
-</section>
+<section id="실습에서-확인할-것" class="level2"><h2>실습 안내</h2><p>수행할 작업과 비교 조건, 제출 방법은 <a href="assignment.html#lab-activities">이번 주 실습 안내</a>에 정리되어 있습니다.</p></section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">

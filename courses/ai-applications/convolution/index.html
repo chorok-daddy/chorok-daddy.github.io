@@ -2231,7 +2231,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#convolution과-pooling의-크기-계산" id="toc-convolution과-pooling의-크기-계산" class="nav-link" data-scroll-target="#convolution과-pooling의-크기-계산">2. Convolution과 pooling의 크기 계산</a></li>
   <li><a href="#flatten에서도-batch배치는-보존" id="toc-flatten에서도-batch배치는-보존" class="nav-link" data-scroll-target="#flatten에서도-batch배치는-보존">3. Flatten에서도 Batch(배치)는 보존</a></li>
   <li><a href="#이미지-몇-장으로-각-층의-출력-확인하기" id="toc-이미지-몇-장으로-각-층의-출력-확인하기" class="nav-link" data-scroll-target="#이미지-몇-장으로-각-층의-출력-확인하기">4. 이미지 몇 장으로 각 층의 출력 확인하기</a></li>
-  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
+  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습 안내</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">학습 내용 확인</a></li>
   </ul>
 </nav>
@@ -2301,13 +2301,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>Dropout은 train 모드에서 일부 값을 무작위로 0으로 바꿉니다. eval 모드에서는 이 생략 동작을 멈추고 입력값을 그대로 통과시킵니다. shape 검사와 재현 가능한 출력 비교를 할 때 모드를 명확히 설정하세요.</p>
 </details>
 </section>
-<section id="실습에서-확인할-것" class="level2">
-<h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
-<ul>
-<li><strong>간단한 CNN으로 각 층의 shape 확인하기:</strong> Input (N,1,28,28)에 Conv2d(1,32,3,padding=1)→ReLU→MaxPool2d(2)→Conv2d(32,64,3,padding=1)→ReLU→MaxPool2d(2)→Conv2d(64,128,3,padding=1)→ReLU→MaxPool2d(2,padding=1)→Flatten(start_dim=1)→Linear(2048,625)→ReLU→Dropout→Linear(625,10)을 구현하세요. 각 단계의 예상 shape를 먼저 적고 실제 출력으로 확인하세요.</li>
-<li><strong>Batch 크기와 parameter:</strong> 앞에서 직접 만든 CNN에 N=1·8·32를 각각 넣어 최종 (N,10)을 확인하세요. Parameter 수는 sum(p.numel() for p in model.parameters())로 구해 N을 바꿔도 같은지 검사하세요. model.eval() 상태에서 비교하고 학습 가능한 Layer와 그렇지 않은 Layer를 구분하세요.</li>
-</ul>
-</section>
+<section id="실습에서-확인할-것" class="level2"><h2>실습 안내</h2><p>수행할 작업과 비교 조건, 제출 방법은 <a href="assignment.html#lab-activities">이번 주 실습 안내</a>에 정리되어 있습니다.</p></section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">

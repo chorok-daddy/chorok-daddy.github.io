@@ -2695,55 +2695,9 @@ Transfer Function 유도 과정
 </section>
 <section id="실습에서는-한-가지를-바꾸고-비교하기" class="level2">
 <h2 class="anchored" data-anchor-id="실습에서는-한-가지를-바꾸고-비교하기">9. 실습에서는 한 가지를 바꾸고 비교하기</h2>
-<p>이번 과제의 중심은 <strong>실행 전 예상 → 그래프 관찰 → 물리적으로 설명</strong>입니다. 두 값을 동시에 바꾸기보다 기준값을 두고 한 변수씩 바꾸면 원인을 구분하기 쉽습니다.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>실습</th>
-<th>해야 할 비교</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>병렬 RLC</td>
-<td>R, L, C를 각각 2배·0.5배 등으로 바꾸어 비교</td>
-</tr>
-<tr class="even">
-<td>질량–스프링–댐퍼</td>
-<td>아래 세 경우를 한 그래프에 그리고 비교</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>경우</th>
-<th style="text-align: right;">M</th>
-<th style="text-align: right;">b</th>
-<th style="text-align: right;">k</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>기본</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td>댐핑 증가</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="odd">
-<td>스프링 상수 증가</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">10</td>
-</tr>
-</tbody>
-</table>
+<p>Parameter를 바꿨을 때 어떤 힘이 달라지고, 그 결과 움직임이 어떻게 달라질지 생각해 보세요. 두 값을 동시에 바꾸기보다 기준값을 두고 한 변수씩 바꾸면 원인을 구분하기 쉽습니다.</p>
+
+
 <details class="explain">
 <summary>
 결과를 설명할 때 사용할 질문
@@ -2757,7 +2711,7 @@ Transfer Function 유도 과정
 <p>병렬 RLC에서 ‘저항이 커지니까 무조건 덜 흔들린다’고 정하지 마세요. 같은 전압에서 저항 가지 전류는 <code>v/R</code>입니다. 값이 바뀌었을 때 무엇이 줄거나 늘어나는지 <strong>오늘의 회로 구조</strong>에서 생각해보세요.</p>
 <p>비교 결과의 정답을 먼저 읽기보다 그래프와 식을 근거로 자신의 설명을 작성합니다.</p>
 </details>
-</section>
+<p>실제로 비교할 RLC·기계 모델의 조건과 결과 기록 방법은 <a href="assignment.html#lab-activities">2주차 실습 안내</a>에서 확인하세요.</p></section>
 <section id="실행과-기록을-한-문서에-남기기" class="level2">
 <h2 class="anchored" data-anchor-id="실행과-기록을-한-문서에-남기기">10. 실행과 기록을 한 문서에 남기기</h2>
 <p><a href="Control_Engineering_1_Week02_Physical_Models.mlx" download="Control_Engineering_1_Week02_Physical_Models.mlx">실습 Live Script</a>는 설명, 실행 코드, 예측·관찰 작성란을 한 문서에 담고 있습니다. 위에서부터 실행하고, 실습에서 바꿀 값은 주석으로 표시한 부분을 수정하세요.</p>
@@ -2781,7 +2735,7 @@ Colab·Markdown 내용도 다시 보고 싶다면
 <p>자료 버전: <code>2026-2-02</code> · 기준일: 2026-09-10</p>
 </section>
 
-<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/control-1/course-setup/index.html">← 1주차 · 제어 시스템과 MATLAB 시작하기</a><a href="/courses/control-1/index.html">제어공학1 목차</a><a rel="next" href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지 →</a></nav><div class="hand-check" id="hand-calculation" style="font-size:inherit;line-height:inherit"><h2>먼저 계산하고 MATLAB으로 확인하기</h2><p>아래 계산을 먼저 수행한 뒤 MATLAB 결과와 비교하세요.</p><ol><li>기계 모델의 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi><mo>=</mo><mn>1</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>b</mi><mo>=</mo><mn>2</mn><mo>,</mo><mspace width="0.222em"></mspace><mi>k</mi><mo>=</mo><mn>5</mn></mrow><annotation encoding="application/x-tex">M=1,\ b=2,\ k=5</annotation></semantics></math>를 사용하세요. 코드 실행 전에 힘의 방향을 표시하고 Newton 법칙으로 미분방정식을 세우세요. 초기조건을 0으로 놓고 Laplace Transform하여 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mfrac><mrow><mi>Y</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow><mrow><mi>U</mi><mo stretchy="false" form="prefix">(</mo><mi>s</mi><mo stretchy="false" form="postfix">)</mo></mrow></mfrac><annotation encoding="application/x-tex">\frac{Y(s)}{U(s)}</annotation></semantics></math>를 구한 뒤, 일정한 힘 1 N이 작용할 때의 최종 변위를 계산하세요.</li><li>MATLAB의 Transfer Function과 최종 응답을 자신의 식과 대조하세요. 기계 모델 비교 세 경우 중 기준 경우의 예측란에 이 계산을 기록하면 됩니다.</li></ol></div></main>
+<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/control-1/course-setup/index.html">← 1주차 · 제어 시스템과 MATLAB 시작하기</a><a href="/courses/control-1/index.html">제어공학1 목차</a><a rel="next" href="/courses/control-1/lti-laplace/index.html">3주차 · Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지 →</a></nav><div class="hand-calculation" id="hand-calculation"><h2>계산 연습</h2><p>개념을 적용해 직접 식을 세우고 MATLAB 결과와 비교하는 문제는 <a href="assignment.html#hand-calculation">실습 안내의 계산 연습</a>에서 확인할 수 있습니다.</p></div></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

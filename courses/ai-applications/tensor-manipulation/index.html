@@ -2232,7 +2232,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#cat과-stack-구분" id="toc-cat과-stack-구분" class="nav-link" data-scroll-target="#cat과-stack-구분">2. cat과 stack 구분</a></li>
   <li><a href="#reshape는-데이터를-늘리지-않는다" id="toc-reshape는-데이터를-늘리지-않는다" class="nav-link" data-scroll-target="#reshape는-데이터를-늘리지-않는다">3. reshape는 데이터를 늘리지 않는다</a></li>
   <li><a href="#어느-축을-줄였는가" id="toc-어느-축을-줄였는가" class="nav-link" data-scroll-target="#어느-축을-줄였는가">4. 어느 축을 줄였는가?</a></li>
-  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
+  <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습 안내</a></li>
   <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">학습 내용 확인</a></li>
   </ul>
 </nav>
@@ -2342,14 +2342,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>broadcasting은 오른쪽 축부터 크기를 맞추며, 각 축의 크기가 같거나 하나가 1일 때 적용됩니다. 연산이 성공했다는 사실만으로 의도한 계산이라고 단정하지 마세요.</p>
 </details>
 </section>
-<section id="실습에서-확인할-것" class="level2">
-<h2 class="anchored" data-anchor-id="실습에서-확인할-것">실습에서 확인할 것</h2>
-<ul>
-<li><strong>Tensor 만들기:</strong> 0~5의 1D Tensor, 0~11의 (4,3) Tensor, 0~23의 (2,3,4) Tensor를 float로 생성하세요. (4,3)을 표본 4개·특징 3개로 보고 특징별 평균과 표본별 평균의 예상 shape를 적은 뒤 dim=0·1로 검증하세요.</li>
-<li><strong>cat·stack·reshape:</strong> dim 값을 바꾸어 결과를 비교하고 cat과 stack의 차이를 쓰세요. 원소 수 12를 유지하는 세 가지 reshape와 -1 사용 예를 작성하세요.</li>
-<li><strong>축과 연산 오류 찾기:</strong> A.shape=(2,3), B.shape=(3,4)인 기준 예에서 A*B와 A@B 중 실행 가능한 연산과 그 이유를 쓰세요. A+torch.tensor([10,20])가 실패하는 이유를 설명하고, 행별로 10과 20을 더하도록 Tensor shape를 수정하세요. 실패 코드는 Markdown에만 남기고 수정한 Code Cell을 실행하세요.</li>
-</ul>
-</section>
+<section id="실습에서-확인할-것" class="level2"><h2>실습 안내</h2><p>수행할 작업과 비교 조건, 제출 방법은 <a href="assignment.html#lab-activities">이번 주 실습 안내</a>에 정리되어 있습니다.</p></section>
 <section id="스스로-점검하기" class="level2">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">
