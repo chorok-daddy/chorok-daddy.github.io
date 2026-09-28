@@ -80,7 +80,7 @@
         {
           "slug": "convolution",
           "week": 9,
-          "title": "CNN을 shape로 따라가기",
+          "title": "CNN의 층별 연산과 Tensor shape",
           "source": "courses/ai-applications/convolution/index.html",
           "lab": "courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
           "assignment_source": "courses/ai-applications/convolution/assignment.html",
@@ -196,7 +196,7 @@
         {
           "slug": "state-space-two",
           "week": 6,
-          "title": "State Transition으로 응답 따라가기",
+          "title": "State Transition과 시스템 응답",
           "source": "courses/control-1/state-space-two/index.html",
           "lab": "courses/control-1/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
           "assignment_source": "courses/control-1/state-space-two/assignment.html",

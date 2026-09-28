@@ -2218,7 +2218,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/ai-applications/image-classification/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">10주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN을 shape로 따라가기</a></li><li><a aria-current="page" href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/lstm-gru/index.html">13주차 · 긴 글을 나누어 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/image-classification/index.html">학습 자료</a> <a href="/courses/ai-applications/image-classification/assignment.html">실습 안내</a> <a href="/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">10주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN의 층별 연산과 Tensor shape</a></li><li><a aria-current="page" href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/lstm-gru/index.html">13주차 · 긴 글을 나누어 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/image-classification/index.html">학습 자료</a> <a href="/courses/ai-applications/image-classification/assignment.html">실습 안내</a> <a href="/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -2232,7 +2232,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#학습과-평가는-다른-모드" id="toc-학습과-평가는-다른-모드" class="nav-link" data-scroll-target="#학습과-평가는-다른-모드">3. 학습과 평가는 다른 모드</a></li>
   <li><a href="#숫자와-이미지를-같이-확인" id="toc-숫자와-이미지를-같이-확인" class="nav-link" data-scroll-target="#숫자와-이미지를-같이-확인">4. 숫자와 이미지를 같이 확인</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
-  <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">스스로 점검하기</a></li>
+  <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">학습 내용 확인</a></li>
   </ul>
 </nav>
 </div>
@@ -2261,7 +2261,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <div class="learning-target">
 <p><strong>이번 주 목표</strong> · MNIST를 읽고 학습한 뒤 새 이미지의 예측과 오분류를 확인합니다.</p>
 </div>
-<p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
+
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week10_ImageClassification.ipynb" download="AI_Applications_Week10_ImageClassification.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
@@ -2273,9 +2273,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <h2 class="anchored" data-anchor-id="데이터-하나를-먼저-살펴보기">1. 데이터 하나를 먼저 살펴보기</h2>
 <p>MNIST는 28×28 흑백 손글씨 숫자와 0~9 label로 구성됩니다. 데이터 전체를 학습하기 전에 이미지 한 장을 그려 보고 Tensor(텐서) shape와 label을 출력하세요.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · 데이터 하나를 먼저 살펴보기 보충 설명
-</summary>
+<summary>데이터 하나를 먼저 살펴보기</summary>
 <p>ToTensor는 이미지 값을 Tensor로 바꿉니다. 추가 정규화를 적용하면 학습·평가에 같은 변환을 사용해야 합니다. 이미지가 뒤집혀 보이면 shape와 표시할 축을 확인하세요.</p>
 </details>
 </section>
@@ -2283,9 +2281,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <h2 class="anchored" data-anchor-id="dataloader는-batch배치를-만든다">2. DataLoader는 Batch(배치)를 만든다</h2>
 <p>Dataset은 한 표본을 꺼내는 규칙이고 DataLoader는 표본을 묶어 순회하는 도구입니다. 학습에서는 shuffle로 순서를 섞고, 평가에서는 모든 표본을 빠짐없이 한 번씩 처리합니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · DataLoader는 Batch를 만든다 보충 설명
-</summary>
+<summary>DataLoader는 Batch를 만든다</summary>
 <p>마지막 Batch는 앞선 Batch보다 작을 수 있습니다. Accuracy(정확도)는 Batch Accuracy의 단순 평균보다 정답 개수 합을 실제 표본 수로 나누어 계산하는 것이 안전합니다.</p>
 </details>
 </section>
@@ -2293,9 +2289,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <h2 class="anchored" data-anchor-id="학습과-평가는-다른-모드">3. 학습과 평가는 다른 모드</h2>
 <p>학습은 model.train()에서 Gradient(기울기)를 계산하고 Parameter를 갱신합니다. 평가는 model.eval()과 no_grad()를 사용해 갱신 없이 결과를 계산합니다. eval은 Dropout 같은 Layer의 동작을 평가용으로 바꾸고, no_grad는 Gradient 계산 기록을 멈춥니다. 따라서 평가할 때 둘 다 사용합니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · 학습과 평가는 다른 모드 보충 설명
-</summary>
+<summary>학습과 평가는 다른 모드</summary>
 <p>eval은 Dropout 등의 동작을 바꾸고 no_grad는 Gradient 추적을 끕니다. 평가 데이터로 optimizer.step을 수행하면 평가의 의미가 사라집니다.</p>
 </details>
 </section>
@@ -2303,9 +2297,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <h2 class="anchored" data-anchor-id="숫자와-이미지를-같이-확인">4. 숫자와 이미지를 같이 확인</h2>
 <p>test accuracy를 계산한 뒤 이미지 10장의 예측·정답을 함께 표시합니다. 틀린 이미지도 최대 다섯 장 확인하세요. 첫 화면에서 맞는 예만 고르는 대신 데이터 순서대로 선택하면 기록이 덜 편향됩니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · 숫자와 이미지를 같이 확인 보충 설명
-</summary>
+<summary>숫자와 이미지를 같이 확인</summary>
 <p>빠른 실행 모드에서는 데이터 일부만 사용해 CPU로도 학습·평가 코드가 잘 실행되는지 확인합니다. 전체 데이터 실습과 결과를 비교할 때 사용 표본 수·epoch·실행 모드를 반드시 적으세요. 빠른 실행의 Accuracy를 전체 실험으로 보고하지 않습니다.</p>
 </details>
 </section>
@@ -2318,7 +2310,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
-<h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
+<h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">
 <li>코드에 넣을 값은 무엇이며, 결과 배열의 각 행·열은 무엇을 뜻하나요? 물리량을 계산한다면 단위도 확인했나요?</li>
 <li>조건을 하나 바꿨을 때 다시 실행해야 하는 부분을 찾을 수 있나요?</li>
@@ -2327,7 +2319,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><a href="https://docs.pytorch.org/tutorials/">PyTorch 공식 Tutorials</a></p>
 </section>
 
-<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/ai-applications/convolution/index.html">← 9주차 · CNN을 shape로 따라가기</a><a href="/courses/ai-applications/index.html">인공지능응용 목차</a><a rel="next" href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비 →</a></nav></main>
+<nav class="lesson-pagination" aria-label="강의 사이 이동"><a rel="prev" href="/courses/ai-applications/convolution/index.html">← 9주차 · CNN의 층별 연산과 Tensor shape</a><a href="/courses/ai-applications/index.html">인공지능응용 목차</a><a rel="next" href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비 →</a></nav></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

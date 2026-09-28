@@ -2218,7 +2218,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </style>
 <link rel="stylesheet" href="/assets/site.css"><link rel="canonical" href="https://chorok-daddy.github.io/courses/ai-applications/recurrent/index.html"></head>
 
-<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">12주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN을 shape로 따라가기</a></li><li><a href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a aria-current="page" href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/lstm-gru/index.html">13주차 · 긴 글을 나누어 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/recurrent/index.html">학습 자료</a> <a href="/courses/ai-applications/recurrent/assignment.html">실습 안내</a> <a href="/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
+<body class="quarto-light"><header class="site-nav"><nav aria-label="강의자료 탐색"><a href="/">메인</a><span aria-hidden="true">/</span><a href="/courses/index.html">강의자료</a><span aria-hidden="true">/</span><a href="/courses/ai-applications/index.html">인공지능응용</a><span aria-hidden="true">/</span><span aria-current="page">12주차</span></nav><details><summary>이 과목의 강의 목록</summary><ol><li><a href="/courses/ai-applications/course-orientation/index.html">1주차 · AI 실습에서 무엇을 확인할까?</a></li><li><a href="/courses/ai-applications/notebook-literacy/index.html">2주차 · Notebook으로 생각을 설명하기</a></li><li><a href="/courses/ai-applications/python-arrays-plots/index.html">3주차 · 배열을 읽고 그래프로 설명하기</a></li><li><a href="/courses/ai-applications/git-collaboration/index.html">4주차 · 변경 이력을 남기며 협업하기</a></li><li><a href="/courses/ai-applications/tensor-manipulation/index.html">5주차 · Tensor의 모양을 먼저 예측하기</a></li><li><a href="/courses/ai-applications/linear-regression/index.html">6주차 · 예측 오차를 줄이며 직선 찾기</a></li><li><a href="/courses/ai-applications/logistic-regression/index.html">7주차 · 확률과 분류 기준을 구분하기</a></li><li><a href="/courses/ai-applications/multiclass/index.html">8주차 · 클래스별 점수를 읽고 비교하기</a></li><li><a href="/courses/ai-applications/convolution/index.html">9주차 · CNN의 층별 연산과 Tensor shape</a></li><li><a href="/courses/ai-applications/image-classification/index.html">10주차 · 이미지 분류의 학습과 평가 분리하기</a></li><li><a href="/courses/ai-applications/midterm/index.html">11주차 · 중간시험 · 핵심 정리와 준비</a></li><li><a aria-current="page" href="/courses/ai-applications/recurrent/index.html">12주차 · 이전 문자를 기억하며 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/lstm-gru/index.html">13주차 · 긴 글을 나누어 다음 문자 예측하기</a></li><li><a href="/courses/ai-applications/text-classification/index.html">14주차 · 문장을 Tensor로 바꾸어 감정 분류하기</a></li><li><a href="/courses/ai-applications/final-exam/index.html">15주차 · 기말시험 · 핵심 정리와 준비</a></li></ol></details><nav class="resource-links" aria-label="이번 주 자료"><a href="/courses/ai-applications/recurrent/index.html">학습 자료</a> <a href="/courses/ai-applications/recurrent/assignment.html">실습 안내</a> <a href="/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb" download>실습 파일 다운로드</a> <a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb#copy=true" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a></nav></header>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -2233,7 +2233,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
   <li><a href="#rnn의-hidden-state를-문자-점수로-바꾸기" id="toc-rnn의-hidden-state를-문자-점수로-바꾸기" class="nav-link" data-scroll-target="#rnn의-hidden-state를-문자-점수로-바꾸기">4. RNN의 Hidden State를 문자 점수로 바꾸기</a></li>
   <li><a href="#학습-전후-예측을-읽기" id="toc-학습-전후-예측을-읽기" class="nav-link" data-scroll-target="#학습-전후-예측을-읽기">5. 학습 전후 예측을 읽기</a></li>
   <li><a href="#실습에서-확인할-것" id="toc-실습에서-확인할-것" class="nav-link" data-scroll-target="#실습에서-확인할-것">실습에서 확인할 것</a></li>
-  <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">스스로 점검하기</a></li>
+  <li><a href="#스스로-점검하기" id="toc-스스로-점검하기" class="nav-link" data-scroll-target="#스스로-점검하기">학습 내용 확인</a></li>
   </ul>
 </nav>
 </div>
@@ -2262,11 +2262,12 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <div class="learning-target">
 <p><strong>이번 주 목표</strong> · 문자를 Index로 바꾼 뒤, 순서대로 RNN에 넣으며 Hidden State(은닉 상태)와 예측이 어떻게 바뀌는지 확인합니다.</p>
 </div>
-<p>핵심을 먼저 읽고, 필요한 설명은 <strong>눌러 펼쳐보기</strong>로 확인하세요.</p>
+
 <p><a href="https://colab.research.google.com/github/chorok-daddy/chorok-daddy.github.io/blob/master/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb#copy=true" class="lab-start" target="_blank" rel="noopener noreferrer">Colab 실습 시작 ↗</a> · <a href="AI_Applications_Week12_Recurrent.ipynb" download="AI_Applications_Week12_Recurrent.ipynb">실습 파일 다운로드</a></p>
 <p><strong>60분 실습:</strong> 예상한 결과를 기록하고 실행한 뒤, 조건을 바꾸어 비교하세요. 마지막에는 새 세션에서 다시 실행하고 작성한 설명과 파일을 확인하세요.</p>
 <p><strong>실행:</strong> Colab에서 내 Drive에 사본을 저장한 뒤 Code Cell의 ▶ 또는 Shift+Enter로 위에서부터 실행하세요. <strong>⟦직접 입력⟧</strong> 표시가 있는 Text Cell은 더블클릭해서 수정합니다.</p>
 <section id="classification-to-memory" class="level2 concept-bridge"><h2>문자 하나의 분류에서 앞 문맥을 사용하는 예측으로</h2>
+<p class="example-context"><strong>개념 설명용 예시</strong> · 아래의 짧은 문자열은 이전 문맥이 필요한 이유를 보여줍니다. Notebook의 실제 학습 문장과 구분해서 읽으세요.</p>
 <p>8주차에는 여러 범주의 점수를 계산하고 정답 범주와 비교했습니다. 다음
 문자 예측도 후보 문자 중 하나를 고르는 분류 문제입니다. 다만 현재 문자
 하나만으로는 부족할 수 있습니다.</p>
@@ -2320,9 +2321,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </table>
 <p>Input은 <code>hell</code>, Target은 <code>ello</code>입니다. 같은 <code>l</code>이라도 앞에서 읽은 내용이 달라 다음 정답이 달라질 수 있습니다. RNN은 현재 문자와 직전 Hidden State로 새 Hidden State를 계산합니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · 한 번에 문장을 넣어도 순서대로 계산하나요?
-</summary>
+<summary>한 번에 문장을 넣어도 순서대로 계산하나요?</summary>
 <p>코드에서는 <code>model(X)</code> 한 줄로 실행하지만 RNN 내부에서는 Sequence 순서대로 같은 Cell을 반복 적용합니다. 여기서는 단방향 RNN을 사용하므로 현재 위치 뒤의 문자를 미리 읽지 않습니다. Hidden State는 모든 글자를 그대로 보관하는 저장소가 아니라 학습된 숫자 요약입니다.</p>
 </details>
 </section>
@@ -2331,9 +2330,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p><code>chars</code>는 중복을 제거하고 정렬한 문자 목록, <code>vocab</code>은 문자와 Index의 대응표입니다. Index는 0부터 시작하며 크기에 의미의 순서가 있는 것은 아닙니다. One-hot은 그 문자의 위치만 1이고 나머지는 0인 벡터입니다.</p>
 <p>가령 사전이 <code>[&#39;a&#39;,&#39;b&#39;,&#39;c&#39;]</code>이면 b의 Index는 1, One-hot은 <code>[0,1,0]</code>입니다. 문자 종류가 E개이면 One-hot의 길이도 E입니다. 이번 주는 <code>nn.Embedding</code> 대신 고정된 One-hot을 사용합니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · 문자 번호는 사전마다 달라질 수 있어요
-</summary>
+<summary>문자 번호는 사전마다 달라질 수 있어요</summary>
 <p>문자 번호는 사전의 정렬 방식에 따라 달라질 수 있습니다. 번호를 직접 적어 넣기보다 <code>vocab</code>으로 Input과 Target을 만들고, 같은 <code>chars</code>로 예측을 문자로 되돌리세요. 사전 크기가 C이면 유효한 정답 Index는 0부터 C−1까지입니다.</p>
 </details>
 </section>
@@ -2374,9 +2371,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>강의 영상의 예제는 Hidden Size를 문자 종류 수와 같게 두어, 각 시점의 출력을 바로 문자별 점수로 읽습니다. 다음 문자 예측을 Classification 문제로 바꾸는 과정을 간단히 보여주는 구성입니다.</p>
 <p>실습에서는 Hidden Size H=32로 내부 표현을 만들고 Linear가 이를 C개의 문자 점수로 바꿉니다. 이렇게 나누면 문자 사전의 크기와 관계없이 기억에 사용할 표현 크기를 정할 수 있습니다. 문자별 점수를 바로 만드는 구성에서, 내부 표현과 분류를 분리하는 구성으로 확장한 것입니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · Loss 계산에서 왜 펼치나요?
-</summary>
+<summary>Loss 계산에서 왜 펼치나요?</summary>
 <p>각 문장의 각 위치를 하나의 분류 문제로 셉니다. Logit <code>(N,S,C)</code>를 <code>(N×S,C)</code>로, Target <code>(N,S)</code>를 <code>(N×S,)</code>로 함께 펼쳐 <code>CrossEntropyLoss</code>에 넣습니다. 두 Tensor를 같은 순서로 펼쳐야 예측과 정답이 대응합니다. 이는 8주차 분류를 모든 시점에 적용하는 것입니다.</p>
 <p><code>output</code>은 모든 시점의 Hidden State이고 <code>h_n</code>은 마지막 시점의 State입니다. 이번에는 다음 문자를 매 위치에서 맞히므로 모든 시점의 output을 사용합니다.</p>
 </details>
@@ -2385,9 +2380,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <h2 class="anchored" data-anchor-id="학습-전후-예측을-읽기">5. 학습 전후 예측을 읽기</h2>
 <p>Notebook에 표시되는 학습 전 문자열과 학습 후 문자열을 Target과 나란히 비교하세요. Loss가 줄었는지, 어느 위치가 달라졌는지 기록합니다. 사전에 있는 문자로 Input 일부를 바꿀 때는 모델을 다시 학습하지 않고 같은 모델의 반응을 봅니다.</p>
 <details class="explain">
-<summary>
-눌러 펼쳐보기 · 문장을 생성한 결과와 같을까요?
-</summary>
+<summary>문장을 생성한 결과와 같을까요?</summary>
 <p>이번 코드는 각 시점에 <strong>실제 Input 문자</strong>를 주고 다음 문자를 예측합니다. 예측한 문자를 다시 Input으로 넣어 긴 문장을 이어 쓰는 자동 생성 실험과는 다릅니다. 학습 문자열을 잘 맞혔다고 새로운 문장도 잘 생성한다고 결론 내리지 마세요.</p>
 <p>앞부분만 넣어보려면 <code>model(X[:, :4, :])</code>처럼 Sequence 축을 자를 수 있습니다. 모델의 마지막 축 크기는 유지해야 합니다.</p>
 </details>
@@ -2401,7 +2394,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </ul>
 </section>
 <section id="스스로-점검하기" class="level2">
-<h2 class="anchored" data-anchor-id="스스로-점검하기">스스로 점검하기</h2>
+<h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">
 <li>문자 Index와 One-hot의 차이를 설명할 수 있나요?</li>
 <li>RNN 출력에 Linear가 필요한 이유와 최종 Logit의 shape를 설명할 수 있나요?</li>
