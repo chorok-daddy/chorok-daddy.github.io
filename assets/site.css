@@ -37,3 +37,5 @@
 .lessons .lesson-title{font-size:1.125rem;font-weight:600;color:var(--ink)}
 
 .lab-guide-next{margin:2rem 0 0;padding:1rem 0;border-top:1px solid var(--line);font-weight:600}
+
+.previous-exam-guidance{margin:1.5rem 0;padding:.9rem 1.1rem;background:#f4f4f4;border:1px solid #d6d6d6;border-radius:6px;color:#666}.previous-exam-guidance summary{cursor:pointer;font-weight:600;color:#626262}.previous-exam-guidance h2,.previous-exam-guidance h3,.previous-exam-guidance strong,.previous-exam-guidance code,.previous-exam-guidance a{color:inherit}.previous-exam-guidance section{background:transparent}
