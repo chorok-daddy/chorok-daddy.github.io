@@ -1,0 +1,406 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Control System 2 · NiiL</title><meta name="description" content="광운대학교 자연모사 인공지능 연구실"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://chorok-daddy.github.io/niil/ko/control-2/"><link rel="alternate" hreflang="en" href="https://chorok-daddy.github.io/niil/control-2/"><link rel="alternate" hreflang="ko" href="https://chorok-daddy.github.io/niil/ko/control-2/"><link rel="alternate" hreflang="x-default" href="https://chorok-daddy.github.io/niil/control-2/"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261023"><script src="/niil/assets/niil.js?v=20261023" defer></script></head><body><a class="skip" href="#main">본문 바로가기</a><header class="site-header"><a class="brand" href="/niil/ko/" aria-label="NiiL 홈">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">메뉴 ☰</button><nav id="site-nav" aria-label="주 메뉴"><a  href="/niil/ko/research/">연구</a><a  href="/niil/ko/publications/">논문</a><a  href="/niil/ko/members/">구성원</a><a aria-current="page" href="/niil/ko/teaching/">강의</a><a  href="/niil/ko/contact/">문의</a></nav><nav class="language-switch" aria-label="언어"><a data-language="en" lang="en" href="/niil/control-2/" >EN</a><span aria-hidden="true">/</span><a data-language="ko" lang="ko" href="/niil/ko/control-2/" aria-current="true">한국어</a></nav></header><main id="main"><header class="wrap publication-heading"><h1>Control System 2</h1></header><section class="wrap document-layout"><aside><a href="/niil/ko/teaching/">← 강의</a><nav aria-label="페이지 목차" class="toc"></nav></aside><article class="prose"><p class="archive-note">이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.</p><div class="archive-source" lang="ko"><h2 id="ℹ-강의-관련-사항">ℹ 강의 관련 사항</h2>
+<ul>
+<li><b><u>수업 내용과 관련된 질문은 KLAS Q&amp;A를 이용 바랍니다.</u></b></li>
+</ul>
+<div class="source-columns">
+<div class="source-column">
+<p><b>Instructor: 이기백 교수</b></p>
+<p><b>Office:</b> 참빛관 #505</p>
+<p><b>Office hours:</b> 금요일 10:00 - 11:00</p>
+<p><b>Email:</b> kblee@kw.ac.kr</p>
+</div>
+<div class="source-column">
+<p>
+<b>동영상 강의</b>: 매주 화요일 자정 전까지 시청
+</p>
+<p>(필기시험, 보강 실습 화요일 13:30 - 14:45)</p>
+<p><b>실습:</b> 매주 목요일 12:00 - 13:15 (비211)</p>
+</div>
+</div>
+<div class="source-columns">
+<div class="source-column">
+<p><b>TA:</b> 박유현</p>
+<p><b>Office:</b> 참빛관 #512-1</p>
+<p><b>Office hours: </b>금요일 10:00 - 11:00</p>
+<p><b>Email: kw.artint@gmail.com</b></p>
+<p>(이메일 제목에 [제어공학2] 붙여주세요)</p>
+</div>
+</div>
+<h2 id="과목-소개">📜 과목 소개</h2>
+<ul>
+<li>자동화 및 컴퓨터화 되어가는 현대사회에 필요한 공학 기술에 가장 기본이 되는 과목으로, 선형 시스템의 제어를 위한 수학적 배경 및 시스템 해석법 습득을 목표로 한다.</li>
+<li>강의 전반부에서는 기본적인 제어 이론의 복습과 제어 시스템의 분석 방법에 관해 배운다.</li>
+<li>강의 후반부에서는 본격적인 피드백 제어 시스템의 설계 방법론과 고급 제어 이론을 배운다.</li>
+<li>매주 월요일에 40분 분량 내외 강의 영상을 청취, 수요일에 60분 내외로 대면 실습을 진행한다.
+<ul>
+<li>
+중간/기말의 대면 필기시험과 휴일에 따른 보강 실습을 월요일에 진행할 수 있다.
+</li>
+</ul></li>
+</ul>
+<p>
+** (비대면 비율이 약 50% 이내인 관계로, 분류상 대면 100% 교과목으로 분류됩니다.)
+</p>
+<h2 id="course-schedule">Course Schedule</h2>
+<div class="table-scroll">
+<table class="schedule">
+<thead>
+<tr>
+<th>
+Session
+</th>
+<th>
+Format
+</th>
+<th>
+Topic
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-1-1-a2c5d703/">Week 1-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+제어 이론 복습 #1
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-1-2-50421b44/">Week 1-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+교과목 소개, 실습 환경 구축
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-2-1-6a6d042f/">Week 2-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+제어 이론 복습 #2
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-2-2-4f154824/">Week 2-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+실습 환경 기초 실습
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-3-1-c0404479/">Week 3-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Root Locus #1 - 7.2-7.4
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-3-2-1aba72e3/">Week 3-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab 기초 복습
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-4-1-4e5fc8d6/">Week 4-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Root Locus #2 - 7.5-7.7
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-4-2-17ddae3f/">Week 4-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Python 기초 복습
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-5-1-b0d6c76f/">Week 5-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Frequency Response
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-5-2-1ff2ae6b/">Week 5-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Laplace transform, Transfer function 복습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-6-1-c7f30a2e/">Week 6-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Stability in the Frequency Domain #1 - 9.2
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-6-2-afe28fd9/">Week 6-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+System modelling 복습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-7-1-bc125221/">Week 7-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Stability in the Frequency Domain #2 - 9.3-9.4
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-7-2-31c1ebd4/">Week 7-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Basic PID controller 복습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-8-1-8df5ec94/">Week 8-1</a>
+</th>
+<td>
+중간 고사
+</td>
+<td>
+Midterm Exam - 이론 문제 풀이
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-8-2-ca282084/">Week 8-2</a>
+</th>
+<td>
+중간 고사
+</td>
+<td>
+Midterm Exam - Coding Test (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-9-1-3f251904/">Week 9-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Design of Feedback Control Systems #1 - 10.1-10.3
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-9-2-2a100d1c/">Week 9-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Root Locus 실습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-10-1-ef328a73/">Week 10-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Design of Feedback Control Systems #2 - 10.4-10.5
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-10-2-5055e441/">Week 10-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Frequency Response 실습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-11-1-e280f994/">Week 11-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Design of Feedback Control Systems #3 - 10.6-10.8
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-11-2-0bab3c61/">Week 11-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Stability on frequency response 실습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-12-1-7cb77bb1/">Week 12-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Design of State Variable Feedback Systems #1 - 11.2-11.3
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-12-2-60da4039/">Week 12-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Compensator 실습 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-13-1-b4fd5e57/">Week 13-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Design of State Variable Feedback Systems #2 - 11.4
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-13-2-ba7fc4b7/">Week 13-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+State-Space Control 실습 #1 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-14-1-34c7d898/">Week 14-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Design of State Variable Feedback Systems #2 - 11.5-6
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-14-2-7c984a02/">Week 14-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+State-Space Control 실습 #2 (Matlab, Python)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-15-1-37eb48b1/">Week 15-1</a>
+</th>
+<td>
+기말 고사
+</td>
+<td>
+Final Exam - Coding Test (Matlab)
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-15-2-b9fdbd7b/">Week 15-2</a>
+</th>
+<td>
+기말 고사
+</td>
+<td>
+Final Exam - Coding Test (Python)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="평가-기준">🏆 평가 기준</h2>
+<h4 id="평가-비율">평가 비율</h4>
+<p>(주의: 정성적인 비율이며, 각 평가의 점수는 표준편차에 따라 보상하여 변환될 수 있습니다.)</p>
+<p>출석(개인별): 10<b>% (30회의 출석 중 10회 이상 결석한 경우 F학점이 부여됩니다.)</b><br/>실습 과제: 20<b>%</b></p>
+<p>중간 시험: 15(필기)+15(코딩)%<br/>기말 평가: 20(코딩, Matlab)+20(코딩, Python)<b>%</b></p>
+<h4 id="평가-절차">평가 절차</h4>
+<ul>
+<li>실습, 필기, 코딩 - 현장 개별 평가</li>
+<li><b><u>노트북 대여가 필요한 경우 첫 실습 전에 조교에 문의 바랍니다.</u></b></li>
+</ul>
+<h2 id="표절-정책">😢 표절 정책</h2>
+<p>표절 과제물의 경우 해당 과제물 이전까지의 모든 과제물 점수를 0점으로 처리하며, 2회 이상 적발시 예외 없이 F학점이 부여됩니다.</p>
+</div></article></section></main><footer><a class="brand" href="/niil/ko/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br><span>광운대학교 · 서울</span></div><a href="/niil/ko/contact/">문의</a><small>© NiiL</small></footer></body></html>

@@ -271,8 +271,8 @@
       "Current Affliation": "Kwangwoon University",
       "Email": "pjho9370(at)kw.ac.kr",
       "Name": "Joo-Hyeong Park",
-      "Period": "M.S.: Mar. 2025 - Present · Intern: Mar. 2023 - Feb. 2025",
-      "Position": "M.S.",
+      "Period": "Mar. 2023 - Present",
+      "Position": "m.s.",
       "Status": "Enrolled"
     },
     "body": "<image source=\"notion-file-block://328888a1-7b30-8060-999b-cb2163e84059/6d93dcc9-2da6-4865-a9f7-4035c7fff45d?space_id=bab3279b-0735-4fd2-aa05-7fbb4f15fc0f&name=%E1%84%87%E1%85%A1%E1%86%A8%E1%84%8C%E1%85%AE%E1%84%92%E1%85%A7%E1%86%BC.jpg\" />",
@@ -412,13 +412,12 @@
     "id": "1b6888a17b3080ccaa14f5c77fe8d644",
     "title": "Chang-Hyun Lee",
     "properties": {
-      "Current Affliation": "마키나락스 (MakinaRocks)",
+      "Current Affliation": "",
       "Email": "chlee@kw.ac.kr",
       "Name": "Chang-Hyun Lee",
-      "Period": "Sep. 2018 - Aug. 2025",
-      "Position": "Ph.D.",
-      "Status": "Alumni",
-      "Graduated": "Aug. 2025"
+      "Period": "Sep. 2018 - Present",
+      "Position": "ph.d.",
+      "Status": "Alumni"
     },
     "body": "<image source=\"notion-file-block://328888a1-7b30-80bd-858e-e83b7931381d/e65cbc3a-c473-4485-bb13-6f1c35ad0f32?space_id=bab3279b-0735-4fd2-aa05-7fbb4f15fc0f&name=%E1%84%8B%E1%85%B5%E1%84%8E%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A7%E1%86%AB.jpeg\" />",
     "collection": "collection://1b6888a1-7b30-80dc-8548-000b1ae76dfb",
@@ -477,14 +476,14 @@
     "id": "29b888a17b3080a2b5f8ea17e29192b2",
     "title": "Su-Hyun Na",
     "properties": {
-      "Current Affliation": "한양대학교 전기공학과 석사과정 · UNICON Lab",
+      "Current Affliation": "",
       "Email": "",
       "Name": "Su-Hyun Na",
-      "Period": "Internship started Mar. 2024",
-      "Position": "Intern",
+      "Period": "",
+      "Position": "intern",
       "Status": "Alumni"
     },
-    "body": "2024년 3월 NiiL 인턴을 시작했으며, 학부 졸업 후 한양대학교 대학원에 진학했습니다. 현재 전기공학과 UNICON Lab 석사과정에 재학 중입니다.\n\n[한양대학교 UNICON Lab 구성원 소개](https://unicon.hanyang.ac.kr/members)",
+    "body": "",
     "collection": "collection://1b6888a1-7b30-80dc-8548-000b1ae76dfb",
     "source": "https://niilab.notion.site/29b888a17b3080a2b5f8ea17e29192b2",
     "edited": "2026-03-19T07:35:09.803Z"

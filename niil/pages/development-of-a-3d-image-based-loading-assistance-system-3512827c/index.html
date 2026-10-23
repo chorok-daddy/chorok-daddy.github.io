@@ -1,44 +1,44 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D Loading Assistance · NiiL</title><meta name="description" content="Nature-inspired Intelligence Lab at Kwangwoon University"><meta name="robots" content="noindex,nofollow"><link rel="stylesheet" href="/niil/assets/niil.css"><script src="/niil/assets/niil.js" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/niil/" aria-label="NiiL home">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button><nav id="site-nav" aria-label="Main navigation"><a aria-current="page" href="/niil/research/">Research</a><a  href="/niil/publications/">Publications</a><a  href="/niil/members/">People</a><a  href="/niil/teaching/">Teaching</a><a class="contact-nav" href="/niil/contact/">Contact ↗</a></nav></header><main id="main"><section class="page-heading wrap"><p class="eyebrow">RESEARCH</p><h1>3D Loading Assistance</h1><p class="lede">상품·적재 공간·작업자 인식을 ROS 기반 적재 보조 시스템으로 통합.</p></section><section class="wrap document-layout"><aside><a href="/niil/research/">← Back to research</a><nav aria-label="On this page" class="toc"></nav></aside><article class="prose"><p class="eyebrow">Visual Intelligence & Logistics</p><dl class="metadata"><div><dt>Title(Korean)</dt><dd>3차원 영상 기반의 적재 보조 시스템 구축 용역</dd></div><div><dt>Sponsor</dt><dd>한국철도기술연구원</dd></div><div><dt>Period</dt><dd>2018-07-23 — 2018-12-21</dd></div><div><dt>Role</dt><dd>Principal investigator · Ki-Baek Lee</dd></div></dl><div class="result-highlights"><div><strong>97.5%</strong><span>보고된 물품 인식 정확도</span></div><div><strong>98.3%</strong><span>238프레임 작업자 인식</span></div></div><h2 id="적재-공간과-작업자를-함께-이해하다">적재 공간과 작업자를 함께 이해하다</h2>
-<p>RGB-D 영상으로 상품의 형상과 적재 공간을 파악하고, 주변 작업자의 위치와 동작까지 인식하는 적재 보조 시스템을 개발했습니다. 영상 처리 결과를 ROS 기반 물류로봇 제어에 연결했습니다.</p>
-<h2 id="핵심-결과">핵심 결과</h2>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>3D Loading Assistance · NiiL</title><meta name="description" content="Nature-inspired Intelligence Lab at Kwangwoon University"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://chorok-daddy.github.io/niil/pages/development-of-a-3d-image-based-loading-assistance-system-3512827c/"><link rel="alternate" hreflang="en" href="https://chorok-daddy.github.io/niil/pages/development-of-a-3d-image-based-loading-assistance-system-3512827c/"><link rel="alternate" hreflang="ko" href="https://chorok-daddy.github.io/niil/ko/pages/development-of-a-3d-image-based-loading-assistance-system-3512827c/"><link rel="alternate" hreflang="x-default" href="https://chorok-daddy.github.io/niil/pages/development-of-a-3d-image-based-loading-assistance-system-3512827c/"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261023"><script src="/niil/assets/niil.js?v=20261023" defer></script></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="/niil/" aria-label="NiiL home">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu ☰</button><nav id="site-nav" aria-label="Main navigation"><a aria-current="page" href="/niil/research/">Research</a><a  href="/niil/publications/">Publications</a><a  href="/niil/members/">People</a><a  href="/niil/teaching/">Teaching</a><a  href="/niil/contact/">Contact</a></nav><nav class="language-switch" aria-label="Language"><a data-language="en" lang="en" href="/niil/pages/development-of-a-3d-image-based-loading-assistance-system-3512827c/" aria-current="true">EN</a><span aria-hidden="true">/</span><a data-language="ko" lang="ko" href="/niil/ko/pages/development-of-a-3d-image-based-loading-assistance-system-3512827c/" >한국어</a></nav></header><main id="main"><header class="wrap publication-heading"><h1>3D Loading Assistance</h1><p class="lede">RGB-D perception of goods, free space and nearby workers.</p></header><section class="wrap document-layout"><aside><a href="/niil/research/">← Research</a><nav aria-label="On this page" class="toc"></nav></aside><article class="prose"><p class="eyebrow">Visual Intelligence &amp; Logistics</p><p>2018-07-23 – 2018-12-21 · Completed</p><p>Korea Railroad Research Institute (KRRI)</p><h2 id="overview">Overview</h2>
+<p>An RGB-D loading-assistance system recognizes goods and loading space alongside nearby workers, connecting perception to ROS-based logistics robot control.</p>
+<h2 id="results">Results</h2>
 <table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
 <thead>
 <tr>
-<th>항목</th>
-<th>2018년 결과보고서의 기록</th>
-<th>검증 범위</th>
+<th>Measure</th>
+<th>2018 report</th>
+<th>Scope</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>물품 인식</td>
-<td>정확도 97.5%</td>
-<td>컬러·깊이 정보를 함께 사용한 앙상블 모델</td>
+<td>Goods recognition</td>
+<td>97.5% accuracy</td>
+<td>Color/depth ensemble model</td>
 </tr>
 <tr>
-<td>작업자 인식</td>
-<td>성공률 98.3%</td>
-<td>약 5분 영상의 238프레임 중 4프레임 실패</td>
+<td>Worker recognition</td>
+<td>98.3% success</td>
+<td>Four failures in 238 frames from approximately five minutes of video</td>
 </tr>
 <tr>
-<td>작업자 위치</td>
-<td>약 3–4 cm 오차</td>
-<td>보고서에 제시된 위치 측정 사례</td>
+<td>Worker position</td>
+<td>Approximately 3–4 cm error</td>
+<td>Reported measurement examples</td>
 </tr>
 <tr>
-<td>처리·연동</td>
-<td>RGB 30 fps · Depth 90 fps</td>
-<td>ROS 환경의 시스템 동작 확인</td>
+<td>Integration</td>
+<td>RGB 30 fps; depth 90 fps</td>
+<td>Operation in a ROS environment</td>
 </tr>
 </tbody>
 </table>
-<h2 id="주요-기여">주요 기여</h2>
-<ul>
-<li><strong>다품종 적재:</strong> 물품 형상과 빈 공간을 인식하고 적재 위치·방향을 계산했습니다.</li>
-<li><strong>사람을 포함한 환경 이해:</strong> 물류 작업자 인식과 위치 추정을 적재 보조 기능에 함께 포함했습니다.</li>
-<li><strong>인식에서 통합까지:</strong> 개별 알고리즘을 ROS 환경에서 운용 가능한 시스템으로 연결했습니다.</li>
-</ul>
-<h2 id="검증-범위">검증 범위</h2>
-<p>수치는 보고서의 제한된 시험·측정 조건에 해당합니다. 작업자 인식 성공률은 영상 프레임 기준이며, 사람별 인식률이나 모든 작업 환경의 성능을 뜻하지 않습니다. 과업 초기의 치수 계측 요구사항과 최종 보고된 상품·작업자 인식 결과를 구분했습니다.</p>
-<p><em>근거: 「3차원 영상 기반의 적재 보조 시스템 구축 용역」 결과보고서, 2018.12, 제4장 결과 및 고찰.</em></p>
-<details class="project-phases"><summary>연차·관련 계약 이력</summary><div class="table-scroll"><table><thead><tr><th>기간</th><th>과제·계약</th><th>지원기관</th></tr></thead><tbody><tr><td>2018-07-23 — 2018-12-21</td><td>3차원 영상 기반의 적재 보조 시스템 구축 용역</td><td>한국철도기술연구원</td></tr></tbody></table></div></details><section class="related-projects"><h2>Related research</h2><ul><li><a href="/niil/pages/last-mile-delivery-robot-cargo-and-task-management-system-5f188a3e/">Last-Mile Delivery Intelligence <span aria-hidden="true">↗</span></a></li><li><a href="/niil/pages/development-of-deep-learning-based-cargo-recognition-and-damage-detection-system-0f53979f/">Cargo Recognition &amp; Damage Detection <span aria-hidden="true">↗</span></a></li><li><a href="/niil/pages/implementation-of-deep-learning-based-object-segmentation-and-classification-technology-for-indoor-spatial-data-96361f0a/">Understanding Indoor 3D Spaces <span aria-hidden="true">↗</span></a></li></ul></section></article></section></main><footer><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>Nature-inspired Intelligence Lab<br><span>Kwangwoon University · Seoul, Korea</span></div><a href="mailto:kw.artint@gmail.com">Let’s connect ↗</a><small>© NiiL · Nature inspires. Intelligence evolves.</small></footer></body></html>
+<h2 id="contributions">Contributions</h2>
+<p>Calculated placement position and orientation from goods geometry and free space, incorporated worker detection and localization, and integrated the algorithms into a working ROS system.</p>
+<h2 id="evaluation-scope">Evaluation scope</h2>
+<p>Results apply to the report’s limited tests. Worker recognition is a per-frame measure, not per-person accuracy. Initial dimensional requirements are distinguished from the final goods/worker recognition results.</p>
+<details class="project-phases"><summary>Project record and sources</summary><p>Principal investigator: Ki-Baek Lee</p><p lang="ko">3차원 영상 기반의 적재 보조 시스템 구축 용역</p><p class="muted">Official contract titles are preserved in Korean.</p><div class="table-scroll"><table><thead><tr><th>Period</th><th>Contract</th><th>Sponsor</th></tr></thead><tbody><tr><td>2018-07-23 – 2018-12-21</td><td lang="ko">3차원 영상 기반의 적재 보조 시스템 구축 용역</td><td>Korea Railroad Research Institute (KRRI)</td></tr></tbody></table></div><p><em>Source: December 2018 3D loading-assistance final report, chapter 4.</em></p></details><section><h2>Related research</h2><ul><li><a href="/niil/pages/last-mile-delivery-robot-cargo-and-task-management-system-5f188a3e/">Last-Mile Delivery Intelligence</a></li><li><a href="/niil/pages/development-of-deep-learning-based-cargo-recognition-and-damage-detection-system-0f53979f/">Cargo Recognition &amp; Damage Detection</a></li><li><a href="/niil/pages/implementation-of-deep-learning-based-object-segmentation-and-classification-technology-for-indoor-spatial-data-96361f0a/">Understanding Indoor 3D Spaces</a></li></ul></section></article></section></main><footer><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>Nature-inspired Intelligence Lab<br><span>Kwangwoon University · Seoul, Korea</span></div><a href="/niil/contact/">Contact</a><small>© NiiL</small></footer></body></html>

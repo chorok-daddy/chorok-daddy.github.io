@@ -1,0 +1,416 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Control System 1 · NiiL</title><meta name="description" content="광운대학교 자연모사 인공지능 연구실"><meta name="robots" content="noindex,nofollow"><link rel="canonical" href="https://chorok-daddy.github.io/niil/ko/control-1/"><link rel="alternate" hreflang="en" href="https://chorok-daddy.github.io/niil/control-1/"><link rel="alternate" hreflang="ko" href="https://chorok-daddy.github.io/niil/ko/control-1/"><link rel="alternate" hreflang="x-default" href="https://chorok-daddy.github.io/niil/control-1/"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261023"><script src="/niil/assets/niil.js?v=20261023" defer></script></head><body><a class="skip" href="#main">본문 바로가기</a><header class="site-header"><a class="brand" href="/niil/ko/" aria-label="NiiL 홈">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">메뉴 ☰</button><nav id="site-nav" aria-label="주 메뉴"><a  href="/niil/ko/research/">연구</a><a  href="/niil/ko/publications/">논문</a><a  href="/niil/ko/members/">구성원</a><a aria-current="page" href="/niil/ko/teaching/">강의</a><a  href="/niil/ko/contact/">문의</a></nav><nav class="language-switch" aria-label="언어"><a data-language="en" lang="en" href="/niil/control-1/" >EN</a><span aria-hidden="true">/</span><a data-language="ko" lang="ko" href="/niil/ko/control-1/" aria-current="true">한국어</a></nav></header><main id="main"><header class="wrap publication-heading"><h1>Control System 1</h1></header><section class="wrap document-layout"><aside><a href="/niil/ko/teaching/">← 강의</a><nav aria-label="페이지 목차" class="toc"></nav></aside><article class="prose"><p class="archive-note">이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.</p><div class="archive-source" lang="ko"><h2 id="ℹ-강의-관련-사항">ℹ 강의 관련 사항</h2>
+<ul>
+<li><b><u>수업 내용과 관련된 질문은 KLAS Q&amp;A를 이용 바랍니다.</u></b></li>
+</ul>
+<div class="source-columns">
+<div class="source-column">
+<p><b>Instructor: 이기백 교수</b></p>
+<p><b>Office:</b> 참빛관 #505</p>
+<p><b>Office hours:</b> 금요일 10:00 - 11:00</p>
+<p><b>Email:</b> kblee@kw.ac.kr</p>
+<p>(이메일 제목에 [제어공학1] 붙여주세요)</p>
+</div>
+<div class="source-column">
+<p>
+<b>동영상 강의</b>: 매주 화요일 자정 전까지 시청
+</p>
+<p>(중간 및 기말 필기시험 화요일 12:00 - 13:15)</p>
+<p><b>Lecture:</b> 매주 목요일 13:30 - 14:45 (참B103)</p>
+</div>
+</div>
+<div class="source-columns">
+<div class="source-column">
+<p><b>TA:</b> 박유현</p>
+<p><b>Office:</b> 참빛관 #512-1</p>
+<p><b>Office hours: </b>금요일 10:00 - 11:00</p>
+<p><b>Email: kw.artint@gmail.com</b></p>
+<p>(이메일 제목에 [제어공학1] 붙여주세요)</p>
+</div>
+<div class="source-column">
+<p><b>TA:</b> -</p>
+<p><b>Office:</b> -</p>
+<p><b>Office hours: </b>-</p>
+<p><b>Email: -</b></p>
+</div>
+</div>
+<h2 id="과목-소개">📜 과목 소개</h2>
+<ul>
+<li>
+자동화 및 컴퓨터화 되어가는 현대사회에 필요한 공학 기술에 가장 기본이 되는 과목으로, 선형 시스템의 제어를 위한 수학적 배경 및 시스템 해석법 습득을 목표로 한다.
+</li>
+<li>
+강의 전반부에서는 제어에 필요한 기초적인 수학적 모델링 기법을 배우고, 매트랩을 이용해 시뮬레이션 해본다.
+</li>
+<li>
+강의 후반부에서는 피드백 제어의 특성, 효과 및 안정도(stability)에 관해 고찰한다.
+</li>
+<li>
+매주 화요일에 40분 분량 내외 강의 영상을 청취하고, 목요일에 75분 내외로 대면 실습을 진행한다.
+</li>
+</ul>
+<p>
+** (비대면 비율이 약 50% 이내인 관계로, 분류상 대면 100% 교과목으로 분류됩니다.)
+</p>
+<h2 id="course-schedule">Course Schedule</h2>
+<div class="table-scroll">
+<table class="schedule">
+<thead>
+<tr>
+<th>
+Session
+</th>
+<th>
+Format
+</th>
+<th>
+Topic
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-1-1-07f2ec7b/">Week 1-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Introduction to Control Systems and Matlab
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-1-2-27757b19/">Week 1-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Configurations
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-2-1-3bb359f2/">Week 2-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Mathematical Models of Systems #1
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-2-2-bdcac79e/">Week 2-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Basic programing practice
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-3-1-508acdf6/">Week 3-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Mathematical Models of Systems #2
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-3-2-3acf914f/">Week 3-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Basic
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-4-1-fa8726d6/">Week 4-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Mathematical Models of Systems #3
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-4-2-cb538fb0/">Week 4-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Vectors and Matrice
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-5-1-9a8de0bd/">Week 5-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+State Variable Models #1
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-5-2-20833a8f/">Week 5-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Github Basic Practice
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-6-1-4e695984/">Week 6-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+State Variable Models #2
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-6-2-fe96fb3b/">Week 6-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Calculation and Functions
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-7-1-b0a2b75c/">Week 7-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+State Variable Models #3
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-7-2-d02a16f2/">Week 7-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Graph and Practical Programming
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-8-1-406d7ceb/">Week 8-1</a>
+</th>
+<td>
+중간 고사
+</td>
+<td>
+Midterm Exam - Written Test
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-8-2-70d8d4b5/">Week 8-2</a>
+</th>
+<td>
+중간 고사
+</td>
+<td>
+Midterm Exam - Coding Test
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-9-1-648f6867/">Week 9-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Feedback Control System Characteristics #1
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-9-2-dc1d8b9b/">Week 9-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Midterm Review with Matlab
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-10-1-f8fd9517/">Week 10-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+Feedback Control System Characteristics #2
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-10-2-6c01c957/">Week 10-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Laplace Transform and Transfer Function
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-11-1-c492c8d3/">Week 11-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+The Performance of Feedback Control Systems #1
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-11-2-5d8e0aa8/">Week 11-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Control System Modelling
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-12-1-837fdc46/">Week 12-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+The Performance of Feedback Control Systems #2
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-12-2-cdb88e08/">Week 12-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Controller Design
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-13-1-750ef683/">Week 13-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+The Performance of Feedback Control Systems #3
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-13-2-c862803e/">Week 13-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+Matlab Simulink
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-14-1-2820db00/">Week 14-1</a>
+</th>
+<td>
+동영상 강의
+</td>
+<td>
+The Stability of Linear Feedback Systems
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-14-2-cc5e1e8f/">Week 14-2</a>
+</th>
+<td>
+대면강의/실습
+</td>
+<td>
+HW Review with Matlab
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-15-1-091ae371/">Week 15-1</a>
+</th>
+<td>
+기말 고사
+</td>
+<td>
+Final Exam - Written Test
+</td>
+</tr>
+<tr>
+<th scope="row">
+<a href="/niil/ko/pages/week-15-2-f6bcf8c6/">Week 15-2</a>
+</th>
+<td>
+기말 고사
+</td>
+<td>
+Final Exam - Coding Test
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="평가-기준">🏆 평가 기준</h2>
+<h4 id="평가-비율">평가 비율</h4>
+<p>(주의: 정성적인 비율이며, 각 평가의 점수는 표준편차에 따라 보상하여 변환될 수 있습니다.)</p>
+<p>출석(개인별): 10<b>% (30회의 출석 중 10회 이상 결석한 경우 F학점이 부여됩니다.)</b><br/>실습 과제: 20<b>%</b></p>
+<p>중간 시험: 10(필기)+15(코딩)%<br/>기말 평가: 20(필기)+25(코딩)<b>%</b></p>
+<h4 id="평가-절차">평가 절차</h4>
+<ul>
+<li>실습, 필기, 코딩 - 현장 개별 평가</li>
+<li><b><u>노트북 대여가 필요한 경우 첫 실습 전에 조교에 문의 바랍니다.</u></b></li>
+</ul>
+<h2 id="표절-정책">😢 표절 정책</h2>
+<p>표절 과제물의 경우 해당 과제물 이전까지의 모든 과제물 점수를 0점으로 처리하며, 2회 이상 적발시 예외 없이 F학점이 부여됩니다.</p>
+</div></article></section></main><footer><a class="brand" href="/niil/ko/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br><span>광운대학교 · 서울</span></div><a href="/niil/ko/contact/">문의</a><small>© NiiL</small></footer></body></html>
