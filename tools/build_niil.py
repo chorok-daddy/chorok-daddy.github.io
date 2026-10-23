@@ -151,8 +151,20 @@ for project in sorted(CATALOG,key=lambda p:p['start'],reverse=True):
 content+='</div><p id="no-projects" hidden>No projects match your search. Try another topic or keyword.</p></section>'
 write('/niil/research/',shell('Research & Projects',content,'research'))
 redirect('/niil/projects/','/niil/research/','Research & Projects')
-scholar='https://scholar.google.co.kr/citations?hl=en&user=yZ9xxNcAAAAJ&view_op=list_works&sortby=pubdate'
-write('/niil/publications/',shell('Publications',heading('PUBLICATIONS','A growing body of work.','Browse the publication record on Google Scholar.')+f'<section class="wrap section compact"><a class="scholar-panel" href="{scholar}"><span class="eyebrow">PUBLICATION RECORD</span><h2>Ki-Baek Lee on Google Scholar ↗</h2><p>Articles, citation information, and recent publications.</p></a></section>','publications'))
+publication_data=json.loads((SITE/'content/publications.json').read_text())
+publications=publication_data['publications']
+years=sorted({p['year'] for p in publications},reverse=True)
+content='<header class="wrap publication-heading"><h1>Publications</h1><p class="muted">'+str(len(publications))+' publications · '+str(min(years))+'–'+str(max(years))+'</p></header>'
+content+='<section class="wrap publication-catalog"><div class="filterbar"><label for="publication-search">Search<input type="search" id="publication-search" placeholder="Title, author, or venue"></label><label for="publication-year">Year<select id="publication-year"><option value="">All years</option>'+''.join(f'<option value="{y}">{y}</option>' for y in years)+'</select></label><label for="publication-type">Type<select id="publication-type"><option value="">All types</option><option>Journal</option><option>Conference</option><option>Book chapter</option></select></label></div>'
+content+=f'<p id="publication-count" class="muted" aria-live="polite">{len(publications)} publications</p><div class="publication-list">'
+for p in sorted(publications,key=lambda p:p['year'],reverse=True):
+    citation=p['venue']
+    if p['volume']: citation+=' '+p['volume']
+    if p['issue']: citation+=' ('+p['issue']+')'
+    if p['pages']: citation+=', '+p['pages']
+    content+=f'<article class="publication-row" data-publication data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{p["type"]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p["title"])} <span aria-hidden="true">↗</span></a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'
+content+='</div><p id="publication-empty" hidden>No publications found.</p><p class="publication-source">Source: Google Scholar · Updated '+publication_data['updated']+'</p></section>'
+write('/niil/publications/',shell('Publications',content,'publications'))
 content=heading('TEACHING','Learn by understanding.<br>Understand by building.','Course information, schedules, and practical learning resources.')+'<section class="wrap section compact"><div class="course-grid">'
 for i,p in enumerate(PAGES[6:12]):
     content+=f'<a class="course-card" href="{href(p)}"><span class="eyebrow">COURSE 0{i+1}</span><h2>{esc(p["title"])}</h2><span>Course overview & schedule ↗</span></a>'

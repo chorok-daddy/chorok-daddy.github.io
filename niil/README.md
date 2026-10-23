@@ -27,7 +27,7 @@ Retrieved on 2026-10-23. Public site pages were fetched by URL because the activ
 
 All six course inventories were reconciled against the visible counts: Robot Basic Lab 32; Micro-Processor Applications 31; Control System 1 30; Control System 2 30; AI Applications 31; EE Seminar 20. Each inventory row has a local detail page. Course source content is preserved as an archive; the existing current AI Applications and Control 1 materials remain authoritative at `/courses/`.
 
-The original Publications page contains a Google Scholar link, not a bibliography; the new page preserves that destination. Internship submissions remain with the original Notion application form; submitted responses are neither collected nor published here. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Source member statuses are respected, including an inconsistent internship view that repeats a master's student; the consolidated people list uses each member's properties.
+The original Publications page contained only a Google Scholar link; the local publication catalog now replaces that landing panel. Internship submissions remain with the original Notion application form; submitted responses are neither collected nor published here. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Source member statuses are respected, including an inconsistent internship view that repeats a master's student; the consolidated people list uses each member's properties.
 
 ## Final review and later promotion
 
@@ -49,3 +49,9 @@ After explicit final review, choose the new root routing, connect existing cours
 - Private source reports, OCR intermediates, administrative IDs and the screening audit remain outside this public repository. No raw Drive proposal, private download link, payroll, bank information or unpublished source code is included.
 
 Review `content/projects/*.md` for editorial approval. The KARI final report confirms PI and dates; it names NRF as the specialized agency, while the source archive identifies the KARI relationship. Figures from reports are not embedded as full-page screenshots.
+
+## Publication catalog (2026-10-23)
+
+`content/publications.json` contains 37 bibliographic records from the public Ki-Baek Lee Google Scholar profile, covering 2006–2026. All 37 detail records were read to recover full author names and venue metadata. The page renders the records statically and filters by title/author/venue text, year and publication type in the browser. JavaScript is optional for reading the full list. There is no runtime Scholar dependency or automatic synchronization; edit the JSON and rebuild to update the catalog.
+
+Titles link to the individual source/publisher destinations recorded by Scholar. External link availability is not certified. The page omits citation metrics and abstracts. Journal/Conference/Book chapter types follow the bibliographic fields (Source entries ACS Nano and Biosensors and Bioelectronics are journals). One malformed source page range, `1921-718`, is omitted and recorded in that entry's note rather than guessed. This is the profile's listed bibliography, not a claim of exhaustive lab output. A source URL is retained per record for maintenance.

@@ -36,3 +36,24 @@ if (toc) document.querySelectorAll('.prose h2, .prose h3').forEach((heading, ind
   anchor.textContent = heading.textContent;
   toc.append(anchor);
 });
+
+const publicationSearch = document.querySelector('#publication-search');
+if (publicationSearch) {
+  const year = document.querySelector('#publication-year');
+  const type = document.querySelector('#publication-type');
+  const publications = [...document.querySelectorAll('[data-publication]')];
+  const filterPublications = () => {
+    let count = 0;
+    const term = publicationSearch.value.trim().toLocaleLowerCase();
+    publications.forEach(item => {
+      const matches = item.textContent.toLocaleLowerCase().includes(term) && (!year.value || item.dataset.year === year.value) && (!type.value || item.dataset.type === type.value);
+      item.hidden = !matches;
+      if (matches) count++;
+    });
+    document.querySelector('#publication-count').textContent = `${count} publication${count === 1 ? '' : 's'}`;
+    document.querySelector('#publication-empty').hidden = count !== 0;
+  };
+  publicationSearch.addEventListener('input', filterPublications);
+  year.addEventListener('change', filterPublications);
+  type.addEventListener('change', filterPublications);
+}

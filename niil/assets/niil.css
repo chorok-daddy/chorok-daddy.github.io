@@ -11,3 +11,18 @@
 @media(max-width:900px){.cluster-grid{grid-template-columns:1fr}.cluster-card{min-height:0}.cluster-number{font-size:30px}.cluster-card .eyebrow{margin-top:15px}.filterbar{grid-template-columns:1fr 1fr}.filterbar label:first-child{grid-column:1/-1}}
 @media(max-width:700px){.filterbar{grid-template-columns:1fr}.cluster-card{padding:25px}.spotlight-concept{min-height:260px}.spotlight-concept strong{font-size:65px}.prose table{font-size:13px}.prose th,.prose td{padding:10px 8px}.project-phases{padding:15px}.project-row>div:first-child{flex-wrap:wrap}.project-summary{font-size:15px}}
 .result-highlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:28px 0 42px}.result-highlights>div{padding:24px;background:#e6eddc;border-top:3px solid #789b54;border-radius:0 0 5px 5px}.result-highlights strong{display:block;font:600 clamp(25px,3.1vw,40px)/1.2 Manrope,sans-serif;letter-spacing:-.04em}.result-highlights span{display:block;font-size:12px;margin-top:12px;color:#52654c}@media(max-width:500px){.result-highlights{grid-template-columns:1fr}.result-highlights>div{padding:20px}}
+
+/* Publication catalog */
+.publication-heading{padding-top:68px;padding-bottom:30px}
+.publication-heading h1{font-size:clamp(2.3rem,5vw,3.6rem);letter-spacing:-.045em;margin:0 0 12px}
+.publication-catalog{padding-bottom:80px}
+.publication-row{display:grid;grid-template-columns:110px minmax(0,1fr);gap:28px;padding:26px 0;border-top:1px solid var(--line)}
+.publication-row[hidden]{display:none}
+.publication-year{font-size:1.2rem;font-weight:600;font-variant-numeric:tabular-nums}
+.publication-year span{display:block;font-size:.72rem;font-weight:400;margin-top:8px;color:var(--muted)}
+.publication-row h2{font-size:1.12rem;line-height:1.5;letter-spacing:-.015em;margin:0 0 9px}
+.publication-row h2 a:hover{text-decoration:underline;text-underline-offset:4px}
+.publication-authors{font-size:.86rem;line-height:1.65;margin:0 0 5px;color:var(--muted)}
+.publication-venue{font-size:.86rem;line-height:1.6;margin:0}
+.publication-source{font-size:.75rem;color:var(--muted);padding-top:26px;border-top:1px solid var(--line)}
+@media(max-width:600px){.publication-heading{padding-top:36px}.publication-row{grid-template-columns:1fr;gap:10px;padding:22px 0}.publication-year{display:flex;align-items:center;gap:12px;font-size:.95rem}.publication-year span{margin:0}.publication-row h2{font-size:1.02rem}}
