@@ -7,11 +7,30 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'niil'
 PAGES = json.loads((SITE/'content/pages.json').read_text())
+CATALOG = json.loads((SITE/'content/projects.json').read_text())
+PROJECT_BY_ID = {p['page_id']:p for p in CATALOG}
+for project in CATALOG:
+    page = next((p for p in PAGES if p['id']==project['page_id']), None)
+    if page is None:
+        page = {'id':project['page_id'], 'title':project['title'], 'collection':'collection://1b9888a1-7b30-80cd-820b-000b52d52aa9', 'properties':{}, 'body':''}
+        PAGES.append(page)
+    # Preserve legacy titles for stable original URLs; use the catalog title in the UI.
+    page['body'] = (SITE/'content'/project['body_file']).read_text()
+    page['properties'] = {'Title(Korean)':project['title_ko'], 'Sponsor':' · '.join(project['sponsors']), 'Period':project['start']+' — '+project['end'], 'Role':'Principal investigator · Ki-Baek Lee'}
+CLUSTERS = [
+    ('Robotics & Autonomy','robotics','행동하고 적응하는 시스템','로봇 학습, 군집 탐색, 이동 보조와 임베디드 제어를 실제 작업으로 연결합니다.'),
+    ('Visual Intelligence & Logistics','vision','보는 것을 작업 정보로','3차원 공간과 화물을 이해하고 피킹·적재·배송의 의사결정으로 연결합니다.'),
+    ('Human-Centered AI','human','사람의 표현을 이해하는 AI','감정, 수어와 언어를 학습해 상호작용과 접근성을 확장합니다.')
+]
+
 ASSETS = {x['reference']:x['path'] for x in json.loads((SITE/'content/assets.json').read_text()) if 'path' in x}
 byid = {p['id']:p for p in PAGES}
 TOP = ['vision','members','contact','publications','projects','research','robot-basic-lab','microprocessor','control-1','control-2','ai-applications','ee-seminar']
 ROUTES = {p['id']:'/niil/'+s+'/' for p,s in zip(PAGES[:12],TOP)}
 ROUTES[PAGES[12]['id']]='/niil/'
+for project in CATALOG:
+    if project['page_id'].startswith('niil-'):
+        ROUTES[project['page_id']]='/niil/research/'+project['key']+'/'
 def plain(x):
     value=str(x)
     return (BeautifulSoup(value,'html.parser').get_text(' ',strip=True) if '<' in value else value).replace('\\-','—').replace('Appied Intelligence','Applied Intelligence')
@@ -20,6 +39,7 @@ def slug(x): return re.sub(r'[^a-z0-9]+','-',plain(x).lower()).strip('-') or 'it
 for p in PAGES:
     ROUTES.setdefault(p['id'], '/niil/pages/'+slug(p['title'])+'-'+p['id'][-8:]+'/')
 def href(p): return ROUTES[p['id']]
+def display_title(p): return PROJECT_BY_ID.get(p['id'],{}).get('title',p['title'])
 def rows(collection): return [p for p in PAGES if p['collection']==collection]
 def props(p): return p['properties']
 MEMBERS=rows('collection://1b6888a1-7b30-80dc-8548-000b1ae76dfb')
@@ -27,11 +47,11 @@ PROJECTS=rows('collection://1b9888a1-7b30-80cd-820b-000b52d52aa9')
 AREAS=rows('collection://1af888a1-7b30-8060-84d2-000b9e108baf')
 VISIONS=rows('collection://1b5888a1-7b30-80fc-af94-000b76af84a0')
 NOTICE=rows('collection://1b0888a1-7b30-80bd-9ade-000bd380602a')
-NAV=[('Research','research'),('Projects','projects'),('Publications','publications'),('People','members'),('Teaching','teaching')]
+NAV=[('Research','research'),('Publications','publications'),('People','members'),('Teaching','teaching')]
 def image(p, cls='', first=True):
     refs=re.findall(r'<image source="([^"]+)"',p['body'])
     return ''.join(f'<img class="{cls}" src="{ASSETS[r]}" alt="{esc(p["title"])}" loading="lazy" decoding="async">' for r in (refs[:1] if first else refs) if r in ASSETS)
-def link(p,label=None): return f'<a href="{href(p)}">{esc(label or p["title"])} <span aria-hidden="true">↗</span></a>'
+def link(p,label=None): return f'<a href="{href(p)}">{esc(label or display_title(p))} <span aria-hidden="true">↗</span></a>'
 def shell(title, content, section='', desc='Nature-inspired Intelligence Lab at Kwangwoon University', path='/niil/'):
     nav=""
     for n,s in NAV:
@@ -45,6 +65,18 @@ def write(path,text):
     p=ROOT/path.lstrip('/')/'index.html';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
 def cards(ps,kind='area'):
     return '<div class="cards">'+''.join(f'<article class="card {kind}"><a class="image-link" href="{href(p)}">{image(p)}</a><div class="card-copy"><p class="eyebrow">{esc(" · ".join(props(p).get("Tags",[])))}</p><h3>{link(p)}</h3></div></article>' for p in ps)+'</div>'
+def cluster_cards():
+    content='<div class="cluster-grid">'
+    for i,(name,key,title,description) in enumerate(CLUSTERS):
+        count=sum(p['cluster']==name for p in CATALOG)
+        content+=f'<a class="cluster-card cluster-{key}" href="/niil/research/?topic={key}#project-catalog"><span class="cluster-number">0{i+1}</span><p class="eyebrow">{name}</p><h3>{title}</h3><p>{description}</p><span class="cluster-count">{count} projects <b aria-hidden="true">↗</b></span></a>'
+    return content+'</div>'
+
+def redirect(path,target,title):
+    page=shell(title,heading('RESEARCH',title)+f'<section class="wrap section compact"><a class="button" href="{target}">Explore research projects ↗</a></section>','research')
+    page=page.replace('<meta charset="utf-8">',f'<meta charset="utf-8"><meta http-equiv="refresh" content="0;url={target}"><link rel="canonical" href="{target.split("?")[0]}">')
+    write(path,page)
+
 def database(match):
     attrs=match[1];c=re.search(r'data-source-url="([^"]+)"',attrs);url=re.search(r'url="([^"]+)"',attrs)
     ps=rows(c[1]) if c else []
@@ -65,7 +97,7 @@ def render(p):
     text=re.sub(r'<column[^>]*>', '\n\n<div class="source-column">\n\n',text).replace('</column>', '\n\n</div>\n\n')
     text=re.sub(r'<p\s*/>','',text)
     text=re.sub(r'<span[^>]*>|</span>','',text)
-    text=re.sub(r'#{1,6} ',lambda m:'#'*(min(6,len(m[0])))+' ',text)
+    if p['id'] not in PROJECT_BY_ID: text=re.sub(r'#{1,6} ',lambda m:'#'*(min(6,len(m[0])))+' ',text)
     result=subprocess.run(['pandoc','-f','markdown+raw_html+markdown_in_html_blocks','-t','html','--wrap=none'],input=text,text=True,capture_output=True,check=True).stdout
     soup=BeautifulSoup(result,'html.parser')
     for a in soup.find_all('a',href=True):
@@ -92,14 +124,11 @@ def rosette():
     dots=''.join(f'<circle cx="{300+math.sqrt(i)*12*math.cos(i*2.39996):.2f}" cy="{300+math.sqrt(i)*12*math.sin(i*2.39996):.2f}" r="{2+i/160:.2f}" fill="{["#adc69d","#dfebbc","#789f81"][i%3]}" opacity="{.35+i/400:.2f}"/>' for i in range(1,400))
     return f'<svg viewBox="0 0 600 600" role="img" aria-labelledby="pattern-title"><title id="pattern-title">A sunflower-inspired pattern of interconnected possibilities</title><circle cx="300" cy="300" r="265" fill="none" stroke="#a1b899" stroke-opacity=".22"/><circle cx="300" cy="300" r="200" fill="none" stroke="#a1b899" stroke-opacity=".18"/>{dots}</svg>'
 home=f'''<section class="hero"><div class="hero-copy"><p class="eyebrow">KWANGWOON UNIVERSITY · NATURE-INSPIRED INTELLIGENCE LAB</p><h1>Inspired by nature.<br>Intelligence for<br><em>the real world.</em></h1><p>We explore the intersection of natural phenomena and artificial intelligence to develop innovative solutions for complex problems.</p><a class="button" href="/niil/research/">Explore our research <span>↗</span></a></div><div class="hero-art">{rosette()}<span>FROM NATURAL PATTERNS TO NEW POSSIBILITIES</span></div><div class="hero-bottom"><span>Nature-inspired Intelligence Lab</span><a href="#research">Discover NiiL ↓</a></div></section>
-<section class="wrap section" id="research"><div class="section-title"><div><p class="eyebrow">01 / RESEARCH</p><h2>Intelligence, in context.</h2></div><a href="/niil/research/">Our research areas ↗</a></div>{cards(AREAS)}</section>
-<section class="vision-band"><div class="wrap vision-inner"><p class="eyebrow">OUR APPROACH</p><h2>From human potential<br>to real-world impact.</h2><div class="vision-list">{''.join(f'<a href="{href(p)}"><span>0{i+1}</span><div><h3>{esc(p["title"])}</h3><p>{esc(re.sub(r"<[^>]+>","",p["body"].split("<image")[0]).strip().lstrip("- "))}</p></div><b>↗</b></a>' for i,p in enumerate(VISIONS))}</div></div></section>
-<section class="wrap section"><div class="section-title"><div><p class="eyebrow">02 / PROJECT SPOTLIGHT</p><h2>Ideas meet the physical world.</h2></div><a href="/niil/projects/">All projects ↗</a></div><a class="spotlight" href="{href(PROJECTS[0])}"><div>{image(PROJECTS[0])}</div><div><span class="badge">ONGOING · 2026—2031</span><h3>Robot-Centric Physical AI</h3><p>High-density operations in extremely tight spaces.</p><p class="korean">극협소 공간 내 고밀도 작업을 위한 로봇 중심의 피지컬 인공지능 기술</p><span>Explore project ↗</span></div></a></section>
+<section class="wrap section" id="research"><div class="section-title"><div><p class="eyebrow">01 / RESEARCH</p><h2>Intelligence, in context.</h2></div><a href="/niil/research/">Explore research projects ↗</a></div>{cluster_cards()}</section>
+<section class="wrap section"><div class="section-title"><div><p class="eyebrow">02 / PROJECT SPOTLIGHT</p><h2>Ideas meet the physical world.</h2></div><a href="/niil/research/">All projects ↗</a></div><a class="spotlight" href="{href(PROJECTS[0])}"><div class="spotlight-concept"><span>SPACE × LEARNING × ACTION</span><strong>3.3 m²</strong><p>A robot-centric workspace</p><small>Research target · 2026–2031</small></div><div><span class="badge">ONGOING · 2026—2031</span><h3>Robot-Centric Physical AI</h3><p>High-density operations in extremely tight spaces.</p><p class="korean">극협소 공간 내 고밀도 작업을 위한 로봇 중심의 피지컬 인공지능 기술</p><span>Explore project ↗</span></div></a></section>
 <section class="wrap section news-section"><div><p class="eyebrow">03 / NEWS & OPPORTUNITIES</p><h2>Grow with NiiL.</h2><p>Explore, learn, and build with us.</p></div><a class="news-item" href="{href(NOTICE[0])}"><span class="eyebrow">OPPORTUNITIES · 08 MAR 2025</span><h3>Undergraduate internships <span>↗</span></h3><p>Applications welcome at any time. Discover the program and how to apply.</p></a></section>'''
 write('/niil/',shell('Nature-inspired Intelligence Lab',home))
 
-content=heading('RESEARCH','Natural inspiration.<br>Practical intelligence.','We connect AI research with human needs, physical systems, and real-world challenges.')+'<section class="wrap section compact">'+cards(AREAS)+'</section><section class="wrap section"><div class="section-title"><h2>Three perspectives on intelligence.</h2><a href="/niil/vision/">Our vision ↗</a></div>'+cards(VISIONS)+'</section>'
-write('/niil/research/',shell('Research',content,'research'))
 write('/niil/vision/',shell('Our Vision',heading('ABOUT NiiL','Intelligence with purpose.','NiiL explores the intersection of natural phenomena and artificial intelligence to develop innovative solutions for complex problems.')+'<section class="wrap section compact">'+cards(VISIONS)+'</section>'))
 
 groups=[('Professor',lambda p:props(p).get('Position')=='Prof.'),('Graduate researchers',lambda p:props(p).get('Status')!='Alumni' and props(p).get('Position')!='Prof.'),('Alumni',lambda p:props(p).get('Status')=='Alumni')]
@@ -112,11 +141,16 @@ for name,predicate in groups:
     content+='</div></section>'
 write('/niil/members/',shell('People',content,'members'))
 
-content=heading('PROJECTS','Research in action.','Explore ongoing work and completed collaborations across intelligent systems.')+'<section class="wrap section compact"><div class="filterbar"><label for="project-search">Find a project<input type="search" id="project-search" placeholder="Search title, sponsor, or topic"></label><label for="project-status">Status<select id="project-status"><option value="">All projects</option><option value="In progress">Ongoing</option><option value="Done">Completed</option></select></label></div><p id="project-count" class="muted" aria-live="polite"></p><div class="project-list">'
-for p in PROJECTS:
-    pr=props(p);content+=f'<article class="project-row" data-project data-status="{esc(pr["Project Status"])}"><div><span class="badge">{esc(pr["Project Status"])}</span><p class="muted">{esc(pr.get("date:Start Date:start",""))} — {esc(pr.get("date:End Date:start",""))}</p></div><div><h2>{link(p)}</h2><p class="korean">{esc(pr.get("Title(Korean)",""))}</p><p class="muted">{esc(pr.get("Sponsor",""))} · {esc(pr.get("Funding Source",""))}</p></div></article>'
-content+='</div><p id="no-projects" hidden>No projects match your search.</p></section>'
-write('/niil/projects/',shell('Projects',content,'projects'))
+content=heading('RESEARCH / PROJECTS','From ideas to<br>working systems.','로봇의 행동, 물리적 세계의 인식, 사람과의 상호작용. 세 가지 연구 흐름에서 이어지는 프로젝트와 기여를 살펴보세요.')+'<section class="wrap section compact">'+cluster_cards()+'</section>'
+content+='<section class="wrap section compact" id="project-catalog"><div class="section-title"><div><p class="eyebrow">PROJECT CATALOG</p><h2>Research in action.</h2></div></div><div class="filterbar"><label for="project-search">Find a project<input type="search" id="project-search" placeholder="Title, sponsor, or topic"></label><label for="project-topic">Research theme<select id="project-topic"><option value="">All themes</option>'+''.join(f'<option value="{key}">{name}</option>' for name,key,_,_ in CLUSTERS)+'</select></label><label for="project-status">Status<select id="project-status"><option value="">All projects</option><option value="In progress">Ongoing</option><option value="Done">Completed</option><option value="Registered">Registered</option></select></label></div><p id="project-count" class="muted" aria-live="polite"></p><div class="project-list">'
+for project in sorted(CATALOG,key=lambda p:p['start'],reverse=True):
+    p=byid[project['page_id']]
+    topic=next(c[1] for c in CLUSTERS if c[0]==project['cluster'])
+    state={'In progress':'Ongoing','Done':'Completed','Registered':'Registered'}[project['status']]
+    content+=f'<article class="project-row" data-project data-topic="{topic}" data-status="{esc(project["status"])}"><div><span class="badge">{state}</span><p class="muted">{project["start"][:4]} — {project["end"][:4]}</p></div><div><p class="eyebrow">{project["cluster"]}</p><h2>{link(p)}</h2><p class="project-summary">{esc(project["summary"])}</p><p class="korean">{esc(project["title_ko"])}</p><p class="muted">{esc(" · ".join(project["sponsors"]))}</p></div></article>'
+content+='</div><p id="no-projects" hidden>No projects match your search. Try another topic or keyword.</p></section>'
+write('/niil/research/',shell('Research & Projects',content,'research'))
+redirect('/niil/projects/','/niil/research/','Research & Projects')
 scholar='https://scholar.google.co.kr/citations?hl=en&user=yZ9xxNcAAAAJ&view_op=list_works&sortby=pubdate'
 write('/niil/publications/',shell('Publications',heading('PUBLICATIONS','A growing body of work.','Browse the publication record on Google Scholar.')+f'<section class="wrap section compact"><a class="scholar-panel" href="{scholar}"><span class="eyebrow">PUBLICATION RECORD</span><h2>Ki-Baek Lee on Google Scholar ↗</h2><p>Articles, citation information, and recent publications.</p></a></section>','publications'))
 content=heading('TEACHING','Learn by understanding.<br>Understand by building.','Course information, schedules, and practical learning resources.')+'<section class="wrap section compact"><div class="course-grid">'
@@ -129,22 +163,40 @@ write('/niil/contact/',shell('Contact',heading('CONTACT','Let’s explore what�
 custom=set(p['id'] for p in PAGES[:6])|{PAGES[12]['id']}
 for p in PAGES:
     if p['id'] in custom:continue
-    section='teaching' if p in PAGES[6:12] or (p['collection'] or '').startswith('collection://1ba888') else ('members' if p in MEMBERS else ('projects' if p in PROJECTS else 'research'))
+    if p in AREAS:
+        redirect(href(p),'/niil/research/','Research & Projects')
+        continue
+    section='teaching' if p in PAGES[6:12] or (p['collection'] or '').startswith('collection://1ba888') else ('members' if p in MEMBERS else ('research' if p in PROJECTS else 'research'))
     parent='/niil/'+section+'/'
     label=section.upper()
     for course in PAGES[6:12]:
         if p['collection'] and p['collection'] in course['body']:
             parent=href(course)
             label=course['title']
-    content=heading(esc(label),esc(p['title']))+f'<section class="wrap document-layout"><aside><a href="{parent}">← Back to {esc(label.lower())}</a><nav aria-label="On this page" class="toc"></nav></aside><article class="prose">'
+    content=heading(esc(label),esc(display_title(p)),esc(PROJECT_BY_ID.get(p['id'],{}).get('summary','')))+f'<section class="wrap document-layout"><aside><a href="{parent}">← Back to {esc(label.lower())}</a><nav aria-label="On this page" class="toc"></nav></aside><article class="prose">'
     if p in PAGES[6:12]:
         content+='<p class="archive-note">Notion에서 이전한 강의 안내입니다. 수업 시간·평가 기준은 원본 시점의 내용이며, 현재 학기 공지는 KLAS에서 확인해 주세요.</p>'
         if p==PAGES[8]:content+='<a class="button outline" href="/courses/control-1/">현재 제어공학1 강의자료 ↗</a>'
         if p==PAGES[10]:content+='<a class="button outline" href="/courses/ai-applications/">현재 인공지능응용 강의자료 ↗</a>'
-    content+=meta(p)+render(p)
+    if p['id'] in PROJECT_BY_ID:
+        project=PROJECT_BY_ID[p['id']]
+        content+=f'<p class="eyebrow">{project["cluster"]}</p>'
+        content+=meta(p)
+        if project.get('highlights'):
+            content+='<div class="result-highlights">'+''.join(f'<div><strong>{esc(value)}</strong><span>{esc(label)}</span></div>' for value,label in project['highlights'])+'</div>'
+        content+=render(p)
+        if project['phases']:
+            content+='<details class="project-phases"><summary>연차·관련 계약 이력</summary><div class="table-scroll"><table><thead><tr><th>기간</th><th>과제·계약</th><th>지원기관</th></tr></thead><tbody>'
+            for phase in project['phases']:
+                content+=f'<tr><td>{phase["start"]} — {phase["end"]}</td><td>{esc(phase["title"])}</td><td>{esc(phase["sponsor"])}</td></tr>'
+            content+='</tbody></table></div></details>'
+        related=[x for x in CATALOG if x['cluster']==project['cluster'] and x['key']!=project['key']][:3]
+        content+='<section class="related-projects"><h2>Related research</h2><ul>'+''.join(f'<li>{link(byid[x["page_id"]])}</li>' for x in related)+'</ul></section>'
+    else:
+        content+=meta(p)+render(p)
     if not p['body']:content+='<p class="muted">'+esc(props(p).get('Details',''))+'</p>'
     content+='</article></section>'
-    write(href(p),shell(p['title'],content,section,path=href(p)))
+    write(href(p),shell(display_title(p),content,section,path=href(p)))
 
 (SITE/'content/routes.json').write_text(json.dumps(ROUTES,ensure_ascii=False,indent=2))
 print(f'Built {len(ROUTES)+1} NiiL pages. Root index and courses remain untouched.')

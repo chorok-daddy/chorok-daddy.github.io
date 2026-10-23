@@ -8,12 +8,15 @@ menu?.addEventListener("click", () => {
 });
 const query = document.querySelector('#project-search');
 const status = document.querySelector('#project-status');
+const topic = document.querySelector('#project-topic');
 if (query && status) {
+  const initialTopic = new URLSearchParams(location.search).get('topic');
+  if (topic && [...topic.options].some(option => option.value === initialTopic)) topic.value = initialTopic;
   const projects = [...document.querySelectorAll('[data-project]')];
   const filter = () => {
     let count = 0;
     projects.forEach(project => {
-      const matches = project.textContent.toLowerCase().includes(query.value.trim().toLowerCase()) && (!status.value || project.dataset.status === status.value);
+      const matches = project.textContent.toLowerCase().includes(query.value.trim().toLowerCase()) && (!status.value || project.dataset.status === status.value) && (!topic?.value || project.dataset.topic === topic.value);
       project.hidden = !matches;
       if (matches) count++;
     });
@@ -22,6 +25,7 @@ if (query && status) {
   };
   query.addEventListener('input', filter);
   status.addEventListener('change', filter);
+  topic?.addEventListener('change', filter);
   filter();
 }
 const toc = document.querySelector('.toc');

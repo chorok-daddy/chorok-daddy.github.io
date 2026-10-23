@@ -1,0 +1,588 @@
+[
+  {
+    "key": "physical-ai",
+    "page_id": "328888a17b3080d0b6fac70fc52dba9f",
+    "title": "Robot-Centric Physical AI",
+    "title_ko": "극협소 공간 내 고밀도 작업을 위한 로봇 중심의 피지컬 인공지능 기술",
+    "cluster": "Robotics & Autonomy",
+    "summary": "수직 공간까지 활용하는 고밀도 로봇 작업과 점진적 Sim-to-Real 학습.",
+    "start": "2026-03-01",
+    "end": "2031-02-28",
+    "status": "In progress",
+    "sponsors": [
+      "한국연구재단"
+    ],
+    "phases": [
+      {
+        "start": "2026-03-01",
+        "end": "2027-02-28",
+        "title": "극협소 공간 내 고밀도 작업을 위한 로봇 중심의 피지컬 인공지능 기술",
+        "sponsor": "한국연구재단"
+      }
+    ],
+    "body_file": "projects/physical-ai.md",
+    "highlights": [
+      [
+        "3.3 m²",
+        "로봇 카페 실증 목표"
+      ],
+      [
+        "5 years",
+        "공간·학습·전이 연구"
+      ]
+    ]
+  },
+  {
+    "key": "emotion-ai",
+    "page_id": "1b9888a17b3080c98e74cd466d4b92b3",
+    "title": "Multimodal Emotion & Engagement",
+    "title_ko": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 상용화",
+    "cluster": "Human-Centered AI",
+    "summary": "영상·음성·텍스트를 연결해 감정, 몰입도와 이상징후를 읽는 인공지능.",
+    "start": "2023-04-01",
+    "end": "2025-12-31",
+    "status": "Done",
+    "sponsors": [
+      "정보통신기획평가원"
+    ],
+    "phases": [
+      {
+        "start": "2023-04-01",
+        "end": "2023-12-31",
+        "title": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 사용화",
+        "sponsor": "정보통신기획평가원"
+      },
+      {
+        "start": "2024-01-01",
+        "end": "2024-12-31",
+        "title": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 사용화(1단계 2/3)",
+        "sponsor": "정보통신기획평가원"
+      },
+      {
+        "start": "2025-01-01",
+        "end": "2025-12-31",
+        "title": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 사용화(1단계 3/3)",
+        "sponsor": "정보통신기획평가원"
+      }
+    ],
+    "body_file": "projects/emotion-ai.md",
+    "highlights": [
+      [
+        "85.9%",
+        "음성·텍스트 모델 평가"
+      ],
+      [
+        "2.53 bpm",
+        "공동 개발 심박수 MAE"
+      ]
+    ]
+  },
+  {
+    "key": "delivery-robot",
+    "page_id": "1ba888a17b3080ef81fdfde45f188a3e",
+    "title": "Last-Mile Delivery Intelligence",
+    "title_ko": "말단 배송 로봇 화물 및 작업 관리 시스템",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "송장·바코드·화물 상태를 배송로봇의 작업 흐름과 연결.",
+    "start": "2022-08-11",
+    "end": "2024-11-29",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2022-08-11",
+        "end": "2022-11-30",
+        "title": "말단 배송 로봇 작업 내역 확인 모듈 제작",
+        "sponsor": "한국철도기술연구원"
+      },
+      {
+        "start": "2023-06-27",
+        "end": "2023-11-30",
+        "title": "배송로봇용 화물정보 인식 모듈 시작품 설계 및 제작",
+        "sponsor": "한국철도기술연구원"
+      },
+      {
+        "start": "2024-06-18",
+        "end": "2024-11-29",
+        "title": "택배 배송로봇 작업지시 및 배송 내역 확인 모듈 제작",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/delivery-robot.md",
+    "highlights": [
+      [
+        "6 types",
+        "송장 종류"
+      ],
+      [
+        "100%",
+        "10회 반복 자체시험"
+      ]
+    ]
+  },
+  {
+    "key": "vehicle-loading",
+    "page_id": "1ba888a17b3080248e1cdc65805d7f51",
+    "title": "Vision-Guided Loading Equipment",
+    "title_ko": "차량 탑재형 상하역 장비 원격 및 자동화 시스템 개발",
+    "cluster": "Robotics & Autonomy",
+    "summary": "팔레트 인식에서 포크 삽입까지, 소형 상하역 장비의 자동 유도.",
+    "start": "2022-06-10",
+    "end": "2025-11-30",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2022-06-10",
+        "end": "2022-11-30",
+        "title": "차량 탑재형 상·하역 장비의 원격조작 및 작업지원 기능개발을 위한 인프라 설계",
+        "sponsor": "한국철도기술연구원"
+      },
+      {
+        "start": "2023-06-16",
+        "end": "2023-11-30",
+        "title": "차량탑재형 상하역 장비를 위한 원격조작 및 작업지원 모듈의 프로토타입 제작과 장비 연동검증",
+        "sponsor": "한국철도기술연구원"
+      },
+      {
+        "start": "2024-05-31",
+        "end": "2024-09-30",
+        "title": "차량 탑재형 상하역 장비의 안전하고 강인한 자동화를 위한 임베디드 모듈 제작",
+        "sponsor": "한국철도기술연구원"
+      },
+      {
+        "start": "2025-08-21",
+        "end": "2025-11-30",
+        "title": "차량 탑재형 상·하역 장비의 자동 유도 및 탑재 보조 시스템 고도화 검증",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/vehicle-loading.md",
+    "highlights": [
+      [
+        "10 types",
+        "팔레트 종류"
+      ],
+      [
+        "14 scenarios",
+        "포크 삽입 제어 시험"
+      ]
+    ]
+  },
+  {
+    "key": "cargo-recognition",
+    "page_id": "1ba888a17b3080649daee0020f53979f",
+    "title": "Cargo Recognition & Damage Detection",
+    "title_ko": "딥러닝 기반 화물 인식 및 파손 감지 시스템 개발",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "이동 화물의 체적·바코드·파손 정보를 하나의 인식 흐름으로 통합.",
+    "start": "2022-05-30",
+    "end": "2022-11-30",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2022-05-30",
+        "end": "2022-11-30",
+        "title": "화물 정보 인식기 시제품 제작",
+        "sponsor": "한국철도기술연구원"
+      },
+      {
+        "start": "2022-06-02",
+        "end": "2022-11-30",
+        "title": "딥러닝 기반의 화물 파손 인식을 위한 학습 DB 구축",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/cargo-recognition.md",
+    "highlights": [
+      [
+        "0.867",
+        "위치·체적 mIoU"
+      ],
+      [
+        "94%",
+        "파손 인식 성공률"
+      ]
+    ]
+  },
+  {
+    "key": "adaptive-consultation",
+    "page_id": "1ba888a17b3080f4a9e1d6fed243e0a9",
+    "title": "Self-Improving Consultation AI",
+    "title_ko": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템",
+    "cluster": "Human-Centered AI",
+    "summary": "상담원의 응답을 학습에 다시 연결하는 FAQ 검색·추천 시스템.",
+    "start": "2019-06-01",
+    "end": "2022-02-28",
+    "status": "Done",
+    "sponsors": [
+      "한국연구재단"
+    ],
+    "phases": [
+      {
+        "start": "2019-06-01",
+        "end": "2020-02-29",
+        "title": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템(1/3)",
+        "sponsor": "한국연구재단"
+      },
+      {
+        "start": "2020-03-01",
+        "end": "2021-02-28",
+        "title": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템(2/3)",
+        "sponsor": "한국연구재단"
+      },
+      {
+        "start": "2021-03-01",
+        "end": "2022-02-28",
+        "title": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템(3차년도)",
+        "sponsor": "한국연구재단"
+      }
+    ],
+    "body_file": "projects/adaptive-consultation.md",
+    "highlights": []
+  },
+  {
+    "key": "bicycle-trailer",
+    "page_id": "1ba888a17b3080488bc1d82a0ec25a04",
+    "title": "Human-Following Trailer",
+    "title_ko": "자전거 등 추종을 위한 신축가능한 센서모듈 및 트레일러 시스템 설계 및 테스트",
+    "cluster": "Robotics & Autonomy",
+    "summary": "사용자의 이동 의도와 부하를 감지하는 센서·모델 기반 추종 제어.",
+    "start": "2021-08-05",
+    "end": "2021-12-20",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2021-08-05",
+        "end": "2021-12-20",
+        "title": "자전거 등 추종을 위한 신축가능한 센서모듈 및 트레일러 시스템 설계 및 테스트",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/bicycle-trailer.md",
+    "highlights": []
+  },
+  {
+    "key": "indoor-segmentation",
+    "page_id": "1ba888a17b3080a38137d75396361f0a",
+    "title": "Understanding Indoor 3D Spaces",
+    "title_ko": "딥러닝 기반 실내 공간데이터 객체 분리 및 분류 기술 구현",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "실내 공간데이터에서 객체를 분리하고 분류하는 딥러닝 연구.",
+    "start": "2021-04-01",
+    "end": "2021-11-30",
+    "status": "Done",
+    "sponsors": [
+      "한국전자통신연구원"
+    ],
+    "phases": [
+      {
+        "start": "2021-04-01",
+        "end": "2021-11-30",
+        "title": "딥러닝 기반 실내 공간데이터 객체 분리 및 분류 기술 구현",
+        "sponsor": "한국전자통신연구원"
+      }
+    ],
+    "body_file": "projects/indoor-segmentation.md",
+    "highlights": []
+  },
+  {
+    "key": "sales-assistant",
+    "page_id": "1ba888a17b308030bb83e01e93432505",
+    "title": "AI Sales Assistance",
+    "title_ko": "기계학습 기반 인공지능 세일즈 지원 솔루션",
+    "cluster": "Human-Centered AI",
+    "summary": "온라인 상담·판매 과정에 기계학습 기반 응답과 상담 지원을 연결.",
+    "start": "2016-10-01",
+    "end": "2018-09-30",
+    "status": "Done",
+    "sponsors": [
+      "중소기업청"
+    ],
+    "phases": [
+      {
+        "start": "2016-10-01",
+        "end": "2017-09-30",
+        "title": "기계학습 기반 인공지능 세일즈 지원 솔루션(1차년도)",
+        "sponsor": "중소기업청"
+      },
+      {
+        "start": "2017-10-01",
+        "end": "2018-09-30",
+        "title": "기계학습 기반 인공지능 세일즈 지원 솔루션(2차년도)",
+        "sponsor": "중소기업청"
+      }
+    ],
+    "body_file": "projects/sales-assistant.md",
+    "highlights": []
+  },
+  {
+    "key": "sign-language",
+    "page_id": "1ba888a17b30808fad01f0a1e69bbaf1",
+    "title": "Sign Language as an Interface",
+    "title_ko": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발",
+    "cluster": "Human-Centered AI",
+    "summary": "범용 카메라의 동작 인식으로 의사소통과 IoT 접근성을 확장.",
+    "start": "2017-03-01",
+    "end": "2020-02-29",
+    "status": "Done",
+    "sponsors": [
+      "한국연구재단"
+    ],
+    "phases": [
+      {
+        "start": "2017-03-01",
+        "end": "2018-02-28",
+        "title": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발(1차년도)",
+        "sponsor": "한국연구재단"
+      },
+      {
+        "start": "2018-03-01",
+        "end": "2019-02-28",
+        "title": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발(2차년도)",
+        "sponsor": "한국연구재단"
+      },
+      {
+        "start": "2019-03-01",
+        "end": "2020-02-29",
+        "title": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발(3차년도)",
+        "sponsor": "한국연구재단"
+      }
+    ],
+    "body_file": "projects/sign-language.md",
+    "highlights": [
+      [
+        "12 signs",
+        "연차실적 보고 동작 수"
+      ],
+      [
+        "CNN",
+        "합성 이미지 기반 인식"
+      ]
+    ]
+  },
+  {
+    "key": "swarm-search",
+    "page_id": "1b9888a17b308023bdc2dc149747b2df",
+    "title": "Swarm Search for Unmanned Vehicles",
+    "title_ko": "무인이동체 맞춤형 입자 군집 최적화 알고리즘을 통한 현실 공간 탐색 기법",
+    "cluster": "Robotics & Autonomy",
+    "summary": "군집 지능과 비행체 동역학을 결합한 3차원 재난 탐색.",
+    "start": "2016-09-21",
+    "end": "2017-07-31",
+    "status": "Done",
+    "sponsors": [
+      "한국항공우주연구원 연계 · 한국연구재단 전문기관"
+    ],
+    "phases": [],
+    "body_file": "projects/swarm-search.md",
+    "highlights": [
+      [
+        "15 agents",
+        "군집 시뮬레이션"
+      ],
+      [
+        "0.55%",
+        "보고된 탐색 실패율"
+      ]
+    ]
+  },
+  {
+    "key": "port-perception",
+    "page_id": "1ba888a17b30807fa02fcb6a9a1c6c2c",
+    "title": "Port Scene Understanding",
+    "title_ko": "영상정보 기반의 미확인 객체 인식 기술 분석 및 개발 용역",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "CCTV에서 항만의 미확인 객체를 탐지하고 위치를 추정.",
+    "start": "2020-11-09",
+    "end": "2020-12-24",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2020-11-09",
+        "end": "2020-12-24",
+        "title": "영상정보 기반의 미확인 객체 인식 기술 분석 및 개발 용역",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/port-perception.md",
+    "highlights": [
+      [
+        "0.17 m",
+        "지정 지점 평균 위치 오차"
+      ],
+      [
+        "20 fps",
+        "데스크톱 평균 처리속도"
+      ]
+    ]
+  },
+  {
+    "key": "loading-3d",
+    "page_id": "1ba888a17b3080608061c3cc3512827c",
+    "title": "3D Loading Assistance",
+    "title_ko": "3차원 영상 기반의 적재 보조 시스템 구축 용역",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "상품·적재 공간·작업자 인식을 ROS 기반 적재 보조 시스템으로 통합.",
+    "start": "2018-07-23",
+    "end": "2018-12-21",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2018-07-23",
+        "end": "2018-12-21",
+        "title": "3차원 영상 기반의 적재 보조 시스템 구축 용역",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/loading-3d.md",
+    "highlights": [
+      [
+        "97.5%",
+        "보고된 물품 인식 정확도"
+      ],
+      [
+        "98.3%",
+        "238프레임 작업자 인식"
+      ]
+    ]
+  },
+  {
+    "key": "picking-stacking",
+    "page_id": "1ba888a17b3080a9a7efcf48a97279ce",
+    "title": "Robotic Picking & Stacking",
+    "title_ko": "제품인식, 피킹 및 적재를 위한 기법 개발 및 장비 설계",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "상품 인식과 3차원 위치 추정을 피킹·적재 의사결정으로 연결.",
+    "start": "2017-07-24",
+    "end": "2017-12-21",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2017-07-24",
+        "end": "2017-12-21",
+        "title": "제품인식, 피킹 및 적재를 위한 기법개발 및 장비설계",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/picking-stacking.md",
+    "highlights": []
+  },
+  {
+    "key": "robot-picking-vision",
+    "page_id": "niil-robot-picking-vision",
+    "title": "Vision for Robotic Picking",
+    "title_ko": "비정형 화물의 로봇 기반 피킹·적재 지원을 위한 비전 모듈 제작",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "비정형 화물의 피킹 정보와 소터 트레이의 점유 상태를 제공하는 비전 연구.",
+    "start": "2026-10-01",
+    "end": "2026-12-15",
+    "status": "Registered",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2026-10-01",
+        "end": "2026-12-15",
+        "title": "비정형 화물의 로봇 기반 피킹·적재 지원을 위한 비전 모듈 제작",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/robot-picking-vision.md",
+    "status_note": "등록된 수행기간 기준 · 착수 상태 확인 중",
+    "highlights": []
+  },
+  {
+    "key": "invoice-preprocessing",
+    "page_id": "niil-invoice-preprocessing",
+    "title": "Edge Vision for Shipping Labels",
+    "title_ko": "엣지 디바이스 기반의 송장 이미지 전처리 모듈 설계",
+    "cluster": "Visual Intelligence & Logistics",
+    "summary": "기울고 회전된 송장 영상을 읽기 좋은 형태로 복원하는 전처리.",
+    "start": "2024-07-22",
+    "end": "2024-12-02",
+    "status": "Done",
+    "sponsors": [
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2024-07-22",
+        "end": "2024-12-02",
+        "title": "엣지 디바이스 기반의 송장 이미지 전처리 모듈 설계",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/invoice-preprocessing.md",
+    "highlights": [
+      [
+        "Perspective",
+        "원근 왜곡 보정"
+      ],
+      [
+        "Orientation",
+        "텍스트 방향 정렬"
+      ]
+    ]
+  },
+  {
+    "key": "dock-control",
+    "page_id": "niil-dock-control",
+    "title": "Embedded Dock Control",
+    "title_ko": "도크 제어용 마이크로프로세서 보드 및 MCU 제어시스템",
+    "cluster": "Robotics & Autonomy",
+    "summary": "센서와 MCU를 결합한 도크 제어의 소형화와 자동 운전.",
+    "start": "2015-07-20",
+    "end": "2016-12-26",
+    "status": "Done",
+    "sponsors": [
+      "(주)대한스프레이시스템",
+      "한국철도기술연구원"
+    ],
+    "phases": [
+      {
+        "start": "2015-07-20",
+        "end": "2015-08-20",
+        "title": "마이크로 프로세서 보드",
+        "sponsor": "(주)대한스프레이시스템"
+      },
+      {
+        "start": "2016-12-16",
+        "end": "2016-12-26",
+        "title": "도크시스템 제어시스템(MCU타입) 설계 및 제작",
+        "sponsor": "한국철도기술연구원"
+      }
+    ],
+    "body_file": "projects/dock-control.md",
+    "highlights": [
+      [
+        "2015 → 2016",
+        "관련 계약의 기술 흐름"
+      ],
+      [
+        "MCU",
+        "소형 임베디드 제어"
+      ]
+    ]
+  }
+]

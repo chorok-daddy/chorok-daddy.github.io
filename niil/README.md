@@ -34,3 +34,18 @@ The original Publications page contains a Google Scholar link, not a bibliograph
 Review the design, member affiliations/statuses, project metadata, course archive wording, recruitment notice, and original application submission flow. Automated link checks validate local targets and anchors only; they do not certify Scholar, KLAS, Notion forms, or other external services.
 
 After explicit final review, choose the new root routing, connect existing course materials beneath the NiiL home, and remove the temporary noindex directive. That promotion is intentionally not part of this change.
+
+## Project-centered revision (2026-10-23)
+
+`/niil/research/` combines Research and Projects. The former `/niil/projects/` and concept-area pages redirect to the catalog. Existing project detail URLs remain stable. Three themes organize **17 project families**; search, theme and status filters can be combined. The `?topic=robotics|vision|human` links select a theme.
+
+- `content/projects.json` owns current project metadata, contract history and result highlights.
+- `content/projects/*.md` owns the 17 editable case studies, rendered into semantic HTML. Snapshot-only project bodies are replaced by concise contributions, results and validation context. Original Notion JSON remains the source archive, not the current project editor.
+- 79 n-KURIS records were screened. 30 eligible annual/contract records are each represented once, consolidated into 16 families. One documented KARI-linked 2016–2017 legacy project brings the total to 17.
+- Include only external research with Ki-Baek Lee as the institutional principal investigator. Exclude non-PI participation, university-sponsored/intramural work, matching funds, manpower-training and administrative programs. A university acting as the performing institution does not count as a university sponsor.
+- The 2015 microprocessor-board and 2016 dock-controller contracts form one related family; their different sponsors and contract periods remain visible. Separate contracts are not represented as continuous funding.
+- Delivery-robot dates now follow registered contracts (2022–2024). Vehicle-loading history includes the 2025 contract. Physical AI retains its documented 2026–2031 overall plan and shows the registered first-year contract separately. The 2026 picking-vision entry is labeled Registered, reflecting the administrative confirmation state rather than claiming completed work.
+- Outcome summaries use available reports and distinguish internal tests, reported formal tests, simulations, annual progress, project targets and consortium contributions. Unverified targets are not promoted to results. Some older projects currently have scope/design evidence only; those limits are stated on their pages.
+- Private source reports, OCR intermediates, administrative IDs and the screening audit remain outside this public repository. No raw Drive proposal, private download link, payroll, bank information or unpublished source code is included.
+
+Review `content/projects/*.md` for editorial approval. The KARI final report confirms PI and dates; it names NRF as the specialized agency, while the source archive identifies the KARI relationship. Figures from reports are not embedded as full-page screenshots.
