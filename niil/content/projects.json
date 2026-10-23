@@ -496,7 +496,7 @@
     "summary": "비정형 화물의 피킹 정보와 소터 트레이의 점유 상태를 제공하는 비전 연구.",
     "start": "2026-10-01",
     "end": "2026-12-15",
-    "status": "Registered",
+    "status": "In progress",
     "sponsors": [
       "한국철도기술연구원"
     ],
@@ -509,7 +509,6 @@
       }
     ],
     "body_file": "projects/robot-picking-vision.md",
-    "status_note": "등록된 수행기간 기준 · 착수 상태 확인 중",
     "highlights": []
   },
   {
