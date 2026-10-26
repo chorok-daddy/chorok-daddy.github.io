@@ -59,7 +59,7 @@ def database(match):
     ps=rows(c[1]) if c else []
     if not ps:
         u=url[1].replace('https://app.notion.com/p/','https://niilab.notion.site/') if url else 'https://niilab.notion.site/'
-        return '\n\n<a class="button outline" href="https://niilab.notion.site/We-are-hiring-1b0888a17b30808398d1cbc97f1fa2ba">Application form on Notion ↗</a>\n\n'
+        return '\n\n<a class="button outline" href="/niil/join/apply/">Application information</a>\n\n'
     if '81' in (c[1] if c else '') and any('Details' in props(p) for p in ps):
         return '\n\n<div class="table-scroll"><table class="schedule"><thead><tr><th>Session</th><th>Format</th><th>Topic</th></tr></thead><tbody>'+''.join(f'<tr><th scope="row">{link(p)}</th><td>{esc(props(p).get("Type",""))}</td><td>{esc(props(p).get("Details",""))}</td></tr>' for p in ps)+'</tbody></table></div>\n\n'
     return '\n\n'+cards(ps)+'\n\n'
@@ -230,8 +230,12 @@ for LANG in ('en','ko'):
         content+=f'<article class="contact-card"><h2>{title}</h2><p>{body}</p><a class="button outline" href="{url}">{label}</a></article>'
     content+=f'</div><p class="muted">{tr("The inquiry form supports English and Korean. A Google account is not required.","문의 양식은 영어·한국어를 함께 제공합니다. Google 계정 없이 작성할 수 있습니다.")}</p><div class="contact-fallback"><p>{tr("Lab email","연구실 이메일")}: <a href="mailto:kw.artint@gmail.com">kw.artint@gmail.com</a></p><p>{tr("Kwangwoon University · Seoul, Korea","광운대학교 · 서울")}</p></div></section>'
     emit('/niil/contact/',tr('Contact','문의'),content,'contact')
-    content=heading('',tr('Join the lab','연구실 참여'))+'<section class="wrap document-layout"><aside><a href="/niil/contact/">← '+tr('Contact','문의')+'</a></aside><article class="prose"><h2>'+tr('Undergraduate internships','학부 인턴')+'</h2><p>'+tr('Applications are accepted throughout the year from undergraduates with at least two semesters remaining before graduation.','졸업까지 두 학기 이상 남은 학부생을 대상으로 상시 지원을 받습니다.')+'</p><h2>'+tr('Periods','참여 기간')+'</h2><ul><li>'+tr('Summer intake: July–December','여름 시작: 7–12월')+'</li><li>'+tr('Winter intake: January–June','겨울 시작: 1–6월')+'</li></ul><h2>'+tr('Participation','활동')+'</h2><p>'+tr('Access to research infrastructure and lab academic activities. Compensation depends on the role and responsibilities.','연구 인프라와 연구실 학술 활동에 참여하며, 보수는 역할과 업무에 따라 정해집니다.')+'</p><h2>'+tr('Apply','지원 방법')+'</h2><p><a href="https://niilab.notion.site/We-are-hiring-1b0888a17b30808398d1cbc97f1fa2ba">'+tr('Application information on Notion','Notion 지원 안내')+' ↗</a></p><p><a href="'+CONTACT_FORM+'">'+tr('Ask about joining the lab','연구실 참여 문의')+'</a></p></article></section>'
+    content=heading('',tr('Join the lab','연구실 참여'))+'<section class="wrap document-layout"><aside><a href="/niil/contact/">← '+tr('Contact','문의')+'</a></aside><article class="prose"><h2>'+tr('Undergraduate internships','학부 인턴')+'</h2><p>'+tr('Applications are accepted throughout the year from undergraduates with at least two semesters remaining before graduation.','졸업까지 두 학기 이상 남은 학부생을 대상으로 상시 지원을 받습니다.')+'</p><h2>'+tr('Periods','참여 기간')+'</h2><ul><li>'+tr('Summer intake: July–December','여름 시작: 7–12월')+'</li><li>'+tr('Winter intake: January–June','겨울 시작: 1–6월')+'</li></ul><h2>'+tr('Participation','활동')+'</h2><p>'+tr('Access to research infrastructure and lab academic activities. Compensation depends on the role and responsibilities.','연구 인프라와 연구실 학술 활동에 참여하며, 보수는 역할과 업무에 따라 정해집니다.')+'</p><h2>'+tr('Apply','지원 방법')+'</h2><p><a href="/niil/join/apply/">'+tr('Application information','지원 안내')+'</a></p><p><a href="'+CONTACT_FORM+'">'+tr('Ask about joining the lab','연구실 참여 문의')+'</a></p></article></section>'
     emit('/niil/join/',tr('Join the lab','연구실 참여'),content,'contact')
+    application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
+    application_html=subprocess.run(['pandoc','-f','markdown','-t','html','--wrap=none'],input=application,text=True,capture_output=True,check=True).stdout
+    content=heading('',tr('Application information','지원 안내'))+'<section class="wrap document-layout"><aside><a href="/niil/join/">← '+tr('Join the lab','연구실 참여')+'</a></aside><article class="prose">'+application_html+'</article></section>'
+    emit('/niil/join/apply/',tr('Application information','지원 안내'),content,'contact')
     for p in NOTICE:route_redirect(href(p),'/niil/join/')
     handled={p['id'] for p in PAGES[:6]}|{PAGES[12]['id']}|{p['id'] for p in AREAS+VISIONS+PROJECTS+MEMBERS+NOTICE}
     for p in PAGES:

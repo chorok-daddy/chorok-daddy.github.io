@@ -27,7 +27,7 @@ Retrieved on 2026-10-23. Public site pages were fetched by URL because the activ
 
 All six course inventories were reconciled against the visible counts: Robot Basic Lab 32; Micro-Processor Applications 31; Control System 1 30; Control System 2 30; AI Applications 31; EE Seminar 20. Each inventory row has a local detail page. Course source content is preserved as an archive; the existing current AI Applications and Control 1 materials remain authoritative at `/courses/`.
 
-The original Publications page contained only a Google Scholar link; the local publication catalog now replaces that landing panel. Internship submissions remain with the original Notion application form; submitted responses are neither collected nor published here. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Current member status, affiliation and participation history are maintained separately in `content/members.json`; the original Notion member records remain archived in `pages.json`.
+The original Publications page contained only a Google Scholar link; the local publication catalog now replaces that landing panel. Application guidance is maintained locally at `/niil/join/apply/`; submissions use the private Google Form response workflow. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Current member status, affiliation and participation history are maintained separately in `content/members.json`; the original Notion member records remain archived in `pages.json`.
 
 ## Final review and later promotion
 
@@ -64,5 +64,6 @@ English is the default at `/niil/`; Korean pages live under `/niil/ko/`. The per
 - `content/project-locales.json`: localized project titles and summaries.
 - `content/projects/en/*.md`: English case studies corresponding to Korean case studies.
 - `/niil/join/`: evergreen participation guidance; old recruitment routes redirect here.
+- `content/join/application-{en,ko}.md`: internal application guidance, rendered at `/niil/join/apply/` and its Korean counterpart.
 
 Contact links to a bilingual Google Form with four required fields: inquiry type, name, reply email and message. Responses are held in a private Google Sheet. The public repository contains only the responder URL, never the form editor URL, response-sheet ID or response contents. Monitoring is maintained separately on the owner's Mac; it is not a website backend. Direct email remains a fallback.
