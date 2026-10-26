@@ -119,9 +119,9 @@ def cluster(name):return CLUSTER_KO[name] if LANG=='ko' else name
 def project_title(p):
     if p.get('title_kind') == 'collection':
         return PROJECT_LOCALES[p['key']]['title_ko_short'] if LANG=='ko' else p['title']
-    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+') [Translation]')
+    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+')')
 def phase_title(phase):
-    return esc(phase['title']) if LANG=='ko' else esc(phase['title_en'])+(' ('+esc(phase['title'])+') <small class="translation-label">Translation</small>' if phase['title_en_kind']=='translation' else '')
+    return esc(phase['title']) if LANG=='ko' else esc(phase['title_en'])+(' ('+esc(phase['title'])+')' if phase['title_en_kind']=='translation' else '')
 def project_titles(p, detail=False):
     collection = p.get('title_kind') == 'collection'
     out='<div class="official-titles">'
@@ -234,7 +234,7 @@ def research_outputs():
     for t in data['technology_transfers']:
         title=esc(t['title_ko'] if LANG=='ko' else t['title_en'])
         recipient=esc(t['recipient'][LANG])
-        if LANG=='en' and t.get('recipient_en_translated'):recipient+=' ('+esc(t['recipient']['ko'])+') <small class="translation-label">Translation</small>'
+        if LANG=='en' and t.get('recipient_en_translated'):recipient+=' ('+esc(t['recipient']['ko'])+')'
         date=t.get('date_display',{}).get(LANG,t['date'])
         rows.append([title,recipient,esc(date)])
     out+='<details id="technology-transfer" class="output-panel"><summary>'+tr('Technology transfer','기술이전')+' <span class="output-count">'+str(len(rows))+'</span></summary><div class="output-body"><p class="muted">'+tr('Dates refer to signed contracts or the indicated transfer period. Agreements covering the same technology and recipient are grouped. English titles use the corresponding patent’s official English title.','계약 체결일 또는 해당 기술이전 기간을 표시합니다. 같은 기술·대상 기업의 국가별 계약은 한 건으로 묶었습니다.')+'</p>'
@@ -257,7 +257,7 @@ for LANG in ('en','ko'):
         content+=f'<p class="eyebrow">{cluster(p["cluster"])}</p><p>{p["start"]} – {p["end"]} · '+(tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료'))+'</p><p>'+esc(' · '.join(sponsor(s) for s in p['sponsors']))+'</p>'+project_titles(p,detail=True)+body
         content+=f'<details class="project-phases"><summary>{tr("Project record and sources","과제 이력 및 출처")}</summary><p>{tr("Kwangwoon University principal investigator: Ki-Baek Lee","광운대학교 연구책임자: 이기백")}</p>'
         if p['phases']:
-            content+=f'<p class="muted">{tr("Translated contract titles are marked Translation.","계약별 공식 과제명입니다.")}</p><div class="table-scroll"><table><thead><tr><th>{tr("Period","기간")}</th><th>{tr("Contract","계약")}</th><th>{tr("Sponsor","지원기관")}</th></tr></thead><tbody>'
+            content+=f'<p class="muted">{tr("Contract titles are listed below.","계약별 공식 과제명입니다.")}</p><div class="table-scroll"><table><thead><tr><th>{tr("Period","기간")}</th><th>{tr("Contract","계약")}</th><th>{tr("Sponsor","지원기관")}</th></tr></thead><tbody>'
             for phase in p['phases']:content+=f'<tr><td>{phase["start"]} – {phase["end"]}</td><td>{phase_title(phase)}</td><td>{esc(sponsor(phase["sponsor"]))}</td></tr>'
             content+='</tbody></table></div>'
         content+=notes+'</details>'
@@ -299,7 +299,7 @@ for LANG in ('en','ko'):
     content+=f'<p id="publication-count" aria-live="polite">{len(pubs)} {tr("publications","편")}</p><div class="publication-list">'
     for p in pubs:
         citation=p['venue']+(' '+p['volume'] if p['volume'] else '')+(' ('+p['issue']+')' if p['issue'] else '')+(', '+p['pages'] if p['pages'] else '')
-        content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title_ko'] if LANG=='ko' else p['title'])} ↗</a></h2>{'<span class="translation-label">번역</span>' if LANG=='ko' else ''}<p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
+        content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title'])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
     course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Lecture notes, code, notebooks and downloads retain their original language and version. Current semester notices are on KLAS.','강의 원문·코드·노트북·다운로드는 기존 수업 자료와의 일치를 위해 원문 언어와 버전을 유지합니다. 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><ul class="course-list"><li><a href="/niil/courses/ai-applications/index.html">'+tr('AI Applications','인공지능응용')+'</a></li><li><a href="/niil/courses/control-1/index.html">'+tr('Control Engineering I','제어공학1')+'</a></li></ul></section>'

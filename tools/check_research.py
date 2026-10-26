@@ -14,7 +14,7 @@ for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
  for p in projects:
   path=routes[p['page_id']].replace('/niil/',prefix,1)
   detail=page(path); row=next(x for x in rows if x.select_one('h2 a')['href']==path)
-  expected=(locales[p['key']]['title_ko_short'] if lang=='ko' else p['title']) if p.get('title_kind')=='collection' else (p['title_ko'] if lang=='ko' else p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+') [Translation]')
+  expected=(locales[p['key']]['title_ko_short'] if lang=='ko' else p['title']) if p.get('title_kind')=='collection' else (p['title_ko'] if lang=='ko' else p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+')')
   assert detail.h1.get_text()==row.h2.get_text()==expected,(lang,p['key'])
   summary=p['summary'] if lang=='ko' else locales[p['key']]['summary_en']
   assert detail.select_one('.lede').get_text()==summary
@@ -38,6 +38,6 @@ for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
   assert record['category']=='patent' # Software excluded at user's request.
  pubs=page(prefix+'publications/').select('[data-publication]')
  for record,row in zip(data('publications.json')['publications'],pubs):
-  assert (record['title_ko'] if lang=='ko' else record['title']) in row.h2.get_text()
-  if lang=='ko':assert row.select_one('.translation-label').get_text()=='번역'
+  assert record['title'] in row.h2.get_text()
+  assert row.select_one('.translation-label') is None
 print(f'PASS: {len(projects)} project pairs, 37 publication pairs, 7 patent families / 2 PCT filings, 3 transfers; panels initially collapsed.')
