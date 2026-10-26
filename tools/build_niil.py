@@ -130,8 +130,9 @@ def project_titles(p, detail=False):
         out+='<p lang="ko" class="alternate-title">'+esc(p['title_ko'])+'</p>'
     if detail:
         if not collection and not p.get('official_title_en'):
-            out+='<p class="muted">'+tr('Official English title not yet verified. The registered Korean title is shown.','공식 영문 과제명은 확인 중입니다.')+'</p>'
-        if p.get('official_title_en'):
+            note=tr('No English title registered in NTIS.','NTIS 영문 과제명 미등록') if p.get('title_verification',{}).get('en')=='NTIS English title field is blank' else tr('Official English title unverified; Korean contract title retained.','공식 영문 과제명 미확인 · 한글 계약명 유지')
+            out+='<p class="muted">'+note+'</p>'
+        if p.get('official_title_en') and not p.get('title_sources'):
             out+='<p class="title-source">'+tr('English title: research proposal title page','영문 과제명: 연구계획서 표지')+'</p>'
         if p.get('title_sources'):
             out+='<p class="title-source">'+tr('Title source: ','과제명 출처: ')+ ' · '.join('<a href="'+esc(x['url'])+'">'+esc(x['label'])+'</a>' for x in p['title_sources'])+'</p>'
