@@ -34,3 +34,5 @@
 @media(max-width:700px){.site-header{gap:12px}.site-header .language-switch{font-size:12px}.site-header .menu-toggle{padding:8px 12px}}
 
 .inquiry-entry{max-width:720px;padding:32px;border:1px solid var(--line);border-radius:12px}.inquiry-entry h2,.inquiry-guidance h2{font-size:1.4rem;margin-bottom:14px}.inquiry-entry .button{margin:10px 0 18px}.inquiry-note{font-size:.85rem;color:var(--muted);margin:0}.inquiry-guidance{margin-top:36px}.inquiry-guidance a{text-decoration:underline;text-underline-offset:4px}@media(max-width:700px){.inquiry-entry{padding:24px}}
+
+.contact-jumps{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:28px;font-size:.95rem}.contact-jumps a{text-decoration:underline;text-underline-offset:5px}.join-guidance{max-width:720px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}.join-guidance>h2{margin-top:0}.join-guidance h3{margin-top:28px;font-size:1.15rem}

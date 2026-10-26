@@ -18,7 +18,7 @@ Undergraduates with at least two semesters remaining before graduation may apply
 
 For graduate research inquiries, select **Graduate research / 대학원 진학** and include your research interests and intended entry term.
 
-[Open application and inquiry form]({{CONTACT_FORM}})
+[Inquiry & application form]({{CONTACT_FORM}})
 
 The form supports English and Korean and does not require a Google account. Submissions are not public. Provide only information needed for your inquiry; do not include sensitive personal information or confidential materials.
 

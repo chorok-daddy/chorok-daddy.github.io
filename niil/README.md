@@ -27,7 +27,7 @@ Retrieved on 2026-10-23. Public site pages were fetched by URL because the activ
 
 All six course inventories were reconciled against the visible counts: Robot Basic Lab 32; Micro-Processor Applications 31; Control System 1 30; Control System 2 30; AI Applications 31; EE Seminar 20. Each inventory row has a local detail page. Course source content is preserved as an archive; the existing current AI Applications and Control 1 materials remain authoritative at `/courses/`.
 
-The original Publications page contained only a Google Scholar link; the local publication catalog now replaces that landing panel. Application guidance is maintained locally at `/niil/join/apply/`; submissions use the private Google Form response workflow. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Current member status, affiliation and participation history are maintained separately in `content/members.json`; the original Notion member records remain archived in `pages.json`.
+The original Publications page contained only a Google Scholar link; the local publication catalog now replaces that landing panel. Application guidance is maintained locally in `/niil/contact/#join`; submissions use the private Google Form response workflow. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Current member status, affiliation and participation history are maintained separately in `content/members.json`; the original Notion member records remain archived in `pages.json`.
 
 ## Final review and later promotion
 
@@ -63,9 +63,9 @@ English is the default at `/niil/`; Korean pages live under `/niil/ko/`. The per
 - `content/members.json`: current member records, affiliations and dated roles.
 - `content/project-locales.json`: localized project titles and summaries.
 - `content/projects/en/*.md`: English case studies corresponding to Korean case studies.
-- `/niil/join/`: evergreen participation guidance; old recruitment routes redirect here.
-- `content/join/application-{en,ko}.md`: internal application guidance, rendered at `/niil/join/apply/` and its Korean counterpart.
+- `/niil/contact/`: one contact and application destination; participation guidance is the `#join` section.
+- `content/join/application-{en,ko}.md`: internal application guidance, rendered in `/niil/contact/#join` and its Korean counterpart.
 
 Contact provides one shared inquiry entry point linking to a bilingual Google Form with four required fields: inquiry type, name, reply email and message. Responses are held in a private Google Sheet. The public repository contains only the responder URL, never the form editor URL, response-sheet ID or response contents. Monitoring is maintained separately on the owner's Mac; it is not a website backend. Direct email remains a fallback.
 
-Application guidance links directly to the same form after explaining eligibility and how to apply; the Join overview links only to the internal guidance. Inquiry categories are selected in the form, not duplicated as separate Contact cards.
+Home participation links open the Contact page at `#join`. `/join/`, `/join/apply/` and the old recruitment URL redirect directly there. The clearly named inquiry/application form is directly accessible at the top and after guidance; neither link routes through another choice page. Inquiry categories are selected only in the form. Main navigation has five destinations: Research, Publications, People, Teaching, Contact. Detail pages return to their owning catalog.
