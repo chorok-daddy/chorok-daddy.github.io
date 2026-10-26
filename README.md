@@ -57,3 +57,12 @@ python3 tools/publish_course_repos.py --publish
 버전을 추적한다. ZIP은 GitHub가 생성하므로 별도 바이너리 ZIP을 Git에 넣지 않는다.
 기존 학생용 다운로드는 그대로 두고, 배포본 Notebook에는 출처 셀을 추가한다.
 MATLAB·데이터 파일은 바이트를 유지하고 `.SOURCE.txt`를 함께 제공한다.
+
+## 검색 메타데이터
+
+`build_niil.py` 마지막 단계에서 `tools/build_seo.py`가 검색 제목·설명,
+canonical/hreflang, Open Graph, JSON-LD, `sitemap.xml`과 `robots.txt`를 갱신한다.
+화면 본문은 수정하지 않는다. 사이트맵에는 실제 콘텐츠의 대표 주소만 넣고
+이동용 페이지는 제외한다. 갱신 시 `python3 tools/check_seo.py`를 실행한다.
+Search Console 소유권 확인·사이트맵 제출은 Google 계정에서 별도로 완료해야 하며,
+파일 생성만으로 Google 색인이나 검색 순위가 보장되지는 않는다.

@@ -349,13 +349,13 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     author_meta=doc.new_tag('meta',attrs={'name':'author','content':'Ki-Baek Lee (이기백)','data-niil-frame':''})
     doc.head.append(author_meta)
     structured=doc.new_tag('script',type='application/ld+json');structured['data-niil-frame']=''
-    structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
+    structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.h1.get_text() if doc.h1 else doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
     doc.head.append(structured)
     if course and course_file == SITE/'courses'/course['slug']/'index.html':
         repo='https://github.com/chorok-daddy/'+course['repository']
         downloads=BeautifulSoup('<nav class="course-distribution" data-niil-frame aria-label="자료 가져오기"><a href="'+repo+'">GitHub 저장소 ↗</a><a href="'+repo+'/archive/refs/heads/main.zip">과목 묶음 ZIP ↓</a></nav>','html.parser')
         main.h1.insert_after(downloads)
-    frame=BeautifulSoup(shell(doc.title.get_text().split(' · ')[0],'','teaching'),'html.parser')
+    frame=BeautifulSoup(shell(doc.h1.get_text() if doc.h1 else doc.title.get_text(),'','teaching'),'html.parser')
     # Course documents retain their original language; the bilingual catalog has the switch.
     frame.select_one('.language-switch').decompose()
     for selector in ['.skip','.site-header','footer']:
@@ -370,4 +370,5 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
     course_file.write_text(str(doc))
 subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)
+subprocess.run(['python3',str(ROOT/'tools/build_seo.py')],check=True)
 print('Built Korean /niil/, English /niil/en/, and compatibility routes.')
