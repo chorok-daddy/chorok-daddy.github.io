@@ -23,7 +23,8 @@ for item in manifest['files']:
     new_page = BeautifulSoup(new.read_text(), 'html.parser')
     assert set(item['anchors']) <= {x['id'] for x in new_page.select('[id]')}, new
     homes = new_page.select('a[href="/niil/courses/"]:not([data-language])')
-    assert len(homes) == 1 and homes[0].get_text() == '메인 강의페이지', new
+    assert len(homes) == 1 and homes[0].get_text() == '강의자료', new
+    assert new_page.select_one('.site-header #site-nav') and new_page.select_one('footer'), new
     assert not new_page.select('a[href="/"]'), new
     assert not new_page.select('[href^="/courses/"], [src^="/courses/"]'), new
     assert not new_page.select('a[href*="blob/master/courses/"]'), new

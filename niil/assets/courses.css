@@ -1,0 +1,32 @@
+/* Original course content lives within the shared NiiL frame. */
+body.niil-course{display:block;background:var(--paper);color:var(--ink)}
+.niil-course main.directory{width:100%;max-width:1240px;padding:0 48px;margin:60px auto 90px}
+.niil-course main h1{font-size:clamp(32px,4vw,52px);line-height:1.3;margin:1rem 0 2rem}
+.niil-course main h2{font-size:1.6rem;line-height:1.4;margin:2rem 0 1rem}
+.niil-course main h3{font-size:1.25rem;line-height:1.5;margin:1.5rem 0 .7rem}
+.niil-course main p{margin-bottom:1rem}
+.niil-course main a,.niil-course .site-nav a{text-decoration:underline;text-underline-offset:.2em}
+.niil-course main img{max-width:100%;height:auto}
+.niil-course main pre{max-width:100%;overflow:auto}
+.niil-course .resource-links{gap:.5rem 1.2rem;margin:1rem 0 1.5rem}
+.niil-course .resource-links a{padding:6px 0}
+.niil-course>.site-nav{max-width:1240px;margin:30px auto 0;padding:0 48px 20px;background:transparent;color:var(--ink);border-bottom:1px solid var(--line)}
+.niil-course #quarto-content{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;max-width:1240px;padding:32px 48px 90px;margin:auto}
+.niil-course #quarto-document-content{grid-column:1;grid-row:1;min-width:0;width:100%;padding:0;margin:0}
+.niil-course #quarto-margin-sidebar{grid-column:2;grid-row:1;padding:0;min-width:0}
+.niil-course .site-header{width:100%;position:relative;z-index:10}
+.niil-course>.site-header a,.niil-course>footer a{text-decoration:none}
+.niil-course>footer{margin-top:0}
+@media(max-width:700px){
+ .niil-course main.directory{padding:0 24px;margin:32px auto 60px}
+ .niil-course>.site-nav{padding:0 24px 20px}
+ .niil-course #quarto-content{display:block;padding:24px 24px 60px}
+ .niil-course #quarto-margin-sidebar{display:none}
+ .niil-course .lessons li{grid-template-columns:3.8rem minmax(0,1fr)}
+ .niil-course main{overflow-wrap:anywhere}
+}
+@media print{.niil-course>.site-header,.niil-course>footer{display:none}}
+.course-list{list-style:none;padding:0;margin:32px 0 0;border-top:1px solid var(--line)}
+.course-list li{border-bottom:1px solid var(--line)}
+.course-list a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;font-size:24px;font-weight:600}
+.course-list a::after{content:'→';font-weight:400}

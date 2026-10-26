@@ -163,6 +163,8 @@ def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
     if path=='/niil/members/' or 'portrait-crop' in content:
         page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits3')
+    if path=='/niil/courses/':
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=20261026-frame1"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
@@ -303,10 +305,7 @@ for LANG in ('en','ko'):
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
     course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Lecture notes, code, notebooks and downloads retain their original language and version. Current semester notices are on KLAS.','강의 원문·코드·노트북·다운로드는 기존 수업 자료와의 일치를 위해 원문 언어와 버전을 유지합니다. 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><ul class="course-list"><li><a href="/niil/courses/ai-applications/index.html">'+tr('AI Applications','인공지능응용')+'</a></li><li><a href="/niil/courses/control-1/index.html">'+tr('Control Engineering I','제어공학1')+'</a></li></ul></section>'
-    course_links='<nav class="language-switch" aria-label="'+tr('Language','언어')+'"><a data-language="ko" href="/niil/courses/">한국어</a> / <a data-language="en" href="/niil/en/courses/">EN</a></nav>'
-    course_header='<header class="wrap"><nav class="breadcrumb"><a href="'+local('/niil/courses/')+'">'+tr('Course home','메인 강의페이지')+'</a></nav>'+course_links+'</header>'
-    course_page='<!doctype html><html lang="'+LANG+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+tr('Course','강의자료')+'</title><link rel="canonical" href="https://chorok-daddy.github.io'+local('/niil/courses/')+'"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-outputs1"></head><body>'+course_header+'<main id="main">'+course_content+'</main></body></html>'
-    write(local('/niil/courses/'),course_page)
+    emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
     application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
     application_html=subprocess.run(['pandoc','-f','markdown','-t','html','--wrap=none'],input=application,text=True,capture_output=True,check=True).stdout
@@ -320,5 +319,35 @@ for LANG in ('en','ko'):
         content=heading('',tr('Original course material','강의자료 원문'))+'<section class="wrap document-layout"><aside><a href="/niil/courses/">← '+tr('Course','강의자료')+'</a><nav class="toc" aria-label="'+tr('On this page','페이지 목차')+'"></nav></aside><article class="prose"><p class="archive-note">'+tr('Archived source material (Korean / English). Course content is retained in its original language; use KLAS for current semester announcements.','이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><div class="archive-source" lang="ko">'+meta(p)+render(p)+'</div></article></section>'
         emit(href(p),tr('Original course material','강의자료 원문'),content,'teaching')
 (SITE/'content/routes.json').write_text(json.dumps(ROUTES,ensure_ascii=False,indent=2)+'\n')
+# Keep canonical course documents intact, adding the same site frame on every build.
+# Quarto scripts, styles, anchor IDs and relative download paths remain in place.
+LANG='ko'
+for course_file in sorted((SITE/'courses').rglob('*.html')):
+    if course_file == SITE/'courses/index.html':continue
+    doc=BeautifulSoup(course_file.read_text(),'html.parser')
+    if not doc.body or doc.select_one('meta[http-equiv="refresh"]'):continue
+    for old in doc.select('[data-niil-frame], .skip-site'):old.decompose()
+    for home in doc.select('a[href="/niil/courses/"]'):
+        sibling=home.find_next_sibling()
+        if sibling and sibling.get_text(strip=True)=='/':sibling.decompose()
+        home.decompose()
+    for breadcrumb in doc.select('nav.breadcrumb'):
+        if not breadcrumb.get_text(strip=True):breadcrumb.decompose()
+    main=doc.select_one('main')
+    if main is not None and not main.get('id'):main['id']='main'
+    frame=BeautifulSoup(shell(doc.title.get_text().split(' · ')[0],'','teaching'),'html.parser')
+    # Course documents retain their original language; the bilingual catalog has the switch.
+    frame.select_one('.language-switch').decompose()
+    for selector in ['.skip','.site-header','footer']:
+        element=frame.select_one(selector);element['data-niil-frame']=''
+        if selector=='.skip':element['href']='#'+doc.select_one('main')['id']
+        if selector=='footer':doc.body.append(element)
+        else:doc.body.insert(0 if selector=='.skip' else 1,element)
+    for element in frame.head.select('link[rel="stylesheet"],script[src]'):
+        element['data-niil-frame']='';doc.head.append(element)
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=20261026-frame1')
+    bridge['data-niil-frame']='';doc.head.append(bridge)
+    doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
+    course_file.write_text(str(doc))
 subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)
 print('Built Korean /niil/, English /niil/en/, and compatibility routes.')
