@@ -36,3 +36,7 @@ if verification_file.exists():
   doc=BeautifulSoup((ROOT/path).read_text(),'html.parser')
   assert doc.head.select_one('meta[name="google-site-verification"]')['content']==expected,path
  print('PASS: Search Console verification survives on root and landing page.')
+
+if verification_file.exists():
+ filename=json.loads(verification_file.read_text()).get('verification_file')
+ if filename:assert (ROOT/filename).read_text().strip()=='google-site-verification: '+filename
