@@ -1,19 +1,23 @@
-## Overview
+## FAQ recommendations that learn from agent decisions
 
-This 2019–2022 project explores FAQ recommendations that learn from the answers selected or written by customer-service agents.
+The project implemented an online consultation assistant that learns semantic similarity between customer questions and FAQs, then converts agents’ selected answers into retraining data. Deliverables included language, vectorization and retrieval models, a web application, an API interface and an application prototype.
 
-## Approach
+## Key results
 
-- Encode sentence meaning to retrieve answers to differently worded questions.
-- Combine recommendations and final agent answers into retraining data.
-- Connect language and retrieval models with web applications, servers and databases.
+| Metric | Result reported at project completion |
+|---|---|
+| Candidate FAQ collection | 2,808 entries |
+| Top-three accuracy | 94% |
+| Throughput | 33 queries per second |
 
-## Intended contribution
+## Contributions
 
-A feedback cycle links daily consultation work with model improvement, keeping the agent's judgment in the learning process.
+- **Semantic answer retrieval:** Learned sentence features and similarity to recommend relevant FAQ answers.
+- **Feedback-to-data pipeline:** Converted agents’ final answer selections into training data for retraining.
+- **Application integration:** Connected the models to a web application, API and consultation-support prototype.
 
-## Evidence scope
+## Evaluation scope
 
-Available evidence covers plans and public descriptions. The plan's 100 FAQs, 90% top-three accuracy and ten queries per second are targets, not verified outcomes.
+These are evaluation results reported in the March 2022 completion report summary. The public summary does not specify test hardware, sample composition or detailed evaluation procedures; the figures are not guarantees of production-service performance.
 
-*Source: 2019 basic research proposal and public project description.*
+*Source: [NTIS research report](https://www.ntis.go.kr/outcomes/popup/srchTotlRschRpt.do?cmd=view&rstId=REP-2022-01112443217), March 2022, TRKO202200015384, research-results summary, p. 2.*

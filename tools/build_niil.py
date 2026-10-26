@@ -78,6 +78,9 @@ def render(p):
     result=subprocess.run(['pandoc','-f','markdown+raw_html+markdown_in_html_blocks','-t','html','--wrap=none'],input=text,text=True,capture_output=True,check=True).stdout
     soup=BeautifulSoup(result,'html.parser')
     for a in soup.find_all('a',href=True):
+        if a['href'].startswith('https://www.ntis.go.kr/'):
+            a['target']='_blank'
+            a['rel']=['noopener','noreferrer']
         m=re.search(r'(?:notion\.so|notion\.site|app\.notion\.com/p)/[^?]*?([a-f0-9]{32})(?:[?#]|$)',a['href'])
         if m: a['href']=ROUTES.get(m[1],'https://niilab.notion.site/'+m[1])
     for bad in soup(['script','iframe','style']):bad.decompose()
@@ -135,7 +138,7 @@ def project_titles(p, detail=False):
         if p.get('official_title_en') and not p.get('title_sources'):
             out+='<p class="title-source">'+tr('English title: research proposal title page','영문 과제명: 연구계획서 표지')+'</p>'
         if p.get('title_sources'):
-            out+='<p class="title-source">'+tr('Title source: ','과제명 출처: ')+ ' · '.join('<a href="'+esc(x['url'])+'">'+esc(x['label'])+'</a>' for x in p['title_sources'])+'</p>'
+            out+='<p class="title-source">'+ ' · '.join('<a href="'+esc(x['url'])+'" target="_blank" rel="noopener noreferrer">'+(tr('NTIS link','NTIS 링크') if x['label']=='NTIS' else esc(x['label']))+'</a>' for x in p['title_sources'])+'</p>'
         elif not collection and p.get('official_title_en'):
             out+='<p class="title-source">'+tr('Title source: research proposal','과제명 출처: 연구계획서')+'</p>'
     return out+'</div>'

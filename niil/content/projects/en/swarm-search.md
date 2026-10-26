@@ -26,3 +26,5 @@ These are simulation results, not field-flight results for fifteen drones.
 The agreement plan and final report identify Ki-Baek Lee as PI and the period as 21 September 2016–31 July 2017. The archive identifies the KARI relationship; the report names NRF as the specialized agency under the unmanned-vehicle core technology program.
 
 *Sources: agreement research plan and final report dated 31 August 2017.*
+
+*Source: Cross-checked against the [NTIS completion-report summary](https://www.ntis.go.kr/outcomes/popup/srchTotlRschRpt.do?cmd=view&rstId=REP-2017-0119685956), August 2017, TRKO201800003538, Korean summary p. 3. The English summary retains earlier scope/target wording; the results above follow the Korean results summary and the previously reviewed final report.*

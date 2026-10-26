@@ -21,7 +21,7 @@
   },
   "adaptive-consultation": {
     "title_ko_short": "학습형 상담 지원",
-    "summary_en": "FAQ retrieval improved through feedback from customer-service agents."
+    "summary_en": "A learning consultation assistant reporting 94% top-three accuracy across 2,808 FAQs."
   },
   "bicycle-trailer": {
     "title_ko_short": "사용자 추종 트레일러",
@@ -37,7 +37,7 @@
   },
   "sign-language": {
     "title_ko_short": "수어 인식 인터페이스",
-    "summary_en": "Camera-based gesture learning for communication and IoT access."
+    "summary_en": "Camera-based sign recognition meeting criteria of 5 m, at least 27 environments and 85% accuracy."
   },
   "swarm-search": {
     "title_ko_short": "무인이동체 군집 탐색",

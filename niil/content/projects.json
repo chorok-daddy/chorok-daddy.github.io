@@ -268,7 +268,7 @@
     "title": "Self-Improving Consultation AI",
     "title_ko": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템",
     "cluster": "Human-Centered AI",
-    "summary": "상담원의 응답을 학습에 다시 연결하는 FAQ 검색·추천 시스템.",
+    "summary": "FAQ 2,808개에서 상위 3개 추천 정확도 94%를 보고한 학습형 상담 지원 시스템.",
     "start": "2019-06-01",
     "end": "2022-02-28",
     "status": "Done",
@@ -296,7 +296,16 @@
       }
     ],
     "body_file": "projects/adaptive-consultation.md",
-    "highlights": [],
+    "highlights": [
+      [
+        "94%",
+        "종료 보고서 상위 3개 추천 정확도"
+      ],
+      [
+        "33/s",
+        "종료 보고서 처리량"
+      ]
+    ],
     "title_kind": "project",
     "official_title_en": "Self-trainable online representative assist system based on AI natural language processing",
     "title_sources": [
@@ -424,7 +433,7 @@
     "title": "Sign Language as an Interface",
     "title_ko": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발",
     "cluster": "Human-Centered AI",
-    "summary": "범용 카메라의 동작 인식으로 의사소통과 IoT 접근성을 확장.",
+    "summary": "범용 카메라 기반 수어 인식으로 5m 거리·27종 이상 환경·정확도 85% 기준 충족.",
     "start": "2017-03-01",
     "end": "2020-02-29",
     "status": "Done",
@@ -454,12 +463,12 @@
     "body_file": "projects/sign-language.md",
     "highlights": [
       [
-        "12 signs",
-        "연차실적 보고 동작 수"
+        "5 m",
+        "종료 보고서 충족 인식거리"
       ],
       [
-        "CNN",
-        "합성 이미지 기반 인식"
+        "85%",
+        "종료 보고서 충족 정확도 기준"
       ]
     ],
     "title_kind": "project",
