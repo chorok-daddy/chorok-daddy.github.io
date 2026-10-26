@@ -4,6 +4,7 @@ import argparse, hashlib, html, json, posixpath
 from pathlib import Path
 from urllib.parse import urlsplit, urlunsplit
 from bs4 import BeautifulSoup
+from easter_egg import EASTER_EGG_HTML
 
 ROOT=Path(__file__).resolve().parents[1]
 ORIGIN='https://chorok-daddy.github.io'
@@ -91,10 +92,7 @@ HTML 및 필요한 로컬 스타일은 포함되어 있습니다. 외부 링크,
 노트북 첫 셀에는 출처가 포함되어 있고, MATLAB 파일에는 `.SOURCE.txt`가 함께
 제공됩니다. 원본 MATLAB·데이터 파일의 바이트는 변경하지 않았습니다.
 
-<!-- NiiL Easter Egg: 이 주석까지 읽었다면 당신도 동료 공돌이입니다.
-이기백 교수님을 향한 respect += 1;
-단, 과학적 반박과 버그 제보는 언제나 환영합니다.
-자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요 -->
+{EASTER_EGG_HTML}
 
 ## 버전 및 기여
 

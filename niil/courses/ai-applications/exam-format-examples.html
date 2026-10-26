@@ -31,4 +31,52 @@ by_day=pages.T
 running=by_day.cumsum(dim=1)  # 사람별 날짜 누적량을 구하려 함</code></pre><h3>답할 내용</h3><ol><li>by_day의 값과 shape를 쓰세요.</li><li>running을 계산하는 줄의 dim을 올바르게 고치세요.</li><li>수정 후 running의 값과 shape를 쓰세요. running[1,0]은 무엇을 뜻하나요?</li></ol><details><summary>답안 예시와 풀이</summary><p><strong>작성할 답</strong></p><pre><code>by_day=[[2,3],[1,2],[4,1]], shape=(3,2)
 수정: dim=0
 running=[[2,3],[3,5],[7,6]], shape=(3,2)
-running[1,0]: 첫 사람이 화요일까지 읽은 누적량 3페이지</code></pre><p><strong>풀이</strong> · Transpose 후에는 행이 날짜, 열이 사람입니다. 날짜가 늘어나는 0번 축으로 누적해야 같은 사람의 기록끼리 더합니다. cumsum은 각 위치까지의 합을 모두 남기므로 축이 사라지지 않습니다.</p></details></section><nav class="resource-links"><a href="midterm/index.html">중간시험 안내</a><a href="final-exam/index.html">기말시험 안내</a></nav><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format-examples.html">원본 강의자료</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!-- NiiL Easter Egg: 이 주석까지 읽었다면 당신도 동료 공돌이입니다. 이기백 교수님을 향한 respect += 1; 단, 과학적 반박과 버그 제보는 언제나 환영합니다. 자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요 --></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>
+running[1,0]: 첫 사람이 화요일까지 읽은 누적량 3페이지</code></pre><p><strong>풀이</strong> · Transpose 후에는 행이 날짜, 열이 사람입니다. 날짜가 늘어나는 0번 축으로 누적해야 같은 사람의 기록끼리 더합니다. cumsum은 각 위치까지의 합을 모두 남기므로 축이 사라지지 않습니다.</p></details></section><nav class="resource-links"><a href="midterm/index.html">중간시험 안내</a><a href="final-exam/index.html">기말시험 안내</a></nav><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format-examples.html">원본 강의자료</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>
