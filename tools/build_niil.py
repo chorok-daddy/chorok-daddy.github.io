@@ -127,10 +127,6 @@ def project_titles(p, detail=False):
         for phase in p['phases']:
             out+='<li lang="ko">'+esc(phase['title'])+'</li>'
         out+='</ul>'
-    elif LANG=='ko' and p.get('official_title_en'):
-        out+='<p lang="en" class="alternate-title">'+esc(p['official_title_en'])+'</p>'
-    elif LANG=='en' and p.get('official_title_en'):
-        out+='<p lang="ko" class="alternate-title">'+esc(p['title_ko'])+'</p>'
     if detail:
         if not collection and not p.get('official_title_en'):
             note=tr('No English title registered in NTIS.','NTIS 영문 과제명 미등록') if p.get('title_verification',{}).get('en')=='NTIS English title field is blank' else tr('Official English title unverified; Korean contract title retained.','공식 영문 과제명 미확인 · 한글 계약명 유지')
