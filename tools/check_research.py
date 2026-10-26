@@ -14,7 +14,7 @@ for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
  for p in projects:
   path=routes[p['page_id']].replace('/niil/',prefix,1)
   detail=page(path); row=next(x for x in rows if x.select_one('h2 a')['href']==path)
-  expected=(locales[p['key']]['title_ko_short'] if lang=='ko' else p['title']) if p.get('title_kind')=='collection' else (p['title_ko'] if lang=='ko' else p.get('official_title_en') or p['translated_title_en']+' (Translation)')
+  expected=(locales[p['key']]['title_ko_short'] if lang=='ko' else p['title']) if p.get('title_kind')=='collection' else (p['title_ko'] if lang=='ko' else p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+') [Translation]')
   assert detail.h1.get_text()==row.h2.get_text()==expected,(lang,p['key'])
   summary=p['summary'] if lang=='ko' else locales[p['key']]['summary_en']
   assert detail.select_one('.lede').get_text()==summary
@@ -24,8 +24,10 @@ for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
   for a in detail.select('.title-source a'):
    if 'ntis.go.kr' in a['href']:assert a.get('target')=='_blank' and a.get_text()==('NTIS 링크' if lang=='ko' else 'NTIS link')
   if lang=='en':
-   prose=detail.select_one('.prose').get_text()
-   assert not re.search('[가-힣]',prose),(p['key'],'untranslated prose')
+   prose=BeautifulSoup(str(detail.select_one('.prose')),'html.parser')
+   for table in prose.select('.project-phases table, .official-titles'):table.decompose()
+   for related in prose.select('section'):related.decompose()
+   assert not re.search('[가-힣]',prose.get_text()),(p['key'],'untranslated prose outside original-title annotations')
  for panel in catalog.select('.output-panel'):assert not panel.has_attr('open')
  ip=catalog.select('#intellectual-property tbody tr');transfers=catalog.select('#technology-transfer tbody tr')
  outputs=data('research-outputs.json')

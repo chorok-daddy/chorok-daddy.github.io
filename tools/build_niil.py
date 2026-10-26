@@ -119,9 +119,9 @@ def cluster(name):return CLUSTER_KO[name] if LANG=='ko' else name
 def project_title(p):
     if p.get('title_kind') == 'collection':
         return PROJECT_LOCALES[p['key']]['title_ko_short'] if LANG=='ko' else p['title']
-    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['translated_title_en']+' (Translation)')
+    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+') [Translation]')
 def phase_title(phase):
-    return esc(phase['title']) if LANG=='ko' else esc(phase['title_en'])+(' <small class="translation-label">Translation</small>' if phase['title_en_kind']=='translation' else '')
+    return esc(phase['title']) if LANG=='ko' else esc(phase['title_en'])+(' ('+esc(phase['title'])+') <small class="translation-label">Translation</small>' if phase['title_en_kind']=='translation' else '')
 def project_titles(p, detail=False):
     collection = p.get('title_kind') == 'collection'
     out='<div class="official-titles">'
@@ -226,7 +226,7 @@ def research_outputs():
     for t in data['technology_transfers']:
         title=esc(t['title_ko'] if LANG=='ko' else t['title_en'])
         recipient=esc(t['recipient'][LANG])
-        if LANG=='en' and t.get('recipient_en_translated'):recipient+=' <small class="translation-label">Translation</small>'
+        if LANG=='en' and t.get('recipient_en_translated'):recipient+=' ('+esc(t['recipient']['ko'])+') <small class="translation-label">Translation</small>'
         date=t['date'] if t.get('date_precision')!='range' else tr('March–April 2025 (exact date unverified)','2025년 3–4월 (정확한 일자 미확인)')
         rows.append([title,recipient,esc(date)])
     out+='<details id="technology-transfer" class="output-panel"><summary>'+tr('Technology transfer','기술이전')+' <span class="output-count">'+str(len(rows))+'</span></summary><div class="output-body"><p class="muted">'+tr('Dates refer to signed contracts; an unverified day is shown as a range. Agreements covering the same technology and recipient are grouped. English titles use the corresponding patent’s official English title.','계약 체결일 기준이며, 정확한 일자 미확인 건은 확인된 기간으로 표시합니다. 같은 기술·대상 기업의 국가별 계약은 한 건으로 묶었습니다.')+'</p>'
