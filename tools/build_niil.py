@@ -160,7 +160,10 @@ def shell(title,content,section='',desc='',path='/niil/'):
     base='https://chorok-daddy.github.io'
     return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-outputs1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
 def emit(path,title,content,section=''):
-    write(local(path),shell(title,content,section,path=path))
+    page=shell(title,content,section,path=path)
+    if path=='/niil/members/':
+        page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits2')
+    write(local(path),page)
 def route_redirect(path,target):
     section='teaching' if target=='/niil/courses/' else ('contact' if target.startswith('/niil/contact/') else 'research')
     title=tr('Course','강의자료') if section=='teaching' else (tr('Contact & apply','문의·지원') if section=='contact' else tr('Research','연구'))
@@ -261,6 +264,10 @@ for LANG in ('en','ko'):
         content+='<section class="wrap section compact"><h2 class="group-title">'+tr(en,ko)+'</h2><div class="people-grid">'
         for m in filter(predicate,MEMBER_DATA):
             p=byid[m['id']];portrait=image(p,'portrait') or '<div class="initials" aria-hidden="true">'+esc(''.join(w[0] for w in m['name']['en'].split()[:2]))+'</div>'
+            if m.get('thumbnail_crop'):
+                crop=m['thumbnail_crop']
+                style=f"--crop-width:{100*crop['image_width']/crop['width']:.3f}%;--crop-left:{-100*crop['x']/crop['width']:.3f}%;--crop-top:{-100*crop['y']/crop['height']:.3f}%;aspect-ratio:{crop['width']}/{crop['height']}"
+                portrait=f'<span class="portrait-crop" style="{style}">{portrait}</span>'
             content+=f'<article class="person"><a href="{href(p)}">{portrait}</a><div><p class="eyebrow">{m["role"][LANG]}</p><h3><a href="{href(p)}">{esc(m["name"][LANG])}</a></h3>'+history(m)
             if m['affiliation'][LANG]:content+='<p class="member-affiliation">'+esc(m['affiliation'][LANG])+'</p>'
             content+='</div></article>'
