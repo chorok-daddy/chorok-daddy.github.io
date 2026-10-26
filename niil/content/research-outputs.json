@@ -158,7 +158,11 @@
       },
       "recipient_en_translated": true,
       "date": "2025-03/2025-04",
-      "date_precision": "range"
+      "date_precision": "range",
+      "date_display": {
+        "ko": "2025년 상반기 (특허 매각)",
+        "en": "First half of 2025 (patent sale)"
+      }
     },
     {
       "key": "prediction-transfer",

@@ -227,9 +227,9 @@ def research_outputs():
         title=esc(t['title_ko'] if LANG=='ko' else t['title_en'])
         recipient=esc(t['recipient'][LANG])
         if LANG=='en' and t.get('recipient_en_translated'):recipient+=' ('+esc(t['recipient']['ko'])+') <small class="translation-label">Translation</small>'
-        date=t['date'] if t.get('date_precision')!='range' else tr('March–April 2025 (exact date unverified)','2025년 3–4월 (정확한 일자 미확인)')
+        date=t.get('date_display',{}).get(LANG,t['date'])
         rows.append([title,recipient,esc(date)])
-    out+='<details id="technology-transfer" class="output-panel"><summary>'+tr('Technology transfer','기술이전')+' <span class="output-count">'+str(len(rows))+'</span></summary><div class="output-body"><p class="muted">'+tr('Dates refer to signed contracts; an unverified day is shown as a range. Agreements covering the same technology and recipient are grouped. English titles use the corresponding patent’s official English title.','계약 체결일 기준이며, 정확한 일자 미확인 건은 확인된 기간으로 표시합니다. 같은 기술·대상 기업의 국가별 계약은 한 건으로 묶었습니다.')+'</p>'
+    out+='<details id="technology-transfer" class="output-panel"><summary>'+tr('Technology transfer','기술이전')+' <span class="output-count">'+str(len(rows))+'</span></summary><div class="output-body"><p class="muted">'+tr('Dates refer to signed contracts or the indicated transfer period. Agreements covering the same technology and recipient are grouped. English titles use the corresponding patent’s official English title.','계약 체결일 또는 해당 기술이전 기간을 표시합니다. 같은 기술·대상 기업의 국가별 계약은 한 건으로 묶었습니다.')+'</p>'
     out+=table([tr('Technology','명칭'),tr('Recipient','기술이전 대상'),tr('Transfer date','기술이전일')],rows)+'</div></details></section>'
     return out
 
