@@ -112,7 +112,33 @@ def local(path):
         return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
     return path
 def cluster(name):return CLUSTER_KO[name] if LANG=='ko' else name
-def project_title(p):return PROJECT_LOCALES[p['key']]['title_ko_short'] if LANG=='ko' else p['title']
+def project_title(p):
+    if p.get('title_kind') == 'collection':
+        return PROJECT_LOCALES[p['key']]['title_ko_short'] if LANG=='ko' else p['title']
+    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['title_ko'])
+def project_titles(p, detail=False):
+    collection = p.get('title_kind') == 'collection'
+    out='<div class="official-titles">'
+    if collection:
+        out+='<p class="title-label">'+tr('Related contracts','관련 계약')+'</p><ul>'
+        for phase in p['phases']:
+            out+='<li lang="ko">'+esc(phase['title'])+'</li>'
+        out+='</ul>'
+    elif LANG=='ko' and p.get('official_title_en'):
+        out+='<p lang="en" class="alternate-title">'+esc(p['official_title_en'])+'</p>'
+    elif LANG=='en' and p.get('official_title_en'):
+        out+='<p lang="ko" class="alternate-title">'+esc(p['title_ko'])+'</p>'
+    if detail:
+        if not collection and not p.get('official_title_en'):
+            out+='<p class="muted">'+tr('Official English title not yet verified. The registered Korean title is shown.','공식 영문 과제명은 확인 중입니다.')+'</p>'
+        if p.get('official_title_en'):
+            out+='<p class="title-source">'+tr('English title: research proposal title page','영문 과제명: 연구계획서 표지')+'</p>'
+        if p.get('title_sources'):
+            out+='<p class="title-source">'+tr('Title source: ','과제명 출처: ')+ ' · '.join('<a href="'+esc(x['url'])+'">'+esc(x['label'])+'</a>' for x in p['title_sources'])+'</p>'
+        elif not collection and p.get('official_title_en'):
+            out+='<p class="title-source">'+tr('Title source: research proposal','과제명 출처: 연구계획서')+'</p>'
+    return out+'</div>'
+
 def project_summary(p):return p['summary'] if LANG=='ko' else PROJECT_LOCALES[p['key']]['summary_en']
 def sponsor(s):return s if LANG=='ko' else SPONSORS.get(s,s)
 def heading(kicker,title,desc=''):
@@ -130,7 +156,7 @@ def shell(title,content,section='',desc='',path='/niil/'):
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-release2"><script src="/niil/assets/niil.js?v=20261026-release2" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-titles1"><script src="/niil/assets/niil.js?v=20261026-titles1" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
 def emit(path,title,content,section=''):
     write(local(path),shell(title,content,section,path=path))
 def route_redirect(path,target):
@@ -146,8 +172,8 @@ def project_rows(items):
     for p in items:
         key=next(c[1] for c in CLUSTERS if c[0]==p['cluster'])
         status=tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료')
-        search=esc(' '.join([p['title'],p['title_ko'],p['summary'],PROJECT_LOCALES[p['key']]['summary_en']]+p['sponsors']+[sponsor(s) for s in p['sponsors']]))
-        out+=f'<article class="project-row" data-project data-search="{search}" data-topic="{key}" data-status="{p["status"]}"><div><span class="badge">{status}</span><p class="muted">{p["start"][:4]}–{p["end"][:4]}</p></div><div><p class="eyebrow">{cluster(p["cluster"])}</p><h2><a href="{ROUTES[p["page_id"]]}">{esc(project_title(p))}</a></h2><p>{esc(project_summary(p))}</p><p class="muted">{esc(" · ".join(sponsor(s) for s in p["sponsors"]))}</p></div></article>'
+        search=esc(' '.join([p['title'],p['title_ko'],p.get('official_title_en') or '', ' '.join(q['title'] for q in p['phases']),p['summary'],PROJECT_LOCALES[p['key']]['summary_en']]+p['sponsors']+[sponsor(s) for s in p['sponsors']]))
+        out+=f'<article class="project-row" data-project data-search="{search}" data-topic="{key}" data-status="{p["status"]}"><div><span class="badge">{status}</span><p class="muted">{p["start"][:4]}–{p["end"][:4]}</p></div><div><p class="eyebrow">{cluster(p["cluster"])}</p><h2><a href="{ROUTES[p["page_id"]]}">{esc(project_title(p))}</a></h2>{project_titles(p)}<p>{esc(project_summary(p))}</p><p class="muted">{esc(" · ".join(sponsor(s) for s in p["sponsors"]))}</p></div></article>'
     return out+'</div>'
 def history(m):
     out='<ul class="member-history">'
@@ -188,8 +214,8 @@ for LANG in ('en','ko'):
     for p in CATALOG:
         body,notes=project_body(p)
         content=heading('',esc(project_title(p)),esc(project_summary(p)))+f'<section class="wrap document-layout"><aside><a href="/niil/research/">← {tr("Research","연구")}</a><nav class="toc" aria-label="{tr("On this page","페이지 목차")}"></nav></aside><article class="prose">'
-        content+=f'<p class="eyebrow">{cluster(p["cluster"])}</p><p>{p["start"]} – {p["end"]} · '+(tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료'))+'</p><p>'+esc(' · '.join(sponsor(s) for s in p['sponsors']))+'</p>'+body
-        content+=f'<details class="project-phases"><summary>{tr("Project record and sources","과제 이력 및 출처")}</summary><p>{tr("Principal investigator: Ki-Baek Lee","연구책임자: 이기백")}</p><p lang="ko">{esc(p["title_ko"])}</p>'
+        content+=f'<p class="eyebrow">{cluster(p["cluster"])}</p><p>{p["start"]} – {p["end"]} · '+(tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료'))+'</p><p>'+esc(' · '.join(sponsor(s) for s in p['sponsors']))+'</p>'+project_titles(p,detail=True)+body
+        content+=f'<details class="project-phases"><summary>{tr("Project record and sources","과제 이력 및 출처")}</summary><p>{tr("Kwangwoon University principal investigator: Ki-Baek Lee","광운대학교 연구책임자: 이기백")}</p>'
         if p['phases']:
             content+=f'<p class="muted">{tr("Official contract titles are preserved in Korean.","계약별 공식 과제명입니다.")}</p><div class="table-scroll"><table><thead><tr><th>{tr("Period","기간")}</th><th>{tr("Contract","계약")}</th><th>{tr("Sponsor","지원기관")}</th></tr></thead><tbody>'
             for phase in p['phases']:content+=f'<tr><td>{phase["start"]} – {phase["end"]}</td><td lang="ko">{esc(phase["title"])}</td><td>{esc(sponsor(phase["sponsor"]))}</td></tr>'

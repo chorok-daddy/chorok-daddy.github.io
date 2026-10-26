@@ -82,3 +82,9 @@ Language default: Korean at `/niil/`, English at `/niil/en/`; switches use 한�
 - `/courses/…`: temporary compatibility through the 2026-2 semester. All 66 HTML pages redirect to exact counterparts preserving queries/fragments. The 29 non-HTML files are byte-identical mirrors, because static Pages cannot issue binary-path redirects. Do not edit these mirrors.
 
 `tools/course-compatibility.json` owns the old course URL inventory and original download hashes. `tools/build_compat_routes.py` regenerates aliases/mirrors from canonical content. `tools/check_migration.py` verifies every legacy URL, preserved anchor, file hash and navigation destination. The owner approved legacy course retirement on 2026-12-31. Remove only the listed legacy paths and course-mirror generation at retirement; preserve `/niil/courses/`. Root and former language aliases are independent of course retirement.
+
+## Registered project titles (2026-10-26)
+
+The catalog and detail headings use full Korean registered titles. Physical AI, adaptive consultation, sign language, swarm search, emotion assessment and sales assistance were matched against NTIS project search records (links in `content/projects.json`). The emotion project's NTIS title uses 디지털콘텐츠 and 상용화; original annual n-KURIS contract strings remain unchanged in history. Four collections retain an editorial grouping label and show their individual contract titles directly in the catalog.
+
+`official_title_en` is populated only when supported by a source title field, currently the Physical AI and swarm-search proposal title pages. Other English editions retain the Korean title instead of representing an editorial translation as an official English name. NTIS detail/report access requires login; the sign-language application has a blank English title field. Private proposal files and Drive IDs remain outside this repository.

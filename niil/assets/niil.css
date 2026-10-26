@@ -49,3 +49,6 @@ html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{word-break:keep-all;ove
  .cluster-card{padding:22px}.cluster-card h2{margin:10px 0}.cluster-card .cluster-count{margin-top:18px}
 }
 @media(max-width:350px){.site-header{padding-left:16px;padding-right:16px}.site-header nav#site-nav,.js .site-header nav#site-nav:not(.open){font-size:11px;gap:0}.site-header #site-nav a{padding:6px 0}.wrap{padding-left:20px;padding-right:20px}}
+
+/* Preserve full registered titles without clipping on narrow screens. */
+.official-titles{margin:12px 0 20px}.official-titles .alternate-title{font-size:15px;line-height:1.65;color:var(--muted);letter-spacing:0}.official-titles ul{margin:8px 0;padding-left:1.2em;font-size:14px}.title-label,.title-source{font-size:12px;color:var(--muted)}.title-source a{text-decoration:underline}.project-row h2{font-size:clamp(22px,2.5vw,32px);line-height:1.4}.document-layout .official-titles{border-bottom:1px solid var(--line);padding-bottom:20px}
