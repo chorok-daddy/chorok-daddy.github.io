@@ -1,6 +1,6 @@
-# NiiL migration preview
+# NiiL website
 
-Isolated NiiL site for review. The repository root `index.html`, existing `courses/`, and shared course styles remain unchanged. No link from the root index points to NiiL. Do not switch the main entry point before the owner's final review. NiiL pages carry `noindex,nofollow` during review.
+Production home: https://chorok-daddy.github.io/ (English). Korean: `/niil/ko/`. Existing teaching materials remain at `/courses/`, linked from Teaching. `/niil/` redirects to the root.
 
 ## Content and editing
 
@@ -28,12 +28,6 @@ Retrieved on 2026-10-23. Public site pages were fetched by URL because the activ
 All six course inventories were reconciled against the visible counts: Robot Basic Lab 32; Micro-Processor Applications 31; Control System 1 30; Control System 2 30; AI Applications 31; EE Seminar 20. Each inventory row has a local detail page. Course source content is preserved as an archive; the existing current AI Applications and Control 1 materials remain authoritative at `/courses/`.
 
 The original Publications page contained only a Google Scholar link; the local publication catalog now replaces that landing panel. Application guidance is maintained locally in `/niil/contact/#join`; submissions use the private Google Form response workflow. A typo in the displayed research tag (`Appied Intelligence`) is corrected in rendering while the source data is preserved. Current member status, affiliation and participation history are maintained separately in `content/members.json`; the original Notion member records remain archived in `pages.json`.
-
-## Final review and later promotion
-
-Review the design, member affiliations/statuses, project metadata, course archive wording, recruitment notice, and original application submission flow. Automated link checks validate local targets and anchors only; they do not certify Scholar, KLAS, Notion forms, or other external services.
-
-After explicit final review, choose the new root routing, connect existing course materials beneath the NiiL home, and remove the temporary noindex directive. That promotion is intentionally not part of this change.
 
 ## Project-centered revision (2026-10-23)
 
@@ -69,3 +63,9 @@ English is the default at `/niil/`; Korean pages live under `/niil/ko/`. The per
 Contact provides one shared inquiry entry point linking to a bilingual Google Form with four required fields: inquiry type, name, reply email and message. Responses are held in a private Google Sheet. The public repository contains only the responder URL, never the form editor URL, response-sheet ID or response contents. Monitoring is maintained separately on the owner's Mac; it is not a website backend. Direct email remains a fallback.
 
 Home participation links open the Contact page at `#join`. `/join/`, `/join/apply/` and the old recruitment URL redirect directly there. The clearly named inquiry/application form is directly accessible at the top and after guidance; neither link routes through another choice page. Inquiry categories are selected only in the form. Main navigation has five destinations: Research, Publications, People, Teaching, Contact. Detail pages return to their owning catalog.
+
+## Production release (2026-10-26)
+
+Owner authorized publication after mobile review. The builder now writes the root NiiL home and allows indexing; it preserves existing course files. Primary navigation is always visible on mobile, without a menu-opening step. Research opens directly on filters and project results; theme cards remain on Home. Duplicate role labels and fallback email instructions are removed.
+
+Review snapshot hosting remains separate in `chorok-daddy/niil-preview`; snapshot exports must retain noindex/nofollow and rewrite root/asset links for that deployment.

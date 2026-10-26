@@ -36,3 +36,16 @@
 .inquiry-entry{max-width:720px;padding:32px;border:1px solid var(--line);border-radius:12px}.inquiry-entry h2,.inquiry-guidance h2{font-size:1.4rem;margin-bottom:14px}.inquiry-entry .button{margin:10px 0 18px}.inquiry-note{font-size:.85rem;color:var(--muted);margin:0}.inquiry-guidance{margin-top:36px}.inquiry-guidance a{text-decoration:underline;text-underline-offset:4px}@media(max-width:700px){.inquiry-entry{padding:24px}}
 
 .contact-jumps{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:28px;font-size:.95rem}.contact-jumps a{text-decoration:underline;text-underline-offset:5px}.join-guidance{max-width:720px;margin-top:56px;padding-top:36px;border-top:1px solid var(--line)}.join-guidance>h2{margin-top:0}.join-guidance h3{margin-top:28px;font-size:1.15rem}
+
+/* Keep primary destinations visible without a menu detour on small screens. */
+html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{word-break:keep-all;overflow-wrap:anywhere}
+.site-header .language-switch a{min-height:44px;display:flex;align-items:center}
+@media(max-width:700px){
+ .site-header{height:auto;padding:12px 20px 8px;gap:4px 14px;align-items:center}
+ .site-header .menu-toggle{display:none}
+ .site-header nav#site-nav,.js .site-header nav#site-nav:not(.open){display:flex;width:100%;justify-content:space-between;gap:4px;flex-wrap:nowrap;order:4;margin:0;padding:4px 0;border-top:1px solid var(--line);font-size:12px}
+ .site-header #site-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:6px 3px}
+ .publication-heading{padding-top:30px;padding-bottom:28px}
+ .cluster-card{padding:22px}.cluster-card h2{margin:10px 0}.cluster-card .cluster-count{margin-top:18px}
+}
+@media(max-width:350px){.site-header{padding-left:16px;padding-right:16px}.site-header nav#site-nav,.js .site-header nav#site-nav:not(.open){font-size:11px;gap:0}.site-header #site-nav a{padding:6px 0}.wrap{padding-left:20px;padding-right:20px}}

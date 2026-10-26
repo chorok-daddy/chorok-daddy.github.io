@@ -21,5 +21,3 @@ For graduate research inquiries, select **Graduate research / 대학원 진학**
 [Inquiry & application form]({{CONTACT_FORM}})
 
 The form supports English and Korean and does not require a Google account. Submissions are not public. Provide only information needed for your inquiry; do not include sensitive personal information or confidential materials.
-
-If you cannot use the form, contact us by [lab email](mailto:kw.artint@gmail.com).
