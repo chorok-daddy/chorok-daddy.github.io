@@ -107,7 +107,10 @@ CLUSTER_EN=['Robot learning, swarm search, assisted motion and embedded control.
 COURSE_KO=['로봇기초실험','마이크로프로세서응용','제어공학1','제어공학2','인공지능응용','전기공학세미나']
 LANG='en'
 def tr(en,ko):return ko if LANG=='ko' else en
-def local(path):return path.replace('/niil/','/niil/ko/',1) if LANG=='ko' and path.startswith('/niil/') and not path.startswith('/niil/ko/') else path
+def local(path):
+    if path.startswith('/niil/') and not path.startswith(('/niil/assets/','/niil/courses/','/niil/en/')):
+        return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
+    return path
 def cluster(name):return CLUSTER_KO[name] if LANG=='ko' else name
 def project_title(p):return PROJECT_LOCALES[p['key']]['title_ko_short'] if LANG=='ko' else p['title']
 def project_summary(p):return p['summary'] if LANG=='ko' else PROJECT_LOCALES[p['key']]['summary_en']
@@ -123,17 +126,15 @@ def shell(title,content,section='',desc='',path='/niil/'):
             for text in a.find_all(string=True):text.replace_with(str(text).replace('↗','').strip() if str(text).strip()=='↗' else str(text).replace(' ↗',''))
     current_page='aria-current="page"'
     current_language='aria-current="true"'
-    nav=''.join(f'''<a {current_page if section==s else ''} href="{("/courses/" if s=="teaching" else local("/niil/"+s+"/"))}">{tr(n,k)}</a>''' for n,k,s in [('Research','연구','research'),('Publications','논문','publications'),('People','구성원','members'),('Course','강의자료','teaching'),('Contact','문의·지원','contact')])
-    english=path;korean='/' if path=='/niil/' else path.replace('/niil/','/niil/ko/',1)
+    nav=''.join(f'''<a {current_page if section==s else ''} href="{("/niil/courses/" if s=="teaching" else local("/niil/"+s+"/"))}">{tr(n,k)}</a>''' for n,k,s in [('Research','연구','research'),('Publications','논문','publications'),('People','구성원','members'),('Course','강의자료','teaching'),('Contact','문의·지원','contact')])
+    english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    if LANG=='ko':
-        soup=BeautifulSoup(str(soup).replace('href="/niil/ko/"','href="/"'),'html.parser')
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+('/' if path=='/niil/' and LANG=='ko' else local(path))}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-release2"><script src="/niil/assets/niil.js?v=20261026-release2" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{('/' if LANG=='ko' else '/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{('/' if LANG=='ko' else '/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-release2"><script src="/niil/assets/niil.js?v=20261026-release2" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
 def emit(path,title,content,section=''):
     write(local(path),shell(title,content,section,path=path))
 def route_redirect(path,target):
-    section='teaching' if target=='/courses/' else ('contact' if target.startswith('/niil/contact/') else 'research')
+    section='teaching' if target=='/niil/courses/' else ('contact' if target.startswith('/niil/contact/') else 'research')
     title=tr('Course','강의자료') if section=='teaching' else (tr('Contact & apply','문의·지원') if section=='contact' else tr('Research','연구'))
     page=shell(title,heading('',title)+f'<section class="wrap section"><a href="{local(target)}">{tr("Continue","이동")}</a></section>',section,path=path)
     page=page.replace('<meta charset="utf-8">',f'<meta charset="utf-8"><meta http-equiv="refresh" content="0;url={local(target)}">')
@@ -223,7 +224,7 @@ for LANG in ('en','ko'):
         content+=f'<article class="publication-row" data-publication data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div lang="en"><h2><a href="{esc(p["url"])}">{esc(p["title"])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
-    route_redirect('/niil/teaching/','/courses/')
+    route_redirect('/niil/teaching/','/niil/courses/')
     application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
     application_html=subprocess.run(['pandoc','-f','markdown','-t','html','--wrap=none'],input=application,text=True,capture_output=True,check=True).stdout
     content=heading('',tr('Contact & apply','문의·지원'),tr('Research collaboration, lab applications and general inquiries.','연구 협업, 연구실 지원 및 일반 문의를 받습니다.'))
@@ -233,9 +234,8 @@ for LANG in ('en','ko'):
     handled={p['id'] for p in PAGES[:6]}|{PAGES[12]['id']}|{p['id'] for p in AREAS+VISIONS+PROJECTS+MEMBERS+NOTICE}
     for p in PAGES:
         if p['id'] in handled:continue
-        content=heading('',esc(p['title']))+'<section class="wrap document-layout"><aside><a href="/courses/">← '+tr('Course','강의자료')+'</a><nav class="toc" aria-label="'+tr('On this page','페이지 목차')+'"></nav></aside><article class="prose"><p class="archive-note">'+tr('Archived source material (Korean / English). Course content is retained in its original language; use KLAS for current semester announcements.','이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><div class="archive-source" lang="ko">'+meta(p)+render(p)+'</div></article></section>'
+        content=heading('',esc(p['title']))+'<section class="wrap document-layout"><aside><a href="/niil/courses/">← '+tr('Course','강의자료')+'</a><nav class="toc" aria-label="'+tr('On this page','페이지 목차')+'"></nav></aside><article class="prose"><p class="archive-note">'+tr('Archived source material (Korean / English). Course content is retained in its original language; use KLAS for current semester announcements.','이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><div class="archive-source" lang="ko">'+meta(p)+render(p)+'</div></article></section>'
         emit(href(p),p['title'],content,'teaching')
 (SITE/'content/routes.json').write_text(json.dumps(ROUTES,ensure_ascii=False,indent=2)+'\n')
-(ROOT/'index.html').write_text((SITE/'ko/index.html').read_text())
-(SITE/'ko/index.html').write_text('<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=/"><link rel="canonical" href="https://chorok-daddy.github.io/"><title>NiiL</title></head><body><a href="/">NiiL home</a></body></html>')
-print('Built production NiiL home and bilingual pages. Existing courses preserved.')
+subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)
+print('Built Korean /niil/, English /niil/en/, and compatibility routes.')
