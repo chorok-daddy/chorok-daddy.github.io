@@ -26,6 +26,15 @@ PROFILE=canonical(ROUTES[faculty['id']])
 PERSON_ID=BASE+PROFILE+'#person';ORG_ID=BASE+'/niil/#organization'
 archives={canonical(ROUTES[p['id']]):p['title'] for p in PAGES if p['id'] in ROUTES}
 member_paths={canonical(ROUTES[m['id']]):m for m in MEMBERS}
+verification_file=ROOT/'tools/search-console.json'
+verification=json.loads(verification_file.read_text()).get('google_site_verification') if verification_file.exists() else None
+# Keep verification on both the root redirect and its canonical landing page.
+if verification:
+    root_page=ROOT/'index.html'
+    root_doc=BeautifulSoup(root_page.read_text(),'html.parser')
+    for old in root_doc.select('meta[name="google-site-verification"]'):old.decompose()
+    root_doc.head.append(root_doc.new_tag('meta',attrs={'name':'google-site-verification','content':verification}))
+    root_page.write_text(str(root_doc))
 entries={}
 for file in sorted(SITE.rglob('*.html')):
     if any(part in ('assets','content') for part in file.relative_to(SITE).parts):continue
@@ -38,6 +47,7 @@ for file in sorted(SITE.rglob('*.html')):
         key='property' if prop else 'name'
         for old in doc.head.find_all('meta',attrs={key:name}):old.decompose()
         doc.head.append(doc.new_tag('meta',attrs={key:name,'content':value}))
+    if verification and path=='/niil/':meta('google-site-verification',verification)
     redirect=doc.select_one('meta[http-equiv="refresh"]')
     if redirect:
         meta('robots','noindex,follow')

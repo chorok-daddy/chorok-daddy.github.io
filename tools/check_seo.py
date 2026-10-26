@@ -28,3 +28,11 @@ assert any(n['@type']=='ProfilePage' for n in graph)
 assert any(n['@type']=='Person' and 'yZ9xxNcAAAAJ' in n['sameAs'][0] for n in graph)
 assert 'Sitemap: '+BASE+'/sitemap.xml' in (ROOT/'robots.txt').read_text()
 print(f'PASS: {len(urls)} canonical URLs, sitemap, language alternatives and JSON-LD; verified faculty identity link.')
+
+verification_file=ROOT/'tools/search-console.json'
+if verification_file.exists():
+ expected=json.loads(verification_file.read_text())['google_site_verification']
+ for path in ['index.html','niil/index.html']:
+  doc=BeautifulSoup((ROOT/path).read_text(),'html.parser')
+  assert doc.head.select_one('meta[name="google-site-verification"]')['content']==expected,path
+ print('PASS: Search Console verification survives on root and landing page.')
