@@ -279,14 +279,14 @@ for LANG in ('en','ko'):
     photos=json.loads((SITE/'content/photos.json').read_text())
     content=heading('',tr('Lab photos','연구실 사진'))+'<section class="wrap photo-gallery"><a class="photo-back" href="/niil/members/">← '+tr('People','구성원')+'</a>'
     for photo in photos:
-        content+=f'<figure class="lab-photo" id="{esc(photo["id"])}"><a href="{esc(photo["image"])}" target="_blank" rel="noopener" aria-label="{esc(photo["title"][LANG]+tr(" — open full size"," — 크게 보기"))}"><img src="{esc(photo["image"])}" alt="{esc(photo["title"][LANG])}" loading="lazy" decoding="async"></a><figcaption><h2>{esc(photo["title"][LANG])}</h2><p>{esc(photo["caption"][LANG])}</p></figcaption></figure>'
+        content+=f'<figure class="lab-photo {esc(photo.get("frame", ""))}" id="{esc(photo["id"])}"><a href="{esc(photo["image"])}" target="_blank" rel="noopener" aria-label="{esc(photo["title"][LANG]+tr(" — open full size"," — 크게 보기"))}"><img src="{esc(photo["image"])}" alt="{esc(photo["title"][LANG])}" loading="lazy" decoding="async"></a><figcaption><h2>{esc(photo["title"][LANG])}</h2><p>{esc(photo["caption"][LANG])}</p></figcaption></figure>'
     content+='</section>'
     emit('/niil/photos/',tr('Lab photos','연구실 사진'),content,'members')
     for m in MEMBER_DATA:
         p=byid[m['id']];portrait=image(p,'portrait')
         if m.get('portrait_crop'):portrait=frame_portrait(portrait,m['portrait_crop'])
-        if m.get('portrait_source')=='homecoming-2025':portrait+='<p class="portrait-source">'+tr('From the 2025 homecoming photo','2025 홈커밍 사진 발췌')+'</p>'
-        elif m.get('portrait_source'):portrait+='<p class="portrait-source">'+tr('From the 2019 group photo · AI-restored','2019 단체사진 발췌 · AI 복원')+'</p>'
+        if m.get('portrait_source','').startswith('homecoming-2025'):portrait+='<p class="portrait-source">'+tr('From the 2025 homecoming photo','2025 홈커밍 사진 발췌')+'</p>'
+        elif m.get('portrait_source'):portrait+='<p class="portrait-source">'+tr('From the 2019 group photo','2019 단체사진 발췌')+'</p>'
         content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+portrait+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
         if m['affiliation'][LANG]:content+='<h2>'+tr('Affiliation','소속')+'</h2><p>'+esc(m['affiliation'][LANG])+'</p>'
         if m['email']:content+='<h2>'+tr('Email','이메일')+'</h2><a href="mailto:'+esc(m['email'])+'">'+esc(m['email'])+'</a>'

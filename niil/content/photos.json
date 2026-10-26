@@ -1,5 +1,20 @@
 [
   {
+    "id": "homecoming-2025-standing",
+    "year": "2025",
+    "title": {
+      "ko": "2025 홈커밍 단체사진",
+      "en": "2025 homecoming group photo"
+    },
+    "image": "/niil/assets/media/homecoming-2025-standing-screen.png",
+    "caption": {
+      "ko": "2025년 12월 3일",
+      "en": "December 3, 2025"
+    },
+    "frame": "standing",
+    "provenance": "Browser-rendered photograph captured at 1784×1146; original download unavailable. Black viewer margins hidden by CSS; photographic pixels unaltered."
+  },
+  {
     "id": "homecoming-2025",
     "year": "2025",
     "title": {
@@ -8,8 +23,8 @@
     },
     "image": "/niil/assets/media/homecoming-2025-retouched.png",
     "caption": {
-      "ko": "2025년 12월 3일 · AI 보정본",
-      "en": "December 3, 2025 · AI-retouched photograph"
+      "ko": "2025년 12월 3일",
+      "en": "December 3, 2025"
     }
   },
   {
@@ -21,8 +36,8 @@
     },
     "image": "/niil/assets/media/artint-2019-restored.png",
     "caption": {
-      "ko": "인화사진을 촬영한 자료의 AI 보정·복원본입니다.",
-      "en": "AI-assisted restoration of a photographed print."
+      "ko": "2019년 연구실 단체사진",
+      "en": "Lab group photo, 2019"
     }
   }
 ]

@@ -128,20 +128,23 @@
           "en": "M.S.",
           "ko": "석사"
         },
-        "start": "2016-06",
+        "start": "2017-03",
         "end": "2019-02",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2016-06",
+        "end": "2017-02",
         "ongoing": false
       }
     ],
     "reference": null,
-    "portrait_crop": {
-      "image_width": 1672,
-      "x": 1015,
-      "y": 380,
-      "width": 285,
-      "height": 356.25
-    },
-    "portrait_source": "artint-2019"
+    "portrait_source": "artint-2019-solo",
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "1b6888a17b30809b8517fae541337dc6",
@@ -203,20 +206,23 @@
           "en": "M.S.",
           "ko": "석사"
         },
+        "start": "2020-03",
+        "end": "2022-08",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
         "start": "2017-09",
-        "end": "2022-06",
+        "end": "2020-02",
         "ongoing": false
       }
     ],
     "reference": null,
-    "portrait_crop": {
-      "image_width": 1672,
-      "x": 450,
-      "y": 250,
-      "width": 185,
-      "height": 231.25
-    },
-    "portrait_source": "artint-2019"
+    "portrait_source": "artint-2019-solo",
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "1b6888a17b3080f1a4eaeb47d72ebf28",
@@ -247,14 +253,7 @@
       }
     ],
     "reference": null,
-    "portrait_crop": {
-      "image_width": 1720,
-      "x": 330,
-      "y": 850,
-      "width": 265,
-      "height": 331.25
-    },
-    "portrait_source": "homecoming-2025"
+    "portrait_provenance": "Conservative restoration of user-supplied monochrome solo photo, 2026-10-26; no group-photo wardrobe or glasses transfer."
   },
   {
     "id": "1b6888a17b30805fb0fce8da884d74ee",
@@ -279,8 +278,17 @@
           "en": "M.S.",
           "ko": "석사"
         },
+        "start": "2020-03",
+        "end": "2022-08",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
         "start": "2017-09",
-        "end": "2022-06",
+        "end": "2020-02",
         "ongoing": false
       }
     ],
@@ -292,7 +300,8 @@
       "width": 190,
       "height": 237.5
     },
-    "portrait_source": "artint-2019"
+    "portrait_source": "artint-2019",
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "1b6888a17b3080958465c407bd26a00b",
@@ -317,20 +326,23 @@
           "en": "M.S.",
           "ko": "석사"
         },
+        "start": "2020-03",
+        "end": "2022-08",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
         "start": "2017-09",
-        "end": "2022-06",
+        "end": "2020-02",
         "ongoing": false
       }
     ],
     "reference": null,
-    "portrait_crop": {
-      "image_width": 1672,
-      "x": 65,
-      "y": 225,
-      "width": 240,
-      "height": 300
-    },
-    "portrait_source": "artint-2019"
+    "portrait_source": "artint-2019-solo",
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "1b6888a17b3080e69d15eef275069690",
@@ -385,20 +397,23 @@
           "en": "M.S.",
           "ko": "석사"
         },
-        "start": "2018-06",
+        "start": "2019-03",
         "end": "2021-02",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2018-06",
+        "end": "2019-02",
         "ongoing": false
       }
     ],
     "reference": null,
-    "portrait_crop": {
-      "image_width": 1672,
-      "x": 605,
-      "y": 215,
-      "width": 180,
-      "height": 225
-    },
-    "portrait_source": "artint-2019"
+    "portrait_source": "artint-2019-solo",
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "1b6888a17b3080ccaa14f5c77fe8d644",
@@ -466,14 +481,7 @@
       }
     ],
     "reference": null,
-    "portrait_crop": {
-      "image_width": 1672,
-      "x": 1360,
-      "y": 280,
-      "width": 175,
-      "height": 218.75
-    },
-    "portrait_source": "artint-2019"
+    "portrait_source": "artint-2019-solo"
   },
   {
     "id": "1b6888a17b3080a0ad03dbb0ea790fd8",
@@ -498,12 +506,22 @@
           "en": "M.S.",
           "ko": "석사"
         },
-        "start": "2020-03",
+        "start": "2022-03",
         "end": "2024-02",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2020-03",
+        "end": "2022-02",
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "1b6888a17b30806aa67bfa57121296cf",
@@ -528,12 +546,22 @@
           "en": "M.S.",
           "ko": "석사"
         },
-        "start": "2022-03",
+        "start": "2023-03",
         "end": "2025-02",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2022-03",
+        "end": "2023-02",
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
   },
   {
     "id": "29b888a17b3080a2b5f8ea17e29192b2",
