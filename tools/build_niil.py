@@ -269,7 +269,9 @@ for LANG in ('en','ko'):
         content+='<section class="wrap section compact"><h2 class="group-title">'+tr(en,ko)+'</h2><div class="people-grid">'
         for m in filter(predicate,MEMBER_DATA):
             p=byid[m['id']];portrait=image(p,'portrait') or '<div class="initials" aria-hidden="true">'+esc(''.join(w[0] for w in m['name']['en'].split()[:2]))+'</div>'
-            if m.get('portrait_crop') or m.get('thumbnail_crop'):
+            if m.get('thumbnail_image'):
+                portrait=f'<img class="portrait" src="{esc(m["thumbnail_image"])}" alt="{esc(m["name"][LANG])}" loading="lazy" decoding="async">'
+            elif m.get('portrait_crop') or m.get('thumbnail_crop'):
                 portrait=frame_portrait(portrait,m.get('portrait_crop') or m['thumbnail_crop'])
             content+=f'<article class="person"><a href="{href(p)}">{portrait}</a><div><p class="eyebrow">{m["role"][LANG]}</p><h3><a href="{href(p)}">{esc(m["name"][LANG])}</a></h3>'+history(m)
             if m['affiliation'][LANG]:content+='<p class="member-affiliation">'+esc(m['affiliation'][LANG])+'</p>'
@@ -285,8 +287,6 @@ for LANG in ('en','ko'):
     for m in MEMBER_DATA:
         p=byid[m['id']];portrait=image(p,'portrait')
         if m.get('portrait_crop'):portrait=frame_portrait(portrait,m['portrait_crop'])
-        if m.get('portrait_source','').startswith('homecoming-2025'):portrait+='<p class="portrait-source">'+tr('From the 2025 homecoming photo','2025 홈커밍 사진 발췌')+'</p>'
-        elif m.get('portrait_source'):portrait+='<p class="portrait-source">'+tr('From the 2019 group photo','2019 단체사진 발췌')+'</p>'
         content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+portrait+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
         if m['affiliation'][LANG]:content+='<h2>'+tr('Affiliation','소속')+'</h2><p>'+esc(m['affiliation'][LANG])+'</p>'
         if m['email']:content+='<h2>'+tr('Email','이메일')+'</h2><a href="mailto:'+esc(m['email'])+'">'+esc(m['email'])+'</a>'

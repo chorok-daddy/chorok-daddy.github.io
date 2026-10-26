@@ -253,7 +253,16 @@
       }
     ],
     "reference": null,
-    "portrait_provenance": "Conservative restoration of user-supplied monochrome solo photo, 2026-10-26; no group-photo wardrobe or glasses transfer."
+    "portrait_provenance": "Detail: unretouched 2025 homecoming rendered photo, CSS crop only. Thumbnail: colorization of approved minimally restored monochrome portrait. Selected by user on 2026-10-26.",
+    "portrait_crop": {
+      "image_width": 1784,
+      "x": 1270,
+      "y": 635,
+      "width": 320,
+      "height": 400
+    },
+    "portrait_source": "homecoming-2025",
+    "thumbnail_image": "/niil/assets/media/sangkyu-thumbnail-color-20261026.png"
   },
   {
     "id": "1b6888a17b30805fb0fce8da884d74ee",
@@ -591,6 +600,7 @@
         "ongoing": false
       }
     ],
-    "reference": "https://unicon.hanyang.ac.kr/members"
+    "reference": "https://unicon.hanyang.ac.kr/members",
+    "portrait_provenance": "User-provided UNICON Lab portrait, unchanged, 2026-10-26."
   }
 ]
