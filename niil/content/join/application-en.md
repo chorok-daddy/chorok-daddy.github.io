@@ -12,11 +12,11 @@ Undergraduates with at least two semesters remaining before graduation may apply
 ## How to apply
 
 1. Open the application and inquiry form below.
-2. Select **Undergraduate internship / 학부 인턴** as the inquiry type.
+2. Select **Undergraduate internship** as the inquiry type.
 3. Enter your name and reply email.
 4. In your message, include your university and major, current year and expected graduation date, preferred participation period, and research interests.
 
-For graduate research inquiries, select **Graduate research / 대학원 진학** and include your research interests and intended entry term.
+For graduate research inquiries, select **Graduate research** and include your research interests and intended entry term.
 
 [Inquiry & application form]({{CONTACT_FORM}})
 

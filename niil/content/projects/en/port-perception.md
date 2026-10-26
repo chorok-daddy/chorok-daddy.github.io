@@ -10,7 +10,7 @@ The system distinguishes known and unknown objects in port CCTV and converts ima
 
 ## Contributions
 
-Separated object detection from similarity matching. Within the learned domain, reference images extend recognized categories without retraining, while unmatched objects are treated as unknown. Semi-automatic data generation and camera calibration connect detection to location.
+Separated object detection from similarity matching. Within the learned domain, reference images extend recognized categories, while unmatched objects are treated as unknown. Semi-automatic data generation and camera calibration connect detection to location.
 
 ## Evaluation scope
 

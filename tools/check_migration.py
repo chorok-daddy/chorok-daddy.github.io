@@ -22,7 +22,7 @@ for item in manifest['files']:
     assert 'location.search+location.hash' in old.read_text(), old
     new_page = BeautifulSoup(new.read_text(), 'html.parser')
     assert set(item['anchors']) <= {x['id'] for x in new_page.select('[id]')}, new
-    homes = new_page.select('a[href="/niil/courses/"]')
+    homes = new_page.select('a[href="/niil/courses/"]:not([data-language])')
     assert len(homes) == 1 and homes[0].get_text() == '메인 강의페이지', new
     assert not new_page.select('a[href="/"]'), new
     assert not new_page.select('[href^="/courses/"], [src^="/courses/"]'), new
@@ -35,7 +35,7 @@ for lang, prefix in [('ko', 'niil'), ('en', 'niil/en')]:
     page = BeautifulSoup((ROOT / prefix / 'index.html').read_text(), 'html.parser')
     assert page.html['lang'] == lang
     assert [a['data-language'] for a in page.select('.language-switch a')] == ['ko', 'en']
-    assert page.select_one('#site-nav a[href="/niil/courses/"]')
+    assert page.select_one('#site-nav a[href="'+('/niil/courses/' if lang=='ko' else '/niil/en/courses/')+'"]')
     assert page.select_one('[data-language="ko"]')['href'] == '/niil/'
     assert page.select_one('[data-language="en"]')['href'] == '/niil/en/'
 print(json.dumps({'legacy_pages': pages, 'byte_identical_downloads': downloads,

@@ -111,6 +111,7 @@ COURSE_KO=['로봇기초실험','마이크로프로세서응용','제어공학1'
 LANG='en'
 def tr(en,ko):return ko if LANG=='ko' else en
 def local(path):
+    if path=='/niil/courses/':return '/niil/en/courses/' if LANG=='en' else path
     if path.startswith('/niil/') and not path.startswith(('/niil/assets/','/niil/courses/','/niil/en/')):
         return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
     return path
@@ -118,19 +119,20 @@ def cluster(name):return CLUSTER_KO[name] if LANG=='ko' else name
 def project_title(p):
     if p.get('title_kind') == 'collection':
         return PROJECT_LOCALES[p['key']]['title_ko_short'] if LANG=='ko' else p['title']
-    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['title_ko'])
+    return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['translated_title_en']+' (Translation)')
+def phase_title(phase):
+    return esc(phase['title']) if LANG=='ko' else esc(phase['title_en'])+(' <small class="translation-label">Translation</small>' if phase['title_en_kind']=='translation' else '')
 def project_titles(p, detail=False):
     collection = p.get('title_kind') == 'collection'
     out='<div class="official-titles">'
     if collection:
         out+='<p class="title-label">'+tr('Related contracts','관련 계약')+'</p><ul>'
         for phase in p['phases']:
-            out+='<li lang="ko">'+esc(phase['title'])+'</li>'
+            out+='<li>'+phase_title(phase)+'</li>'
         out+='</ul>'
     if detail:
         if not collection and not p.get('official_title_en'):
-            note=tr('No English title registered in NTIS.','NTIS 영문 과제명 미등록') if p.get('title_verification',{}).get('en')=='NTIS English title field is blank' else tr('Official English title unverified; Korean contract title retained.','공식 영문 과제명 미확인 · 한글 계약명 유지')
-            out+='<p class="muted">'+note+'</p>'
+            if LANG=='en':out+='<p class="muted">English title is a translation; no official English title was verified.</p>'
         if p.get('official_title_en') and not p.get('title_sources'):
             out+='<p class="title-source">'+tr('English title: research proposal title page','영문 과제명: 연구계획서 표지')+'</p>'
         if p.get('title_sources'):
@@ -152,11 +154,11 @@ def shell(title,content,section='',desc='',path='/niil/'):
             for text in a.find_all(string=True):text.replace_with(str(text).replace('↗','').strip() if str(text).strip()=='↗' else str(text).replace(' ↗',''))
     current_page='aria-current="page"'
     current_language='aria-current="true"'
-    nav=''.join(f'''<a {current_page if section==s else ''} href="{("/niil/courses/" if s=="teaching" else local("/niil/"+s+"/"))}">{tr(n,k)}</a>''' for n,k,s in [('Research','연구','research'),('Publications','논문','publications'),('People','구성원','members'),('Course','강의자료','teaching'),('Contact','문의·지원','contact')])
+    nav=''.join(f'''<a {current_page if section==s else ''} href="{(local("/niil/courses/") if s=="teaching" else local("/niil/"+s+"/"))}">{tr(n,k)}</a>''' for n,k,s in [('Research','연구','research'),('Publications','논문','publications'),('People','구성원','members'),('Course','강의자료','teaching'),('Contact','문의·지원','contact')])
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-titles1"><script src="/niil/assets/niil.js?v=20261026-titles1" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-outputs1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
 def emit(path,title,content,section=''):
     write(local(path),shell(title,content,section,path=path))
 def route_redirect(path,target):
@@ -172,7 +174,7 @@ def project_rows(items):
     for p in items:
         key=next(c[1] for c in CLUSTERS if c[0]==p['cluster'])
         status=tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료')
-        search=esc(' '.join([p['title'],p['title_ko'],p.get('official_title_en') or '', ' '.join(q['title'] for q in p['phases']),p['summary'],PROJECT_LOCALES[p['key']]['summary_en']]+p['sponsors']+[sponsor(s) for s in p['sponsors']]))
+        search=esc(' '.join([p['title'],p['title_ko'],p.get('official_title_en') or '',p.get('translated_title_en') or '', ' '.join(q['title'] for q in p['phases']),p['summary'],PROJECT_LOCALES[p['key']]['summary_en']]+p['sponsors']+[sponsor(s) for s in p['sponsors']]))
         out+=f'<article class="project-row" data-project data-search="{search}" data-topic="{key}" data-status="{p["status"]}"><div><span class="badge">{status}</span><p class="muted">{p["start"][:4]}–{p["end"][:4]}</p></div><div><p class="eyebrow">{cluster(p["cluster"])}</p><h2><a href="{ROUTES[p["page_id"]]}">{esc(project_title(p))}</a></h2>{project_titles(p)}<p>{esc(project_summary(p))}</p><p class="muted">{esc(" · ".join(sponsor(s) for s in p["sponsors"]))}</p></div></article>'
     return out+'</div>'
 def history(m):
@@ -201,12 +203,42 @@ def project_body(p):
             for sib in following:notes.append(str(sib));sib.extract()
     return str(soup),''.join(notes)
 
+def research_outputs():
+    data=json.loads((SITE/'content/research-outputs.json').read_text())
+    statuses={'registered':tr('Registered','등록'),'expired':tr('Registered · expired','등록 · 권리소멸'),'rejected':tr('Filed · refused','출원 · 거절'),'published':tr('Filed · published','출원 · 공개')}
+    labels={'registration':tr('Registration','등록'),'application':tr('Application','출원'),'pct':tr('PCT application','PCT 국제출원')}
+    def table(headers, rows):
+        return '<table class="output-table"><thead><tr>'+''.join('<th scope="col">'+h+'</th>' for h in headers)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td data-label="'+esc(h)+'">'+v+'</td>' for h,v in zip(headers,row))+'</tr>' for row in rows)+'</tbody></table>'
+    rows=[]
+    for p in data['intellectual_property']:
+        title='<span lang="'+LANG+'">'+esc(p['title_ko'] if LANG=='ko' else p['title_en'])+'</span> <span class="muted">('+statuses[p['status']]+')</span>'
+        if p.get('url'):title+='<a class="output-source" href="'+esc(p['url'])+'" target="_blank" rel="noopener noreferrer">'+tr('Patent record','특허 정보')+' ↗</a>'
+        numbers=[];dates=[]
+        for f in p['filings']:
+            numbers.append('<div class="filing"><small>'+labels[f['kind']]+'</small>'+esc(f['number'])+('</div>' if not f.get('publication') else '<small>'+tr('Publication','공개번호')+' '+esc(f['publication'])+'</small></div>'))
+            dates.append('<div class="filing"><small>'+labels[f['kind']]+'</small><time datetime="'+f['date']+'">'+f['date']+'</time></div>')
+        rows.append([tr('Patent','특허') if p['category']=='patent' else tr('Software','소프트웨어'),title,''.join(numbers),''.join(dates)])
+    count=len(rows)
+    out='<section class="wrap research-outputs" aria-label="'+tr('Research outputs','연구 성과')+'"><details id="intellectual-property" class="output-panel"><summary>'+tr('Intellectual property','지식재산권')+' <span class="output-count">'+str(count)+'</span></summary><div class="output-body">'
+    out+='<p class="muted">'+tr('Patents co-invented by Ki-Baek Lee. PCT applications are grouped with the corresponding Korean patent. Titles follow KIPRIS records.','이기백 교수가 발명에 참여한 특허입니다. PCT 국제출원은 해당 국내 특허와 함께 표시합니다.')+'</p>'
+    out+=table([tr('Type','구분'),tr('Title (status)','명칭 (상태)'),tr('Registration / application number','등록 / 출원번호'),tr('Registration / application date','등록 / 출원일')],rows)+'</div></details>'
+    rows=[]
+    for t in data['technology_transfers']:
+        title=esc(t['title_ko'] if LANG=='ko' else t['title_en'])
+        recipient=esc(t['recipient'][LANG])
+        if LANG=='en' and t.get('recipient_en_translated'):recipient+=' <small class="translation-label">Translation</small>'
+        date=t['date'] if t.get('date_precision')!='range' else tr('March–April 2025 (exact date unverified)','2025년 3–4월 (정확한 일자 미확인)')
+        rows.append([title,recipient,esc(date)])
+    out+='<details id="technology-transfer" class="output-panel"><summary>'+tr('Technology transfer','기술이전')+' <span class="output-count">'+str(len(rows))+'</span></summary><div class="output-body"><p class="muted">'+tr('Dates refer to signed contracts; an unverified day is shown as a range. Agreements covering the same technology and recipient are grouped. English titles use the corresponding patent’s official English title.','계약 체결일 기준이며, 정확한 일자 미확인 건은 확인된 기간으로 표시합니다. 같은 기술·대상 기업의 국가별 계약은 한 건으로 묶었습니다.')+'</p>'
+    out+=table([tr('Technology','명칭'),tr('Recipient','기술이전 대상'),tr('Transfer date','기술이전일')],rows)+'</div></details></section>'
+    return out
+
 for LANG in ('en','ko'):
     home=heading('',tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실'),tr('We study robot learning, visual perception and human-centered AI at Kwangwoon University.','광운대학교에서 로봇 학습, 시각 인식, 인간 중심 인공지능을 연구합니다.'))
     home+='<section class="wrap section compact">'+cluster_cards()+'</section><section class="wrap section compact"><div class="section-title"><h2>'+tr('Ongoing projects','수행 중 과제')+'</h2><a href="/niil/research/">'+tr('All research','전체 연구')+'</a></div>'+project_rows([p for p in CATALOG if p['status']=='In progress'])+'</section>'
     home+='<section class="wrap section compact"><div class="resource-note"><h2>'+tr('Join the lab','연구실 참여')+'</h2><p>'+tr('Undergraduate internship applications are accepted throughout the year.','학부 인턴 지원은 상시 접수합니다.')+'</p><a href="/niil/contact/#join">'+tr('Lab application guide','연구실 지원 안내')+'</a></div></section>'
     emit('/niil/',tr('Home','홈'),home)
-    content=heading('',tr('Research','연구'))+'<section class="wrap section compact" id="project-catalog"><div class="filterbar">'
+    content=heading('',tr('Research','연구'))+research_outputs()+'<section class="wrap section compact" id="project-catalog"><div class="filterbar">'
     content+=f'<label for="project-search">{tr("Search","검색")}<input type="search" id="project-search" placeholder="{tr("Title, sponsor, or topic","제목, 지원기관, 주제")}"></label><label for="project-topic">{tr("Theme","연구 분야")}<select id="project-topic"><option value="">{tr("All themes","전체 분야")}</option>'+''.join(f'<option value="{key}">{cluster(name)}</option>' for name,key,_,_ in CLUSTERS)+'</select></label>'
     content+=f'<label for="project-status">{tr("Status","상태")}<select id="project-status"><option value="">{tr("All projects","전체 과제")}</option><option value="In progress">{tr("Ongoing","수행 중")}</option><option value="Done">{tr("Completed","종료")}</option></select></label></div><p id="project-count" aria-live="polite"></p>'+project_rows(sorted(CATALOG,key=lambda p:p['start'],reverse=True))+f'<p id="no-projects" hidden>{tr("No projects found.","검색 결과가 없습니다.")}</p></section>'
     emit('/niil/research/',tr('Research','연구'),content,'research')
@@ -217,8 +249,8 @@ for LANG in ('en','ko'):
         content+=f'<p class="eyebrow">{cluster(p["cluster"])}</p><p>{p["start"]} – {p["end"]} · '+(tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료'))+'</p><p>'+esc(' · '.join(sponsor(s) for s in p['sponsors']))+'</p>'+project_titles(p,detail=True)+body
         content+=f'<details class="project-phases"><summary>{tr("Project record and sources","과제 이력 및 출처")}</summary><p>{tr("Kwangwoon University principal investigator: Ki-Baek Lee","광운대학교 연구책임자: 이기백")}</p>'
         if p['phases']:
-            content+=f'<p class="muted">{tr("Official contract titles are preserved in Korean.","계약별 공식 과제명입니다.")}</p><div class="table-scroll"><table><thead><tr><th>{tr("Period","기간")}</th><th>{tr("Contract","계약")}</th><th>{tr("Sponsor","지원기관")}</th></tr></thead><tbody>'
-            for phase in p['phases']:content+=f'<tr><td>{phase["start"]} – {phase["end"]}</td><td lang="ko">{esc(phase["title"])}</td><td>{esc(sponsor(phase["sponsor"]))}</td></tr>'
+            content+=f'<p class="muted">{tr("Translated contract titles are marked Translation.","계약별 공식 과제명입니다.")}</p><div class="table-scroll"><table><thead><tr><th>{tr("Period","기간")}</th><th>{tr("Contract","계약")}</th><th>{tr("Sponsor","지원기관")}</th></tr></thead><tbody>'
+            for phase in p['phases']:content+=f'<tr><td>{phase["start"]} – {phase["end"]}</td><td>{phase_title(phase)}</td><td>{esc(sponsor(phase["sponsor"]))}</td></tr>'
             content+='</tbody></table></div>'
         content+=notes+'</details>'
         related=[x for x in CATALOG if x['cluster']==p['cluster'] and x['key']!=p['key']][:3]
@@ -247,9 +279,14 @@ for LANG in ('en','ko'):
     content+=f'<p id="publication-count" aria-live="polite">{len(pubs)} {tr("publications","편")}</p><div class="publication-list">'
     for p in pubs:
         citation=p['venue']+(' '+p['volume'] if p['volume'] else '')+(' ('+p['issue']+')' if p['issue'] else '')+(', '+p['pages'] if p['pages'] else '')
-        content+=f'<article class="publication-row" data-publication data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div lang="en"><h2><a href="{esc(p["url"])}">{esc(p["title"])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'
+        content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title_ko'] if LANG=='ko' else p['title'])} ↗</a></h2>{'<span class="translation-label">번역</span>' if LANG=='ko' else ''}<p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
+    course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Lecture notes, code, notebooks and downloads retain their original language and version. Current semester notices are on KLAS.','강의 원문·코드·노트북·다운로드는 기존 수업 자료와의 일치를 위해 원문 언어와 버전을 유지합니다. 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><ul class="course-list"><li><a href="/niil/courses/ai-applications/index.html">'+tr('AI Applications','인공지능응용')+'</a></li><li><a href="/niil/courses/control-1/index.html">'+tr('Control Engineering I','제어공학1')+'</a></li></ul></section>'
+    course_links='<nav class="language-switch" aria-label="'+tr('Language','언어')+'"><a data-language="ko" href="/niil/courses/">한국어</a> / <a data-language="en" href="/niil/en/courses/">EN</a></nav>'
+    course_header='<header class="wrap"><nav class="breadcrumb"><a href="'+local('/niil/courses/')+'">'+tr('Course home','메인 강의페이지')+'</a></nav>'+course_links+'</header>'
+    course_page='<!doctype html><html lang="'+LANG+'"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+tr('Course','강의자료')+'</title><link rel="canonical" href="https://chorok-daddy.github.io'+local('/niil/courses/')+'"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-outputs1"></head><body>'+course_header+'<main id="main">'+course_content+'</main></body></html>'
+    write(local('/niil/courses/'),course_page)
     route_redirect('/niil/teaching/','/niil/courses/')
     application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
     application_html=subprocess.run(['pandoc','-f','markdown','-t','html','--wrap=none'],input=application,text=True,capture_output=True,check=True).stdout
@@ -260,8 +297,8 @@ for LANG in ('en','ko'):
     handled={p['id'] for p in PAGES[:6]}|{PAGES[12]['id']}|{p['id'] for p in AREAS+VISIONS+PROJECTS+MEMBERS+NOTICE}
     for p in PAGES:
         if p['id'] in handled:continue
-        content=heading('',esc(p['title']))+'<section class="wrap document-layout"><aside><a href="/niil/courses/">← '+tr('Course','강의자료')+'</a><nav class="toc" aria-label="'+tr('On this page','페이지 목차')+'"></nav></aside><article class="prose"><p class="archive-note">'+tr('Archived source material (Korean / English). Course content is retained in its original language; use KLAS for current semester announcements.','이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><div class="archive-source" lang="ko">'+meta(p)+render(p)+'</div></article></section>'
-        emit(href(p),p['title'],content,'teaching')
+        content=heading('',tr('Original course material','강의자료 원문'))+'<section class="wrap document-layout"><aside><a href="/niil/courses/">← '+tr('Course','강의자료')+'</a><nav class="toc" aria-label="'+tr('On this page','페이지 목차')+'"></nav></aside><article class="prose"><p class="archive-note">'+tr('Archived source material (Korean / English). Course content is retained in its original language; use KLAS for current semester announcements.','이전 강의 자료입니다. 원문 언어를 유지하며, 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><div class="archive-source" lang="ko">'+meta(p)+render(p)+'</div></article></section>'
+        emit(href(p),tr('Original course material','강의자료 원문'),content,'teaching')
 (SITE/'content/routes.json').write_text(json.dumps(ROUTES,ensure_ascii=False,indent=2)+'\n')
 subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)
 print('Built Korean /niil/, English /niil/en/, and compatibility routes.')

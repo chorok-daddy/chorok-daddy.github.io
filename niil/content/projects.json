@@ -17,7 +17,9 @@
         "start": "2026-03-01",
         "end": "2027-02-28",
         "title": "극협소 공간 내 고밀도 작업을 위한 로봇 중심의 피지컬 인공지능 기술",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "Robot-Centric Physical AI for High-Density Operations in Extremely Tight Spaces",
+        "title_en_kind": "official"
       }
     ],
     "body_file": "projects/physical-ai.md",
@@ -63,19 +65,25 @@
         "start": "2023-04-01",
         "end": "2023-12-31",
         "title": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 사용화",
-        "sponsor": "정보통신기획평가원"
+        "sponsor": "정보통신기획평가원",
+        "title_en": "Development of quantitative emotion-sensibility evaluation model of non-face-to-face environment users and commercialization of interactive digital content application (Year 1)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2024-01-01",
         "end": "2024-12-31",
         "title": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 사용화(1단계 2/3)",
-        "sponsor": "정보통신기획평가원"
+        "sponsor": "정보통신기획평가원",
+        "title_en": "Development of quantitative emotion-sensibility evaluation model of non-face-to-face environment users and commercialization of interactive digital content application (Year 2)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2025-01-01",
         "end": "2025-12-31",
         "title": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털 콘텐츠 적용 사용화(1단계 3/3)",
-        "sponsor": "정보통신기획평가원"
+        "sponsor": "정보통신기획평가원",
+        "title_en": "Development of quantitative emotion-sensibility evaluation model of non-face-to-face environment users and commercialization of interactive digital content application (Year 3)",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/emotion-ai.md",
@@ -121,19 +129,25 @@
         "start": "2022-08-11",
         "end": "2022-11-30",
         "title": "말단 배송 로봇 작업 내역 확인 모듈 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Development of a Task Record Verification Module for Last-Mile Delivery Robots",
+        "title_en_kind": "translation"
       },
       {
         "start": "2023-06-27",
         "end": "2023-11-30",
         "title": "배송로봇용 화물정보 인식 모듈 시작품 설계 및 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Design and Development of a Cargo Information Recognition Module Prototype for Delivery Robots",
+        "title_en_kind": "translation"
       },
       {
         "start": "2024-06-18",
         "end": "2024-11-29",
         "title": "택배 배송로봇 작업지시 및 배송 내역 확인 모듈 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Development of a Task Instruction and Delivery Record Verification Module for Parcel Delivery Robots",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/delivery-robot.md",
@@ -174,25 +188,33 @@
         "start": "2022-06-10",
         "end": "2022-11-30",
         "title": "차량 탑재형 상·하역 장비의 원격조작 및 작업지원 기능개발을 위한 인프라 설계",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Infrastructure Design for Remote Operation and Task Assistance of Vehicle-Mounted Loading and Unloading Equipment",
+        "title_en_kind": "translation"
       },
       {
         "start": "2023-06-16",
         "end": "2023-11-30",
         "title": "차량탑재형 상하역 장비를 위한 원격조작 및 작업지원 모듈의 프로토타입 제작과 장비 연동검증",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Prototype Development and Equipment Integration Testing of a Remote Operation and Task Assistance Module for Vehicle-Mounted Loading and Unloading Equipment",
+        "title_en_kind": "translation"
       },
       {
         "start": "2024-05-31",
         "end": "2024-09-30",
         "title": "차량 탑재형 상하역 장비의 안전하고 강인한 자동화를 위한 임베디드 모듈 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Development of an Embedded Module for Safe and Robust Automation of Vehicle-Mounted Loading and Unloading Equipment",
+        "title_en_kind": "translation"
       },
       {
         "start": "2025-08-21",
         "end": "2025-11-30",
         "title": "차량 탑재형 상·하역 장비의 자동 유도 및 탑재 보조 시스템 고도화 검증",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Advanced Validation of Automatic Guidance and Loading Assistance for Vehicle-Mounted Loading and Unloading Equipment",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/vehicle-loading.md",
@@ -233,13 +255,17 @@
         "start": "2022-05-30",
         "end": "2022-11-30",
         "title": "화물 정보 인식기 시제품 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Development of a Cargo Information Recognition Prototype",
+        "title_en_kind": "translation"
       },
       {
         "start": "2022-06-02",
         "end": "2022-11-30",
         "title": "딥러닝 기반의 화물 파손 인식을 위한 학습 DB 구축",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Construction of a Training Database for Deep Learning-Based Cargo Damage Recognition",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/cargo-recognition.md",
@@ -280,19 +306,25 @@
         "start": "2019-06-01",
         "end": "2020-02-29",
         "title": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템(1/3)",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "Self-trainable online representative assist system based on AI natural language processing (Year 1)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2020-03-01",
         "end": "2021-02-28",
         "title": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템(2/3)",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "Self-trainable online representative assist system based on AI natural language processing (Year 2)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2021-03-01",
         "end": "2022-02-28",
         "title": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템(3차년도)",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "Self-trainable online representative assist system based on AI natural language processing (Year 3)",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/adaptive-consultation.md",
@@ -338,7 +370,9 @@
         "start": "2021-08-05",
         "end": "2021-12-20",
         "title": "자전거 등 추종을 위한 신축가능한 센서모듈 및 트레일러 시스템 설계 및 테스트",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Design and Testing of a Stretchable Sensor Module and Trailer System for Following a Bicycle or User",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/bicycle-trailer.md",
@@ -350,7 +384,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Design and Testing of a Stretchable Sensor Module and Trailer System for Following a Bicycle or User"
   },
   {
     "key": "indoor-segmentation",
@@ -370,7 +405,9 @@
         "start": "2021-04-01",
         "end": "2021-11-30",
         "title": "딥러닝 기반 실내 공간데이터 객체 분리 및 분류 기술 구현",
-        "sponsor": "한국전자통신연구원"
+        "sponsor": "한국전자통신연구원",
+        "title_en": "Implementation of Deep Learning-Based Object Segmentation and Classification for Indoor Spatial Data",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/indoor-segmentation.md",
@@ -382,7 +419,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Implementation of Deep Learning-Based Object Segmentation and Classification for Indoor Spatial Data"
   },
   {
     "key": "sales-assistant",
@@ -402,13 +440,17 @@
         "start": "2016-10-01",
         "end": "2017-09-30",
         "title": "기계학습 기반 인공지능 세일즈 지원 솔루션(1차년도)",
-        "sponsor": "중소기업청"
+        "sponsor": "중소기업청",
+        "title_en": "Machine Learning-Based AI Sales Support Solution (Year 1)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2017-10-01",
         "end": "2018-09-30",
         "title": "기계학습 기반 인공지능 세일즈 지원 솔루션(2차년도)",
-        "sponsor": "중소기업청"
+        "sponsor": "중소기업청",
+        "title_en": "Machine Learning-Based AI Sales Support Solution (Year 2)",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/sales-assistant.md",
@@ -425,7 +467,8 @@
       "ko": "NTIS registered project title",
       "en": "NTIS English title field is blank",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Machine Learning-Based AI Sales Support Solution"
   },
   {
     "key": "sign-language",
@@ -445,19 +488,25 @@
         "start": "2017-03-01",
         "end": "2018-02-28",
         "title": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발(1차년도)",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "IoT service platform for people with language disorder based on AI sign language recognition (Year 1)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2018-03-01",
         "end": "2019-02-28",
         "title": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발(2차년도)",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "IoT service platform for people with language disorder based on AI sign language recognition (Year 2)",
+        "title_en_kind": "translation"
       },
       {
         "start": "2019-03-01",
         "end": "2020-02-29",
         "title": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발(3차년도)",
-        "sponsor": "한국연구재단"
+        "sponsor": "한국연구재단",
+        "title_en": "IoT service platform for people with language disorder based on AI sign language recognition (Year 3)",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/sign-language.md",
@@ -542,7 +591,9 @@
         "start": "2020-11-09",
         "end": "2020-12-24",
         "title": "영상정보 기반의 미확인 객체 인식 기술 분석 및 개발 용역",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Analysis and Development of Video-Based Unknown Object Recognition Technology",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/port-perception.md",
@@ -563,7 +614,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Analysis and Development of Video-Based Unknown Object Recognition Technology"
   },
   {
     "key": "loading-3d",
@@ -583,7 +635,9 @@
         "start": "2018-07-23",
         "end": "2018-12-21",
         "title": "3차원 영상 기반의 적재 보조 시스템 구축 용역",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Development of a 3D Image-Based Loading Assistance System",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/loading-3d.md",
@@ -604,7 +658,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Development of a 3D Image-Based Loading Assistance System"
   },
   {
     "key": "picking-stacking",
@@ -624,7 +679,9 @@
         "start": "2017-07-24",
         "end": "2017-12-21",
         "title": "제품인식, 피킹 및 적재를 위한 기법개발 및 장비설계",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Method Development and Equipment Design for Product Recognition, Picking and Stacking",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/picking-stacking.md",
@@ -636,7 +693,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Method Development and Equipment Design for Product Recognition, Picking and Stacking"
   },
   {
     "key": "robot-picking-vision",
@@ -656,7 +714,9 @@
         "start": "2026-10-01",
         "end": "2026-12-15",
         "title": "비정형 화물의 로봇 기반 피킹·적재 지원을 위한 비전 모듈 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Development of a Vision Module for Robot-Based Picking and Loading of Irregular Cargo",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/robot-picking-vision.md",
@@ -668,7 +728,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Development of a Vision Module for Robot-Based Picking and Loading of Irregular Cargo"
   },
   {
     "key": "invoice-preprocessing",
@@ -688,7 +749,9 @@
         "start": "2024-07-22",
         "end": "2024-12-02",
         "title": "엣지 디바이스 기반의 송장 이미지 전처리 모듈 설계",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Design of an Edge Device-Based Shipping Label Image Preprocessing Module",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/invoice-preprocessing.md",
@@ -709,7 +772,8 @@
       "ko": "n-KURIS contract record",
       "en": "Not yet verified",
       "checked": "2026-10-26"
-    }
+    },
+    "translated_title_en": "Design of an Edge Device-Based Shipping Label Image Preprocessing Module"
   },
   {
     "key": "dock-control",
@@ -730,13 +794,17 @@
         "start": "2015-07-20",
         "end": "2015-08-20",
         "title": "마이크로 프로세서 보드",
-        "sponsor": "(주)대한스프레이시스템"
+        "sponsor": "(주)대한스프레이시스템",
+        "title_en": "Microprocessor Board",
+        "title_en_kind": "translation"
       },
       {
         "start": "2016-12-16",
         "end": "2016-12-26",
         "title": "도크시스템 제어시스템(MCU타입) 설계 및 제작",
-        "sponsor": "한국철도기술연구원"
+        "sponsor": "한국철도기술연구원",
+        "title_en": "Design and Development of an MCU-Type Dock Control System",
+        "title_en_kind": "translation"
       }
     ],
     "body_file": "projects/dock-control.md",
