@@ -66,4 +66,6 @@ English is the default at `/niil/`; Korean pages live under `/niil/ko/`. The per
 - `/niil/join/`: evergreen participation guidance; old recruitment routes redirect here.
 - `content/join/application-{en,ko}.md`: internal application guidance, rendered at `/niil/join/apply/` and its Korean counterpart.
 
-Contact links to a bilingual Google Form with four required fields: inquiry type, name, reply email and message. Responses are held in a private Google Sheet. The public repository contains only the responder URL, never the form editor URL, response-sheet ID or response contents. Monitoring is maintained separately on the owner's Mac; it is not a website backend. Direct email remains a fallback.
+Contact provides one shared inquiry entry point linking to a bilingual Google Form with four required fields: inquiry type, name, reply email and message. Responses are held in a private Google Sheet. The public repository contains only the responder URL, never the form editor URL, response-sheet ID or response contents. Monitoring is maintained separately on the owner's Mac; it is not a website backend. Direct email remains a fallback.
+
+Application guidance links directly to the same form after explaining eligibility and how to apply; the Join overview links only to the internal guidance. Inquiry categories are selected in the form, not duplicated as separate Contact cards.

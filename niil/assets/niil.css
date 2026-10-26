@@ -32,3 +32,5 @@
 
 .site-header nav.language-switch{display:flex;width:auto;border:0;padding:0;gap:9px;flex-wrap:nowrap;justify-content:center}.site-header .language-switch a{padding:6px 2px;min-height:0}
 @media(max-width:700px){.site-header{gap:12px}.site-header .language-switch{font-size:12px}.site-header .menu-toggle{padding:8px 12px}}
+
+.inquiry-entry{max-width:720px;padding:32px;border:1px solid var(--line);border-radius:12px}.inquiry-entry h2,.inquiry-guidance h2{font-size:1.4rem;margin-bottom:14px}.inquiry-entry .button{margin:10px 0 18px}.inquiry-note{font-size:.85rem;color:var(--muted);margin:0}.inquiry-guidance{margin-top:36px}.inquiry-guidance a{text-decoration:underline;text-underline-offset:4px}@media(max-width:700px){.inquiry-entry{padding:24px}}
