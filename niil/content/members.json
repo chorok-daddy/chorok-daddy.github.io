@@ -109,7 +109,7 @@
     "id": "1b6888a17b3080efad5dd2b8e848554e",
     "name": {
       "en": "Yangho Ji",
-      "ko": "Yangho Ji"
+      "ko": "지양호"
     },
     "role": {
       "en": "M.S.",
@@ -133,13 +133,21 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1672,
+      "x": 1015,
+      "y": 380,
+      "width": 285,
+      "height": 356.25
+    },
+    "portrait_source": "artint-2019"
   },
   {
     "id": "1b6888a17b30809b8517fae541337dc6",
     "name": {
       "en": "Sunmok Kim",
-      "ko": "Sunmok Kim"
+      "ko": "김선목"
     },
     "role": {
       "en": "Ph.D.",
@@ -176,7 +184,7 @@
     "id": "1b6888a17b3080948f5ad68279728645",
     "name": {
       "en": "Hakjun Lee",
-      "ko": "Hakjun Lee"
+      "ko": "이학준"
     },
     "role": {
       "en": "M.S.",
@@ -200,13 +208,21 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1672,
+      "x": 450,
+      "y": 250,
+      "width": 185,
+      "height": 231.25
+    },
+    "portrait_source": "artint-2019"
   },
   {
     "id": "1b6888a17b3080f1a4eaeb47d72ebf28",
     "name": {
       "en": "Sangkyu Lim",
-      "ko": "Sangkyu Lim"
+      "ko": "임상규"
     },
     "role": {
       "en": "Undergraduate intern",
@@ -230,13 +246,21 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1720,
+      "x": 330,
+      "y": 850,
+      "width": 265,
+      "height": 331.25
+    },
+    "portrait_source": "homecoming-2025"
   },
   {
     "id": "1b6888a17b30805fb0fce8da884d74ee",
     "name": {
       "en": "Jiwon Moon",
-      "ko": "Jiwon Moon"
+      "ko": "문지원"
     },
     "role": {
       "en": "M.S.",
@@ -260,13 +284,21 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1672,
+      "x": 830,
+      "y": 270,
+      "width": 190,
+      "height": 237.5
+    },
+    "portrait_source": "artint-2019"
   },
   {
     "id": "1b6888a17b3080958465c407bd26a00b",
     "name": {
       "en": "Nayoung Yun",
-      "ko": "Nayoung Yun"
+      "ko": "윤나영"
     },
     "role": {
       "en": "M.S.",
@@ -290,7 +322,15 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1672,
+      "x": 65,
+      "y": 225,
+      "width": 240,
+      "height": 300
+    },
+    "portrait_source": "artint-2019"
   },
   {
     "id": "1b6888a17b3080e69d15eef275069690",
@@ -326,7 +366,7 @@
     "id": "1b6888a17b3080c4ba45df0e2d9c85ce",
     "name": {
       "en": "Sewoon Oh",
-      "ko": "Sewoon Oh"
+      "ko": "오세운"
     },
     "role": {
       "en": "M.S.",
@@ -350,7 +390,15 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1672,
+      "x": 605,
+      "y": 215,
+      "width": 180,
+      "height": 225
+    },
+    "portrait_source": "artint-2019"
   },
   {
     "id": "1b6888a17b3080ccaa14f5c77fe8d644",
@@ -393,7 +441,7 @@
     "id": "1b6888a17b3080f6b335e32d4bfb793c",
     "name": {
       "en": "Gayoung Lee",
-      "ko": "Gayoung Lee"
+      "ko": "이가영"
     },
     "role": {
       "en": "Undergraduate intern",
@@ -417,7 +465,15 @@
         "ongoing": false
       }
     ],
-    "reference": null
+    "reference": null,
+    "portrait_crop": {
+      "image_width": 1672,
+      "x": 1360,
+      "y": 280,
+      "width": 175,
+      "height": 218.75
+    },
+    "portrait_source": "artint-2019"
   },
   {
     "id": "1b6888a17b3080a0ad03dbb0ea790fd8",

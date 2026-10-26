@@ -1,0 +1,28 @@
+[
+  {
+    "id": "homecoming-2025",
+    "year": "2025",
+    "title": {
+      "ko": "2025 연구실 홈커밍",
+      "en": "2025 lab homecoming"
+    },
+    "image": "/niil/assets/media/homecoming-2025-retouched.png",
+    "caption": {
+      "ko": "2025년 12월 3일 · AI 보정본",
+      "en": "December 3, 2025 · AI-retouched photograph"
+    }
+  },
+  {
+    "id": "artint-2019",
+    "year": "2019",
+    "title": {
+      "ko": "2019 연구실 단체사진",
+      "en": "2019 lab group photo"
+    },
+    "image": "/niil/assets/media/artint-2019-restored.png",
+    "caption": {
+      "ko": "인화사진을 촬영한 자료의 AI 보정·복원본입니다.",
+      "en": "AI-assisted restoration of a photographed print."
+    }
+  }
+]

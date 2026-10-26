@@ -161,8 +161,10 @@ def shell(title,content,section='',desc='',path='/niil/'):
     return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-outputs1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body><a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
-    if path=='/niil/members/':
-        page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits2')
+    if path=='/niil/members/' or 'portrait-crop' in content:
+        page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits3')
+    if path=='/niil/photos/':
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026"></head>')
     write(local(path),page)
 def route_redirect(path,target):
     section='teaching' if target=='/niil/courses/' else ('contact' if target.startswith('/niil/contact/') else 'research')
@@ -180,6 +182,9 @@ def project_rows(items):
         search=esc(' '.join([p['title'],p['title_ko'],p.get('official_title_en') or '',p.get('translated_title_en') or '', ' '.join(q['title'] for q in p['phases']),p['summary'],PROJECT_LOCALES[p['key']]['summary_en']]+p['sponsors']+[sponsor(s) for s in p['sponsors']]))
         out+=f'<article class="project-row" data-project data-search="{search}" data-topic="{key}" data-status="{p["status"]}"><div><span class="badge">{status}</span><p class="muted">{p["start"][:4]}–{p["end"][:4]}</p></div><div><p class="eyebrow">{cluster(p["cluster"])}</p><h2><a href="{ROUTES[p["page_id"]]}">{esc(project_title(p))}</a></h2>{project_titles(p)}<p>{esc(project_summary(p))}</p><p class="muted">{esc(" · ".join(sponsor(s) for s in p["sponsors"]))}</p></div></article>'
     return out+'</div>'
+def frame_portrait(portrait,crop):
+    style=f"--crop-width:{100*crop['image_width']/crop['width']:.3f}%;--crop-left:{-100*crop['x']/crop['width']:.3f}%;--crop-top:{-100*crop['y']/crop['height']:.3f}%;aspect-ratio:{crop['width']}/{crop['height']}"
+    return f'<span class="portrait-crop" style="{style}">{portrait}</span>'
 def history(m):
     out='<ul class="member-history">'
     for h in m['history']:
@@ -259,22 +264,30 @@ for LANG in ('en','ko'):
         related=[x for x in CATALOG if x['cluster']==p['cluster'] and x['key']!=p['key']][:3]
         content+='<section><h2>'+tr('Related research','관련 연구')+'</h2><ul>'+''.join(f'<li><a href="{ROUTES[x["page_id"]]}">{esc(project_title(x))}</a></li>' for x in related)+'</ul></section></article></section>'
         emit(ROUTES[p['page_id']],project_title(p),content,'research')
-    content=heading('',tr('People','구성원'))
+    content=heading('',tr('People','구성원'))+'<div class="wrap"><a class="button outline" href="/niil/photos/">'+tr('Lab photos','연구실 사진')+'</a></div>'
     for en,ko,predicate in [('Faculty','교수',lambda m:m['role']['en']=='Professor'),('Graduate researchers','대학원생',lambda m:not m['alumni'] and m['role']['en']!='Professor'),('Alumni','졸업생·이전 구성원',lambda m:m['alumni'])]:
         content+='<section class="wrap section compact"><h2 class="group-title">'+tr(en,ko)+'</h2><div class="people-grid">'
         for m in filter(predicate,MEMBER_DATA):
             p=byid[m['id']];portrait=image(p,'portrait') or '<div class="initials" aria-hidden="true">'+esc(''.join(w[0] for w in m['name']['en'].split()[:2]))+'</div>'
-            if m.get('thumbnail_crop'):
-                crop=m['thumbnail_crop']
-                style=f"--crop-width:{100*crop['image_width']/crop['width']:.3f}%;--crop-left:{-100*crop['x']/crop['width']:.3f}%;--crop-top:{-100*crop['y']/crop['height']:.3f}%;aspect-ratio:{crop['width']}/{crop['height']}"
-                portrait=f'<span class="portrait-crop" style="{style}">{portrait}</span>'
+            if m.get('portrait_crop') or m.get('thumbnail_crop'):
+                portrait=frame_portrait(portrait,m.get('portrait_crop') or m['thumbnail_crop'])
             content+=f'<article class="person"><a href="{href(p)}">{portrait}</a><div><p class="eyebrow">{m["role"][LANG]}</p><h3><a href="{href(p)}">{esc(m["name"][LANG])}</a></h3>'+history(m)
             if m['affiliation'][LANG]:content+='<p class="member-affiliation">'+esc(m['affiliation'][LANG])+'</p>'
             content+='</div></article>'
         content+='</div></section>'
     emit('/niil/members/',tr('People','구성원'),content,'members')
+    photos=json.loads((SITE/'content/photos.json').read_text())
+    content=heading('',tr('Lab photos','연구실 사진'))+'<section class="wrap photo-gallery"><a class="photo-back" href="/niil/members/">← '+tr('People','구성원')+'</a>'
+    for photo in photos:
+        content+=f'<figure class="lab-photo" id="{esc(photo["id"])}"><a href="{esc(photo["image"])}" target="_blank" rel="noopener" aria-label="{esc(photo["title"][LANG]+tr(" — open full size"," — 크게 보기"))}"><img src="{esc(photo["image"])}" alt="{esc(photo["title"][LANG])}" loading="lazy" decoding="async"></a><figcaption><h2>{esc(photo["title"][LANG])}</h2><p>{esc(photo["caption"][LANG])}</p></figcaption></figure>'
+    content+='</section>'
+    emit('/niil/photos/',tr('Lab photos','연구실 사진'),content,'members')
     for m in MEMBER_DATA:
-        p=byid[m['id']];content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+image(p,'portrait')+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
+        p=byid[m['id']];portrait=image(p,'portrait')
+        if m.get('portrait_crop'):portrait=frame_portrait(portrait,m['portrait_crop'])
+        if m.get('portrait_source')=='homecoming-2025':portrait+='<p class="portrait-source">'+tr('From the 2025 homecoming photo','2025 홈커밍 사진 발췌')+'</p>'
+        elif m.get('portrait_source'):portrait+='<p class="portrait-source">'+tr('From the 2019 group photo · AI-restored','2019 단체사진 발췌 · AI 복원')+'</p>'
+        content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+portrait+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
         if m['affiliation'][LANG]:content+='<h2>'+tr('Affiliation','소속')+'</h2><p>'+esc(m['affiliation'][LANG])+'</p>'
         if m['email']:content+='<h2>'+tr('Email','이메일')+'</h2><a href="mailto:'+esc(m['email'])+'">'+esc(m['email'])+'</a>'
         if m['reference']:content+=f'<p><a href="{m["reference"]}">{tr("UNICON Lab profile","UNICON Lab 구성원 소개")} ↗</a></p>'
