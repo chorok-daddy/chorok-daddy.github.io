@@ -164,7 +164,7 @@ def emit(path,title,content,section=''):
     if path=='/niil/members/' or 'portrait-crop' in content:
         page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits3')
     if path=='/niil/photos/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
 def route_redirect(path,target):
     section='teaching' if target=='/niil/courses/' else ('contact' if target.startswith('/niil/contact/') else 'research')
