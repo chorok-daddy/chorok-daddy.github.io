@@ -2,10 +2,11 @@
 """Build the isolated NiiL site from the preserved public Notion content."""
 import html, json, re, subprocess
 from pathlib import Path
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'niil'
+COURSE_DISTRIBUTION=json.loads((ROOT/'tools/course-distribution.json').read_text())['courses']
 PAGES = json.loads((SITE/'content/pages.json').read_text())
 CATALOG = json.loads((SITE/'content/projects.json').read_text())
 PROJECT_BY_ID = {p['page_id']:p for p in CATALOG}
@@ -164,7 +165,7 @@ def emit(path,title,content,section=''):
     if path=='/niil/members/' or 'portrait-crop' in content:
         page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits3')
     if path=='/niil/courses/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=20261026-frame1"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=20261026-sharing1"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
@@ -304,7 +305,11 @@ for LANG in ('en','ko'):
         content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title'])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
-    course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Lecture notes, code, notebooks and downloads retain their original language and version. Current semester notices are on KLAS.','강의 원문·코드·노트북·다운로드는 기존 수업 자료와의 일치를 위해 원문 언어와 버전을 유지합니다. 현재 학기 공지는 KLAS에서 확인해 주세요.')+'</p><ul class="course-list"><li><a href="/niil/courses/ai-applications/index.html">'+tr('AI Applications','인공지능응용')+'</a></li><li><a href="/niil/courses/control-1/index.html">'+tr('Control Engineering I','제어공학1')+'</a></li></ul></section>'
+    course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Read the course online, clone its repository, or download the complete ZIP.','온라인으로 읽거나, 과목별 저장소를 Clone하고 ZIP으로 한 번에 내려받을 수 있습니다.')+'</p><ul class="course-list">'
+    for course in COURSE_DISTRIBUTION:
+        repo='https://github.com/chorok-daddy/'+course['repository']
+        course_content+='<li><a href="/niil/courses/'+course['slug']+'/index.html">'+esc(course['title'] if LANG=='ko' else course['title_en'])+'</a><div class="course-distribution"><a href="'+repo+'">'+tr('Source repository','원본 저장소')+' ↗</a><a href="'+repo+'/archive/refs/heads/main.zip">'+tr('Download ZIP','과목 묶음 ZIP')+'</a></div></li>'
+    course_content+='</ul><p class="course-license">'+tr('Ki-Baek Lee · Kwangwoon University NiiL. Teaching content: CC BY 4.0; original code: MIT. Retain attribution and indicate modifications. Third-party terms remain applicable.','이기백 · 광운대학교 NiiL. 강의 설명·그림: CC BY 4.0 · 직접 작성한 코드: MIT. 출처를 유지하고 수정 사항을 밝혀 주세요. 제3자 자료는 별도 조건을 따릅니다.')+' <a href="/niil/courses/LICENSE.md">'+tr('License details','라이선스 안내')+'</a></p></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
     application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
@@ -335,6 +340,20 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         if not breadcrumb.get_text(strip=True):breadcrumb.decompose()
     main=doc.select_one('main')
     if main is not None and not main.get('id'):main['id']='main'
+    course=next((c for c in COURSE_DISTRIBUTION if course_file.is_relative_to(SITE/'courses'/c['slug'])),None)
+    source_url='https://chorok-daddy.github.io/'+course_file.relative_to(ROOT).as_posix()
+    credit=BeautifulSoup('<p class="course-credit" data-niil-frame>이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br><a data-source-origin href="'+source_url+'">원본 강의자료</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a></p>','html.parser')
+    credit.p.append(Comment(' NiiL Easter Egg: 이 주석까지 읽었다면 당신도 동료 공돌이입니다. 이기백 교수님을 향한 respect += 1; 단, 과학적 반박과 버그 제보는 언제나 환영합니다. 자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요 '))
+    main.append(credit)
+    author_meta=doc.new_tag('meta',attrs={'name':'author','content':'Ki-Baek Lee (이기백)','data-niil-frame':''})
+    doc.head.append(author_meta)
+    structured=doc.new_tag('script',type='application/ld+json');structured['data-niil-frame']=''
+    structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
+    doc.head.append(structured)
+    if course and course_file == SITE/'courses'/course['slug']/'index.html':
+        repo='https://github.com/chorok-daddy/'+course['repository']
+        downloads=BeautifulSoup('<nav class="course-distribution" data-niil-frame aria-label="자료 가져오기"><a href="'+repo+'">GitHub 저장소 ↗</a><a href="'+repo+'/archive/refs/heads/main.zip">과목 묶음 ZIP ↓</a></nav>','html.parser')
+        main.h1.insert_after(downloads)
     frame=BeautifulSoup(shell(doc.title.get_text().split(' · ')[0],'','teaching'),'html.parser')
     # Course documents retain their original language; the bilingual catalog has the switch.
     frame.select_one('.language-switch').decompose()
@@ -345,7 +364,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         else:doc.body.insert(0 if selector=='.skip' else 1,element)
     for element in frame.head.select('link[rel="stylesheet"],script[src]'):
         element['data-niil-frame']='';doc.head.append(element)
-    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=20261026-frame1')
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=20261026-sharing1')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
     course_file.write_text(str(doc))

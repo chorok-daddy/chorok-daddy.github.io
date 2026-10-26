@@ -1,0 +1,10 @@
+{
+  "owner": "chorok-daddy",
+  "author": "Ki-Baek Lee",
+  "author_ko": "이기백",
+  "affiliation": "Kwangwoon University · NiiL",
+  "courses": [
+    {"slug": "ai-applications", "title": "인공지능응용", "title_en": "AI Applications", "repository": "course-ai-applications"},
+    {"slug": "control-1", "title": "제어공학1", "title_en": "Control Engineering I", "repository": "course-control-engineering-1"}
+  ]
+}

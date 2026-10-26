@@ -25,3 +25,35 @@ HTML을 직접 수정한 뒤 `python3 tools/check_site.py`로 로컬 파일·anc
 질문의 우선 기준은 학생이 실습의 필요성을 이해하는가이다. 용어·조건을 알고 있다는 전제에서 곧바로 세부 지식을 묻지 않는다. 익숙한 대상이나 목적에서 출발하고 전문 개념은 펼친 설명에서 연결한다. 간결함을 위해 필요한 맥락까지 생략하지 않는다.
 
 학습자료는 개념과 상세 설명의 중심이며, 실습 안내는 수행 조건·작업·제출 방법을 관리한다. `opening-digest`는 질문별 짧은 복습과 실습 목적 설정을 유지하고 자세한 설명은 학습자료로 연결한다. 긴 시나리오와 상세 실습 지시를 양쪽에 중복 저장하지 않는다.
+
+## 과목별 Clone / ZIP 배포
+
+- 인공지능응용: https://github.com/chorok-daddy/course-ai-applications
+- 제어공학1: https://github.com/chorok-daddy/course-control-engineering-1
+
+각 과목 저장소는 현재 사이트 원본에서 내보낸 배포본이며, Git clone / Fork /
+GitHub의 Code → Download ZIP을 지원한다. 원본 편집 위치는 계속 `niil/courses/`다.
+저장소를 이동하거나 기존 강의 링크를 변경하지 않는다.
+
+강의 설명·그림은 CC BY 4.0, 직접 작성한 실습 코드는 MIT로 배포한다.
+범위·제3자 자료 예외는 [강의 라이선스](niil/courses/LICENSE.md)에 명시한다.
+이 라이선스는 연구실 인물 사진이나 연구 페이지 전체에 적용하는 허가가 아니다.
+
+갱신 순서:
+
+```sh
+python3 tools/build_niil.py
+python3 tools/check_site.py
+python3 tools/check_migration.py
+python3 tools/export_course_repos.py --output /tmp/niil-course-export
+# 검토 후 과목 저장소에 일반 commit/push (force-push 없음)
+python3 tools/publish_course_repos.py --publish
+# 이후 이 사이트 변경을 commit/push
+```
+
+배포 명령은 기존 과목 저장소에만 게시하고 자동으로 새 저장소를 만들지 않는다.
+`SOURCE.json`에 기록된 이전 생성 파일만 교체하며, 과목 저장소의 독립 편집은
+다음 배포에 덮어써질 수 있으므로 원본 저장소에 반영한다. 해시 스냅샷으로 출처와
+버전을 추적한다. ZIP은 GitHub가 생성하므로 별도 바이너리 ZIP을 Git에 넣지 않는다.
+기존 학생용 다운로드는 그대로 두고, 배포본 Notebook에는 출처 셀을 추가한다.
+MATLAB·데이터 파일은 바이트를 유지하고 `.SOURCE.txt`를 함께 제공한다.
