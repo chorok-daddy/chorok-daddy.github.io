@@ -1,6 +1,6 @@
 # NiiL website
 
-Production home: https://chorok-daddy.github.io/ (English). Korean: `/niil/ko/`. Existing teaching materials remain at `/courses/`, linked from Teaching. `/niil/` redirects to the root.
+Production home: https://chorok-daddy.github.io/ (Korean). English: `/niil/`. Existing teaching materials remain at `/courses/`, linked directly from Course. `/niil/ko/` redirects to the Korean root.
 
 ## Content and editing
 
@@ -52,7 +52,7 @@ Titles link to the individual source/publisher destinations recorded by Scholar.
 
 ## English and Korean editions
 
-English is the default at `/niil/`; Korean pages live under `/niil/ko/`. The persistent header language switch opens the corresponding page and retains search and filters. Explicit URLs select the language. Research summaries, navigation, member histories, contact and application guidance are bilingual. Original publication titles and archived teaching content retain their source language.
+Korean is the default at `/`; English home is `/niil/`. Korean detail pages retain `/niil/ko/` URLs. The language switch is ordered 한국어 / EN. The persistent header language switch opens the corresponding page and retains search and filters. Explicit URLs select the language. Research summaries, navigation, member histories, contact and application guidance are bilingual. Original publication titles and archived teaching content retain their source language.
 
 - `content/members.json`: current member records, affiliations and dated roles.
 - `content/project-locales.json`: localized project titles and summaries.
@@ -62,10 +62,12 @@ English is the default at `/niil/`; Korean pages live under `/niil/ko/`. The per
 
 Contact provides one shared inquiry entry point linking to a bilingual Google Form with four required fields: inquiry type, name, reply email and message. Responses are held in a private Google Sheet. The public repository contains only the responder URL, never the form editor URL, response-sheet ID or response contents. Monitoring is maintained separately on the owner's Mac; it is not a website backend. Direct email remains a fallback.
 
-Home participation links open the Contact page at `#join`. `/join/`, `/join/apply/` and the old recruitment URL redirect directly there. The clearly named inquiry/application form is directly accessible at the top and after guidance; neither link routes through another choice page. Inquiry categories are selected only in the form. Main navigation has five destinations: Research, Publications, People, Teaching, Contact. Detail pages return to their owning catalog.
+Home participation links open the Contact page at `#join`. `/join/`, `/join/apply/` and the old recruitment URL redirect directly there. The clearly named inquiry/application form is directly accessible at the top and after guidance; neither link routes through another choice page. Inquiry categories are selected only in the form. Main navigation has five destinations: Research, Publications, People, Course, Contact. Detail pages return to their owning catalog.
 
 ## Production release (2026-10-26)
 
 Owner authorized publication after mobile review. The builder now writes the root NiiL home and allows indexing; it preserves existing course files. Primary navigation is always visible on mobile, without a menu-opening step. Research opens directly on filters and project results; theme cards remain on Home. Duplicate role labels and fallback email instructions are removed.
 
 Review snapshot hosting remains separate in `chorok-daddy/niil-preview`; snapshot exports must retain noindex/nofollow and rewrite root/asset links for that deployment.
+
+Language default: Korean at `/`, English at `/niil/`; switches use 한국어 / EN. Course links directly to `/courses/`; legacy Teaching URLs redirect there. Existing course materials and archived Notion course URLs are preserved.
