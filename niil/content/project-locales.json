@@ -1,0 +1,70 @@
+{
+  "physical-ai": {
+    "title_ko_short": "로봇 중심 피지컬 AI",
+    "summary_en": "Robot-centric learning and workspace design for high-density operations."
+  },
+  "emotion-ai": {
+    "title_ko_short": "멀티모달 감정·몰입도 인식",
+    "summary_en": "Video, speech and text models for emotion and engagement analysis."
+  },
+  "delivery-robot": {
+    "title_ko_short": "배송로봇 화물 인식",
+    "summary_en": "Edge perception integrated with delivery-robot tasks and cargo records."
+  },
+  "vehicle-loading": {
+    "title_ko_short": "상하역 장비 시각 유도",
+    "summary_en": "RGB-D perception and automatic guidance for compact loading equipment."
+  },
+  "cargo-recognition": {
+    "title_ko_short": "화물 인식·파손 감지",
+    "summary_en": "Cargo geometry, barcode and damage information for logistics systems."
+  },
+  "adaptive-consultation": {
+    "title_ko_short": "학습형 상담 지원",
+    "summary_en": "FAQ retrieval improved through feedback from customer-service agents."
+  },
+  "bicycle-trailer": {
+    "title_ko_short": "사용자 추종 트레일러",
+    "summary_en": "Force sensing and model-based control for assisted trailer motion."
+  },
+  "indoor-segmentation": {
+    "title_ko_short": "실내 3차원 공간 이해",
+    "summary_en": "Object segmentation and classification in indoor spatial data."
+  },
+  "sales-assistant": {
+    "title_ko_short": "AI 세일즈 지원",
+    "summary_en": "Machine-learning support within online sales and consultation workflows."
+  },
+  "sign-language": {
+    "title_ko_short": "수어 인식 인터페이스",
+    "summary_en": "Camera-based gesture learning for communication and IoT access."
+  },
+  "swarm-search": {
+    "title_ko_short": "무인이동체 군집 탐색",
+    "summary_en": "Particle-swarm search coupled with vehicle dynamics in three dimensions."
+  },
+  "port-perception": {
+    "title_ko_short": "항만 영상 인식",
+    "summary_en": "Unknown-object recognition and localization from port CCTV."
+  },
+  "loading-3d": {
+    "title_ko_short": "3차원 적재 보조",
+    "summary_en": "RGB-D perception of goods, free space and nearby workers."
+  },
+  "picking-stacking": {
+    "title_ko_short": "로봇 피킹·적재",
+    "summary_en": "Object recognition and 3D pose information for picking and stacking."
+  },
+  "robot-picking-vision": {
+    "title_ko_short": "비정형 화물 피킹 비전",
+    "summary_en": "Visual information for cargo picking and sorter-tray occupancy."
+  },
+  "invoice-preprocessing": {
+    "title_ko_short": "송장 영상 전처리",
+    "summary_en": "Perspective and orientation correction for shipping-label images."
+  },
+  "dock-control": {
+    "title_ko_short": "임베디드 도크 제어",
+    "summary_en": "Sensor-driven embedded controllers for dock automation."
+  }
+}

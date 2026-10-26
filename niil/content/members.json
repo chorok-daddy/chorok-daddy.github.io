@@ -1,0 +1,491 @@
+[
+  {
+    "id": "1b6888a17b3080d191faf79936f11249",
+    "name": {
+      "en": "Ki-Baek Lee",
+      "ko": "이기백"
+    },
+    "role": {
+      "en": "Professor",
+      "ko": "교수"
+    },
+    "alumni": false,
+    "affiliation": {
+      "en": "Kwangwoon University",
+      "ko": "광운대학교"
+    },
+    "affiliation_verified": null,
+    "email": "kblee@kw.ac.kr",
+    "history": [
+      {
+        "role": {
+          "en": "Professor",
+          "ko": "교수"
+        },
+        "start": "2014-03",
+        "end": null,
+        "ongoing": true
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080828d26d1354c44feb4",
+    "name": {
+      "en": "Yuhyun Park",
+      "ko": "Yuhyun Park"
+    },
+    "role": {
+      "en": "Ph.D. student",
+      "ko": "박사과정"
+    },
+    "alumni": false,
+    "affiliation": {
+      "en": "Kwangwoon University",
+      "ko": "광운대학교"
+    },
+    "affiliation_verified": null,
+    "email": "parkyh2024@kw.ac.kr",
+    "history": [
+      {
+        "role": {
+          "en": "Ph.D. student",
+          "ko": "박사과정"
+        },
+        "start": "2023-03",
+        "end": null,
+        "ongoing": true
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080118243e43bb141633c",
+    "name": {
+      "en": "Joo-Hyeong Park",
+      "ko": "박주형"
+    },
+    "role": {
+      "en": "M.S. student",
+      "ko": "석사과정"
+    },
+    "alumni": false,
+    "affiliation": {
+      "en": "Kwangwoon University",
+      "ko": "광운대학교"
+    },
+    "affiliation_verified": null,
+    "email": "pjho9370@kw.ac.kr",
+    "history": [
+      {
+        "role": {
+          "en": "M.S. student",
+          "ko": "석사과정"
+        },
+        "start": "2025-03",
+        "end": null,
+        "ongoing": true
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2023-03",
+        "end": "2025-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080efad5dd2b8e848554e",
+    "name": {
+      "en": "Yangho Ji",
+      "ko": "Yangho Ji"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "Naver Inc.",
+      "ko": "Naver Inc."
+    },
+    "affiliation_verified": null,
+    "email": "arnilone@gmail.com",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2016-06",
+        "end": "2019-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b30809b8517fae541337dc6",
+    "name": {
+      "en": "Sunmok Kim",
+      "ko": "Sunmok Kim"
+    },
+    "role": {
+      "en": "Ph.D.",
+      "ko": "박사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "Korea Testing & Research Institute (KTR)",
+      "ko": "Korea Testing & Research Institute (KTR)"
+    },
+    "affiliation_verified": null,
+    "email": "nadasunmok@gmail.com",
+    "history": [
+      {
+        "role": {
+          "en": "Ph.D.",
+          "ko": "박사"
+        },
+        "start": "2016-06",
+        "end": "2024-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080948f5ad68279728645",
+    "name": {
+      "en": "Hakjun Lee",
+      "ko": "Hakjun Lee"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "LG Elec. Inc.",
+      "ko": "LG Elec. Inc."
+    },
+    "affiliation_verified": null,
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2017-09",
+        "end": "2022-06",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080f1a4eaeb47d72ebf28",
+    "name": {
+      "en": "Sangkyu Lim",
+      "ko": "Sangkyu Lim"
+    },
+    "role": {
+      "en": "Undergraduate intern",
+      "ko": "학부 인턴"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "LG Elec. Inc.",
+      "ko": "LG Elec. Inc."
+    },
+    "affiliation_verified": null,
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2017-09",
+        "end": "2022-06",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b30805fb0fce8da884d74ee",
+    "name": {
+      "en": "Jiwon Moon",
+      "ko": "Jiwon Moon"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "KT Inc.",
+      "ko": "KT Inc."
+    },
+    "affiliation_verified": null,
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2017-09",
+        "end": "2022-06",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080958465c407bd26a00b",
+    "name": {
+      "en": "Nayoung Yun",
+      "ko": "Nayoung Yun"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "LG Elec. Inc.",
+      "ko": "LG Elec. Inc."
+    },
+    "affiliation_verified": null,
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2017-09",
+        "end": "2022-06",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080e69d15eef275069690",
+    "name": {
+      "en": "Seoyoung Hong",
+      "ko": "Seoyoung Hong"
+    },
+    "role": {
+      "en": "Undergraduate intern",
+      "ko": "학부 인턴"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "M.s. cand., NYU / Kimcaddie, Inc.",
+      "ko": "M.s. cand., NYU / Kimcaddie, Inc."
+    },
+    "affiliation_verified": null,
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2017-09",
+        "end": "2020-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080c4ba45df0e2d9c85ce",
+    "name": {
+      "en": "Sewoon Oh",
+      "ko": "Sewoon Oh"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "Mirae High School of Sci. & Tech.",
+      "ko": "Mirae High School of Sci. & Tech."
+    },
+    "affiliation_verified": null,
+    "email": "sew00n@sen.go.kr",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2018-06",
+        "end": "2021-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080ccaa14f5c77fe8d644",
+    "name": {
+      "en": "Chang-Hyun Lee",
+      "ko": "이창현"
+    },
+    "role": {
+      "en": "Ph.D.",
+      "ko": "박사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "MakinaRocks",
+      "ko": "마키나락스"
+    },
+    "affiliation_verified": "2026-10-23",
+    "email": "chlee@kw.ac.kr",
+    "history": [
+      {
+        "role": {
+          "en": "Ph.D.",
+          "ko": "박사"
+        },
+        "start": "2018-09",
+        "end": "2025-08",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080f6b335e32d4bfb793c",
+    "name": {
+      "en": "Gayoung Lee",
+      "ko": "Gayoung Lee"
+    },
+    "role": {
+      "en": "Undergraduate intern",
+      "ko": "학부 인턴"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "",
+      "ko": ""
+    },
+    "affiliation_verified": null,
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2019-03",
+        "end": "2022-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b3080a0ad03dbb0ea790fd8",
+    "name": {
+      "en": "Jung-A Choi",
+      "ko": "Jung-A Choi"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "Hanhwa Ocean Inc.",
+      "ko": "Hanhwa Ocean Inc."
+    },
+    "affiliation_verified": null,
+    "email": "6dspoo@gmail.com",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2020-03",
+        "end": "2024-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "1b6888a17b30806aa67bfa57121296cf",
+    "name": {
+      "en": "Hyowon Woo",
+      "ko": "Hyowon Woo"
+    },
+    "role": {
+      "en": "M.S.",
+      "ko": "석사"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "Ph.d. cand., Korea University",
+      "ko": "Ph.d. cand., Korea University"
+    },
+    "affiliation_verified": null,
+    "email": "dngydnjs@naver.com",
+    "history": [
+      {
+        "role": {
+          "en": "M.S.",
+          "ko": "석사"
+        },
+        "start": "2022-03",
+        "end": "2025-02",
+        "ongoing": false
+      }
+    ],
+    "reference": null
+  },
+  {
+    "id": "29b888a17b3080a2b5f8ea17e29192b2",
+    "name": {
+      "en": "Su-Hyun Na",
+      "ko": "나수현"
+    },
+    "role": {
+      "en": "Undergraduate intern",
+      "ko": "학부 인턴"
+    },
+    "alumni": true,
+    "affiliation": {
+      "en": "M.S. student, Electrical Engineering · UNICON Lab, Hanyang University",
+      "ko": "한양대학교 전기공학과 석사과정 · UNICON Lab"
+    },
+    "affiliation_verified": "2026-10-23",
+    "email": "",
+    "history": [
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
+        },
+        "start": "2024-03",
+        "end": null,
+        "ongoing": false
+      }
+    ],
+    "reference": "https://unicon.hanyang.ac.kr/members"
+  }
+]
