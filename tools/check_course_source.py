@@ -24,6 +24,7 @@ for course in catalog['courses']:
     if not course['published']:continue
     p=ROOT/'niil/courses'/course['slug']/'index.html'
     doc=BeautifulSoup(p.read_text(),'html.parser')
-    assert doc.select_one('a[href="https://github.com/chorok-daddy/courses/tree/main/'+course['slug']+'"]')
+    assert not doc.select('main a[href*="github.com/chorok-daddy/courses"]')
+    assert doc.select_one('header a[href="/niil/courses/"]')
     assert not doc.select('a[href$="/main.zip"]')
 print(f'PASS: source revision, {checked} unchanged imports, single-repository navigation')

@@ -2209,8 +2209,8 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 .lab-start:hover { background:#034c61; }
 @media(max-width:500px) {main details > summary {padding:.8rem .65rem; gap:.4rem;}main details > summary::after{font-size:.72rem;} }
 </style>
-<link href="../../assets/site.css" rel="stylesheet"/><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "이전 문자를 기억하며 다음 문자 예측하기", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 인공지능응용 · 12주차" name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/" rel="canonical"/><meta content="이전 문자를 기억하며 다음 문자 예측하기 | 인공지능응용 · 광운대학교 NiiL" property="og:title"/><meta content="인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 인공지능응용 · 12주차" property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="이전 문자를 기억하며 다음 문자 예측하기 | 인공지능응용 · 광운대학교 NiiL" name="twitter:title"/><meta content="인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 인공지능응용 · 12주차" name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/#webpage", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/", "name": "이전 문자를 기억하며 다음 문자 예측하기 | 인공지능응용 · 광운대학교 NiiL", "description": "인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 인공지능응용 · 12주차", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head>
-<body class="quarto-light niil-course"><a class="skip" data-niil-frame="" href="#quarto-document-content">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header>
+<link href="../../assets/site.css" rel="stylesheet"/><link data-course-ui="" href="../../assets/course-ui.css?v=2" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "이전 문자를 기억하며 다음 문자 예측하기", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=layout2" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=layout2" rel="stylesheet"/><meta content="인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 이기백 · 광운대학교" name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/" rel="canonical"/><meta content="이전 문자를 기억하며 다음 문자 예측하기 | 인공지능응용 · 광운대학교 NiiL" property="og:title"/><meta content="인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 이기백 · 광운대학교" property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="이전 문자를 기억하며 다음 문자 예측하기 | 인공지능응용 · 광운대학교 NiiL" name="twitter:title"/><meta content="인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 이기백 · 광운대학교" name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/#webpage", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/", "name": "이전 문자를 기억하며 다음 문자 예측하기 | 인공지능응용 · 광운대학교 NiiL", "description": "인공지능응용: 이전 문자를 기억하며 다음 문자 예측하기. 이기백 · 광운대학교", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head>
+<body class="quarto-light niil-course"><a class="skip" data-niil-frame="" href="#quarto-document-content">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><!-- ref: /niil/assets/meta/cache/render.logtmp -->
 <div class="page-columns page-rows-contents page-layout-article" id="quarto-content">
 <div class="sidebar margin-sidebar" id="quarto-margin-sidebar">
 <nav class="toc-active" id="TOC" role="doc-toc">
@@ -2227,10 +2227,10 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </ul>
 </nav>
 </div>
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a href="/niil/courses/ai-applications/index.html">인공지능응용</a></nav>
 <header class="quarto-title-block default" id="title-block-header">
 <div class="quarto-title">
-<h1 class="title">이전 문자를 기억하며 다음 문자 예측하기</h1>
+<h1 class="title">이전 문자를 기억하며 다음 문자 예측하기</h1><p class="course-author" data-niil-frame="">이기백 · 광운대학교</p>
 <p class="subtitle lead">인공지능응용 · 12주차</p>
 </div>
 <div class="quarto-title-meta">
@@ -2359,7 +2359,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>앞부분만 넣어보려면 <code>model(X[:, :4, :])</code>처럼 Sequence 축을 자를 수 있습니다. 모델의 마지막 축 크기는 유지해야 합니다.</p>
 </details>
 </section>
-<section class="level2" id="실습에서-확인할-것"><h2>실습 안내</h2><p>수행할 작업과 비교 조건, 제출 방법은 <a href="assignment.html#lab-activities">이번 주 실습 안내</a>에 정리되어 있습니다.</p></section>
+<section class="level2" id="실습에서-확인할-것"><h2>실습</h2><a class="exercise-action" href="assignment.html#lab-activities">실습하기</a></section>
 <section class="level2" id="스스로-점검하기">
 <h2 class="anchored" data-anchor-id="스스로-점검하기">학습 내용 확인</h2>
 <ol type="1">
@@ -2369,56 +2369,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </ol>
 <p><a href="https://docs.pytorch.org/docs/stable/generated/torch.nn.RNN.html">PyTorch RNN</a></p>
 </section>
-<p class="lab-guide-next"><a href="assignment.html">실습하기</a></p>
-<nav aria-label="강의 사이 이동" class="lesson-pagination"><a href="../midterm/index.html" rel="prev">← 11주차 · 중간시험 · 핵심 정리와 준비</a><a href="../index.html">인공지능응용 목차</a><a href="../lstm-gru/index.html" rel="next">13주차 · 긴 글을 나누어 다음 문자 예측하기 →</a></nav><section data-chapter-files=""><h2>실습 자료</h2><ul class="resource-list"><li><a data-course-overlay="실습 노트북" href="AI_Applications_Week12_Recurrent.preview.html">AI_Applications_Week12_Recurrent.ipynb</a> · <a download="" href="AI_Applications_Week12_Recurrent.ipynb">다운로드</a></li><li><a data-course-overlay="L18_Recurrent_Neural_Network" href="L18_Recurrent_Neural_Network.preview.html">L18_Recurrent_Neural_Network.ipynb</a> · <a download="" href="L18_Recurrent_Neural_Network.ipynb">다운로드</a></li></ul></section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/index.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
-
-[ko]
-이 주석까지 읽었다면 당신도 동료 공돌이입니다.
-이기백 교수님을 향한 respect += 1;
-단, 과학적 반박과 버그 제보는 언제나 환영합니다.
-자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
-
-[en]
-If you have read this far into the comments, you are a fellow engineering geek.
-respect for Professor Ki-Baek Lee += 1;
-Scientific challenges and bug reports are always welcome.
-If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
-
-[zh]
-能读到这条注释，看来你也是一位理工同好。
-对 Ki-Baek Lee 教授的 respect += 1;
-当然，始终欢迎科学质疑和错误反馈。
-如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
-
-[ja]
-このコメントまで読んだあなたも、理工系オタクの仲間です。
-Ki-Baek Lee 教授への respect += 1;
-もちろん、科学的な反論やバグ報告はいつでも歓迎です。
-この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
-
-[es]
-Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
-respect por el profesor Ki-Baek Lee += 1;
-Las objeciones científicas y los informes de errores siempre son bienvenidos.
-Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
-
-[th]
-ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
-respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
-ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
-ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
-
-[vi]
-Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
-respect dành cho Giáo sư Ki-Baek Lee += 1;
-Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
-Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
-
-[ar]
-إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
-respect للأستاذ Ki-Baek Lee += 1;
-نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
-إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main>
+<nav aria-label="강의 사이 이동" class="lesson-pagination"><a href="../midterm/index.html" rel="prev">← 11주차 · 중간시험 · 핵심 정리와 준비</a><a href="../index.html">인공지능응용 목차</a><a href="../lstm-gru/index.html" rel="next">13주차 · 긴 글을 나누어 다음 문자 예측하기 →</a></nav><section data-chapter-files=""><h2>실습 자료</h2><ul class="resource-list"><li><a data-course-overlay="실습 노트북" href="AI_Applications_Week12_Recurrent.preview.html">AI_Applications_Week12_Recurrent.ipynb</a> · <a download="" href="AI_Applications_Week12_Recurrent.ipynb">다운로드</a></li><li><a data-course-overlay="L18_Recurrent_Neural_Network" href="L18_Recurrent_Neural_Network.preview.html">L18_Recurrent_Neural_Network.ipynb</a> · <a download="" href="L18_Recurrent_Neural_Network.ipynb">다운로드</a></li></ul></section></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -2879,4 +2830,4 @@ respect للأستاذ Ki-Baek Lee += 1;
  else init();
 })();
 </script>
-<footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>
+<footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">강의자료 활용</a><small>© NiiL</small></div></footer></body></html>

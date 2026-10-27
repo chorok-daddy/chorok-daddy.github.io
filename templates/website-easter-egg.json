@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "kind": "playful-html-source-comment",
+  "kind": "playful-source-note",
   "label": "{site_name} Easter Egg",
   "defaults": {
     "site_name": "NiiL",

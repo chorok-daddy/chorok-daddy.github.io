@@ -1,16 +1,7 @@
-## Overview
+## Research
 
-The study connects recognition of varied refrigerated goods with three-dimensional picking points and placement candidates.
+- Recognition data and models for refrigerated products such as cartons, bottles, cups and boxes.
+- 3D imagery for object localization and robot approach estimation.
+- Loading candidates in free space and position interfaces for the manipulator.
 
-## Scope
-
-- Develop recognition data and methods for cartons, bottles, cups, boxes and yogurt containers.
-- Combine recognition with 3D sensing to estimate object locations and approach points.
-- Find feasible placements in free space.
-- Design interfaces and equipment through which manipulators can use this information.
-
-## Intended contribution
-
-Treat classification, geometry estimation and placement as one logistics task, providing a basis for later loading-assistance and cargo-vision work.
-
-*Source: 2017 public task document. Position-error target: 10 mm.*
+The 2017 task specified a position-error target of 10 mm.

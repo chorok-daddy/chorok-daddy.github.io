@@ -75,3 +75,11 @@ html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3{word-break:keep-all;ove
 .member-detail .prose>h2:first-child{margin-top:0}
 .member-detail .prose>.member-history{padding-left:0}
 @media(max-width:700px){.member-detail{gap:32px;padding-bottom:60px}}
+
+/* A shared baseline for the footer identity and its small utility link. */
+footer.site-footer{display:flex;align-items:center;justify-content:space-between;gap:32px;padding:36px max(24px,calc((100vw - 1144px)/2));font-size:13px}
+.site-footer .footer-identity{display:flex;flex-direction:column;gap:3px;line-height:1.7}.site-footer .footer-identity strong{font-size:14px;font-weight:600}.site-footer .footer-identity span{color:var(--muted)}
+.site-footer .footer-meta{display:flex;align-items:center;gap:24px;line-height:1.7}.site-footer .footer-meta a{text-decoration:underline;text-underline-offset:4px}.site-footer small{border:0;padding:0;margin:0;color:var(--muted);font-size:12px}
+.official-titles{margin:16px 0 28px}.official-titles summary{cursor:pointer;font-size:14px;color:var(--muted)}.official-titles li{font-size:14px}.research-links{margin-top:32px!important;font-size:13px!important;color:var(--muted)}
+.reuse-guide{padding-bottom:80px}.reuse-guide blockquote{margin:24px 0;padding:18px 22px;border-left:3px solid #7e9990;background:#eef2e9}.reuse-guide details{margin-top:32px}.reuse-guide summary{cursor:pointer;font-size:15px}.course-author{font-size:14px!important;color:var(--muted);margin:12px 0 24px!important}
+@media(max-width:700px){footer.site-footer{align-items:flex-start;flex-direction:column;gap:18px;padding:30px 24px}.site-footer .footer-meta{gap:20px}}

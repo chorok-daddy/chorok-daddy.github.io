@@ -21,8 +21,10 @@ for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
   assert summary in row.get_text()
   target=routes[p['page_id']].replace('/niil/','/niil/en/',1) if lang=='ko' else routes[p['page_id']]
   assert detail.select_one('[data-language="'+('en' if lang=='ko' else 'ko')+'"]')['href']==target
-  for a in detail.select('.title-source a'):
-   if 'ntis.go.kr' in a['href']:assert a.get('target')=='_blank' and a.get_text()==('NTIS 링크' if lang=='ko' else 'NTIS link')
+  assert not detail.select('.project-phases')
+  assert '광운대학교 연구책임자' not in detail.get_text()
+  for a in detail.select('.research-links a'):
+   if 'ntis.go.kr' in a['href']:assert a.get('target')=='_blank' and a.get_text() in (('NTIS 링크','보고서') if lang=='ko' else ('NTIS link','Report'))
   if lang=='en':
    prose=BeautifulSoup(str(detail.select_one('.prose')),'html.parser')
    for table in prose.select('.project-phases table, .official-titles'):table.decompose()

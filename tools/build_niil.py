@@ -4,10 +4,11 @@ import html, json, re, subprocess
 from urllib.parse import urlsplit,urlunsplit,unquote,quote
 from pathlib import Path
 from bs4 import BeautifulSoup, Comment
-from easter_egg import EASTER_EGG_TEXT, EASTER_EGG_HTML
+from easter_egg import EASTER_EGG_HTML,write_note
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'niil'
+write_note(SITE)
 subprocess.run(['python3',str(ROOT/'tools/sync_courses.py'),'--locked'],check=True)
 COURSE_INVENTORY=json.loads((ROOT/'tools/course-catalog.json').read_text())['courses']
 COURSE_CATALOG=[c for c in COURSE_INVENTORY if c['published']]
@@ -24,9 +25,9 @@ for project in CATALOG:
     page['body'] = (SITE/'content'/project['body_file']).read_text()
     page['properties'] = {'Title(Korean)':project['title_ko'], 'Sponsor':' · '.join(project['sponsors']), 'Period':project['start']+' — '+project['end'], 'Role':'Principal investigator · Ki-Baek Lee'}
 CLUSTERS = [
-    ('Robotics & Autonomy','robotics','행동하고 적응하는 시스템','로봇 학습, 군집 탐색, 이동 보조와 임베디드 제어를 실제 작업으로 연결합니다.'),
-    ('Visual Intelligence & Logistics','vision','보는 것을 작업 정보로','3차원 공간과 화물을 이해하고 피킹·적재·배송의 의사결정으로 연결합니다.'),
-    ('Human-Centered AI','human','사람의 표현을 이해하는 AI','감정, 수어와 언어를 학습해 상호작용과 접근성을 확장합니다.')
+    ('Robotics & Autonomy','robotics','행동하고 적응하는 시스템','로봇 학습 · 군집 탐색 · 이동 보조 · 임베디드 제어'),
+    ('Visual Intelligence & Logistics','vision','보는 것을 작업 정보로','3차원 인식 · 피킹 · 적재 · 배송'),
+    ('Human-Centered AI','human','사람의 표현을 이해하는 AI','감정·몰입도 추정 · 수어 인식 · 언어 모델')
 ]
 
 ASSETS = {x['reference']:x['path'] for x in json.loads((SITE/'content/assets.json').read_text()) if 'path' in x}
@@ -59,7 +60,9 @@ def image(p, cls='', first=True):
     return ''.join(f'<img class="{cls}" src="{ASSETS[r]}" alt="{esc(p["title"])}" loading="lazy" decoding="async">' for r in (refs[:1] if first else refs) if r in ASSETS)
 def link(p,label=None): return f'<a href="{href(p)}">{esc(label or display_title(p))} <span aria-hidden="true">↗</span></a>'
 def write(path,text):
-    p=ROOT/path.lstrip('/')/'index.html';p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
+    p=ROOT/path.lstrip('/')
+    if p.suffix!='.html':p=p/'index.html'
+    p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
 def database(match):
     attrs=match[1];c=re.search(r'data-source-url="([^"]+)"',attrs);url=re.search(r'url="([^"]+)"',attrs)
     ps=rows(c[1]) if c else []
@@ -126,12 +129,12 @@ CONTACT_FORM='https://docs.google.com/forms/d/e/1FAIpQLSf95YWgQxAjvJ1PvqTTlt6o53
 PUBLICATION_DATA=json.loads((SITE/'content/publications.json').read_text())
 SPONSORS={'한국연구재단':'National Research Foundation of Korea (NRF)','한국철도기술연구원':'Korea Railroad Research Institute (KRRI)','정보통신기획평가원':'Institute of Information & Communications Technology Planning & Evaluation (IITP)','한국전자통신연구원':'Electronics and Telecommunications Research Institute (ETRI)','중소기업청':'Small and Medium Business Administration','(주)대한스프레이시스템':'Daehan Spray System','한국항공우주연구원 연계 · 한국연구재단 전문기관':'KARI-linked project · NRF specialized agency'}
 CLUSTER_KO={'Robotics & Autonomy':'로봇·자율 시스템','Visual Intelligence & Logistics':'시각 인식·물류','Human-Centered AI':'인간 중심 AI'}
-CLUSTER_EN=['Robot learning, swarm search, assisted motion and embedded control.','3D perception and cargo understanding for picking, loading and delivery.','Emotion, sign language and language models for interaction and access.']
+CLUSTER_EN=['Robot learning · Swarm search · Assisted motion · Embedded control','3D perception · Picking · Loading · Delivery','Emotion and engagement · Sign recognition · Language models']
 COURSE_KO=['로봇기초실험','마이크로프로세서응용','제어공학1','제어공학2','인공지능응용','전기공학세미나']
 LANG='en'
 def tr(en,ko):return ko if LANG=='ko' else en
 def local(path):
-    if path=='/niil/courses/':return '/niil/en/courses/' if LANG=='en' else path
+    if path in ('/niil/courses/','/niil/courses/reuse.html'):return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
     if path.startswith('/niil/') and not path.startswith(('/niil/assets/','/niil/courses/','/niil/en/')):
         return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
     return path
@@ -142,29 +145,34 @@ def project_title(p):
     return p['title_ko'] if LANG=='ko' else (p.get('official_title_en') or p['translated_title_en']+' ('+p['title_ko']+')')
 def phase_title(phase):
     return esc(phase['title']) if LANG=='ko' else esc(phase['title_en'])+(' ('+esc(phase['title'])+')' if phase['title_en_kind']=='translation' else '')
-def project_titles(p, detail=False):
-    collection = p.get('title_kind') == 'collection'
-    out='<div class="official-titles">'
-    if collection:
-        out+='<p class="title-label">'+tr('Related contracts','관련 계약')+'</p><ul>'
-        for phase in p['phases']:
-            out+='<li>'+phase_title(phase)+'</li>'
-        out+='</ul>'
-    if detail:
-        if not collection and not p.get('official_title_en'):
-            if LANG=='en':out+='<p class="muted">Translated title.</p>'
-        if p.get('official_title_en') and not p.get('title_sources'):
-            out+='<p class="title-source">'+tr('English title: research proposal title page','영문 과제명: 연구계획서 표지')+'</p>'
-        if p.get('title_sources'):
-            out+='<p class="title-source">'+ ' · '.join('<a href="'+esc(x['url'])+'" target="_blank" rel="noopener noreferrer">'+(tr('NTIS link','NTIS 링크') if x['label']=='NTIS' else esc(x['label']))+'</a>' for x in p['title_sources'])+'</p>'
-        elif not collection and p.get('official_title_en'):
-            out+='<p class="title-source">'+tr('Title source: research proposal','과제명 출처: 연구계획서')+'</p>'
-    return out+'</div>'
+def project_titles(p,detail=False):
+    if not detail or p.get('title_kind')!='collection':return ''
+    titles=list(dict.fromkeys(phase_title(phase) for phase in p['phases']))
+    return '<details class="official-titles"><summary>'+tr('Project titles','과제명')+'</summary><ul>'+''.join('<li>'+title+'</li>' for title in titles)+'</ul></details>'
+
+def project_links(p):
+    links=[];seen=set()
+    for item in p.get('title_sources',[]):
+        if item['url'] in seen:continue
+        seen.add(item['url'])
+        links.append('<a href="'+esc(item['url'])+'" target="_blank" rel="noopener noreferrer">'+tr('NTIS link','NTIS 링크')+'</a>')
+    for item in p.get('report_links',[]):
+        if item['url'] in seen:continue
+        seen.add(item['url'])
+        links.append('<a href="'+esc(item['url'])+'" target="_blank" rel="noopener noreferrer">'+tr('Report','보고서')+'</a>')
+    return '<p class="research-links">'+' · '.join(links)+'</p>' if links else ''
 
 def project_summary(p):return p['summary'] if LANG=='ko' else PROJECT_LOCALES[p['key']]['summary_en']
 def sponsor(s):return s if LANG=='ko' else SPONSORS.get(s,s)
 def heading(kicker,title,desc=''):
     return f'<header class="wrap publication-heading"><h1>{title}</h1>'+ (f'<p class="lede">{desc}</p>' if desc else '')+'</header>'
+def footer_html(section,path):
+    reuse=''
+    if section=='teaching' and not path.endswith('reuse.html'):
+        target=tr('/niil/en/courses/reuse.html','/niil/courses/reuse.html')
+        reuse='<a href="'+target+'">'+tr('Using course materials','강의자료 활용')+'</a>'
+    return '<footer class="site-footer"><div class="footer-identity"><strong>'+tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')+'</strong><span>'+tr('Kwangwoon University · Seoul, Korea','광운대학교')+'</span></div><div class="footer-meta">'+reuse+'<small>© NiiL</small></div></footer>'
+
 def shell(title,content,section='',desc='',path='/niil/'):
     soup=BeautifulSoup(content,'html.parser')
     for a in soup.find_all('a',href=True):
@@ -179,13 +187,11 @@ def shell(title,content,section='',desc='',path='/niil/'):
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=20261026-outputs1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main><footer><a class="brand" href="{local('/niil/')}">NiiL<span class="brand-dot">●</span></a><div>{tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')}<br><span>{tr('Kwangwoon University · Seoul, Korea','광운대학교 · 서울')}</span></div><a href="{local('/niil/contact/')}">{tr('Contact','문의·지원')}</a><small>© NiiL</small></footer></body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=layout2"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
-    if path=='/niil/members/' or 'portrait-crop' in content:
-        page=page.replace('niil.css?v=20261026-outputs1','niil.css?v=20261026-portraits3')
     if path=='/niil/courses/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=20261026-sharing1"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=layout2"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
@@ -227,20 +233,7 @@ def history(m):
     return out+'</ul>'
 def project_body(p):
     q=dict(byid[p['page_id']]);q['body']=(SITE/'content'/(p['body_file'] if LANG=='ko' else f'projects/en/{p["key"]}.md')).read_text()
-    soup=BeautifulSoup(render(q),'html.parser')
-    # Keep evaluation conditions beside results; only provenance/administrative notes collapse.
-    notes=[]
-    for para in list(soup.find_all('p')):
-        if para.get_text().startswith(('근거:','Source:','Sources:')):notes.append(str(para));para.decompose()
-    for h in list(soup.find_all('h2')):
-        if h.get_text() in ['레거시 과제 확인','Project record']:
-            following=[]
-            for sib in list(h.next_siblings):
-                if getattr(sib,'name',None)=='h2':break
-                following.append(sib)
-            notes.append(str(h));h.decompose()
-            for sib in following:notes.append(str(sib));sib.extract()
-    return str(soup),''.join(notes)
+    return render(q)
 
 def research_outputs():
     data=json.loads((SITE/'content/research-outputs.json').read_text())
@@ -283,17 +276,10 @@ for LANG in ('en','ko'):
     emit('/niil/research/',tr('Research','연구'),content,'research')
     for path in ['/niil/projects/','/niil/vision/']+[href(p) for p in AREAS+VISIONS]:route_redirect(path,'/niil/research/')
     for p in CATALOG:
-        body,notes=project_body(p)
+        body=project_body(p)
         content=heading('',esc(project_title(p)),esc(project_summary(p)))+f'<section class="wrap document-layout"><aside><a href="/niil/research/">← {tr("Research","연구")}</a><nav class="toc" aria-label="{tr("On this page","페이지 목차")}"></nav></aside><article class="prose">'
         content+=f'<p class="eyebrow">{cluster(p["cluster"])}</p><p>{p["start"]} – {p["end"]} · '+(tr('Ongoing','수행 중') if p['status']=='In progress' else tr('Completed','종료'))+'</p><p>'+esc(' · '.join(sponsor(s) for s in p['sponsors']))+'</p>'+project_titles(p,detail=True)+body
-        content+=f'<details class="project-phases"><summary>{tr("Project record and sources","과제 이력 및 출처")}</summary><p>{tr("Kwangwoon University principal investigator: Ki-Baek Lee","광운대학교 연구책임자: 이기백")}</p>'
-        if p['phases']:
-            content+=f'<p class="muted">{tr("Contract titles are listed below.","계약별 공식 과제명입니다.")}</p><div class="table-scroll"><table><thead><tr><th>{tr("Period","기간")}</th><th>{tr("Contract","계약")}</th><th>{tr("Sponsor","지원기관")}</th></tr></thead><tbody>'
-            for phase in p['phases']:content+=f'<tr><td>{phase["start"]} – {phase["end"]}</td><td>{phase_title(phase)}</td><td>{esc(sponsor(phase["sponsor"]))}</td></tr>'
-            content+='</tbody></table></div>'
-        content+=notes+'</details>'
-        related=[x for x in CATALOG if x['cluster']==p['cluster'] and x['key']!=p['key']][:3]
-        content+='<section><h2>'+tr('Related research','관련 연구')+'</h2><ul>'+''.join(f'<li><a href="{ROUTES[x["page_id"]]}">{esc(project_title(x))}</a></li>' for x in related)+'</ul></section></article></section>'
+        content+=project_links(p)+'</article></section>'
         emit(ROUTES[p['page_id']],project_title(p),content,'research')
     content=heading('',tr('People','구성원'))+'<div class="wrap"><a class="button outline" href="/niil/photos/">'+tr('Lab photos','연구실 사진')+'</a></div>'
     for en,ko,predicate in [('Faculty','교수',lambda m:m['role']['en']=='Professor'),('Graduate researchers','대학원생',lambda m:not m['alumni'] and m['role']['en']!='Professor'),('Alumni','졸업생·이전 구성원',lambda m:m['alumni'])]:
@@ -340,12 +326,15 @@ for LANG in ('en','ko'):
         content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title'])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
-    course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p><a href="https://github.com/chorok-daddy/courses">'+tr('Course materials on GitHub','강의자료 저장소')+' ↗</a></p><ul class="course-list">'
+    course_content=heading('',tr('Course','강의자료'),tr('Ki-Baek Lee · Kwangwoon University','이기백 · 광운대학교'))+'<section class="wrap section compact"><p><a href="https://github.com/chorok-daddy/courses">'+tr('Course materials on GitHub','강의자료 저장소')+' ↗</a></p><ul class="course-list">'
     for course in COURSE_CATALOG:
         course_content+='<li><a href="/niil/courses/'+course['slug']+'/index.html">'+esc(course['title'] if LANG=='ko' else course['title_en'])+'</a></li>'
-    course_content+='</ul><p class="course-license">'+tr('Ki-Baek Lee · Kwangwoon University. Content: CC BY 4.0 · Code: MIT.','이기백 · 광운대학교. 설명·그림: CC BY 4.0 · 코드: MIT.')+' <a href="/niil/courses/LICENSE.md">'+tr('License details','라이선스 안내')+'</a></p></section>'
+    course_content+='</ul></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
+    reuse_content=heading('',tr('Using course materials','강의자료 활용'))+'<section class="wrap prose reuse-guide"><p>'+tr('You may use, adapt and share these materials with attribution.','출처를 표시하고 자료를 활용·수정·공유할 수 있습니다.')+'</p><h2>'+tr('Attribution','출처 표기')+'</h2><blockquote>'+tr('Ki-Baek Lee, Kwangwoon University, “Course · Material title”','이기백, 광운대학교, 「과목명 · 자료명」')+'<br>https://github.com/chorok-daddy/courses</blockquote><details><summary>'+tr('Terms','이용 조건')+'</summary><p>'+tr('Text and figures: CC BY 4.0. Original code: MIT. Third-party materials retain their own terms.','설명·그림은 CC BY 4.0, 직접 작성한 코드는 MIT입니다. 제3자 자료는 해당 출처의 이용 조건을 따릅니다.')+'</p><a href="/niil/courses/LICENSE.md">'+tr('Full license','라이선스 전문')+'</a></details></section>'
+    emit('/niil/courses/reuse.html',tr('Using course materials','강의자료 활용'),reuse_content,'teaching')
+
     application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
     application_html=subprocess.run(['pandoc','-f','markdown','-t','html','--wrap=none'],input=application,text=True,capture_output=True,check=True).stdout
     content=heading('',tr('Contact & apply','문의·지원'),tr('Research collaboration, lab applications and general inquiries.','연구 협업, 연구실 지원 및 일반 문의를 받습니다.'))
@@ -362,12 +351,12 @@ for LANG in ('en','ko'):
 # Quarto scripts, styles, anchor IDs and relative download paths remain in place.
 LANG='ko'
 for course_file in sorted((SITE/'courses').rglob('*.html')):
-    if course_file == SITE/'courses/index.html':continue
+    if course_file in (SITE/'courses/index.html',SITE/'courses/reuse.html'):continue
     doc=BeautifulSoup(course_file.read_text(),'html.parser')
     if not doc.body or doc.select_one('meta[http-equiv="refresh"]'):continue
     for old in doc.select('[data-niil-frame], [data-course-shell], .skip-site'):old.decompose()
     for comment in list(doc.find_all(string=lambda x:isinstance(x,Comment))):
-        if 'NiiL Easter Egg' in comment:comment.extract()
+        if 'NiiL Easter Egg' in comment or 'ref:' in comment and 'render.logtmp' in comment:comment.extract()
     for home in doc.select('a[href="/niil/courses/"]'):
         sibling=home.find_next_sibling()
         if sibling and sibling.get_text(strip=True)=='/':sibling.decompose()
@@ -377,19 +366,19 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     main=doc.select_one('main')
     if main is not None and not main.get('id'):main['id']='main'
     course=next((c for c in COURSE_CATALOG if course_file.is_relative_to(SITE/'courses'/c['slug'])),None)
+    if course and course_file != SITE/'courses'/course['slug']/'index.html':
+        back=doc.new_tag('nav',attrs={'class':'breadcrumb','aria-label':'현재 과목','data-niil-frame':''})
+        anchor=doc.new_tag('a',href='/niil/courses/'+course['slug']+'/index.html');anchor.string=course['title'];back.append(anchor);main.insert(0,back)
     source_url='https://chorok-daddy.github.io/'+course_file.relative_to(ROOT).as_posix()
-    credit=BeautifulSoup('<p class="course-credit" data-niil-frame>이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br><a data-source-origin href="'+source_url+'">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a></p>','html.parser')
-    credit.p.append(Comment(EASTER_EGG_TEXT))
-    main.append(credit)
+    doc.body.insert(0,Comment(' ref: /niil/assets/meta/cache/render.logtmp '))
+    author_line=doc.new_tag('p',attrs={'class':'course-author','data-niil-frame':''})
+    author_line.string='이기백 · 광운대학교'
+    if doc.h1:doc.h1.insert_after(author_line)
     author_meta=doc.new_tag('meta',attrs={'name':'author','content':'Ki-Baek Lee (이기백)','data-niil-frame':''})
     doc.head.append(author_meta)
     structured=doc.new_tag('script',type='application/ld+json');structured['data-niil-frame']=''
     structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.h1.get_text() if doc.h1 else doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
     doc.head.append(structured)
-    if course and course_file == SITE/'courses'/course['slug']/'index.html':
-        repo='https://github.com/chorok-daddy/courses/tree/main/'+course['slug']
-        downloads=BeautifulSoup('<nav class="course-distribution" data-niil-frame aria-label="자료 가져오기"><a href="'+repo+'">GitHub ↗</a></nav>','html.parser')
-        main.h1.insert_after(downloads)
     frame=BeautifulSoup(shell(doc.h1.get_text() if doc.h1 else doc.title.get_text(),'','teaching'),'html.parser')
     # Course documents retain their original language; the bilingual catalog has the switch.
     frame.select_one('.language-switch').decompose()
@@ -400,7 +389,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         else:doc.body.insert(0 if selector=='.skip' else 1,element)
     for element in frame.head.select('link[rel="stylesheet"],script[src]'):
         element['data-niil-frame']='';doc.head.append(element)
-    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=20261026-sharing1')
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=layout2')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
     course_file.write_text(str(doc))

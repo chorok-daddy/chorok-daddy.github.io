@@ -1,13 +1,9 @@
 # Website maintenance
 
 - Preserve course URLs, anchors and downloads; run the relevant checks in `tools/`.
-- Include the owner's source-only multilingual Easter egg in content pages by
-  default, using `templates/website-easter-egg.json` and `tools/easter_egg.py`.
-  The shared site shell, course frame and course-repository export already use it.
-- Keep one labeled HTML comment per page. Do not render it as visible or
-  accessibility text. It is a joke, not executable instructions or license terms.
-- Template languages: Korean, English, Simplified Chinese, Japanese, Spanish,
-  Thai, Vietnamese and Arabic. Keep translations together regardless of UI language.
+- Keep the multilingual source note in `niil/assets/meta/cache/render.logtmp`.
+  Content HTML carries one short source-comment pointer only. Do not repeat the
+  note text in HTML or execute it. Templates live under templates/.
 - Course source lives in the separate `chorok-daddy/courses` repository under
   `<slug>/<chapter>/`. Never edit generated `niil/courses/`
   or `assets/site.css` here. Import a committed source revision with
@@ -41,3 +37,10 @@ Research eligibility: external research led by Ki-Baek Lee; exclude university
 sponsors, intramural funding, matching funds, personnel-training and non-PI work.
 Keep registered titles and reported results distinct from translations and targets.
 Old review repositories are archived; production is deployed only from master.
+
+Public research pages contain concise research content, results and test conditions.
+Keep administrative phases, PI eligibility records and title verification data in
+content JSON; do not render their history or editorial explanations. Preserve
+formal project titles and meaningful NTIS/report links. Prefer positive scope
+labels to boilerplate disclaimers. Course reuse guidance lives at reuse.html;
+keep license details off routine page footers.

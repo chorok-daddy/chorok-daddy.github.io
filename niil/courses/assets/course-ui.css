@@ -18,3 +18,7 @@
 .course-overlay[open]{display:flex;flex-direction:column}.overlay-bar{flex-shrink:0}.overlay-panels{flex:1;min-height:0;height:auto}
 
 .course-embedded h1,.course-embedded h2,.course-embedded h3{word-break:keep-all;overflow-wrap:break-word}
+
+footer.course-footer{display:flex;align-items:center;justify-content:space-between;gap:20px}.exercise-action{display:inline-flex;padding:10px 18px;border:1px solid #7e9990;border-radius:6px;text-decoration:none;font-weight:600}.course-home blockquote{margin:24px 0;padding:16px 20px;border-left:3px solid #7e9990;background:#eef2e9}.course-home details{margin:32px 0}.course-home summary{cursor:pointer;font-weight:600}@media(max-width:600px){footer.course-footer{align-items:flex-start;flex-direction:column;gap:8px}}
+
+nav#lab-files.resource-links{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}nav#lab-files.resource-links a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:8px 14px;border:1px solid #bdcdc2;border-radius:6px;font-size:14px;line-height:1.5;text-decoration:none}nav#lab-files.resource-links a[href*="colab.research.google.com"]{background:#e7eedf;border-color:#b1c4a7}.course-embedded .breadcrumb{display:none!important}@media(max-width:600px){nav#lab-files.resource-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}

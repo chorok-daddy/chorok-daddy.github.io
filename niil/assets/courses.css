@@ -37,3 +37,4 @@ body.niil-course{display:block;background:var(--paper);color:var(--ink)}
 .niil-course main .course-credit{border-top:1px solid var(--line);padding-top:24px;margin-top:48px;font-size:13px;break-inside:avoid}
 .course-license a,.course-distribution a{text-decoration:underline;text-underline-offset:3px}
 @media print{.course-distribution{display:none}.course-credit a[data-source-origin]::after{content:' (' attr(href) ')';font-size:10px;overflow-wrap:anywhere}}
+.course-embedded .course-author{display:none!important}

@@ -192,18 +192,7 @@
       "height": 900
     },
     "thumbnail_image": "/niil/assets/media/sunmok-thumbnail-20261027.png",
-    "thumbnail_provenance": "Background-cleaned thumbnail from original portrait, 2026-10-27; detail photo unchanged.",
-    "updates": [
-      {
-        "url": "https://www.ktr.or.kr/ktr-intro/employee/list.do?f=0&q=AX%EC%A0%84%EB%9E%B5TF%ED%8C%80",
-        "source": "KTR",
-        "label": {
-          "ko": "KTR AX전략TF팀 선임연구원 — 공식 직원 소개",
-          "en": "Senior Researcher, KTR AX Strategy TF — official staff directory"
-        },
-        "checked": "2026-10-27"
-      }
-    ]
+    "thumbnail_provenance": "Background-cleaned thumbnail from original portrait, 2026-10-27; detail photo unchanged."
   },
   {
     "id": "1b6888a17b3080948f5ad68279728645",

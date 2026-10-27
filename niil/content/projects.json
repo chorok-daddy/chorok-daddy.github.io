@@ -5,7 +5,7 @@
     "title": "Robot-Centric Physical AI",
     "title_ko": "극협소 공간 내 고밀도 작업을 위한 로봇 중심의 피지컬 인공지능 기술",
     "cluster": "Robotics & Autonomy",
-    "summary": "수직 공간까지 활용하는 고밀도 로봇 작업과 점진적 Sim-to-Real 학습.",
+    "summary": "좁은 작업공간에 맞춘 로봇 작업대 설계와 Sim-to-Real 학습.",
     "start": "2026-03-01",
     "end": "2031-02-28",
     "status": "In progress",
@@ -53,7 +53,7 @@
     "title": "Multimodal Emotion & Engagement",
     "title_ko": "비대면 환경 사용자의 정량적 감정-감성 평가모델 개발 및 양방향 디지털콘텐츠 적용 상용화",
     "cluster": "Human-Centered AI",
-    "summary": "영상·음성·텍스트를 연결해 감정, 몰입도와 이상징후를 읽는 인공지능.",
+    "summary": "영상·음성·텍스트를 이용한 생체신호, 감정과 몰입도 추정.",
     "start": "2023-04-01",
     "end": "2025-12-31",
     "status": "Done",
@@ -117,7 +117,7 @@
     "title": "Last-Mile Delivery Intelligence",
     "title_ko": "말단 배송 로봇 화물 및 작업 관리 시스템",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "송장·바코드·화물 상태를 배송로봇의 작업 흐름과 연결.",
+    "summary": "배송로봇 적재함에서 송장·바코드·파손을 인식하는 엣지 모듈.",
     "start": "2022-08-11",
     "end": "2024-11-29",
     "status": "Done",
@@ -176,7 +176,7 @@
     "title": "Vision-Guided Loading Equipment",
     "title_ko": "차량 탑재형 상하역 장비 원격 및 자동화 시스템 개발",
     "cluster": "Robotics & Autonomy",
-    "summary": "팔레트 인식에서 포크 삽입까지, 소형 상하역 장비의 자동 유도.",
+    "summary": "RGB-D 팔레트 인식과 포크 삽입 자동 유도.",
     "start": "2022-06-10",
     "end": "2025-11-30",
     "status": "Done",
@@ -243,7 +243,7 @@
     "title": "Cargo Recognition & Damage Detection",
     "title_ko": "딥러닝 기반 화물 인식 및 파손 감지 시스템 개발",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "이동 화물의 체적·바코드·파손 정보를 하나의 인식 흐름으로 통합.",
+    "summary": "RGB·LiDAR 기반 화물 체적·바코드·파손 인식.",
     "start": "2022-05-30",
     "end": "2022-11-30",
     "status": "Done",
@@ -294,7 +294,7 @@
     "title": "Self-Improving Consultation AI",
     "title_ko": "스스로 학습하는 인공지능 자연어 처리 기반 온라인 상담 지원 시스템",
     "cluster": "Human-Centered AI",
-    "summary": "FAQ 2,808개에서 상위 3개 추천 정확도 94%를 보고한 학습형 상담 지원 시스템.",
+    "summary": "상담원의 답변 선택을 재학습에 반영하는 FAQ 추천.",
     "start": "2019-06-01",
     "end": "2022-02-28",
     "status": "Done",
@@ -350,7 +350,12 @@
       "ko": "NTIS registered project title",
       "en": "NTIS registered project title",
       "checked": "2026-10-26"
-    }
+    },
+    "report_links": [
+      {
+        "url": "https://www.ntis.go.kr/outcomes/popup/srchTotlRschRpt.do?cmd=view&rstId=REP-2022-01112443217"
+      }
+    ]
   },
   {
     "key": "bicycle-trailer",
@@ -358,7 +363,7 @@
     "title": "Human-Following Trailer",
     "title_ko": "자전거 등 추종을 위한 신축가능한 센서모듈 및 트레일러 시스템 설계 및 테스트",
     "cluster": "Robotics & Autonomy",
-    "summary": "사용자의 이동 의도와 부하를 감지하는 센서·모델 기반 추종 제어.",
+    "summary": "힘·부하 센싱과 동역학 모델을 이용한 트레일러 구동 보조.",
     "start": "2021-08-05",
     "end": "2021-12-20",
     "status": "Done",
@@ -393,7 +398,7 @@
     "title": "Understanding Indoor 3D Spaces",
     "title_ko": "딥러닝 기반 실내 공간데이터 객체 분리 및 분류 기술 구현",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "실내 공간데이터에서 객체를 분리하고 분류하는 딥러닝 연구.",
+    "summary": "실내 공간데이터의 객체 분리·분류.",
     "start": "2021-04-01",
     "end": "2021-11-30",
     "status": "Done",
@@ -428,7 +433,7 @@
     "title": "AI Sales Assistance",
     "title_ko": "기계학습 기반 인공지능 세일즈 지원 솔루션",
     "cluster": "Human-Centered AI",
-    "summary": "온라인 상담·판매 과정에 기계학습 기반 응답과 상담 지원을 연결.",
+    "summary": "온라인 판매·상담을 지원하는 기계학습 응답 모델.",
     "start": "2016-10-01",
     "end": "2018-09-30",
     "status": "Done",
@@ -476,7 +481,7 @@
     "title": "Sign Language as an Interface",
     "title_ko": "인공지능 수화 인식 기반 언어/청각 장애인용 IoT 서비스 플랫폼 개발",
     "cluster": "Human-Centered AI",
-    "summary": "범용 카메라 기반 수어 인식으로 5m 거리·27종 이상 환경·정확도 85% 기준 충족.",
+    "summary": "9개 프레임의 합성 이미지로 수어 동작을 분류하는 CNN.",
     "start": "2017-03-01",
     "end": "2020-02-29",
     "status": "Done",
@@ -532,7 +537,12 @@
       "ko": "NTIS registered project title",
       "en": "NTIS registered project title",
       "checked": "2026-10-26"
-    }
+    },
+    "report_links": [
+      {
+        "url": "https://www.ntis.go.kr/outcomes/popup/srchTotlRschRpt.do?cmd=view&rstId=REP-2020-01111842337"
+      }
+    ]
   },
   {
     "key": "swarm-search",
@@ -540,7 +550,7 @@
     "title": "Swarm Search for Unmanned Vehicles",
     "title_ko": "무인이동체 맞춤형 입자 군집 최적화 알고리즘을 통한 현실 공간 탐색 기법",
     "cluster": "Robotics & Autonomy",
-    "summary": "군집 지능과 비행체 동역학을 결합한 3차원 재난 탐색.",
+    "summary": "비행체 동역학과 공간 제약을 반영한 PSO 탐색.",
     "start": "2016-09-21",
     "end": "2017-07-31",
     "status": "Done",
@@ -571,7 +581,12 @@
       "ko": "NTIS registered project title",
       "en": "NTIS registered project title",
       "checked": "2026-10-26"
-    }
+    },
+    "report_links": [
+      {
+        "url": "https://www.ntis.go.kr/outcomes/popup/srchTotlRschRpt.do?cmd=view&rstId=REP-2017-0119685956"
+      }
+    ]
   },
   {
     "key": "port-perception",
@@ -579,7 +594,7 @@
     "title": "Port Scene Understanding",
     "title_ko": "영상정보 기반의 미확인 객체 인식 기술 분석 및 개발 용역",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "CCTV에서 항만의 미확인 객체를 탐지하고 위치를 추정.",
+    "summary": "항만 CCTV의 객체 탐지·분류·위치 추정.",
     "start": "2020-11-09",
     "end": "2020-12-24",
     "status": "Done",
@@ -623,7 +638,7 @@
     "title": "3D Loading Assistance",
     "title_ko": "3차원 영상 기반의 적재 보조 시스템 구축 용역",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "상품·적재 공간·작업자 인식을 ROS 기반 적재 보조 시스템으로 통합.",
+    "summary": "상품·작업자·적재 공간을 인식하는 RGB-D 적재 보조 시스템.",
     "start": "2018-07-23",
     "end": "2018-12-21",
     "status": "Done",
@@ -667,7 +682,7 @@
     "title": "Robotic Picking & Stacking",
     "title_ko": "제품인식, 피킹 및 적재를 위한 기법개발 및 장비설계",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "상품 인식과 3차원 위치 추정을 피킹·적재 의사결정으로 연결.",
+    "summary": "상품의 3차원 위치와 피킹·적재 후보 추정.",
     "start": "2017-07-24",
     "end": "2017-12-21",
     "status": "Done",
@@ -702,7 +717,7 @@
     "title": "Vision for Robotic Picking",
     "title_ko": "비정형 화물의 로봇 기반 피킹·적재 지원을 위한 비전 모듈 제작",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "비정형 화물의 피킹 정보와 소터 트레이의 점유 상태를 제공하는 비전 연구.",
+    "summary": "화물의 피킹 위치와 소터 트레이 점유 상태 인식.",
     "start": "2026-10-01",
     "end": "2026-12-15",
     "status": "In progress",
@@ -737,7 +752,7 @@
     "title": "Edge Vision for Shipping Labels",
     "title_ko": "엣지 디바이스 기반의 송장 이미지 전처리 모듈 설계",
     "cluster": "Visual Intelligence & Logistics",
-    "summary": "기울고 회전된 송장 영상을 읽기 좋은 형태로 복원하는 전처리.",
+    "summary": "송장 영상의 원근 왜곡과 텍스트 방향 보정.",
     "start": "2024-07-22",
     "end": "2024-12-02",
     "status": "Done",
@@ -781,7 +796,7 @@
     "title": "Embedded Dock Control",
     "title_ko": "도크 제어용 마이크로프로세서 보드 및 MCU 제어시스템",
     "cluster": "Robotics & Autonomy",
-    "summary": "센서와 MCU를 결합한 도크 제어의 소형화와 자동 운전.",
+    "summary": "차량 감지와 도어 구동을 통합하는 MCU 제어.",
     "start": "2015-07-20",
     "end": "2016-12-26",
     "status": "Done",

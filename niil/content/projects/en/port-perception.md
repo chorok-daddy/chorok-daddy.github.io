@@ -1,19 +1,14 @@
-## Overview
-
-The system distinguishes known and unknown objects in port CCTV and converts image positions into coordinates for operational systems.
-
 ## Results
 
-- Detection/classification rates were approximately 95%/90% in night rain, 95%/95% in daytime rain and 97%/97% in daytime on held-out CCTV footage.
-- Tests at designated points in two images yielded a mean position error of 0.1697 m and a maximum of 0.6022 m.
-- Reported average processing speed was 20 fps on a desktop and 5 fps on an embedded PC. Outputs included object class, position and time.
+- Separated detection and similarity matching to extend recognition through reference images.
+- Combined semi-automatic data generation and camera calibration to produce spatial coordinates.
 
-## Contributions
+Evaluation on held-out CCTV footage.
 
-Separated object detection from similarity matching. Within the learned domain, reference images extend recognized categories, while unmatched objects are treated as unknown. Semi-automatic data generation and camera calibration connect detection to location.
+| Conditions | Object recognition | Classification success |
+|---|---|---|
+| Rainy night | Approximately 95% | Approximately 90% |
+| Rainy day | Approximately 95% | Approximately 95% |
+| Daytime | Approximately 97% | Approximately 97% |
 
-## Evaluation scope
-
-Figures apply to the reported CCTV footage and designated points. Reference-image extension was not established for substantially different domains.
-
-*Source: 2020 port unknown-object recognition final report, system evaluation section.*
+At the designated test points, mean localization error was 0.1697 m and maximum error was 0.6022 m. Average processing rates were 20 fps on a desktop and 5 fps on an embedded PC.

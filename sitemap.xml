@@ -700,6 +700,12 @@
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-10/RL_W10.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reuse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chorok-daddy.github.io/niil/en/courses/reuse.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chorok-daddy.github.io/niil/courses/reuse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chorok-daddy.github.io/niil/courses/reuse.html" />
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/</loc>
   </url>
   <url>
@@ -776,6 +782,12 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://chorok-daddy.github.io/niil/en/courses/" />
     <xhtml:link rel="alternate" hreflang="ko" href="https://chorok-daddy.github.io/niil/courses/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://chorok-daddy.github.io/niil/courses/" />
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/en/courses/reuse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chorok-daddy.github.io/niil/en/courses/reuse.html" />
+    <xhtml:link rel="alternate" hreflang="ko" href="https://chorok-daddy.github.io/niil/courses/reuse.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chorok-daddy.github.io/niil/courses/reuse.html" />
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/en/ee-seminar/</loc>
