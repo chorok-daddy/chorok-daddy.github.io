@@ -8,7 +8,7 @@ REPOSITORY='https://github.com/chorok-daddy/courses'
 def run(args,cwd=None):return subprocess.check_output(args,cwd=cwd)
 def allowed(name):
     p=Path(name)
-    return not p.is_absolute() and '..' not in p.parts and (name.startswith('niil/courses/') or name in ('assets/site.css','tools/course-catalog.json','site-catalog.json'))
+    return not p.is_absolute() and '..' not in p.parts and (name.startswith('niil/courses/') or name in ('assets/site.css','tools/course-catalog.json','tools/course-paths.json','site-catalog.json'))
 def extract(archive,destination):
     # Only regular files/directories within the destination; reject links/devices.
     for member in archive.getmembers():

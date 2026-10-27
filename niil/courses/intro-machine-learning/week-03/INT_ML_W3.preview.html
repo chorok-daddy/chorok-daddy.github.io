@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>[3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍 | 머신러닝의 이해 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "[3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="머신러닝의 이해: [3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍. 안녕하세요! 3주차 수업에 오신 것을 환영합니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html" rel="canonical"/><meta content="[3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍 | 머신러닝의 이해 · 광운대학교 NiiL" property="og:title"/><meta content="머신러닝의 이해: [3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍. 안녕하세요! 3주차 수업에 오신 것을 환영합니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="[3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍 | 머신러닝의 이해 · 광운대학교 NiiL" name="twitter:title"/><meta content="머신러닝의 이해: [3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍. 안녕하세요! 3주차 수업에 오신 것을 환영합니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html", "name": "[3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍 | 머신러닝의 이해 · 광운대학교 NiiL", "description": "머신러닝의 이해: [3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍. 안녕하세요! 3주차 수업에 오신 것을 환영합니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>[3주차] 머신러닝을 위한 첫걸음: 파이썬 기초와 데이터 표현 🐍</h1><nav class="notebook-actions"><a download="" href="INT_ML_W3.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/intro-machine-learning/week-03/INT_ML_W3.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<p>안녕하세요! 3주차 수업에 오신 것을 환영합니다.</p>
+<p>지난 2주간 우리는 머신러닝의 놀라운 가능성을 눈으로 확인했습니다.</p>
+<p>앞으로 4주간은, 이 멋진 모델들을 우리 손으로 직접 만들기 위한 가장 중요한 도구,</p>
+<p><strong>‘파이썬(Python)’</strong> 프로그래밍 언어를 배우는 시간을 갖겠습니다.</p>
+<hr/>
+<p>오늘은 그 첫 시간으로, 왜 머신러닝 세계에서 파이썬이 필수인지 알아보고,</p>
+<p><strong>’데이터’를 파이썬으로 어떻게 표현하고 저장하는지</strong>를 배워보겠습니다.</p>
+</section><section class="notebook-cell">
+<h2 id="모듈-1-왜-머신러닝에-파이썬을-사용할까">🌐 모듈 1: 왜 머신러닝에 파이썬을 사용할까?</h2>
+<ul>
+<li><strong>쉽고 직관적인 문법</strong>:
+<ul>
+<li>다른 언어에 비해 배우기 쉽고 코드가 간결</li>
+<li>복잡한 수학적 이론을 구현하는 데 집중</li>
+</ul></li>
+<li><strong>강력하고 풍부한 라이브러리</strong>:
+<ul>
+<li><strong>NumPy</strong>: 과학 계산 및 다차원 배열을 위한 필수 라이브러리</li>
+<li><strong>Pandas</strong>: 표(테이블) 형태의 데이터를 다루는 데 최적화된 라이브러리</li>
+<li><strong>Matplotlib</strong>: 데이터 시각화를 위한 라이브러리</li>
+<li><strong>Scikit-Learn</strong>: 고전적인 머신러닝 모델 라이브러리</li>
+<li><strong>TensorFlow, PyTorch</strong>: 딥러닝 모델을 위한 대표적인 라이브러리</li>
+</ul></li>
+<li><strong>강력한 커뮤니티</strong>:
+<ul>
+<li>전 세계 수많은 개발자와 연구자들이 파이썬을 사용</li>
+<li>문제 해결에 필요한 자료나 도움을 얻기 쉽다</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="모듈-2-데이터의-가장-작은-단위-변수variables">📦 모듈 2: 데이터의 가장 작은 단위, 변수(Variables)</h2>
+<ul>
+<li><strong>변수란?</strong>: 데이터(값)를 저장하기 위한 ’이름표’가 붙은 상자</li>
+<li><strong>머신러닝에서의 변수</strong>:
+<ul>
+<li>데이터셋의 한 칸에 들어가는 값을 의미</li>
+<li>예를 들어, 한 학생의 ‘공부 시간’이나 ’시험 점수’</li>
+</ul></li>
+<li><strong>자료형 (Data Types)</strong>: 변수에 담는 데이터의 형태
+<ul>
+<li><code>int</code>: <strong>정수</strong> (e.g., 92, -5, 0)</li>
+<li><code>float</code>: <strong>실수</strong> (소수점이 있는 숫자, e.g., 10.5, 3.14)</li>
+<li><code>str</code>: <strong>문자열</strong> (따옴표로 감싼 글자들, e.g., “Kim”, “Pass”)</li>
+<li><code>bool</code>: <strong>불리언</strong> (참/거짓 두 가지만 표현, e.g., <code>True</code>, <code>False</code>)</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># '한 학생'의 데이터를 변수에 저장해봅시다.
+
+# 1. '공부 시간' 이라는 이름표(변수)에 10.5 라는 실수(float) 값을 저장
+study_hours = 10.5
+
+# 2. '시험 점수' 라는 이름표(변수)에 92 라는 정수(int) 값을 저장
+exam_score = 92
+
+# 저장된 값 확인
+print("공부 시간:", study_hours)
+print("시험 점수:", exam_score)
+
+# type() 함수로 변수의 자료형 확인
+print("\n'study_hours' 변수의 자료형:", type(study_hours))
+print("'exam_score' 변수의 자료형:", type(exam_score))</code></pre><pre class="notebook-output">공부 시간: 10.5
+시험 점수: 92
+
+'study_hours' 변수의 자료형: &lt;class 'float'&gt;
+'exam_score' 변수의 자료형: &lt;class 'int'&gt;
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 학생의 추가 정보 저장
+
+# '학생 이름' 이라는 변수에 "Kim" 이라는 문자열(str) 값을 저장
+student_name = "Kim"
+
+# '합격 여부' 라는 변수에 True 라는 불리언(bool) 값을 저장
+is_passed = True
+
+# 저장된 값 확인
+print("학생 이름:", student_name)
+print("합격 여부:", is_passed)
+
+# 자료형 확인
+print("\n'student_name' 변수의 자료형:", type(student_name))
+print("'is_passed' 변수의 자료형:", type(is_passed))</code></pre><pre class="notebook-output">학생 이름: Kim
+합격 여부: True
+
+'student_name' 변수의 자료형: &lt;class 'str'&gt;
+'is_passed' 변수의 자료형: &lt;class 'bool'&gt;
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 변수는 계산에도 활용할 수 있습니다.
+# 예를 들어, 이 학생이 5점짜리 보너스 문제를 맞혔다고 가정해봅시다.
+
+print("기존 점수:", exam_score)
+
+# 기존 점수에 5를 더해서 새로운 점수로 업데이트
+final_score = exam_score + 5
+
+print("최종 점수:", final_score)</code></pre><pre class="notebook-output">기존 점수: 92
+최종 점수: 97
+</pre></section><section class="notebook-cell">
+<h2 id="모듈-3-데이터셋을-담는-그릇-자료구조">🧺 모듈 3: 데이터셋을 담는 그릇, 자료구조</h2>
+<p>여러 학생의 데이터를 한 번에 다루려면 어떻게 해야 할까요?</p>
+<p>여러 개의 값을 하나의 변수에 담을 수 있는 더 큰 그릇, <strong>자료구조</strong>가 필요합니다.</p>
+<h3 id="리스트-list">1. 리스트 (List)</h3>
+<ul>
+<li><strong>정의</strong>:
+<ul>
+<li>여러 개의 값을 <strong>순서대로</strong> 저장하는 자료구조</li>
+<li>대괄호<code>[]</code>로 구분</li>
+</ul></li>
+<li><strong>머신러닝에서의 리스트</strong>: 데이터를 순서대로 묶어 처리할 때 유용</li>
+<li><strong>예시</strong>: 모든 학생의 ‘공부 시간’ / ‘시험점수’ 리스트</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 여러 학생의 '공부 시간'과 '시험 점수' 데이터를 리스트로 만들어 봅시다.
+study_hours_list = [2.0, 4.5, 6.0, 8.5, 10.0]
+exam_scores_list = [65, 78, 85, 95, 98]
+
+print("공부 시간 리스트:", study_hours_list)
+print("시험 점수 리스트:", exam_scores_list)
+
+# 리스트는 '순서'가 있기 때문에, 인덱스(index)로 특정 값에 접근할 수 있습니다.
+# 파이썬은 0부터 숫자를 셉니다!
+print("\n첫 번째 학생의 공부 시간:", study_hours_list[0])
+print("세 번째 학생의 시험 점수:", exam_scores_list[2])
+
+# len() 함수로 리스트에 몇 개의 데이터가 있는지 확인할 수 있습니다.
+print("\n총 학생 수:", len(study_hours_list))</code></pre><pre class="notebook-output">공부 시간 리스트: [2.0, 4.5, 6.0, 8.5, 10.0]
+시험 점수 리스트: [65, 78, 85, 95, 98]
+
+첫 번째 학생의 공부 시간: 2.0
+세 번째 학생의 시험 점수: 85
+
+총 학생 수: 5
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 새로운 학생의 데이터가 추가되었다고 가정해봅시다.
+# .append()를 이용해 리스트의 맨 뒤에 값을 추가할 수 있습니다.
+
+print("추가 전 공부 시간 리스트:", study_hours_list)
+
+study_hours_list.append(12.0)
+exam_scores_list.append(100)
+
+print("추가 후 공부 시간 리스트:", study_hours_list)
+print("추가 후 총 학생 수:", len(study_hours_list))</code></pre><pre class="notebook-output">추가 전 공부 시간 리스트: [2.0, 4.5, 6.0, 8.5, 10.0]
+추가 후 공부 시간 리스트: [2.0, 4.5, 6.0, 8.5, 10.0, 12.0]
+추가 후 총 학생 수: 6
+</pre></section><section class="notebook-cell">
+<h3 id="딕셔너리-dictionary">2. 딕셔너리 (Dictionary)</h3>
+<ul>
+<li><strong>정의</strong>:
+<ul>
+<li>’키(Key)’와 ’값(Value)’을 하나의 쌍으로 묶어서 저장하는 자료구조</li>
+<li>중괄호<code>{}</code>로 구분</li>
+<li>순서가 없음</li>
+</ul></li>
+<li><strong>머신러닝에서의 딕셔너리</strong>: 데이터간 관계에 따라 묶어 처리할 때 유용</li>
+<li><strong>예시</strong>: 한 학생의 ‘이름’, ‘공부 시간’, ‘시험 점수’, ’합격 여부’를 모두 담고 있는 정보 묶음</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 한 학생의 모든 정보를 딕셔너리로 만들어 봅시다.
+student_A_info = {
+    'name': 'Park',
+    'study_hours': 8.5,
+    'exam_score': 95,
+    'is_passed': True
+}
+
+print("학생 A의 정보:", student_A_info)
+
+# 딕셔너리는 순서(index) 대신 '키(Key)'를 이용해 값에 접근합니다.
+print("\n학생 A의 이름:", student_A_info['name'])
+print("학생 A의 시험 점수:", student_A_info['exam_score'])</code></pre><pre class="notebook-output">학생 A의 정보: {'name': 'Park', 'study_hours': 8.5, 'exam_score': 95, 'is_passed': True}
+
+학생 A의 이름: Park
+학생 A의 시험 점수: 95
+</pre></section><section class="notebook-cell">
+<h3 id="최종-형태-리스트와-딕셔너리의-조합">최종 형태: 리스트와 딕셔너리의 조합</h3>
+<ul>
+<li>머신러닝에서 다루는 대부분의 데이터는 <strong>‘딕셔너리의 리스트’</strong> 또는 <strong>‘리스트의 딕셔너리’</strong> 형태로 표현</li>
+<li>특히 <strong>“각 학생의 정보(딕셔너리)들을 하나의 리스트로 묶는”</strong> 방식은 가장 흔하게 사용
+<ul>
+<li>마치 엑셀의 표와 같은 형태</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 여러 학생의 정보(딕셔너리)를 하나의 리스트로 묶어 전체 데이터셋을 표현
+full_dataset = [
+    { 'name': 'Kim', 'study_hours': 2.0, 'exam_score': 65, 'is_passed': True },
+    { 'name': 'Lee', 'study_hours': 4.5, 'exam_score': 78, 'is_passed': True },
+    { 'name': 'Park', 'study_hours': 8.5, 'exam_score': 95, 'is_passed': True },
+    { 'name': 'Choi', 'study_hours': 1.5, 'exam_score': 55, 'is_passed': False }
+]
+
+# 첫 번째 학생('Kim')의 정보에 접근하기
+first_student = full_dataset[0]
+print("첫 번째 학생의 정보:", first_student)
+
+# 첫 번째 학생의 '시험 점수'에만 접근하기
+first_student_score = full_dataset[0]['exam_score']
+print("첫 번째 학생의 시험 점수:", first_student_score)</code></pre><pre class="notebook-output">첫 번째 학생의 정보: {'name': 'Kim', 'study_hours': 2.0, 'exam_score': 65, 'is_passed': True}
+첫 번째 학생의 시험 점수: 65
+</pre></section><section class="notebook-cell">
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+</section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Long Short Term Memory | 인공지능응용 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Long Short Term Memory", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/lstm-gru/L19_LSTM&GRU.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="인공지능응용: Long Short Term Memory." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/ai-applications/lstm-gru/L19_LSTM&amp;GRU.preview.html" rel="canonical"/><meta content="Long Short Term Memory | 인공지능응용 · 광운대학교 NiiL" property="og:title"/><meta content="인공지능응용: Long Short Term Memory." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/ai-applications/lstm-gru/L19_LSTM&amp;GRU.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="Long Short Term Memory | 인공지능응용 · 광운대학교 NiiL" name="twitter:title"/><meta content="인공지능응용: Long Short Term Memory." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/ai-applications/lstm-gru/L19_LSTM&GRU.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/lstm-gru/L19_LSTM&GRU.preview.html", "name": "Long Short Term Memory | 인공지능응용 · 광운대학교 NiiL", "description": "인공지능응용: Long Short Term Memory.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>Long Short Term Memory</h1><nav class="notebook-actions"><a download="" href="L19_LSTM%26GRU.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/lstm-gru/L19_LSTM%26GRU.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+</section><section class="notebook-cell">
+<h3 id="inports">Inports</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# for reproducibility
+torch.manual_seed(100)</code></pre><pre class="notebook-output">&lt;torch._C.Generator at 0x7f816f1319d0&gt;</pre></section><section class="notebook-cell">
+<h3 id="data-construction">1 Data Construction</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># Dictionary
+sample_sentences = ['howareyou', 'whats up?', 'iamgreat.']
+char_set = list(set(''.join(sample_sentences)))
+dic = {c: i for i, c in enumerate(char_set)}
+
+# Parameters
+dic_size = len(dic)
+input_size = dic_size
+hidden_size = dic_size * 2
+output_size = dic_size
+
+# Dataset setting
+input_batch = []
+target_batch = []
+
+for sentence in sample_sentences:
+  x_data = [dic[c] for c in sentence[:-1]]
+  x_one_hot = [np.eye(dic_size)[x] for x in x_data]
+  y_data = [dic[c] for c in sentence[1:]]
+  input_batch.append(x_one_hot)
+  target_batch.append(y_data)
+
+# To torch tensors
+X = torch.FloatTensor(np.array(input_batch))
+Y = torch.LongTensor(np.array(target_batch))
+
+print(X.shape)
+print(Y.shape)</code></pre><pre class="notebook-output">torch.Size([3, 8, 17])
+torch.Size([3, 8])
+</pre></section><section class="notebook-cell">
+<h3 id="rnn-model">2 RNN model</h3>
+<ul>
+<li>Input (입력의 형태)
+<ul>
+<li>Input type: torch.Tensor</li>
+<li>Input shape: (N x S x E)
+<ul>
+<li>N: Batch size, S: Sequence length, E: Embedding size</li>
+</ul></li>
+</ul></li>
+<li>Hidden (출력의 형태)
+<ul>
+<li>Hidden type: torch.Tensor</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># Model
+class Custom_RNN(torch.nn.Module):
+  def __init__(self, input_dim, hidden_dim, output_dim, layers):
+    super(Custom_RNN, self).__init__()
+    self.rnn = torch.nn.RNN(input_dim, hidden_dim, num_layers=layers)
+    self.fc = torch.nn.Linear(hidden_dim, output_dim, bias=True)
+
+  def forward(self, x):
+    x, _status = self.rnn(x)
+    x = self.fc(x)
+    return x
+
+learning_rate = 0.05
+training_epochs = 100
+model = Custom_RNN(input_size, hidden_size, output_size, 2)</code></pre></section><section class="notebook-cell">
+<h3 id="train">3 Train</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># define cost/loss &amp; optimizer
+criterion = nn.CrossEntropyLoss()    # Softmax
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# train
+for epoch in range(training_epochs):
+  optimizer.zero_grad()
+  outputs = model(X)
+  loss = criterion(outputs.reshape(-1, dic_size), Y.reshape(-1))
+  loss.backward()
+  optimizer.step()
+  if epoch % 10 == 9:
+    print('epoch: ',epoch, 'loss: ', loss.item())
+
+result = outputs.data.numpy().argmax(axis=2)
+for sentence in result:
+  print(''.join([char_set[c] for c in np.squeeze(sentence)]))
+</code></pre><pre class="notebook-output">epoch:  9 loss:  0.09620252251625061
+epoch:  19 loss:  0.058530014008283615
+epoch:  29 loss:  0.05801613628864288
+epoch:  39 loss:  0.05786002054810524
+epoch:  49 loss:  0.057837288826704025
+epoch:  59 loss:  0.05780743435025215
+epoch:  69 loss:  0.05780068039894104
+epoch:  79 loss:  0.05779645964503288
+epoch:  89 loss:  0.0577949695289135
+epoch:  99 loss:  0.05779321491718292
+ouareyou
+hats up?
+amgreat.
+</pre></section><section class="notebook-cell">
+<h3 id="assignment">3 Assignment</h3>
+<h3 id="다음-미완성-코드를-활용해-좀-더-긴-문장을-학습해보자">다음 미완성 코드를 활용해 좀 더 긴 문장을 학습해보자</h3>
+<ul>
+<li>Sample sentences
+<ul>
+<li>“if you want to build a ship, don’t drum up people together to”</li>
+<li>“collect wood and don’t assign them tasks and work, but rather”</li>
+<li>“teach them to long for the endless immensity of the sea.”</li>
+</ul></li>
+<li>Training data sentence
+<ul>
+<li>Shape: (N, S, E)</li>
+</ul></li>
+<li>Hidden
+<ul>
+<li>Shape: (N, S, E *2)</li>
+</ul></li>
+<li>Output
+<ul>
+<li>Shape: (N, S, E)</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# for reproducibility
+torch.manual_seed(100)
+
+# Dictionary
+sample_sentence_1 = "if you want to build a ship, don't drum up people together to "
+sample_sentence_2 = "collect wood and don't assign them tasks and work, but rather "
+sample_sentence_3 = "teach them to long for the endless immensity of the sea."
+sample_sentence = sample_sentence_1 + sample_sentence_2 + sample_sentence_3
+char_set = list(set(sample_sentence))
+dic = {c: i for i, c in enumerate(char_set)}
+
+# Parameters
+dic_size = len(dic)
+input_size = dic_size
+hidden_size = dic_size * 2
+output_size = dic_size
+unit_sequence_length = 20
+
+# Dataset setting
+input_batch = []
+target_batch = []
+"""
+  문장의 시작부터 끝까지 unit_sequence_length 만큼의 window size로 이동하며 sequence를 잘라내서, 
+  여러 개 batch로 이루어진 X와, Y dataset을 만든다
+"""
+
+# To torch tensors
+X = torch.FloatTensor(np.array(input_batch))
+Y = torch.LongTensor(np.array(target_batch))
+print(X.shape)
+print(Y.shape)
+
+# Model
+""" 
+  실습 때 사용한 모델을 기초로 해서, 
+  RNN쪽 부분을 RNN, LSTM, GRU 세 가지로 바꾸어가며 테스트해 결과 accuracy를 비교해본다
+"""
+learning_rate = 0.05
+training_epochs = 100
+model = Custom_RNN(input_size, hidden_size, output_size, 2)
+
+# define cost/loss &amp; optimizer
+criterion = nn.CrossEntropyLoss()    # Softmax
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# train
+for epoch in range(training_epochs):
+  optimizer.zero_grad()
+  outputs = model(X)
+  loss = criterion(outputs.reshape(-1, dic_size), Y.reshape(-1))
+  loss.backward()
+  optimizer.step()
+  if epoch % 10 == 9:
+    print('epoch: ',epoch, 'loss: ', loss.item())
+
+# result
+results = outputs.data.numpy().argmax(axis=2)
+"""
+  학습이 종료된 후, 학습된 모델을 이용해 문장 전체를 순차적으로 예측해 완성한 후, 
+  원본과 비교해 어느정도 일치한지 Accuracy를 계산한다.
+"""</code></pre><pre class="notebook-output">torch.Size([160, 20, 25])
+torch.Size([160, 20])
+epoch:  9 loss:  2.7191596031188965
+epoch:  19 loss:  1.671645164489746
+epoch:  29 loss:  0.6607065796852112
+epoch:  39 loss:  0.27085548639297485
+epoch:  49 loss:  0.17204250395298004
+epoch:  59 loss:  0.14130252599716187
+epoch:  69 loss:  0.12837830185890198
+epoch:  79 loss:  0.12267328053712845
+epoch:  89 loss:  0.11952614784240723
+epoch:  99 loss:  0.11799737066030502
+p you want to build a ship, don't drum up people together to collect wood and don't assign them tasks and work, but rather teach them to long for the endless immensity of the sea.
+Accuracy =  0.994413407821229
+</pre></section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/lstm-gru/L19_LSTM&amp;GRU.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

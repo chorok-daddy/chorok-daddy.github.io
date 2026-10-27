@@ -1,0 +1,5 @@
+# Preserve course data and generated notebook output bytes.
+*.csv -text -whitespace
+*.mlx -text
+*.slx -text
+*.preview.html -whitespace

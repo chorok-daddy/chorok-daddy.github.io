@@ -69,11 +69,11 @@ for file in sorted(SITE.rglob('*.html')):
         description=(f'{name}: {role}. NiiL membership history'+(f' and affiliation: {affiliation}.' if affiliation else '.')) if lang=='en' else f'{name}의 NiiL 이력과 소속 안내.'+(f' {affiliation}.' if affiliation else '')
     elif ko_path=='/niil/courses/':
         title='Open Course Materials | Ki-Baek Lee · Kwangwoon University' if lang=='en' else '공개 강의자료 | 이기백 · 광운대학교 NiiL'
-        description='AI Applications and Control Engineering I: lecture notes, exercises, notebooks and MATLAB files. Clone the course repositories or download a ZIP.' if lang=='en' else '광운대학교 이기백 교수의 인공지능응용·제어공학1 공개 강의자료. 주차별 학습자료, 실습 안내, Notebook·MATLAB 파일과 과목별 GitHub·ZIP 다운로드를 제공합니다.'
+        description='Course notes, notebooks, exercises and datasets by Ki-Baek Lee, Kwangwoon University.' if lang=='en' else '광운대학교 이기백 교수의 공개 강의자료. 과목별 학습자료, 실습 안내, Notebook·MATLAB 파일과 데이터를 제공합니다.'
     elif course:
         root=ko_path==f'/niil/courses/{course["slug"]}/'
         title=(f'{course["title"]} 공개 강의·실습 | 이기백 · 광운대학교' if root else f'{name} | {course["title"]} · 광운대학교 NiiL')
-        description=(f'광운대학교 이기백 교수의 {course["title"]} 강의. '+('PyTorch·Notebook을 활용한 인공지능 실습과 주차별 학습자료.' if course['slug']=='ai-applications' else 'MATLAB·Simulink를 활용한 제어 시스템 모델링과 응답·안정성 실습.')) if root else f'{course["title"]}: {name}. '
+        description=(f'광운대학교 이기백 교수의 {course["title"]} 강의. '+('PyTorch·Notebook을 활용한 인공지능 실습과 주차별 학습자료.' if course['slug']=='ai-applications' else ('MATLAB·Simulink를 활용한 제어 시스템 모델링과 응답·안정성 실습.' if course['slug']=='control-1' else '학습자료와 실습 파일.'))) if root else f'{course["title"]}: {name}. '
         if not root:
             paragraphs=doc.select('main p:not(.course-credit):not(.source-note)')
             if paragraphs:description+=paragraphs[0].get_text(' ',strip=True)

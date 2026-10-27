@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the isolated NiiL site from the preserved public Notion content."""
 import html, json, re, subprocess
+from urllib.parse import urlsplit,urlunsplit,unquote,quote
 from pathlib import Path
 from bs4 import BeautifulSoup, Comment
 from easter_egg import EASTER_EGG_TEXT, EASTER_EGG_HTML
@@ -10,6 +11,7 @@ SITE = ROOT / 'niil'
 subprocess.run(['python3',str(ROOT/'tools/sync_courses.py'),'--locked'],check=True)
 COURSE_INVENTORY=json.loads((ROOT/'tools/course-catalog.json').read_text())['courses']
 COURSE_CATALOG=[c for c in COURSE_INVENTORY if c['published']]
+COURSE_PATHS=json.loads((ROOT/'tools/course-paths.json').read_text())['files']
 PAGES = json.loads((SITE/'content/pages.json').read_text())
 CATALOG = json.loads((SITE/'content/projects.json').read_text())
 PROJECT_BY_ID = {p['page_id']:p for p in CATALOG}
@@ -67,6 +69,19 @@ def database(match):
     if '81' in (c[1] if c else '') and any('Details' in props(p) for p in ps):
         return '\n\n<div class="table-scroll"><table class="schedule"><thead><tr><th>Session</th><th>Format</th><th>Topic</th></tr></thead><tbody>'+''.join(f'<tr><th scope="row">{link(p)}</th><td>{esc(props(p).get("Type",""))}</td><td>{esc(props(p).get("Details",""))}</td></tr>' for p in ps)+'</tbody></table></div>\n\n'
     return '\n\n'+cards(ps)+'\n\n'
+def course_source_link(value):
+    u=urlsplit(value)
+    if u.netloc!='github.com':return value
+    for prefix in ('/chorok-daddy/courses/tree/main/','/chorok-daddy/courses/blob/main/'):
+        if not u.path.startswith(prefix):continue
+        old=unquote(u.path[len(prefix):]).rstrip('/')
+        target=COURSE_PATHS.get(old)
+        if not target:
+            if old.startswith('courses/') and len(old.split('/'))==2:target=old.split('/')[1]
+            else:target=next((new.split('/')[0] for path,new in COURSE_PATHS.items() if path.startswith(old+'/')),None)
+        if target:return urlunsplit((u.scheme,u.netloc,prefix+quote(target,safe='/'),u.query,u.fragment))
+    return value
+
 def render(p):
     text=p['body']
     text=re.sub(r'<database\b([^>]*)>[\s\S]*?</database>',database,text)
@@ -82,12 +97,7 @@ def render(p):
     result=subprocess.run(['pandoc','-f','markdown+raw_html+markdown_in_html_blocks','-t','html','--wrap=none'],input=text,text=True,capture_output=True,check=True).stdout
     soup=BeautifulSoup(result,'html.parser')
     for a in soup.find_all('a',href=True):
-        for course in COURSE_INVENTORY:
-            old=course.get('previous_materials_path')
-            if not old:continue
-            for prefix in ('chorok-daddy/courses/tree/main/','chorok-daddy/courses/blob/main/','chorok-daddy/courses/main/'):
-                a['href']=a['href'].replace(prefix+old+'/',prefix+course['source']+'/materials/')
-                if a['href'].endswith(prefix+old):a['href']=a['href'][:-len(old)]+course['source']+'/materials'
+        a['href']=course_source_link(a['href'])
         if a['href'].startswith('https://www.ntis.go.kr/'):
             a['target']='_blank'
             a['rel']=['noopener','noreferrer']
@@ -158,12 +168,7 @@ def heading(kicker,title,desc=''):
 def shell(title,content,section='',desc='',path='/niil/'):
     soup=BeautifulSoup(content,'html.parser')
     for a in soup.find_all('a',href=True):
-        for course in COURSE_INVENTORY:
-            old=course.get('previous_materials_path')
-            if not old:continue
-            for prefix in ('chorok-daddy/courses/tree/main/','chorok-daddy/courses/blob/main/','chorok-daddy/courses/main/'):
-                a['href']=a['href'].replace(prefix+old+'/',prefix+course['source']+'/materials/')
-                if a['href'].endswith(prefix+old):a['href']=a['href'][:-len(old)]+course['source']+'/materials'
+        a['href']=course_source_link(a['href'])
         if a['href'].startswith('/niil/') and not a['href'].startswith('/niil/assets/'):
             a['href']=local(a['href'])
         if a['href'].startswith('/') or a['href'].startswith('#'):
@@ -360,7 +365,9 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     if course_file == SITE/'courses/index.html':continue
     doc=BeautifulSoup(course_file.read_text(),'html.parser')
     if not doc.body or doc.select_one('meta[http-equiv="refresh"]'):continue
-    for old in doc.select('[data-niil-frame], .skip-site'):old.decompose()
+    for old in doc.select('[data-niil-frame], [data-course-shell], .skip-site'):old.decompose()
+    for comment in list(doc.find_all(string=lambda x:isinstance(x,Comment))):
+        if 'NiiL Easter Egg' in comment:comment.extract()
     for home in doc.select('a[href="/niil/courses/"]'):
         sibling=home.find_next_sibling()
         if sibling and sibling.get_text(strip=True)=='/':sibling.decompose()
@@ -380,7 +387,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.h1.get_text() if doc.h1 else doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
     doc.head.append(structured)
     if course and course_file == SITE/'courses'/course['slug']/'index.html':
-        repo='https://github.com/chorok-daddy/courses/tree/main/courses/'+course['slug']
+        repo='https://github.com/chorok-daddy/courses/tree/main/'+course['slug']
         downloads=BeautifulSoup('<nav class="course-distribution" data-niil-frame aria-label="자료 가져오기"><a href="'+repo+'">GitHub ↗</a></nav>','html.parser')
         main.h1.insert_after(downloads)
     frame=BeautifulSoup(shell(doc.h1.get_text() if doc.h1 else doc.title.get_text(),'','teaching'),'html.parser')

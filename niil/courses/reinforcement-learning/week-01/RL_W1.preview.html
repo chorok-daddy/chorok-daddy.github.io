@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>1주차: 강화학습 소개 | 전기공학을 위한 강화학습 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "1주차: 강화학습 소개", "url": "https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="전기공학을 위한 강화학습: 1주차: 강화학습 소개." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html" rel="canonical"/><meta content="1주차: 강화학습 소개 | 전기공학을 위한 강화학습 · 광운대학교 NiiL" property="og:title"/><meta content="전기공학을 위한 강화학습: 1주차: 강화학습 소개." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="1주차: 강화학습 소개 | 전기공학을 위한 강화학습 · 광운대학교 NiiL" name="twitter:title"/><meta content="전기공학을 위한 강화학습: 1주차: 강화학습 소개." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html", "name": "1주차: 강화학습 소개 | 전기공학을 위한 강화학습 · 광운대학교 NiiL", "description": "전기공학을 위한 강화학습: 1주차: 강화학습 소개.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>1주차: 강화학습 소개</h1><nav class="notebook-actions"><a download="" href="RL_W1.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/reinforcement-learning/week-01/RL_W1.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+</section><section class="notebook-cell">
+<h2 id="강화학습이란">[강화학습이란?]</h2>
+</section><section class="notebook-cell">
+<h3 id="정의">1. 정의</h3>
+<ul>
+<li>에이전트(Agent)가 환경(Environment)과 상호작용하며 보상(Reward)을 최대화하는 정책(Policy)을 학습하는 기계학습 분야</li>
+</ul>
+</section><section class="notebook-cell">
+<h3 id="주요-구성-요소">2. 주요 구성 요소</h3>
+<ul>
+<li><strong>에이전트 (Agent)</strong>
+<ul>
+<li>정책(Policy)에 따라 행동(Action)을 선택하는 주체</li>
+</ul></li>
+<li><strong>환경 (Environment)</strong>
+<ul>
+<li>에이전트의 행동을 받아 다음 상태(State)와 보상(Reward)을 반환하는 외부 세계</li>
+</ul></li>
+<li><strong>상태 (State)</strong>
+<ul>
+<li>환경이 현재 상황을 묘사하는 정보
+<ul>
+<li>예시: CartPole 환경에서 카트의 위치와 막대의 기울기</li>
+</ul></li>
+</ul></li>
+<li><strong>행동 (Action)</strong>
+<ul>
+<li>에이전트가 환경에 취할 수 있는 선택
+<ul>
+<li>예시: 카트를 왼쪽 또는 오른쪽으로 이동</li>
+</ul></li>
+</ul></li>
+<li><strong>보상 (Reward)</strong>
+<ul>
+<li>행동의 결과로 환경으로부터 받는 실수 값 신호</li>
+<li>목표: 이 보상을 최대화하는 방향으로 정책을 개선</li>
+</ul></li>
+<li><strong>정책 (Policy)</strong>
+<ul>
+<li>정의: 주어진 상태에서 어떤 행동을 취할지 결정하는 전략</li>
+<li>확률론적 정책: π(a|s)는 상태 s에서 행동 a를 선택할 확률을 의미</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell">
+<h3 id="강화학습의-목표">3. 강화학습의 목표</h3>
+<ul>
+<li>정의: 누적 보상(Return)의 기대값을 최대화하는 정책을 찾는 것</li>
+<li>학습 과정
+<ul>
+<li>환경 초기화 및 상태 수신</li>
+<li>행동 수행</li>
+<li>다음 상태와 보상 획득</li>
+<li>에피소드 구성 및 반복</li>
+<li>정책 점진적 개선</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell">
+<h3 id="정책policy">4. 정책(Policy)</h3>
+<ul>
+<li>정의: 주어진 상태에서 어떤 행동을 취할지 결정하는 전략</li>
+<li>특징: 상태를 입력받아 행동의 확률 분포를 출력</li>
+<li>확률론적 정책: π(a|s)는 상태 s에서 행동 a를 선택할 확률을 의미</li>
+</ul>
+</section><section class="notebook-cell">
+<h3 id="개발-환경-설정-google-colab-기준">5. 개발 환경 설정 (Google Colab 기준)</h3>
+<ul>
+<li>특징: 클라우드 기반 Jupyter 노트북 환경</li>
+<li>장점: 별도의 설정 없이 PyTorch와 OpenAI Gym 사용 가능</li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="실습1-pytorch-텐서-기본-사용법">[실습1: PyTorch 텐서 기본 사용법]</h2>
+<h3 id="텐서-생성">1. 텐서 생성</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import torch
+
+x = torch.tensor([1.0, 2.0, 3.0])
+print(x)</code></pre><pre class="notebook-output">tensor([1., 2., 3.])
+</pre></section><section class="notebook-cell">
+<h3 id="텐서-연산">2. 텐서 연산</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>y = x + 2
+print(y)</code></pre><pre class="notebook-output">tensor([3., 4., 5.])
+</pre></section><section class="notebook-cell">
+<h3 id="텐서의-크기-확인">3. 텐서의 크기 확인</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>print(x.shape)</code></pre><pre class="notebook-output">torch.Size([3])
+</pre></section><section class="notebook-cell">
+<h3 id="텐서의-데이터-타입-확인">4. 텐서의 데이터 타입 확인</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>print(x.dtype)</code></pre><pre class="notebook-output">torch.float32
+</pre></section><section class="notebook-cell">
+<h3 id="텐서의-연산-기기-확인">5. 텐서의 연산 기기 확인</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>print(x.device)</code></pre><pre class="notebook-output">cpu
+</pre></section><section class="notebook-cell">
+<h3 id="gpu-사용-가능-여부-확인-및-텐서-이동">6. GPU 사용 가능 여부 확인 및 텐서 이동</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>if torch.cuda.is_available():
+  device = torch.device('cuda')
+  print('GPU 사용 가능')
+else:
+  device = torch.device('cpu')
+  print('GPU 사용 불가능')
+
+x = x.to(device)
+print(x.device)</code></pre><pre class="notebook-output">GPU 사용 불가능
+cpu
+</pre></section><section class="notebook-cell">
+<h3 id="텐서의-요소-접근-및-변경">7. 텐서의 요소 접근 및 변경</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>print(x[0])
+
+x[0] = 10.0
+print(x)</code></pre><pre class="notebook-output">tensor(1.)
+tensor([10.,  2.,  3.])
+</pre></section><section class="notebook-cell">
+<h3 id="텐서의-차원-변경">8. 텐서의 차원 변경</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>x = x.view(1, 3)  # (1, 3) 형태로 변환
+print(x)
+print(x.shape)</code></pre><pre class="notebook-output">tensor([[10.,  2.,  3.]])
+torch.Size([1, 3])
+</pre></section><section class="notebook-cell">
+<h3 id="텐서의-요소-합-및-최대값">9. 텐서의 요소 합 및 최대값</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>print(torch.sum(x))
+
+print(torch.max(x))</code></pre><pre class="notebook-output">tensor(15.)
+tensor(10.)
+</pre></section><section class="notebook-cell">
+<h3 id="텐서를-numpy-배열로-변환-및-numpy-배열을-텐서로-변환">10. 텐서를 NumPy 배열로 변환 및 NumPy 배열을 텐서로 변환</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>x_np = x.cpu().numpy()
+print(x_np)
+
+x_tensor = torch.from_numpy(x_np)
+print(x_tensor)</code></pre><pre class="notebook-output">[[10.  2.  3.]]
+tensor([[10.,  2.,  3.]])
+</pre></section><section class="notebook-cell">
+<h2 id="실습2-cartpole-v1-환경에서-랜덤-행동-수행하기">[실습2: CartPole-v1 환경에서 랜덤 행동 수행하기]</h2>
+<ul>
+<li>OpenAI Gym의 CartPole-v1 환경에서 에이전트가 랜덤한 행동을 수행</li>
+</ul>
+</section><section class="notebook-cell">
+<h3 id="라이브러리-임포트">1. 라이브러리 임포트</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import gymnasium as gym
+import random</code></pre></section><section class="notebook-cell">
+<h3 id="환경-생성">2. 환경 생성</h3>
+<ul>
+<li>OpenAI Gym의 <code>make()</code> 함수를 사용하여 CartPole-v1 환경을 생성</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>env = gym.make('CartPole-v1')</code></pre></section><section class="notebook-cell">
+<h3 id="에피소드-반복">3. 에피소드 반복</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>for episode in range(10):  # 10개의 에피소드 실행
+    observation, _ = env.reset()  # 환경 초기화
+    done = False  # 에피소드가 종료되었는지 여부를 나타내는 변수를 초기화
+    total_reward = 0  # 에피소드 동안 얻은 총 보상을 초기화
+
+    while not done:  # 에피소드가 종료될 때까지 반복
+        # 랜덤 행동 선택 (0: 왼쪽, 1: 오른쪽)
+        action = env.action_space.sample()
+
+        # 선택한 행동을 환경에 적용하고 다음 상태, 보상, 에피소드 종료 여부, 추가 정보를 반환
+        next_observation, reward, terminated, truncated, info = env.step(action)
+        done = terminated or truncated
+
+        total_reward += reward  # 에피소드 동안 얻은 보상을 누적
+        observation = next_observation  # 다음 상태 업데이트
+
+        # 환경 렌더링 (주석 처리하면 렌더링을 비활성화)
+        # env.render()
+
+    # 각 에피소드가 종료될 때 총 보상을 출력
+    print(f"Episode {episode + 1}: Total reward = {total_reward}")</code></pre><pre class="notebook-output">Episode 1: Total reward = 30.0
+Episode 2: Total reward = 19.0
+Episode 3: Total reward = 38.0
+Episode 4: Total reward = 19.0
+Episode 5: Total reward = 14.0
+Episode 6: Total reward = 18.0
+Episode 7: Total reward = 11.0
+Episode 8: Total reward = 33.0
+Episode 9: Total reward = 51.0
+Episode 10: Total reward = 33.0
+</pre></section><section class="notebook-cell">
+<h3 id="환경-종료">4. 환경 종료</h3>
+<ul>
+<li>모든 에피소드가 종료되면 환경을 종료</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>env.close()</code></pre></section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>문장을 Tensor로 바꾸어 감정 분류하기 | 인공지능응용 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "문장을 Tensor로 바꾸어 감정 분류하기", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="인공지능응용: 문장을 Tensor로 바꾸어 감정 분류하기. 본인 사본을 만들어 실행·수정·기록하세요." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.preview.html" rel="canonical"/><meta content="문장을 Tensor로 바꾸어 감정 분류하기 | 인공지능응용 · 광운대학교 NiiL" property="og:title"/><meta content="인공지능응용: 문장을 Tensor로 바꾸어 감정 분류하기. 본인 사본을 만들어 실행·수정·기록하세요." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="문장을 Tensor로 바꾸어 감정 분류하기 | 인공지능응용 · 광운대학교 NiiL" name="twitter:title"/><meta content="인공지능응용: 문장을 Tensor로 바꾸어 감정 분류하기. 본인 사본을 만들어 실행·수정·기록하세요." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.preview.html", "name": "문장을 Tensor로 바꾸어 감정 분류하기 | 인공지능응용 · 광운대학교 NiiL", "description": "인공지능응용: 문장을 Tensor로 바꾸어 감정 분류하기. 본인 사본을 만들어 실행·수정·기록하세요.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>문장을 Tensor로 바꾸어 감정 분류하기</h1><nav class="notebook-actions"><a download="" href="AI_Applications_Week14_TextClassification.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<p><strong>본인 사본을 만들어 실행·수정·기록하세요.</strong></p>
+<ul>
+<li>이름: <strong>⟦여기에 직접 입력⟧</strong></li>
+<li>학번: <strong>⟦여기에 직접 입력⟧</strong></li>
+</ul>
+<p><a href="index.html">자습 자료</a> · <a href="assignment.html">실습 안내</a></p>
+<h2 id="시작-전-셀-실행과-작성-방법">시작 전 · 셀 실행과 작성 방법</h2>
+<p>Code Cell 왼쪽 ▶ 또는 Shift+Enter로 실행하세요. 위에서부터 진행하며 앞 셀의 변수를 사용합니다. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong> 부분을 바꾸고 Shift+Enter로 표시합니다. 기준 예제는 실행해서 이해하고, <strong>직접 작성</strong> 셀에 본인 코드를 작성하세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
+<p>Colab에 필요한 라이브러리가 없으면 새 런타임에서 환경을 확인하고 조교에게 문의하세요. CPU로 기준 실습을 실행할 수 있습니다. 외부 다운로드가 필요한 실습은 해당 셀에 표시합니다.</p>
+</section><section class="notebook-cell">
+<h2 id="토큰과-vocabulary">1. 토큰과 vocabulary</h2>
+<p>문장을 Token과 Index로 바꾸고, Embedding 벡터를 평균 내어 문장 전체의 감정을 분류합니다. 이번 실습은 전처리 결과와 문장 벡터를 직접 확인하기 위해 짧은 영어 Review와 학습 가능한 Mean Embedding 모델을 사용합니다. 강의의 IMDB 예제처럼 문장 전체에 Label을 붙이되, 여기서는 세 감정으로 분류합니다. Mean Pooling은 단어 순서를 생략한 단순한 모델이며 RNN을 반드시 대체해야 해서 사용하는 것은 아닙니다. TorchText 설치, Hugging Face 로그인, 외부 모델 다운로드는 필요하지 않습니다. PAD=0은 빈자리, UNK=1은 모르는 단어입니다. screen size okay처럼 짧은 문장에 PAD가 붙는지 확인하고, 아래 비교 셀에서도 다른 길이의 문장을 사용합니다.</p>
+<h3 id="a.-기준-예제-먼저-읽고-실행">A. 기준 예제 · 먼저 읽고 실행</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import sys, numpy as np, matplotlib.pyplot as plt
+import torch
+from torch import nn
+import torch.nn.functional as F
+torch.manual_seed(42)
+torch.set_num_threads(2)
+print('Python:', sys.version.split()[0], '| PyTorch:', torch.__version__)
+texts=['great battery bright screen','bad camera slow app','screen size okay','love fast performance','broken charger bad battery','average design normal speed','great sound love display','slow response hate keyboard','okay price average camera','bright screen fast app','bad screen okay battery','normal package average manual']
+y=torch.tensor([2,0,1,2,0,1,2,0,1,2,0,1]);names=['negative','neutral','positive']
+words=sorted(set(' '.join(texts).split()));vocab={'&lt;PAD&gt;':0,'&lt;UNK&gt;':1,**{w:i+2 for i,w in enumerate(words)}}
+def encode(text_list):
+    rows=[[vocab.get(w,1) for w in text.lower().split()] or [1] for text in text_list]
+    length=max(map(len,rows));return torch.tensor([r+[0]*(length-len(r)) for r in rows])
+X=encode(texts);print(texts[:3],X[:3],X.shape)
+
+
+# 길이가 다를 때 PAD가 들어가는 위치를 확인합니다.
+probe_texts = ['great battery', 'great battery bright screen', 'excellent battery']
+probe_ids = encode(probe_texts)
+for text, row in zip(probe_texts, probe_ids):
+    print('text:', text, '| tokens:', text.lower().split(), '| ids:', row.tolist())
+assert (probe_ids[0] == 0).sum().item() == 2
+assert probe_ids[2, 0].item() == vocab['&lt;UNK&gt;']
+</code></pre></section><section class="notebook-cell">
+<h3 id="b.-직접-수행">B. 직접 수행</h3>
+<p>길이가 다른 두 영어 문장을 Token → Index → PAD 순서로 출력하세요. 학습 사전에 없는 단어 하나를 넣고 UNK 위치를 확인하세요. 실제 단어를 뜻하는 Index와 PAD·UNK를 구별해 적으세요.</p>
+<p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 설명은 아래 Text Cell에 기록하세요.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
+# 코드가 길어지면 Code Cell을 추가해도 됩니다.
+</code></pre></section><section class="notebook-cell">
+<h3 id="c.-직접-기록-이-text-cell을-더블클릭해서-수정">C. 직접 기록 · 이 Text Cell을 더블클릭해서 수정</h3>
+<ul>
+<li>확인하거나 바꾼 조건: <strong>⟦직접 입력⟧</strong></li>
+<li>실행 전 예상: <strong>⟦직접 입력⟧</strong></li>
+<li>실제 출력/그래프에서 확인한 값: <strong>⟦직접 입력⟧</strong></li>
+<li>예상과 차이 및 설명: <strong>⟦직접 입력⟧</strong></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="마스킹한-평균과-학습">2. 마스킹한 평균과 학습</h2>
+<p>12·13주차는 문자마다 다음 문자를 예측했지만 이번에는 문장당 감정 하나를 예측합니다. Embedding (N,S,16)에서 PAD를 뺀 평균 (N,16)을 만든 뒤 Linear로 (N,3) Logit을 만듭니다. Embedding과 Linear는 함께 학습되며, 이 모델에는 RNN/LSTM이 없습니다.</p>
+<h3 id="a.-기준-예제-먼저-읽고-실행-1">A. 기준 예제 · 먼저 읽고 실행</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>class TextClassifier(nn.Module):
+    def __init__(self):
+        super().__init__();self.embedding=nn.Embedding(len(vocab),16,padding_idx=0);self.fc=nn.Linear(16,3)
+    def forward(self,ids):
+        mask=(ids!=0).unsqueeze(-1);embedded=self.embedding(ids)
+        pooled=(embedded*mask).sum(1)/mask.sum(1).clamp_min(1)
+        return self.fc(pooled)
+model=TextClassifier();opt=torch.optim.Adam(model.parameters(),lr=.02);losses=[];accuracies=[]
+for epoch in range(200):
+    logits=model(X);loss=F.cross_entropy(logits,y)
+    opt.zero_grad();loss.backward();opt.step()
+    losses.append(loss.item());accuracies.append((logits.argmax(1)==y).float().mean().item())
+print('Training accuracy:',accuracies[-1]);print('embedding:',model.embedding(X).shape)
+fig,axes=plt.subplots(1,2,figsize=(9,3));axes[0].plot(losses);axes[1].plot(accuracies)
+for ax,yl in zip(axes,['Loss','Accuracy']):ax.set(xlabel='Epoch',ylabel=yl);ax.grid()
+plt.show()
+
+
+# 같은 문장을 혼자 처리하거나 긴 문장과 묶어도, 올바른 평균은 같습니다.
+with torch.no_grad():
+    single_ids = encode(['great battery'])
+    batch_ids = encode(['great battery', 'great battery bright screen'])
+    single_vector = model.embedding(single_ids).mean(1)[0]
+    batch_embedded = model.embedding(batch_ids)
+    mask = (batch_ids != 0).unsqueeze(-1)
+    masked_vectors = (batch_embedded * mask).sum(1) / mask.sum(1).clamp_min(1)
+    plain_vectors = batch_embedded.mean(1)
+    print('PAD 포함 평균과 차이:', (single_vector - plain_vectors[0]).abs().max().item())
+    print('PAD 제외 평균과 차이:', (single_vector - masked_vectors[0]).abs().max().item())
+    assert torch.allclose(single_vector, masked_vectors[0], atol=1e-6)
+    order_logits = model(encode(['great battery', 'battery great']))
+    print('단어 순서를 바꾼 두 문장의 Logit:', order_logits)
+    assert torch.allclose(order_logits[0], order_logits[1], atol=1e-6)
+</code></pre></section><section class="notebook-cell">
+<h3 id="b.-직접-수행-1">B. 직접 수행</h3>
+<p>같은 문장을 혼자 처리할 때와 긴 문장과 묶을 때 Mask 적용 전후 평균을 비교하세요. 다른 문장 쌍으로 한 번 더 확인하고, 단어 순서를 바꾼 두 문장의 Logit도 비교하세요. 차이가 0에 가까운 이유를 설명하세요.</p>
+<p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 설명은 아래 Text Cell에 기록하세요.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
+# 코드가 길어지면 Code Cell을 추가해도 됩니다.
+</code></pre></section><section class="notebook-cell">
+<h3 id="c.-직접-기록-이-text-cell을-더블클릭해서-수정-1">C. 직접 기록 · 이 Text Cell을 더블클릭해서 수정</h3>
+<ul>
+<li>확인하거나 바꾼 조건: <strong>⟦직접 입력⟧</strong></li>
+<li>실행 전 예상: <strong>⟦직접 입력⟧</strong></li>
+<li>실제 출력/그래프에서 확인한 값: <strong>⟦직접 입력⟧</strong></li>
+<li>예상과 차이 및 설명: <strong>⟦직접 입력⟧</strong></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="새-문장-직접-입력">3. 새 문장 직접 입력</h2>
+<p>아래 my_reviews의 빈 문자열 세 개를 영어 문장으로 바꾸세요. 처음에는 texts에 나온 단어를 사용하고, 다음에는 모르는 단어 하나를 추가합니다. 의도한 감정과 모델 예측이 다르더라도 결과와 이유를 기록하세요. 미작성 상태에서는 예측을 건너뜁니다.</p>
+<h3 id="a.-기준-예제-먼저-읽고-실행-2">A. 기준 예제 · 먼저 읽고 실행</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>my_reviews=['','',''] # 직접 입력: 긍정 1개, 중립 1개, 부정 1개
+if all(s.strip() for s in my_reviews):
+    model.eval()
+    with torch.no_grad():prob=model(encode(my_reviews)).softmax(1)
+    for text,p in zip(my_reviews,prob):print(text,'=&gt;',names[p.argmax().item()],p.tolist())
+else:
+    print('my_reviews의 빈 문자열 3개를 직접 작성하고 이 셀을 다시 실행하세요.')
+print('unknown token example:',encode(['excellent battery']))
+
+</code></pre></section><section class="notebook-cell">
+<h3 id="b.-직접-수행-2">B. 직접 수행</h3>
+<p>학습 사전의 단어로 긍정·중립·부정 영어 문장을 하나씩 my_reviews에 작성하세요. 의도한 감정·예측·Token을 기록하고, 모르는 단어나 문장부호를 하나 넣어 UNK 처리를 확인하세요. 예측이 의도와 달라도 원인을 설명하면 됩니다.</p>
+<p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 설명은 아래 Text Cell에 기록하세요.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
+# 코드가 길어지면 Code Cell을 추가해도 됩니다.
+</code></pre></section><section class="notebook-cell">
+<h3 id="c.-직접-기록-이-text-cell을-더블클릭해서-수정-2">C. 직접 기록 · 이 Text Cell을 더블클릭해서 수정</h3>
+<ul>
+<li>확인하거나 바꾼 조건: <strong>⟦직접 입력⟧</strong></li>
+<li>실행 전 예상: <strong>⟦직접 입력⟧</strong></li>
+<li>실제 출력/그래프에서 확인한 값: <strong>⟦직접 입력⟧</strong></li>
+<li>예상과 차이 및 설명: <strong>⟦직접 입력⟧</strong></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="반복-숙달-실행-전에-판단하기">반복 숙달 · 실행 전에 판단하기</h2>
+<p>앞의 직접 수행에서 비교한 조건 세 가지를 이 표에 정리하세요. 이미 수행한 실험을 다시 추가할 필요는 없습니다. 비교가 부족하면 한 조건만 바꾸어 보충하세요.</p>
+<table>
+<thead>
+<tr>
+<th>변경 조건</th>
+<th>예상 shape/수치/결과</th>
+<th>실제 결과</th>
+<th>오류가 있었다면 원인</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⟦직접 입력 1⟧</td>
+<td>⟦직접 입력⟧</td>
+<td>⟦직접 입력⟧</td>
+<td>⟦직접 입력⟧</td>
+</tr>
+<tr>
+<td>⟦직접 입력 2⟧</td>
+<td>⟦직접 입력⟧</td>
+<td>⟦직접 입력⟧</td>
+<td>⟦직접 입력⟧</td>
+</tr>
+<tr>
+<td>⟦직접 입력 3⟧</td>
+<td>⟦직접 입력⟧</td>
+<td>⟦직접 입력⟧</td>
+<td>⟦직접 입력⟧</td>
+</tr>
+</tbody>
+</table>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 반복 실험 코드
+</code></pre></section><section class="notebook-cell">
+<h2 id="선택-실습-오류의-원인을-찾아-코드-고치기">선택 실습 · 오류의 원인을 찾아 코드 고치기</h2>
+<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다.</p>
+<h2 id="저장-전-확인">저장 전 확인</h2>
+<ol type="1">
+<li>직접 작성란을 채우고 필요한 출력·그래프를 남겼는지 확인합니다.</li>
+<li>새 런타임에서 위에서부터 실행해 숨은 변수 의존성을 확인합니다.</li>
+<li>수정한 파일을 본인 Drive에 저장하고 <code>.ipynb</code>로 내려받습니다.</li>
+<li>제출 파일명·기한은 블로그의 이번 주 실습 안내와 최신 KLAS 공지를 따릅니다.</li>
+</ol>
+</section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

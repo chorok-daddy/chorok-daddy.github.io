@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "repository": "https://github.com/chorok-daddy/courses",
   "branch": "main",
   "courses": [
@@ -7,111 +7,110 @@
       "slug": "ai-applications",
       "title": "인공지능응용",
       "title_en": "AI Applications",
-      "source": "courses/ai-applications",
+      "source": "ai-applications",
       "web_path": "/niil/courses/ai-applications/",
       "published": true,
       "offering": {
         "academic_year": 2026,
         "semester": 2,
         "status": "offered",
-        "source": "courses/ai-applications/lessons/schedule.html"
+        "source": "ai-applications/schedule.html"
       },
-      "materials": true,
       "lessons": [
         {
           "slug": "course-orientation",
           "week": 1,
           "title": "AI 실습에서 무엇을 확인할까?",
-          "source": "courses/ai-applications/lessons/course-orientation/index.html",
+          "source": "ai-applications/course-orientation/index.html",
           "lab": null,
-          "assignment_source": "courses/ai-applications/lessons/course-orientation/assignment.html",
+          "assignment_source": "ai-applications/course-orientation/assignment.html",
           "kind": "orientation"
         },
         {
           "slug": "notebook-literacy",
           "week": 2,
           "title": "Notebook으로 생각을 설명하기",
-          "source": "courses/ai-applications/lessons/notebook-literacy/index.html",
-          "lab": "courses/ai-applications/lessons/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/notebook-literacy/assignment.html"
+          "source": "ai-applications/notebook-literacy/index.html",
+          "lab": "ai-applications/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
+          "assignment_source": "ai-applications/notebook-literacy/assignment.html"
         },
         {
           "slug": "python-arrays-plots",
           "week": 3,
           "title": "배열을 읽고 그래프로 설명하기",
-          "source": "courses/ai-applications/lessons/python-arrays-plots/index.html",
-          "lab": "courses/ai-applications/lessons/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/python-arrays-plots/assignment.html",
+          "source": "ai-applications/python-arrays-plots/index.html",
+          "lab": "ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
+          "assignment_source": "ai-applications/python-arrays-plots/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "git-collaboration",
           "week": 4,
           "title": "변경 이력을 남기며 협업하기",
-          "source": "courses/ai-applications/lessons/git-collaboration/index.html",
-          "lab": "courses/ai-applications/lessons/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/git-collaboration/assignment.html",
+          "source": "ai-applications/git-collaboration/index.html",
+          "lab": "ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
+          "assignment_source": "ai-applications/git-collaboration/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "tensor-manipulation",
           "week": 5,
           "title": "Tensor의 모양을 먼저 예측하기",
-          "source": "courses/ai-applications/lessons/tensor-manipulation/index.html",
-          "lab": "courses/ai-applications/lessons/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/tensor-manipulation/assignment.html",
+          "source": "ai-applications/tensor-manipulation/index.html",
+          "lab": "ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
+          "assignment_source": "ai-applications/tensor-manipulation/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "linear-regression",
           "week": 6,
           "title": "예측 오차를 줄이며 직선 찾기",
-          "source": "courses/ai-applications/lessons/linear-regression/index.html",
-          "lab": "courses/ai-applications/lessons/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/linear-regression/assignment.html",
+          "source": "ai-applications/linear-regression/index.html",
+          "lab": "ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
+          "assignment_source": "ai-applications/linear-regression/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "logistic-regression",
           "week": 7,
           "title": "확률과 분류 기준을 구분하기",
-          "source": "courses/ai-applications/lessons/logistic-regression/index.html",
-          "lab": "courses/ai-applications/lessons/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/logistic-regression/assignment.html",
+          "source": "ai-applications/logistic-regression/index.html",
+          "lab": "ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
+          "assignment_source": "ai-applications/logistic-regression/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "multiclass",
           "week": 8,
           "title": "클래스별 점수를 읽고 비교하기",
-          "source": "courses/ai-applications/lessons/multiclass/index.html",
-          "lab": "courses/ai-applications/lessons/multiclass/AI_Applications_Week08_Multiclass.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/multiclass/assignment.html",
+          "source": "ai-applications/multiclass/index.html",
+          "lab": "ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
+          "assignment_source": "ai-applications/multiclass/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "convolution",
           "week": 9,
           "title": "CNN의 층별 연산과 Tensor shape",
-          "source": "courses/ai-applications/lessons/convolution/index.html",
-          "lab": "courses/ai-applications/lessons/convolution/AI_Applications_Week09_Convolution.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/convolution/assignment.html",
+          "source": "ai-applications/convolution/index.html",
+          "lab": "ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
+          "assignment_source": "ai-applications/convolution/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "image-classification",
           "week": 10,
           "title": "이미지 분류의 학습과 평가 분리하기",
-          "source": "courses/ai-applications/lessons/image-classification/index.html",
-          "lab": "courses/ai-applications/lessons/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/image-classification/assignment.html",
+          "source": "ai-applications/image-classification/index.html",
+          "lab": "ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
+          "assignment_source": "ai-applications/image-classification/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "midterm",
           "week": 11,
           "title": "중간시험 · 핵심 정리와 준비",
-          "source": "courses/ai-applications/lessons/midterm/index.html",
+          "source": "ai-applications/midterm/index.html",
           "lab": null,
           "assignment_source": null,
           "kind": "exam"
@@ -120,89 +119,801 @@
           "slug": "recurrent",
           "week": 12,
           "title": "이전 문자를 기억하며 다음 문자 예측하기",
-          "source": "courses/ai-applications/lessons/recurrent/index.html",
-          "lab": "courses/ai-applications/lessons/recurrent/AI_Applications_Week12_Recurrent.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/recurrent/assignment.html",
+          "source": "ai-applications/recurrent/index.html",
+          "lab": "ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
+          "assignment_source": "ai-applications/recurrent/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "lstm-gru",
           "week": 13,
           "title": "긴 글을 나누어 다음 문자 예측하기",
-          "source": "courses/ai-applications/lessons/lstm-gru/index.html",
-          "lab": "courses/ai-applications/lessons/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/lstm-gru/assignment.html",
+          "source": "ai-applications/lstm-gru/index.html",
+          "lab": "ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
+          "assignment_source": "ai-applications/lstm-gru/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "text-classification",
           "week": 14,
           "title": "문장을 Tensor로 바꾸어 감정 분류하기",
-          "source": "courses/ai-applications/lessons/text-classification/index.html",
-          "lab": "courses/ai-applications/lessons/text-classification/AI_Applications_Week14_TextClassification.ipynb",
-          "assignment_source": "courses/ai-applications/lessons/text-classification/assignment.html",
+          "source": "ai-applications/text-classification/index.html",
+          "lab": "ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
+          "assignment_source": "ai-applications/text-classification/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "final-exam",
           "week": 15,
           "title": "기말시험 · 핵심 정리와 준비",
-          "source": "courses/ai-applications/lessons/final-exam/index.html",
+          "source": "ai-applications/final-exam/index.html",
           "lab": null,
           "assignment_source": null,
           "kind": "exam"
         }
       ],
-      "previous_materials_path": "AI_Appl"
+      "chapters": [
+        {
+          "slug": "course-orientation",
+          "title": "AI 실습에서 무엇을 확인할까?",
+          "files": [
+            "ai-applications/course-orientation/assignment.html",
+            "ai-applications/course-orientation/index.html"
+          ]
+        },
+        {
+          "slug": "notebook-literacy",
+          "title": "Notebook으로 생각을 설명하기",
+          "files": [
+            "ai-applications/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
+            "ai-applications/notebook-literacy/HW1_Markdown.ipynb",
+            "ai-applications/notebook-literacy/L01_Colab_Tutorial.ipynb",
+            "ai-applications/notebook-literacy/L02_Markdown_Tutorial.ipynb",
+            "ai-applications/notebook-literacy/assignment.html",
+            "ai-applications/notebook-literacy/index.html"
+          ]
+        },
+        {
+          "slug": "python-arrays-plots",
+          "title": "배열을 읽고 그래프로 설명하기",
+          "files": [
+            "ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
+            "ai-applications/python-arrays-plots/HW2_python_basic.ipynb",
+            "ai-applications/python-arrays-plots/L03_python_basic_l1.ipynb",
+            "ai-applications/python-arrays-plots/L04_python_basic_l2.ipynb",
+            "ai-applications/python-arrays-plots/L05_python_basic_l3.ipynb",
+            "ai-applications/python-arrays-plots/L06_python_basic_l4.ipynb",
+            "ai-applications/python-arrays-plots/L07_python_numpy.ipynb",
+            "ai-applications/python-arrays-plots/L08_python_matplotlib.ipynb",
+            "ai-applications/python-arrays-plots/assignment.html",
+            "ai-applications/python-arrays-plots/automation.jpg",
+            "ai-applications/python-arrays-plots/index.html"
+          ]
+        },
+        {
+          "slug": "git-collaboration",
+          "title": "변경 이력을 남기며 협업하기",
+          "files": [
+            "ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
+            "ai-applications/git-collaboration/Github_branch.ipynb",
+            "ai-applications/git-collaboration/L09_Github_Repository_Basic.ipynb",
+            "ai-applications/git-collaboration/L10_Github_Collaborator.ipynb",
+            "ai-applications/git-collaboration/L11_Github_Fork_PR.ipynb",
+            "ai-applications/git-collaboration/assignment.html",
+            "ai-applications/git-collaboration/index.html"
+          ]
+        },
+        {
+          "slug": "tensor-manipulation",
+          "title": "Tensor의 모양을 먼저 예측하기",
+          "files": [
+            "ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
+            "ai-applications/tensor-manipulation/L12_Tensor_Manipulation.ipynb",
+            "ai-applications/tensor-manipulation/assignment.html",
+            "ai-applications/tensor-manipulation/index.html"
+          ]
+        },
+        {
+          "slug": "linear-regression",
+          "title": "예측 오차를 줄이며 직선 찾기",
+          "files": [
+            "ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
+            "ai-applications/linear-regression/L13_Linear_Regression.ipynb",
+            "ai-applications/linear-regression/assignment.html",
+            "ai-applications/linear-regression/data_linear_regression.csv",
+            "ai-applications/linear-regression/example-data_linear_regression.csv",
+            "ai-applications/linear-regression/index.html"
+          ]
+        },
+        {
+          "slug": "logistic-regression",
+          "title": "확률과 분류 기준을 구분하기",
+          "files": [
+            "ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
+            "ai-applications/logistic-regression/L14_Logistic_Regression.ipynb",
+            "ai-applications/logistic-regression/assignment.html",
+            "ai-applications/logistic-regression/data_logistic_regression.csv",
+            "ai-applications/logistic-regression/example-data_logistic_regression.csv",
+            "ai-applications/logistic-regression/index.html"
+          ]
+        },
+        {
+          "slug": "multiclass",
+          "title": "클래스별 점수를 읽고 비교하기",
+          "files": [
+            "ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
+            "ai-applications/multiclass/L15_Multinomial_Classification.ipynb",
+            "ai-applications/multiclass/assignment.html",
+            "ai-applications/multiclass/data_multinomial_classification.csv",
+            "ai-applications/multiclass/example-data_multinomial_classification.csv",
+            "ai-applications/multiclass/index.html"
+          ]
+        },
+        {
+          "slug": "convolution",
+          "title": "CNN의 층별 연산과 Tensor shape",
+          "files": [
+            "ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
+            "ai-applications/convolution/L16_Convolutional_Neural_Network.ipynb",
+            "ai-applications/convolution/assignment.html",
+            "ai-applications/convolution/index.html"
+          ]
+        },
+        {
+          "slug": "image-classification",
+          "title": "이미지 분류의 학습과 평가 분리하기",
+          "files": [
+            "ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
+            "ai-applications/image-classification/L17_Image_Classification_MNIST.ipynb",
+            "ai-applications/image-classification/assignment.html",
+            "ai-applications/image-classification/index.html",
+            "ai-applications/image-classification/train_data/gray/0_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/100_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/101_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/102_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/103_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/104_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/105_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/106_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/107_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/108_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/109_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/10_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/110_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/111_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/112_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/113_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/114_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/115_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/116_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/117_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/118_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/119_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/11_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/120_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/121_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/122_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/123_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/124_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/125_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/126_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/127_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/128_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/129_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/12_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/130_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/131_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/132_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/133_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/134_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/135_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/136_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/137_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/138_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/139_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/13_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/140_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/141_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/142_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/143_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/144_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/145_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/146_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/147_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/148_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/149_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/14_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/150_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/151_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/152_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/153_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/154_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/155_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/156_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/157_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/158_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/159_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/15_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/160_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/161_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/162_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/163_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/164_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/165_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/166_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/167_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/168_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/169_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/16_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/170_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/171_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/172_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/173_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/174_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/175_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/176_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/177_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/178_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/179_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/17_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/180_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/181_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/182_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/183_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/184_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/185_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/186_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/187_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/188_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/189_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/18_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/190_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/191_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/192_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/193_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/194_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/195_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/196_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/197_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/198_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/199_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/19_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/1_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/200_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/201_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/202_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/203_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/204_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/205_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/206_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/207_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/208_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/209_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/20_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/210_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/211_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/212_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/213_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/214_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/215_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/216_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/217_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/218_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/219_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/21_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/220_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/221_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/222_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/223_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/224_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/225_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/226_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/227_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/228_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/229_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/22_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/230_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/231_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/232_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/233_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/234_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/235_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/236_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/237_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/238_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/239_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/23_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/240_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/241_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/242_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/243_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/244_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/245_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/246_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/247_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/248_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/249_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/24_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/250_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/251_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/252_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/253_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/254_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/255_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/256_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/257_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/258_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/259_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/25_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/260_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/261_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/262_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/263_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/264_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/265_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/266_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/267_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/268_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/269_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/26_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/270_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/271_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/272_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/273_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/274_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/275_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/276_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/277_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/278_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/279_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/27_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/280_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/281_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/282_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/283_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/284_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/285_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/286_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/287_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/288_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/289_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/28_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/290_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/291_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/292_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/293_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/294_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/295_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/296_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/297_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/298_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/299_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/29_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/2_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/300_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/301_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/302_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/303_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/304_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/305_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/306_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/307_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/308_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/309_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/30_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/310_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/311_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/312_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/313_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/314_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/315_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/316_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/317_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/318_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/319_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/31_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/320_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/321_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/322_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/323_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/324_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/325_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/326_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/327_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/32_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/33_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/34_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/35_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/36_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/37_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/38_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/39_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/3_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/40_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/41_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/42_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/43_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/44_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/45_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/46_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/47_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/48_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/49_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/4_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/50_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/51_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/52_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/53_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/54_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/55_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/56_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/57_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/58_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/59_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/5_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/60_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/61_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/62_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/63_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/64_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/65_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/66_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/67_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/68_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/69_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/6_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/70_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/71_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/72_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/73_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/74_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/75_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/76_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/77_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/78_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/79_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/7_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/80_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/81_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/82_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/83_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/84_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/85_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/86_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/87_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/88_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/89_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/8_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/90_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/91_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/92_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/93_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/94_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/95_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/96_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/97_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/98_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/99_0.jpeg",
+            "ai-applications/image-classification/train_data/gray/9_0.jpeg",
+            "ai-applications/image-classification/train_data/red/328_1.jpeg",
+            "ai-applications/image-classification/train_data/red/329_1.jpeg",
+            "ai-applications/image-classification/train_data/red/330_1.jpeg",
+            "ai-applications/image-classification/train_data/red/331_1.jpeg",
+            "ai-applications/image-classification/train_data/red/332_1.jpeg",
+            "ai-applications/image-classification/train_data/red/333_1.jpeg",
+            "ai-applications/image-classification/train_data/red/334_1.jpeg",
+            "ai-applications/image-classification/train_data/red/335_1.jpeg",
+            "ai-applications/image-classification/train_data/red/336_1.jpeg",
+            "ai-applications/image-classification/train_data/red/337_1.jpeg",
+            "ai-applications/image-classification/train_data/red/338_1.jpeg",
+            "ai-applications/image-classification/train_data/red/339_1.jpeg",
+            "ai-applications/image-classification/train_data/red/340_1.jpeg",
+            "ai-applications/image-classification/train_data/red/341_1.jpeg",
+            "ai-applications/image-classification/train_data/red/342_1.jpeg",
+            "ai-applications/image-classification/train_data/red/343_1.jpeg",
+            "ai-applications/image-classification/train_data/red/344_1.jpeg",
+            "ai-applications/image-classification/train_data/red/345_1.jpeg",
+            "ai-applications/image-classification/train_data/red/346_1.jpeg",
+            "ai-applications/image-classification/train_data/red/347_1.jpeg",
+            "ai-applications/image-classification/train_data/red/348_1.jpeg",
+            "ai-applications/image-classification/train_data/red/349_1.jpeg",
+            "ai-applications/image-classification/train_data/red/350_1.jpeg",
+            "ai-applications/image-classification/train_data/red/351_1.jpeg",
+            "ai-applications/image-classification/train_data/red/352_1.jpeg",
+            "ai-applications/image-classification/train_data/red/353_1.jpeg",
+            "ai-applications/image-classification/train_data/red/354_1.jpeg",
+            "ai-applications/image-classification/train_data/red/355_1.jpeg",
+            "ai-applications/image-classification/train_data/red/356_1.jpeg",
+            "ai-applications/image-classification/train_data/red/357_1.jpeg",
+            "ai-applications/image-classification/train_data/red/358_1.jpeg",
+            "ai-applications/image-classification/train_data/red/359_1.jpeg",
+            "ai-applications/image-classification/train_data/red/360_1.jpeg",
+            "ai-applications/image-classification/train_data/red/361_1.jpeg",
+            "ai-applications/image-classification/train_data/red/362_1.jpeg",
+            "ai-applications/image-classification/train_data/red/363_1.jpeg",
+            "ai-applications/image-classification/train_data/red/364_1.jpeg",
+            "ai-applications/image-classification/train_data/red/365_1.jpeg",
+            "ai-applications/image-classification/train_data/red/366_1.jpeg",
+            "ai-applications/image-classification/train_data/red/367_1.jpeg",
+            "ai-applications/image-classification/train_data/red/368_1.jpeg",
+            "ai-applications/image-classification/train_data/red/369_1.jpeg",
+            "ai-applications/image-classification/train_data/red/370_1.jpeg",
+            "ai-applications/image-classification/train_data/red/371_1.jpeg",
+            "ai-applications/image-classification/train_data/red/372_1.jpeg",
+            "ai-applications/image-classification/train_data/red/373_1.jpeg",
+            "ai-applications/image-classification/train_data/red/374_1.jpeg",
+            "ai-applications/image-classification/train_data/red/375_1.jpeg",
+            "ai-applications/image-classification/train_data/red/376_1.jpeg",
+            "ai-applications/image-classification/train_data/red/377_1.jpeg",
+            "ai-applications/image-classification/train_data/red/378_1.jpeg",
+            "ai-applications/image-classification/train_data/red/379_1.jpeg",
+            "ai-applications/image-classification/train_data/red/380_1.jpeg",
+            "ai-applications/image-classification/train_data/red/381_1.jpeg",
+            "ai-applications/image-classification/train_data/red/382_1.jpeg",
+            "ai-applications/image-classification/train_data/red/383_1.jpeg",
+            "ai-applications/image-classification/train_data/red/384_1.jpeg",
+            "ai-applications/image-classification/train_data/red/385_1.jpeg",
+            "ai-applications/image-classification/train_data/red/386_1.jpeg",
+            "ai-applications/image-classification/train_data/red/387_1.jpeg",
+            "ai-applications/image-classification/train_data/red/388_1.jpeg",
+            "ai-applications/image-classification/train_data/red/389_1.jpeg",
+            "ai-applications/image-classification/train_data/red/390_1.jpeg",
+            "ai-applications/image-classification/train_data/red/391_1.jpeg",
+            "ai-applications/image-classification/train_data/red/392_1.jpeg",
+            "ai-applications/image-classification/train_data/red/393_1.jpeg",
+            "ai-applications/image-classification/train_data/red/394_1.jpeg",
+            "ai-applications/image-classification/train_data/red/395_1.jpeg",
+            "ai-applications/image-classification/train_data/red/396_1.jpeg",
+            "ai-applications/image-classification/train_data/red/397_1.jpeg",
+            "ai-applications/image-classification/train_data/red/398_1.jpeg",
+            "ai-applications/image-classification/train_data/red/399_1.jpeg",
+            "ai-applications/image-classification/train_data/red/400_1.jpeg",
+            "ai-applications/image-classification/train_data/red/401_1.jpeg",
+            "ai-applications/image-classification/train_data/red/402_1.jpeg",
+            "ai-applications/image-classification/train_data/red/403_1.jpeg",
+            "ai-applications/image-classification/train_data/red/404_1.jpeg",
+            "ai-applications/image-classification/train_data/red/405_1.jpeg",
+            "ai-applications/image-classification/train_data/red/406_1.jpeg",
+            "ai-applications/image-classification/train_data/red/407_1.jpeg",
+            "ai-applications/image-classification/train_data/red/408_1.jpeg",
+            "ai-applications/image-classification/train_data/red/409_1.jpeg",
+            "ai-applications/image-classification/train_data/red/410_1.jpeg",
+            "ai-applications/image-classification/train_data/red/411_1.jpeg",
+            "ai-applications/image-classification/train_data/red/412_1.jpeg",
+            "ai-applications/image-classification/train_data/red/413_1.jpeg",
+            "ai-applications/image-classification/train_data/red/414_1.jpeg",
+            "ai-applications/image-classification/train_data/red/415_1.jpeg",
+            "ai-applications/image-classification/train_data/red/416_1.jpeg",
+            "ai-applications/image-classification/train_data/red/417_1.jpeg",
+            "ai-applications/image-classification/train_data/red/418_1.jpeg",
+            "ai-applications/image-classification/train_data/red/419_1.jpeg",
+            "ai-applications/image-classification/train_data/red/420_1.jpeg",
+            "ai-applications/image-classification/train_data/red/421_1.jpeg",
+            "ai-applications/image-classification/train_data/red/422_1.jpeg",
+            "ai-applications/image-classification/train_data/red/423_1.jpeg",
+            "ai-applications/image-classification/train_data/red/424_1.jpeg",
+            "ai-applications/image-classification/train_data/red/425_1.jpeg",
+            "ai-applications/image-classification/train_data/red/426_1.jpeg",
+            "ai-applications/image-classification/train_data/red/427_1.jpeg",
+            "ai-applications/image-classification/train_data/red/428_1.jpeg",
+            "ai-applications/image-classification/train_data/red/429_1.jpeg",
+            "ai-applications/image-classification/train_data/red/430_1.jpeg",
+            "ai-applications/image-classification/train_data/red/431_1.jpeg",
+            "ai-applications/image-classification/train_data/red/432_1.jpeg",
+            "ai-applications/image-classification/train_data/red/433_1.jpeg",
+            "ai-applications/image-classification/train_data/red/434_1.jpeg",
+            "ai-applications/image-classification/train_data/red/435_1.jpeg",
+            "ai-applications/image-classification/train_data/red/436_1.jpeg",
+            "ai-applications/image-classification/train_data/red/437_1.jpeg",
+            "ai-applications/image-classification/train_data/red/438_1.jpeg",
+            "ai-applications/image-classification/train_data/red/439_1.jpeg",
+            "ai-applications/image-classification/train_data/red/440_1.jpeg",
+            "ai-applications/image-classification/train_data/red/441_1.jpeg",
+            "ai-applications/image-classification/train_data/red/442_1.jpeg",
+            "ai-applications/image-classification/train_data/red/443_1.jpeg",
+            "ai-applications/image-classification/train_data/red/444_1.jpeg",
+            "ai-applications/image-classification/train_data/red/445_1.jpeg",
+            "ai-applications/image-classification/train_data/red/446_1.jpeg",
+            "ai-applications/image-classification/train_data/red/447_1.jpeg",
+            "ai-applications/image-classification/train_data/red/448_1.jpeg",
+            "ai-applications/image-classification/train_data/red/449_1.jpeg",
+            "ai-applications/image-classification/train_data/red/450_1.jpeg",
+            "ai-applications/image-classification/train_data/red/451_1.jpeg",
+            "ai-applications/image-classification/train_data/red/452_1.jpeg",
+            "ai-applications/image-classification/train_data/red/453_1.jpeg",
+            "ai-applications/image-classification/train_data/red/454_1.jpeg",
+            "ai-applications/image-classification/train_data/red/455_1.jpeg",
+            "ai-applications/image-classification/train_data/red/456_1.jpeg",
+            "ai-applications/image-classification/train_data/red/457_1.jpeg",
+            "ai-applications/image-classification/train_data/red/458_1.jpeg",
+            "ai-applications/image-classification/train_data/red/459_1.jpeg",
+            "ai-applications/image-classification/train_data/red/460_1.jpeg",
+            "ai-applications/image-classification/train_data/red/461_1.jpeg",
+            "ai-applications/image-classification/train_data/red/462_1.jpeg",
+            "ai-applications/image-classification/train_data/red/463_1.jpeg",
+            "ai-applications/image-classification/train_data/red/464_1.jpeg",
+            "ai-applications/image-classification/train_data/red/465_1.jpeg",
+            "ai-applications/image-classification/train_data/red/466_1.jpeg",
+            "ai-applications/image-classification/train_data/red/467_1.jpeg",
+            "ai-applications/image-classification/train_data/red/468_1.jpeg",
+            "ai-applications/image-classification/train_data/red/469_1.jpeg",
+            "ai-applications/image-classification/train_data/red/470_1.jpeg",
+            "ai-applications/image-classification/train_data/red/471_1.jpeg",
+            "ai-applications/image-classification/train_data/red/472_1.jpeg",
+            "ai-applications/image-classification/train_data/red/473_1.jpeg",
+            "ai-applications/image-classification/train_data/red/474_1.jpeg",
+            "ai-applications/image-classification/train_data/red/475_1.jpeg",
+            "ai-applications/image-classification/train_data/red/476_1.jpeg",
+            "ai-applications/image-classification/train_data/red/477_1.jpeg",
+            "ai-applications/image-classification/train_data/red/478_1.jpeg",
+            "ai-applications/image-classification/train_data/red/479_1.jpeg",
+            "ai-applications/image-classification/train_data/red/480_1.jpeg",
+            "ai-applications/image-classification/train_data/red/481_1.jpeg",
+            "ai-applications/image-classification/train_data/red/482_1.jpeg",
+            "ai-applications/image-classification/train_data/red/483_1.jpeg",
+            "ai-applications/image-classification/train_data/red/484_1.jpeg",
+            "ai-applications/image-classification/train_data/red/485_1.jpeg",
+            "ai-applications/image-classification/train_data/red/486_1.jpeg",
+            "ai-applications/image-classification/train_data/red/487_1.jpeg",
+            "ai-applications/image-classification/train_data/red/488_1.jpeg",
+            "ai-applications/image-classification/train_data/red/489_1.jpeg",
+            "ai-applications/image-classification/train_data/red/490_1.jpeg",
+            "ai-applications/image-classification/train_data/red/491_1.jpeg",
+            "ai-applications/image-classification/train_data/red/492_1.jpeg",
+            "ai-applications/image-classification/train_data/red/493_1.jpeg",
+            "ai-applications/image-classification/train_data/red/494_1.jpeg",
+            "ai-applications/image-classification/train_data/red/495_1.jpeg",
+            "ai-applications/image-classification/train_data/red/496_1.jpeg",
+            "ai-applications/image-classification/train_data/red/497_1.jpeg",
+            "ai-applications/image-classification/train_data/red/498_1.jpeg",
+            "ai-applications/image-classification/train_data/red/499_1.jpeg",
+            "ai-applications/image-classification/train_data/red/500_1.jpeg",
+            "ai-applications/image-classification/train_data/red/501_1.jpeg",
+            "ai-applications/image-classification/train_data/red/502_1.jpeg",
+            "ai-applications/image-classification/train_data/red/503_1.jpeg",
+            "ai-applications/image-classification/train_data/red/504_1.jpeg",
+            "ai-applications/image-classification/train_data/red/505_1.jpeg",
+            "ai-applications/image-classification/train_data/red/506_1.jpeg",
+            "ai-applications/image-classification/train_data/red/507_1.jpeg",
+            "ai-applications/image-classification/train_data/red/508_1.jpeg",
+            "ai-applications/image-classification/train_data/red/509_1.jpeg",
+            "ai-applications/image-classification/train_data/red/510_1.jpeg",
+            "ai-applications/image-classification/train_data/red/511_1.jpeg",
+            "ai-applications/image-classification/train_data/red/512_1.jpeg",
+            "ai-applications/image-classification/train_data/red/513_1.jpeg",
+            "ai-applications/image-classification/train_data/red/514_1.jpeg",
+            "ai-applications/image-classification/train_data/red/515_1.jpeg",
+            "ai-applications/image-classification/train_data/red/516_1.jpeg",
+            "ai-applications/image-classification/train_data/red/517_1.jpeg",
+            "ai-applications/image-classification/train_data/red/518_1.jpeg",
+            "ai-applications/image-classification/train_data/red/519_1.jpeg",
+            "ai-applications/image-classification/train_data/red/520_1.jpeg",
+            "ai-applications/image-classification/train_data/red/521_1.jpeg",
+            "ai-applications/image-classification/train_data/red/522_1.jpeg",
+            "ai-applications/image-classification/train_data/red/523_1.jpeg",
+            "ai-applications/image-classification/train_data/red/524_1.jpeg",
+            "ai-applications/image-classification/train_data/red/525_1.jpeg",
+            "ai-applications/image-classification/train_data/red/526_1.jpeg",
+            "ai-applications/image-classification/train_data/red/527_1.jpeg",
+            "ai-applications/image-classification/train_data/red/528_1.jpeg",
+            "ai-applications/image-classification/train_data/red/529_1.jpeg",
+            "ai-applications/image-classification/train_data/red/530_1.jpeg",
+            "ai-applications/image-classification/train_data/red/531_1.jpeg",
+            "ai-applications/image-classification/train_data/red/532_1.jpeg",
+            "ai-applications/image-classification/train_data/red/533_1.jpeg",
+            "ai-applications/image-classification/train_data/red/534_1.jpeg",
+            "ai-applications/image-classification/train_data/red/535_1.jpeg",
+            "ai-applications/image-classification/train_data/red/536_1.jpeg",
+            "ai-applications/image-classification/train_data/red/537_1.jpeg",
+            "ai-applications/image-classification/train_data/red/538_1.jpeg",
+            "ai-applications/image-classification/train_data/red/539_1.jpeg",
+            "ai-applications/image-classification/train_data/red/540_1.jpeg",
+            "ai-applications/image-classification/train_data/red/541_1.jpeg",
+            "ai-applications/image-classification/train_data/red/542_1.jpeg",
+            "ai-applications/image-classification/train_data/red/543_1.jpeg",
+            "ai-applications/image-classification/train_data/red/544_1.jpeg",
+            "ai-applications/image-classification/train_data/red/545_1.jpeg",
+            "ai-applications/image-classification/train_data/red/546_1.jpeg",
+            "ai-applications/image-classification/train_data/red/547_1.jpeg",
+            "ai-applications/image-classification/train_data/red/548_1.jpeg",
+            "ai-applications/image-classification/train_data/red/549_1.jpeg",
+            "ai-applications/image-classification/train_data/red/550_1.jpeg"
+          ]
+        },
+        {
+          "slug": "midterm",
+          "title": "중간시험 · 핵심 정리와 준비",
+          "files": [
+            "ai-applications/midterm/index.html"
+          ]
+        },
+        {
+          "slug": "recurrent",
+          "title": "이전 문자를 기억하며 다음 문자 예측하기",
+          "files": [
+            "ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
+            "ai-applications/recurrent/L18_Recurrent_Neural_Network.ipynb",
+            "ai-applications/recurrent/assignment.html",
+            "ai-applications/recurrent/index.html"
+          ]
+        },
+        {
+          "slug": "lstm-gru",
+          "title": "긴 글을 나누어 다음 문자 예측하기",
+          "files": [
+            "ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
+            "ai-applications/lstm-gru/L19_LSTM&GRU.ipynb",
+            "ai-applications/lstm-gru/assignment.html",
+            "ai-applications/lstm-gru/index.html"
+          ]
+        },
+        {
+          "slug": "text-classification",
+          "title": "문장을 Tensor로 바꾸어 감정 분류하기",
+          "files": [
+            "ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
+            "ai-applications/text-classification/L20_Appendix_Text_Classification.ipynb",
+            "ai-applications/text-classification/L20_Text_Classification.ipynb",
+            "ai-applications/text-classification/assignment.html",
+            "ai-applications/text-classification/index.html"
+          ]
+        },
+        {
+          "slug": "final-exam",
+          "title": "기말시험 · 핵심 정리와 준비",
+          "files": [
+            "ai-applications/final-exam/index.html"
+          ]
+        }
+      ]
     },
     {
       "slug": "control-1",
       "title": "제어공학1",
       "title_en": "Control Engineering I",
-      "source": "courses/control-1",
+      "source": "control-1",
       "web_path": "/niil/courses/control-1/",
       "published": true,
       "offering": {
         "academic_year": 2026,
         "semester": 2,
         "status": "offered",
-        "source": "courses/control-1/lessons/schedule.html"
+        "source": "control-1/schedule.html"
       },
-      "materials": false,
       "lessons": [
         {
           "slug": "course-setup",
           "week": 1,
           "title": "제어 시스템과 MATLAB 시작하기",
-          "source": "courses/control-1/lessons/course-setup/index.html",
-          "lab": "courses/control-1/lessons/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx",
-          "assignment_source": "courses/control-1/lessons/course-setup/assignment.html",
+          "source": "control-1/course-setup/index.html",
+          "lab": "control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx",
+          "assignment_source": "control-1/course-setup/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "physical-models",
           "week": 2,
           "title": "물리 시스템을 모델로 표현하기",
-          "source": "courses/control-1/lessons/physical-models/index.html",
-          "lab": "courses/control-1/lessons/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx",
-          "assignment_source": "courses/control-1/lessons/physical-models/assignment.html"
+          "source": "control-1/physical-models/index.html",
+          "lab": "control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx",
+          "assignment_source": "control-1/physical-models/assignment.html"
         },
         {
           "slug": "lti-laplace",
           "week": 3,
           "title": "Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지",
-          "source": "courses/control-1/lessons/lti-laplace/index.html",
-          "lab": "courses/control-1/lessons/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
-          "assignment_source": "courses/control-1/lessons/lti-laplace/assignment.html",
+          "source": "control-1/lti-laplace/index.html",
+          "lab": "control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
+          "assignment_source": "control-1/lti-laplace/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "transfer-blocks",
           "week": 4,
           "title": "Transfer Function(전달함수)와 블록을 연결하기",
-          "source": "courses/control-1/lessons/transfer-blocks/index.html",
-          "lab": "courses/control-1/lessons/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
-          "assignment_source": "courses/control-1/lessons/transfer-blocks/assignment.html",
+          "source": "control-1/transfer-blocks/index.html",
+          "lab": "control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
+          "assignment_source": "control-1/transfer-blocks/assignment.html",
           "kind": "lesson",
           "extra_files": [
             "../course-materials/control/transfer-blocks/Control_Engineering_1_Week04_Block_Model.slx"
@@ -212,34 +923,34 @@
           "slug": "state-space-one",
           "week": 5,
           "title": "상태를 선택해 행렬 모델 만들기",
-          "source": "courses/control-1/lessons/state-space-one/index.html",
-          "lab": "courses/control-1/lessons/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx",
-          "assignment_source": "courses/control-1/lessons/state-space-one/assignment.html",
+          "source": "control-1/state-space-one/index.html",
+          "lab": "control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx",
+          "assignment_source": "control-1/state-space-one/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "state-space-two",
           "week": 6,
           "title": "State Transition과 시스템 응답",
-          "source": "courses/control-1/lessons/state-space-two/index.html",
-          "lab": "courses/control-1/lessons/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
-          "assignment_source": "courses/control-1/lessons/state-space-two/assignment.html",
+          "source": "control-1/state-space-two/index.html",
+          "lab": "control-1/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
+          "assignment_source": "control-1/state-space-two/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "state-space-three",
           "week": 7,
           "title": "모델 표현을 바꾸어도 같은 응답일까?",
-          "source": "courses/control-1/lessons/state-space-three/index.html",
-          "lab": "courses/control-1/lessons/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx",
-          "assignment_source": "courses/control-1/lessons/state-space-three/assignment.html",
+          "source": "control-1/state-space-three/index.html",
+          "lab": "control-1/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx",
+          "assignment_source": "control-1/state-space-three/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "midterm",
           "week": 8,
           "title": "중간시험 · 필기와 MATLAB 준비",
-          "source": "courses/control-1/lessons/midterm/index.html",
+          "source": "control-1/midterm/index.html",
           "lab": null,
           "assignment_source": null,
           "kind": "exam"
@@ -248,172 +959,792 @@
           "slug": "feedback-one",
           "week": 9,
           "title": "Feedback(피드백)으로 이득 변화 줄이기",
-          "source": "courses/control-1/lessons/feedback-one/index.html",
-          "lab": "courses/control-1/lessons/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
-          "assignment_source": "courses/control-1/lessons/feedback-one/assignment.html",
+          "source": "control-1/feedback-one/index.html",
+          "lab": "control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
+          "assignment_source": "control-1/feedback-one/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "feedback-two",
           "week": 10,
           "title": "DC 모터의 Disturbance(외란) 경로 읽기",
-          "source": "courses/control-1/lessons/feedback-two/index.html",
-          "lab": "courses/control-1/lessons/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
-          "assignment_source": "courses/control-1/lessons/feedback-two/assignment.html",
+          "source": "control-1/feedback-two/index.html",
+          "lab": "control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
+          "assignment_source": "control-1/feedback-two/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "performance-one",
           "week": 11,
           "title": "응답 지표로 설계 결과 검증하기",
-          "source": "courses/control-1/lessons/performance-one/index.html",
-          "lab": "courses/control-1/lessons/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
-          "assignment_source": "courses/control-1/lessons/performance-one/assignment.html",
+          "source": "control-1/performance-one/index.html",
+          "lab": "control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
+          "assignment_source": "control-1/performance-one/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "performance-two",
           "week": 12,
           "title": "2차 시스템의 감쇠와 속도 조절하기",
-          "source": "courses/control-1/lessons/performance-two/index.html",
-          "lab": "courses/control-1/lessons/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
-          "assignment_source": "courses/control-1/lessons/performance-two/assignment.html",
+          "source": "control-1/performance-two/index.html",
+          "lab": "control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
+          "assignment_source": "control-1/performance-two/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "performance-three",
           "week": 13,
           "title": "P와 PI의 Steady-state Error(정상상태 오차) 비교하기",
-          "source": "courses/control-1/lessons/performance-three/index.html",
-          "lab": "courses/control-1/lessons/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
-          "assignment_source": "courses/control-1/lessons/performance-three/assignment.html",
+          "source": "control-1/performance-three/index.html",
+          "lab": "control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
+          "assignment_source": "control-1/performance-three/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "stability",
           "week": 14,
           "title": "안정성을 먼저 확인하고 성능 비교하기",
-          "source": "courses/control-1/lessons/stability/index.html",
-          "lab": "courses/control-1/lessons/stability/Control_Engineering_1_Week14_Stability.mlx",
-          "assignment_source": "courses/control-1/lessons/stability/assignment.html",
+          "source": "control-1/stability/index.html",
+          "lab": "control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
+          "assignment_source": "control-1/stability/assignment.html",
           "kind": "lesson"
         },
         {
           "slug": "final-exam",
           "week": 15,
           "title": "기말시험 · 필기와 MATLAB 준비",
-          "source": "courses/control-1/lessons/final-exam/index.html",
+          "source": "control-1/final-exam/index.html",
           "lab": null,
           "assignment_source": null,
           "kind": "exam"
         }
       ],
-      "previous_materials_path": null
+      "chapters": [
+        {
+          "slug": "course-setup",
+          "title": "제어 시스템과 MATLAB 시작하기",
+          "files": [
+            "control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx",
+            "control-1/course-setup/assignment.html",
+            "control-1/course-setup/index.html"
+          ]
+        },
+        {
+          "slug": "physical-models",
+          "title": "물리 시스템을 모델로 표현하기",
+          "files": [
+            "control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx",
+            "control-1/physical-models/assignment.html",
+            "control-1/physical-models/index.html"
+          ]
+        },
+        {
+          "slug": "lti-laplace",
+          "title": "Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지",
+          "files": [
+            "control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
+            "control-1/lti-laplace/assignment.html",
+            "control-1/lti-laplace/index.html"
+          ]
+        },
+        {
+          "slug": "transfer-blocks",
+          "title": "Transfer Function(전달함수)와 블록을 연결하기",
+          "files": [
+            "control-1/transfer-blocks/Control_Engineering_1_Week04_Block_Model.slx",
+            "control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
+            "control-1/transfer-blocks/assignment.html",
+            "control-1/transfer-blocks/index.html"
+          ]
+        },
+        {
+          "slug": "state-space-one",
+          "title": "상태를 선택해 행렬 모델 만들기",
+          "files": [
+            "control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx",
+            "control-1/state-space-one/assignment.html",
+            "control-1/state-space-one/index.html"
+          ]
+        },
+        {
+          "slug": "state-space-two",
+          "title": "State Transition과 시스템 응답",
+          "files": [
+            "control-1/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
+            "control-1/state-space-two/assignment.html",
+            "control-1/state-space-two/index.html"
+          ]
+        },
+        {
+          "slug": "state-space-three",
+          "title": "모델 표현을 바꾸어도 같은 응답일까?",
+          "files": [
+            "control-1/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx",
+            "control-1/state-space-three/assignment.html",
+            "control-1/state-space-three/index.html"
+          ]
+        },
+        {
+          "slug": "midterm",
+          "title": "중간시험 · 필기와 MATLAB 준비",
+          "files": [
+            "control-1/midterm/index.html"
+          ]
+        },
+        {
+          "slug": "feedback-one",
+          "title": "Feedback(피드백)으로 이득 변화 줄이기",
+          "files": [
+            "control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
+            "control-1/feedback-one/assignment.html",
+            "control-1/feedback-one/index.html"
+          ]
+        },
+        {
+          "slug": "feedback-two",
+          "title": "DC 모터의 Disturbance(외란) 경로 읽기",
+          "files": [
+            "control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
+            "control-1/feedback-two/assignment.html",
+            "control-1/feedback-two/index.html"
+          ]
+        },
+        {
+          "slug": "performance-one",
+          "title": "응답 지표로 설계 결과 검증하기",
+          "files": [
+            "control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
+            "control-1/performance-one/assignment.html",
+            "control-1/performance-one/index.html"
+          ]
+        },
+        {
+          "slug": "performance-two",
+          "title": "2차 시스템의 감쇠와 속도 조절하기",
+          "files": [
+            "control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
+            "control-1/performance-two/assignment.html",
+            "control-1/performance-two/index.html"
+          ]
+        },
+        {
+          "slug": "performance-three",
+          "title": "P와 PI의 Steady-state Error(정상상태 오차) 비교하기",
+          "files": [
+            "control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
+            "control-1/performance-three/assignment.html",
+            "control-1/performance-three/index.html"
+          ]
+        },
+        {
+          "slug": "stability",
+          "title": "안정성을 먼저 확인하고 성능 비교하기",
+          "files": [
+            "control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
+            "control-1/stability/assignment.html",
+            "control-1/stability/index.html"
+          ]
+        },
+        {
+          "slug": "final-exam",
+          "title": "기말시험 · 필기와 MATLAB 준비",
+          "files": [
+            "control-1/final-exam/index.html"
+          ]
+        }
+      ]
     },
     {
       "slug": "control-2",
       "title": "제어공학2",
       "title_en": "Control Engineering II",
-      "source": "courses/control-2",
+      "source": "control-2",
       "web_path": "/niil/courses/control-2/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": true,
       "lessons": [],
-      "previous_materials_path": "CSE2"
+      "chapters": [
+        {
+          "slug": "laplace-transform",
+          "title": "라플라스 변환",
+          "files": [
+            "control-2/laplace-transform/W5_1_SymbolicCalculation_LaplaceTransform.ipynb"
+          ],
+          "order": 0
+        },
+        {
+          "slug": "transfer-functions",
+          "title": "전달함수",
+          "files": [
+            "control-2/transfer-functions/W5_2_TransferFunction.ipynb"
+          ],
+          "order": 1
+        },
+        {
+          "slug": "system-modeling",
+          "title": "시스템 모델링",
+          "files": [
+            "control-2/system-modeling/Cruise.png",
+            "control-2/system-modeling/Motor.png",
+            "control-2/system-modeling/W6_SystemModeling.ipynb"
+          ],
+          "order": 2
+        },
+        {
+          "slug": "pid-control",
+          "title": "PID 제어",
+          "files": [
+            "control-2/pid-control/PID.png",
+            "control-2/pid-control/W7_PIDController.ipynb"
+          ],
+          "order": 3
+        },
+        {
+          "slug": "root-locus",
+          "title": "근궤적",
+          "files": [
+            "control-2/root-locus/W9_ControlRootLocus.ipynb"
+          ],
+          "order": 4
+        },
+        {
+          "slug": "frequency-response",
+          "title": "주파수 응답",
+          "files": [
+            "control-2/frequency-response/W10_FrequencyResponse.ipynb"
+          ],
+          "order": 5
+        },
+        {
+          "slug": "frequency-stability",
+          "title": "주파수 영역 안정성",
+          "files": [
+            "control-2/frequency-stability/W11_StabilityOnFrequencyResponse.ipynb"
+          ],
+          "order": 6
+        },
+        {
+          "slug": "compensator-design",
+          "title": "보상기 설계",
+          "files": [
+            "control-2/compensator-design/W12_CompensatorDesign.ipynb"
+          ],
+          "order": 7
+        }
+      ]
     },
     {
       "slug": "robot-basic-lab",
       "title": "로봇기초실습",
       "title_en": "Robot Basic Lab",
-      "source": "courses/robot-basic-lab",
+      "source": "robot-basic-lab",
       "web_path": "/niil/courses/robot-basic-lab/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": true,
       "lessons": [],
-      "previous_materials_path": "RBL"
+      "chapters": [
+        {
+          "slug": "notebook-basics",
+          "title": "Notebook 기초",
+          "files": [
+            "robot-basic-lab/notebook-basics/Week2_Markdown_Tutorial.ipynb"
+          ],
+          "order": 0
+        },
+        {
+          "slug": "git-collaboration",
+          "title": "GitHub 협업",
+          "files": [
+            "robot-basic-lab/git-collaboration/Week5-1_Github_Repository_Basic.ipynb",
+            "robot-basic-lab/git-collaboration/Week5-2_Github_Collaborator.ipynb",
+            "robot-basic-lab/git-collaboration/Week5-3_Github_Fork_Branch_PR.ipynb"
+          ],
+          "order": 1
+        },
+        {
+          "slug": "drone-navigation",
+          "title": "드론 이동",
+          "files": [
+            "robot-basic-lab/drone-navigation/Tello_Nav.m"
+          ],
+          "order": 2
+        },
+        {
+          "slug": "keyboard-control",
+          "title": "키보드 제어",
+          "files": [
+            "robot-basic-lab/keyboard-control/KeyDetectTello.m",
+            "robot-basic-lab/keyboard-control/TelloKeyboardControl.m",
+            "robot-basic-lab/keyboard-control/license.txt"
+          ],
+          "order": 3
+        },
+        {
+          "slug": "image-processing",
+          "title": "영상처리 기초",
+          "files": [
+            "robot-basic-lab/image-processing/Lenna.png",
+            "robot-basic-lab/image-processing/basic_img_process.mlx",
+            "robot-basic-lab/image-processing/hue_map.png"
+          ],
+          "order": 4
+        },
+        {
+          "slug": "image-processing-toolbox",
+          "title": "영상처리 도구",
+          "files": [
+            "robot-basic-lab/image-processing-toolbox/adv_img_process.mlx"
+          ],
+          "order": 5
+        },
+        {
+          "slug": "vision-control",
+          "title": "영상 기반 제어",
+          "files": [
+            "robot-basic-lab/vision-control/FindRedBall.m",
+            "robot-basic-lab/vision-control/MoveAndSnap.m",
+            "robot-basic-lab/vision-control/snapshot.png",
+            "robot-basic-lab/vision-control/tello_image_processing.mlx"
+          ],
+          "order": 6
+        }
+      ]
     },
     {
       "slug": "microprocessor",
       "title": "마이크로프로세서응용설계",
       "title_en": "Microprocessor Applications",
-      "source": "courses/microprocessor",
+      "source": "microprocessor",
       "web_path": "/niil/courses/microprocessor/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": true,
       "lessons": [],
-      "previous_materials_path": "MP_Appl"
+      "chapters": [
+        {
+          "slug": "python-basics",
+          "title": "Python 기초",
+          "files": [
+            "microprocessor/python-basics/Week3-1_Markdown_Tutorial.ipynb",
+            "microprocessor/python-basics/Week3-2_Python_Basic.ipynb"
+          ],
+          "order": 0
+        },
+        {
+          "slug": "arrays-and-plots",
+          "title": "배열과 그래프",
+          "files": [
+            "microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.ipynb",
+            "microprocessor/arrays-and-plots/Week4-2_Python_Calculation.ipynb",
+            "microprocessor/arrays-and-plots/Week4-3_Python_Numpy.ipynb",
+            "microprocessor/arrays-and-plots/Week4-4_Python_Matplotlib.ipynb"
+          ],
+          "order": 1
+        },
+        {
+          "slug": "git-collaboration",
+          "title": "GitHub 협업",
+          "files": [
+            "microprocessor/git-collaboration/Week5-1_Github_Repository_Basic.ipynb",
+            "microprocessor/git-collaboration/Week5-2_Github_Collaborator.ipynb",
+            "microprocessor/git-collaboration/Week5-3_Github_Fork_Branch_PR.ipynb"
+          ],
+          "order": 2
+        },
+        {
+          "slug": "gpio",
+          "title": "GPIO",
+          "files": [
+            "microprocessor/gpio/Week6-1_GPIO_LED_Test.ipynb",
+            "microprocessor/gpio/Week6-2_GPIO_Switch_Test.ipynb",
+            "microprocessor/gpio/Week6-3_GPIO_PWM_Test1.ipynb",
+            "microprocessor/gpio/Week6-4_GPIO_PWM_Test2.ipynb",
+            "microprocessor/gpio/Week6-5_Timer_Test1.ipynb",
+            "microprocessor/gpio/Week6-6_Timer_Test2.ipynb",
+            "microprocessor/gpio/Week6-7_Interrupt_Test1.ipynb",
+            "microprocessor/gpio/Week6-8_Interrupt_Test2.ipynb"
+          ],
+          "order": 3
+        },
+        {
+          "slug": "i2c",
+          "title": "I²C 통신",
+          "files": [
+            "microprocessor/i2c/Week7-1_I2C_IMU_manual.ipynb",
+            "microprocessor/i2c/Week7-2_I2C_IMU_lib.ipynb"
+          ],
+          "order": 4
+        },
+        {
+          "slug": "dynamodb",
+          "title": "DynamoDB",
+          "files": [
+            "microprocessor/dynamodb/Week8-1_DynamoDB_Local_Sample.ipynb",
+            "microprocessor/dynamodb/Week8-2_DynamoDB_Local_Test_Local.ipynb",
+            "microprocessor/dynamodb/Week8-3_DynamoDB_Local_Test_CloudAccess.ipynb"
+          ],
+          "order": 5
+        },
+        {
+          "slug": "web-server",
+          "title": "웹 서버",
+          "files": [
+            "microprocessor/web-server/Week11-1_bottle_server_helloworld.py",
+            "microprocessor/web-server/Week11-2_bottle_server_howru.py",
+            "microprocessor/web-server/Week11-3_bottle_server_hello_dynamic.py",
+            "microprocessor/web-server/Week11-4_bottle_server_form.py"
+          ],
+          "order": 6
+        },
+        {
+          "slug": "camera",
+          "title": "카메라",
+          "files": [
+            "microprocessor/camera/Week12-1_picamera_test.ipynb",
+            "microprocessor/camera/Week12-2-1_opencv_camera.py",
+            "microprocessor/camera/Week12-2-2_rpi_web_stream.py"
+          ],
+          "order": 7
+        },
+        {
+          "slug": "web-scraping",
+          "title": "웹 스크래핑",
+          "files": [
+            "microprocessor/web-scraping/Week13-1_web_scraping.ipynb"
+          ],
+          "order": 8
+        },
+        {
+          "slug": "telegram-bot",
+          "title": "Telegram Bot",
+          "files": [
+            "microprocessor/telegram-bot/Week14-1_Telegram_Bot_Send_Message.py",
+            "microprocessor/telegram-bot/Week14-2_Telegram_Bot_Command_Handler.py"
+          ],
+          "order": 9
+        }
+      ]
     },
     {
       "slug": "intro-machine-learning",
       "title": "머신러닝의 이해",
       "title_en": "Introduction to Machine Learning",
-      "source": "courses/intro-machine-learning",
+      "source": "intro-machine-learning",
       "web_path": "/niil/courses/intro-machine-learning/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": true,
       "lessons": [],
-      "previous_materials_path": "INT_ML"
+      "chapters": [
+        {
+          "slug": "week-01",
+          "title": "머신러닝 소개",
+          "files": [
+            "intro-machine-learning/week-01/INT_ML_W1.ipynb",
+            "intro-machine-learning/week-01/INT_ML_W1.pdf"
+          ],
+          "order": 0
+        },
+        {
+          "slug": "week-02",
+          "title": "머신러닝의 역사",
+          "files": [
+            "intro-machine-learning/week-02/INT_ML_W2.ipynb",
+            "intro-machine-learning/week-02/INT_ML_W2.pdf"
+          ],
+          "order": 1
+        },
+        {
+          "slug": "week-03",
+          "title": "Python 기초와 데이터 표현",
+          "files": [
+            "intro-machine-learning/week-03/INT_ML_W3.ipynb",
+            "intro-machine-learning/week-03/INT_ML_W3.pdf"
+          ],
+          "order": 2
+        },
+        {
+          "slug": "week-04",
+          "title": "제어문과 함수",
+          "files": [
+            "intro-machine-learning/week-04/INT_ML_W4.ipynb",
+            "intro-machine-learning/week-04/INT_ML_W4.pdf"
+          ],
+          "order": 3
+        },
+        {
+          "slug": "week-05",
+          "title": "NumPy",
+          "files": [
+            "intro-machine-learning/week-05/INT_ML_W5.ipynb",
+            "intro-machine-learning/week-05/INT_ML_W5.pdf"
+          ],
+          "order": 4
+        },
+        {
+          "slug": "week-06",
+          "title": "Matplotlib",
+          "files": [
+            "intro-machine-learning/week-06/INT_ML_W6.ipynb",
+            "intro-machine-learning/week-06/INT_ML_W6.pdf"
+          ],
+          "order": 5
+        },
+        {
+          "slug": "week-07",
+          "title": "선형 회귀",
+          "files": [
+            "intro-machine-learning/week-07/INT_ML_W7.ipynb",
+            "intro-machine-learning/week-07/INT_ML_W7.pdf"
+          ],
+          "order": 6
+        },
+        {
+          "slug": "week-08",
+          "title": "로지스틱 회귀",
+          "files": [
+            "intro-machine-learning/week-08/INT_ML_W8.ipynb",
+            "intro-machine-learning/week-08/INT_ML_W8.pdf"
+          ],
+          "order": 7
+        },
+        {
+          "slug": "week-10",
+          "title": "결정 트리와 랜덤 포레스트",
+          "files": [
+            "intro-machine-learning/week-10/INT_ML_W10.ipynb",
+            "intro-machine-learning/week-10/INT_ML_W10.pdf"
+          ],
+          "order": 8
+        },
+        {
+          "slug": "week-11",
+          "title": "비지도 학습",
+          "files": [
+            "intro-machine-learning/week-11/INT_ML_W11.ipynb",
+            "intro-machine-learning/week-11/INT_ML_W11.pdf"
+          ],
+          "order": 9
+        },
+        {
+          "slug": "week-12",
+          "title": "다층 퍼셉트론",
+          "files": [
+            "intro-machine-learning/week-12/INT_ML_W12.ipynb",
+            "intro-machine-learning/week-12/INT_ML_W12.pdf"
+          ],
+          "order": 10
+        },
+        {
+          "slug": "week-13",
+          "title": "이미지 분류",
+          "files": [
+            "intro-machine-learning/week-13/INT_ML_W13.ipynb",
+            "intro-machine-learning/week-13/INT_ML_W13.pdf"
+          ],
+          "order": 11
+        }
+      ]
     },
     {
       "slug": "machine-learning-lab",
       "title": "전기공학머신러닝실습",
       "title_en": "Machine Learning Lab",
-      "source": "courses/machine-learning-lab",
+      "source": "machine-learning-lab",
       "web_path": "/niil/courses/machine-learning-lab/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": true,
       "lessons": [],
-      "previous_materials_path": "ML_Exp"
+      "chapters": [
+        {
+          "slug": "python-review",
+          "title": "Python 복습",
+          "files": [
+            "machine-learning-lab/python-review/Review_01_python_basic_l1.ipynb",
+            "machine-learning-lab/python-review/Review_02_python_basic_l2.ipynb",
+            "machine-learning-lab/python-review/Review_03_python_basic_l3.ipynb",
+            "machine-learning-lab/python-review/Review_04_python_basic_l4.ipynb",
+            "machine-learning-lab/python-review/Review_05_python_numpy.ipynb",
+            "machine-learning-lab/python-review/Review_06_python_matplotlib.ipynb"
+          ],
+          "order": 0
+        },
+        {
+          "slug": "notebook-basics",
+          "title": "Notebook 기초",
+          "files": [
+            "machine-learning-lab/notebook-basics/EX1-1_Colab_Tutorial.ipynb",
+            "machine-learning-lab/notebook-basics/EX1-2_Markdown_Tutorial.ipynb",
+            "machine-learning-lab/notebook-basics/EX1_P1.pdf"
+          ],
+          "order": 1
+        },
+        {
+          "slug": "tensor-manipulation",
+          "title": "Tensor 연산",
+          "files": [
+            "machine-learning-lab/tensor-manipulation/EX2_Tensor_Manipulation.ipynb"
+          ],
+          "order": 2
+        },
+        {
+          "slug": "linear-regression",
+          "title": "선형 회귀",
+          "files": [
+            "machine-learning-lab/linear-regression/EX3_Linear_Regression.ipynb",
+            "machine-learning-lab/linear-regression/data_linear_regression.csv"
+          ],
+          "order": 3
+        },
+        {
+          "slug": "logistic-regression",
+          "title": "로지스틱 회귀",
+          "files": [
+            "machine-learning-lab/logistic-regression/EX4_Logistic_Regression.ipynb",
+            "machine-learning-lab/logistic-regression/data_logistic_regression.csv"
+          ],
+          "order": 4
+        },
+        {
+          "slug": "multiclass",
+          "title": "다중 클래스 분류",
+          "files": [
+            "machine-learning-lab/multiclass/EX5_Multinomial_Classification.ipynb",
+            "machine-learning-lab/multiclass/data_multinomial_classification.csv"
+          ],
+          "order": 5
+        }
+      ]
     },
     {
       "slug": "reinforcement-learning",
       "title": "전기공학을 위한 강화학습",
       "title_en": "Reinforcement Learning for Electrical Engineering",
-      "source": "courses/reinforcement-learning",
+      "source": "reinforcement-learning",
       "web_path": "/niil/courses/reinforcement-learning/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": true,
       "lessons": [],
-      "previous_materials_path": "RL"
+      "chapters": [
+        {
+          "slug": "getting-started",
+          "title": "실행 환경",
+          "files": [
+            "reinforcement-learning/getting-started/GettingStarted.ipynb"
+          ],
+          "order": 0
+        },
+        {
+          "slug": "week-01",
+          "title": "강화학습 소개",
+          "files": [
+            "reinforcement-learning/week-01/RL_W1.ipynb"
+          ],
+          "order": 1
+        },
+        {
+          "slug": "week-02",
+          "title": "가치 기반 접근",
+          "files": [
+            "reinforcement-learning/week-02/RL_W2.ipynb"
+          ],
+          "order": 2
+        },
+        {
+          "slug": "week-03",
+          "title": "DQN",
+          "files": [
+            "reinforcement-learning/week-03/RL_W3.ipynb"
+          ],
+          "order": 3
+        },
+        {
+          "slug": "week-04",
+          "title": "Double DQN",
+          "files": [
+            "reinforcement-learning/week-04/RL_W4.ipynb"
+          ],
+          "order": 4
+        },
+        {
+          "slug": "week-05",
+          "title": "Dueling DQN",
+          "files": [
+            "reinforcement-learning/week-05/RL_W5.ipynb"
+          ],
+          "order": 5
+        },
+        {
+          "slug": "week-06",
+          "title": "Prioritized Experience Replay",
+          "files": [
+            "reinforcement-learning/week-06/RL_W6.ipynb"
+          ],
+          "order": 6
+        },
+        {
+          "slug": "week-07",
+          "title": "REINFORCE",
+          "files": [
+            "reinforcement-learning/week-07/RL_W7.ipynb"
+          ],
+          "order": 7
+        },
+        {
+          "slug": "week-08",
+          "title": "A2C",
+          "files": [
+            "reinforcement-learning/week-08/RL_W8.ipynb"
+          ],
+          "order": 8
+        },
+        {
+          "slug": "week-09",
+          "title": "PPO",
+          "files": [
+            "reinforcement-learning/week-09/RL_W9.ipynb"
+          ],
+          "order": 9
+        },
+        {
+          "slug": "week-10",
+          "title": "SAC",
+          "files": [
+            "reinforcement-learning/week-10/RL_W10.ipynb"
+          ],
+          "order": 10
+        }
+      ]
     },
     {
       "slug": "ee-seminar",
       "title": "전기공학세미나",
       "title_en": "Electrical Engineering Seminar",
-      "source": "courses/ee-seminar",
+      "source": "ee-seminar",
       "web_path": "/niil/courses/ee-seminar/",
-      "published": false,
+      "published": true,
       "offering": {
         "semester": null,
         "status": "unconfirmed"
       },
-      "materials": false,
       "lessons": [],
-      "previous_materials_path": null
+      "chapters": []
     }
   ]
 }

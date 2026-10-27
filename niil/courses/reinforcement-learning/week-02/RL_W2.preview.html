@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>2주차 가치 기반 접근 방식 | 전기공학을 위한 강화학습 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "2주차 가치 기반 접근 방식", "url": "https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="전기공학을 위한 강화학습: 2주차 가치 기반 접근 방식. Q 함수(Q-value) 를 통해 상태-행동 쌍의 가치를 정의하고, 벨만 방정식을 사용하여 Q 함수를 업데이트하는 개념을 이해" name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html" rel="canonical"/><meta content="2주차 가치 기반 접근 방식 | 전기공학을 위한 강화학습 · 광운대학교 NiiL" property="og:title"/><meta content="전기공학을 위한 강화학습: 2주차 가치 기반 접근 방식. Q 함수(Q-value) 를 통해 상태-행동 쌍의 가치를 정의하고, 벨만 방정식을 사용하여 Q 함수를 업데이트하는 개념을 이해" property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="2주차 가치 기반 접근 방식 | 전기공학을 위한 강화학습 · 광운대학교 NiiL" name="twitter:title"/><meta content="전기공학을 위한 강화학습: 2주차 가치 기반 접근 방식. Q 함수(Q-value) 를 통해 상태-행동 쌍의 가치를 정의하고, 벨만 방정식을 사용하여 Q 함수를 업데이트하는 개념을 이해" name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html", "name": "2주차 가치 기반 접근 방식 | 전기공학을 위한 강화학습 · 광운대학교 NiiL", "description": "전기공학을 위한 강화학습: 2주차 가치 기반 접근 방식. Q 함수(Q-value) 를 통해 상태-행동 쌍의 가치를 정의하고, 벨만 방정식을 사용하여 Q 함수를 업데이트하는 개념을 이해", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>2주차 가치 기반 접근 방식</h1><nav class="notebook-actions"><a download="" href="RL_W2.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/reinforcement-learning/week-02/RL_W2.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+</section><section class="notebook-cell">
+<h2 id="핵심-목표">[핵심 목표]</h2>
+<ul>
+<li><p><strong>Q 함수(Q-value)</strong>를 통해 상태-행동 쌍의 가치를 정의하고, 벨만 방정식을 사용하여 Q 함수를 업데이트하는 개념을 이해</p></li>
+<li><p>PyTorch로 Q 함수를 근사하는 신경망 모델을 구현 준비</p></li>
+</ul>
+<h2 id="가치-기반-접근-value-based-approach">[가치 기반 접근 (Value-based Approach)]</h2>
+<p>정책을 직접 파라미터화하지 않고, 가치 함수 또는 Q 함수를 학습</p>
+<h3 id="q-함수---qs-a">1. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math> 함수 - <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(s, a)</annotation></semantics></math></h3>
+<ul>
+<li><p>상태 s에서 행동 a를 취했을 때 앞으로 얻을 수 있는 예상 누적 보상 (Expected Return)</p></li>
+<li><p>“상태 s에서 행동 a를 하면 얼마나 좋은가?”를 정량화 Q 함수를 정확히 알면 각 상태에서 가치가 가장 높은 행동을 선택하는 정책을 쉽게 생성 가능</p></li>
+</ul>
+<h3 id="q-러닝-q-learning">2. <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>-러닝 (<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>-learning)</h3>
+<ul>
+<li><p><strong>벨만 최적 방정식 (Bellman Optimality Equation)</strong>을 사용하여 Q 함수를 업데이트</p></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mo>*</mo></msup><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi mathvariant="double-struck">𝔼</mi><mo form="prefix" stretchy="false">[</mo><mi>r</mi><mo>+</mo><mi>γ</mi><msub><mrow><mi mathvariant="normal">max</mi><mo>⁡</mo></mrow><msup><mi>a</mi><mo>′</mo></msup></msub><msup><mi>Q</mi><mo>*</mo></msup><mo form="prefix" stretchy="false">(</mo><msup><mi>s</mi><mo>′</mo></msup><mo>,</mo><msup><mi>a</mi><mo>′</mo></msup><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">Q^*(s,a) = \mathbb{E}[ r + \gamma \max_{a'} Q^*(s', a') ]</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>s</mi><mo>′</mo></msup><annotation encoding="application/x-tex">s'</annotation></semantics></math>: 다음 상태</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>: 보상</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>: 할인율 (0 ~ 1)</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mrow><mi mathvariant="normal">max</mi><mo>⁡</mo></mrow><msup><mi>a</mi><mo>′</mo></msup></msub><annotation encoding="application/x-tex">\max_{a'}</annotation></semantics></math>: 다음 상태에서 가장 높은 Q값을 주는 행동 선택</li>
+</ul></li>
+<li><p><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>Q</mi><annotation encoding="application/x-tex">Q</annotation></semantics></math>-러닝: 벨만 최적 방정식을 사용하여 Q 함수를 갱신하는 오프폴리시(Off-policy) 알고리즘</p>
+<ul>
+<li>업데이트 규칙 <math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo>←</mo><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo>+</mo><mi>α</mi><mo form="prefix" stretchy="false">[</mo><mi>r</mi><mo>+</mo><mi>γ</mi><munder><mi mathvariant="normal">max</mi><msup><mi>a</mi><mo>′</mo></msup></munder><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><msup><mi>s</mi><mo>′</mo></msup><mo>,</mo><msup><mi>a</mi><mo>′</mo></msup><mo form="postfix" stretchy="false">)</mo><mo>−</mo><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">Q(s,a) \leftarrow Q(s,a) + \alpha [ r + \gamma \max_{a'}Q(s',a') - Q(s,a) ]</annotation></semantics></math>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>: 학습률 (Learning rate)</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo>,</mo><mi>r</mi><mo>,</mo><msup><mi>s</mi><mo>′</mo></msup><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(s, a, r, s')</annotation></semantics></math>: 경험 샘플</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="pytorch-신경망-모델-구현-준비">3. PyTorch 신경망 모델 구현 준비</h3>
+<ul>
+<li>Q 함수를 딥뉴럴넷으로 근사하여 복잡한 환경에서도 확장성을 확보</li>
+<li>다음 단계로 경험 리플레이(Replay Buffer), 타겟 네트워크(Target Network) 등의 개념을 도입하여 DQN 알고리즘을 구현하고, Q 함수를 실제로 학습시키는 과정 진행 예정</li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="q-러닝-실습-예제-q-러닝으로-미로-탈출하기">[Q-러닝 실습 예제: Q-러닝으로 미로 탈출하기]</h2>
+</section><section class="notebook-cell">
+<h3 id="환경-설정">1. 환경 설정</h3>
+</section><section class="notebook-cell">
+<h4 id="미로-정의">미로 정의</h4>
+<p>5x5 크기의 미로를 numpy 배열로 표현</p>
+<ul>
+<li>0: 길</li>
+<li>1: 벽</li>
+<li>2: 시작</li>
+<li>3: 목표</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+
+# 5x5 미로 환경 설정 (0: 길, 1: 벽, 2: 시작, 3: 목표)
+maze = np.array([
+    [2, 0, 0, 0, 0],
+    [0, 1, 1, 0, 0],
+    [0, 0, 0, 1, 0],
+    [1, 1, 0, 1, 0],
+    [0, 1, 0, 3, 0]
+])</code></pre></section><section class="notebook-cell">
+<h4 id="행동-정의">행동 정의</h4>
+<p>에이전트가 취할 수 있는 행동을 정의</p>
+<ul>
+<li>0: 위</li>
+<li>1: 아래</li>
+<li>2: 왼쪽</li>
+<li>3: 오른쪽</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 0: 위로 1칸 이동(-1,0)
+# 1: 아래로 1칸 이동(1,0)
+# 2: 왼쪽으로 1칸 이동(0,-1)
+# 3: 오른쪽으로 1칸 이동(0,1))
+actions = [(-1, 0), (1, 0), (0, -1), (0, 1)]</code></pre></section><section class="notebook-cell">
+<h4 id="q테이블-초기화">Q테이블 초기화</h4>
+<p>Q테이블을 0으로 초기화 (5x5x4개행동)</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>q_table = np.zeros((5, 5, 4))</code></pre></section><section class="notebook-cell">
+<h4 id="하이퍼파라미터-설정">하이퍼파라미터 설정</h4>
+<p>학습에 필요한 하이퍼파라미터를 설정</p>
+<ul>
+<li><code>learning_rate</code>: 학습률</li>
+<li><code>discount_factor</code>: 할인율</li>
+<li><code>epsilon</code>: 탐험 비율</li>
+<li><code>episodes</code>: 에피소드 수</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>learning_rate = 0.1
+discount_factor = 0.9
+epsilon = 0.1  # 탐험 비율
+episodes = 1000</code></pre></section><section class="notebook-cell">
+<h3 id="q-러닝-알고리즘">2. Q-러닝 알고리즘</h3>
+</section><section class="notebook-cell">
+<h4 id="다음-상태-얻기">다음 상태 얻기</h4>
+<p>현재 상태와 행동을 입력받아 다음 상태를 반환하는 함수</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>def get_next_state(state, action):
+  next_state = (state[0] + actions[action][0], state[1] + actions[action][1])
+
+  # 경계 확인 및 벽 충돌 감지
+  if 0 &lt;= next_state[0] &lt; 5 and 0 &lt;= next_state[1] &lt; 5 and maze[next_state[0], next_state[1]] != 1:
+    return next_state
+  else:
+    return state</code></pre></section><section class="notebook-cell">
+<h4 id="보상-얻기">보상 얻기</h4>
+<p>현재 상태를 입력받아 보상을 반환하는 함수</p>
+<ul>
+<li>목표 상태: 10</li>
+<li>그 외: -1</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>def get_reward(state):
+  if maze[state[0], state[1]] == 3:
+    return 10
+  else:
+    return -1</code></pre></section><section class="notebook-cell">
+<h4 id="q-러닝-학습">Q-러닝 학습</h4>
+<p>Q-러닝 알고리즘을 사용하여 Q-테이블을 업데이트</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># Q-러닝 알고리즘
+for episode in range(episodes):
+  state = (0, 0)  # 시작 위치
+  while maze[state[0], state[1]] != 3 :
+    if np.random.rand() &lt; epsilon:
+        action = np.random.randint(4)
+    else:
+        action = np.argmax(q_table[state[0], state[1], :])
+
+    next_state = get_next_state(state, action)
+    reward = get_reward(next_state)
+
+    q_table[state[0], state[1], action] += learning_rate * (
+            reward + discount_factor * np.max(q_table[next_state[0], next_state[1], :])
+            - q_table[state[0], state[1], action]
+    )
+
+    state = next_state
+
+    # 중간 프로그래스 출력 (예시: 100번째 에피소드마다 출력)
+  if (episode + 1) % 100 == 0:
+    print(f"Episode {episode + 1} 완료")</code></pre><pre class="notebook-output">Episode 100 완료
+Episode 200 완료
+Episode 300 완료
+Episode 400 완료
+Episode 500 완료
+Episode 600 완료
+Episode 700 완료
+Episode 800 완료
+Episode 900 완료
+Episode 1000 완료
+</pre></section><section class="notebook-cell">
+<h5 id="q-값-업데이트-수식">Q-값 업데이트 수식</h5>
+<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo>←</mo><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo>+</mo><mi>α</mi><mo form="prefix" stretchy="false">[</mo><mi>r</mi><mo>+</mo><mi>γ</mi><munder><mi mathvariant="normal">max</mi><msup><mi>a</mi><mo>′</mo></msup></munder><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><msup><mi>s</mi><mo>′</mo></msup><mo>,</mo><msup><mi>a</mi><mo>′</mo></msup><mo form="postfix" stretchy="false">)</mo><mo>−</mo><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">Q(s, a) \leftarrow Q(s, a) + \alpha [r + \gamma \max_{a'} Q(s', a') - Q(s, a)]</annotation></semantics></math></p>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q(s, a)</annotation></semantics></math>: 상태 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>s</mi><annotation encoding="application/x-tex">s</annotation></semantics></math>에서 행동 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>a</mi><annotation encoding="application/x-tex">a</annotation></semantics></math>의 Q-값</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math>: 학습률</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>r</mi><annotation encoding="application/x-tex">r</annotation></semantics></math>: 보상</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>γ</mi><annotation encoding="application/x-tex">\gamma</annotation></semantics></math>: 할인율</li>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mrow><mi mathvariant="normal">max</mi><mo>⁡</mo></mrow><msup><mi>a</mi><mo>′</mo></msup></msub><mi>Q</mi><mo form="prefix" stretchy="false">(</mo><msup><mi>s</mi><mo>′</mo></msup><mo>,</mo><msup><mi>a</mi><mo>′</mo></msup><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\max_{a'} Q(s', a')</annotation></semantics></math>: 다음 상태 <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msup><mi>s</mi><mo>′</mo></msup><annotation encoding="application/x-tex">s'</annotation></semantics></math>에서 최대 Q-값</li>
+</ul>
+</section><section class="notebook-cell">
+<h3 id="결과-확인">3. 결과 확인</h3>
+</section><section class="notebook-cell">
+<h4 id="최종-경로-찾기">최종 경로 찾기</h4>
+<p>학습된 Q-테이블을 사용하여 시작 상태에서 목표 상태까지의 최적 경로를 찾기</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 최종 경로 찾기
+state = (0, 0)
+path = [state]
+while maze[state[0], state[1]] != 3:
+    action = np.argmax(q_table[state[0], state[1], :])
+    state = get_next_state(state, action)
+    path.append(state)</code></pre></section><section class="notebook-cell">
+<h4 id="경로-시각화">경로 시각화</h4>
+<p>찾은 경로를 text로 시각화하여 출력</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 경로 시각화
+print("미로 탈출 경로:")
+for i in range(5):
+    for j in range(5):
+        if (i, j) == (0, 0):
+          print("S", end=" ")
+        elif (i,j) == (4,3):
+          print("G", end=" ")
+        elif (i,j) in path:
+          print("*", end=" ")  # 지나간 경로
+        elif maze[i, j] == 1:
+            print("#", end=" ")  # 벽 표시
+        else:
+            print(" ", end=" ")
+    print()</code></pre><pre class="notebook-output">미로 탈출 경로:
+S         
+* # #     
+* * * #   
+# # * #   
+  # * G   
+</pre></section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

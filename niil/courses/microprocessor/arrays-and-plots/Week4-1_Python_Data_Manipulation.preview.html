@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>3. Data를 묶음으로 다루기 | 마이크로프로세서응용설계 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "3. Data를 묶음으로 다루기", "url": "https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="마이크로프로세서응용설계: 3. Data를 묶음으로 다루기. 관리된다. * 딕셔너리의 시작과 끝은 { } 기호로 세트와 표현방법이 같지만, 각 원소가 ’key:value’의 형태로 저장된다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.preview.html" rel="canonical"/><meta content="3. Data를 묶음으로 다루기 | 마이크로프로세서응용설계 · 광운대학교 NiiL" property="og:title"/><meta content="마이크로프로세서응용설계: 3. Data를 묶음으로 다루기. 관리된다. * 딕셔너리의 시작과 끝은 { } 기호로 세트와 표현방법이 같지만, 각 원소가 ’key:value’의 형태로 저장된다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="3. Data를 묶음으로 다루기 | 마이크로프로세서응용설계 · 광운대학교 NiiL" name="twitter:title"/><meta content="마이크로프로세서응용설계: 3. Data를 묶음으로 다루기. 관리된다. * 딕셔너리의 시작과 끝은 { } 기호로 세트와 표현방법이 같지만, 각 원소가 ’key:value’의 형태로 저장된다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.preview.html", "name": "3. Data를 묶음으로 다루기 | 마이크로프로세서응용설계 · 광운대학교 NiiL", "description": "마이크로프로세서응용설계: 3. Data를 묶음으로 다루기. 관리된다. * 딕셔너리의 시작과 끝은 { } 기호로 세트와 표현방법이 같지만, 각 원소가 ’key:value’의 형태로 저장된다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><span id="3.-데이터를-묶음으로-다루기"></span><h1>3. Data를 묶음으로 다루기</h1><nav class="notebook-actions"><a download="" href="Week4-1_Python_Data_Manipulation.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell"><h1 id="목차">목차</h1>
+<ul>
+<li><a href="#3.-데이터를-묶음으로-다루기">3. 데이터를 묶음으로 다루기</a>
+<ul>
+<li><a href="#3.1-리스트">3.1 리스트</a></li>
+<li><a href="#3.2-튜플">3.2 튜플</a></li>
+<li><a href="#3.3-세트">3.3 세트</a></li>
+<li><a href="#3.4-딕셔너리">3.4 딕셔너리</a></li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell">
+<span id="3.1-리스트"></span><h3 id="리스트">3.1 리스트</h3>
+<ul>
+<li>리스트(List)는 여러 데이터를 1열로 세워 묶은 형태이다.<br/>
+</li>
+<li>리스트는 시작과 끝은 <code>[ ]</code> 기호로 표현하고, 서로 다른 데이터 타입도 묶을 수 있다. (데이터 타입의 종류는 다음 장에서 좀 더 자세히 다룬다.)</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>list_mixed = [0, 2.5, 'abc']</code></pre></section><section class="notebook-cell">
+<ul>
+<li>리스트는 다음과 같이 여러가지 방법으로 생성할 수 있다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 비어있는 리스트 생성
+empty_list = []
+print(empty_list)</code></pre><pre class="notebook-output">[]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 직접 입력해서 생성
+list_manual = [0, 1, 2, 3, 4]
+print(list_manual)</code></pre><pre class="notebook-output">[0, 1, 2, 3, 4]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># range 함수를 이용한 생성 (이하 A, B, C 모두 정수)
+# range(B) - 0부터 1의 간격으로 B보다 작은 정수까지 리스트 생성
+list_new = list(range(10))
+print(list_new)
+
+# range(A,B) - A부터 시작해 1의 간격으로 B보다 작은 정수까지 리스트 생성
+list_new = list(range(1,10))
+print(list_new)
+
+# range(A,B,C) - A부터 시작해 C의 간격으로 B보다 작은 정수까지 리스트 생성 (C가 음수일 경우 반대)
+list_new = list(range(2,10,2))
+print(list_new)</code></pre><pre class="notebook-output">[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2, 4, 6, 8]
+</pre></section><section class="notebook-cell">
+<ul>
+<li>리스트에 <code>+</code> 연산과 <code>*</code> 연산은 조금 특별하게 동작한다.
+<ul>
+<li><code>+</code> 연산은 좌우의 리스트를 이어 붙인다.</li>
+<li><code>*</code> 연산은 <code>*</code> 왼쪽의 리스트를 오른쪽의 숫자만큼 반복해서 붙인다.</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 리스트에서 +연산과 *연산
+list_manual = [0, 1, 2, 3, 4]
+list_new = list(range(4,-1,-1))
+print(list_manual+list_new)
+print(list_manual*2)</code></pre><pre class="notebook-output">[0, 1, 2, 3, 4, 4, 3, 2, 1, 0]
+[0, 1, 2, 3, 4, 0, 1, 2, 3, 4]
+</pre></section><section class="notebook-cell">
+<ul>
+<li>리스트는 다음 예시와 같이 기본 제공되는 함수를 이용해 수정할 수 있다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># list의 맨 뒤에 원소 추가하기
+list_manual = [0, 1, 2, 3, 4]
+list_manual.append(5)
+print(list_manual)</code></pre><pre class="notebook-output">[0, 1, 2, 3, 4, 5]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># list의 원하는 위치에 원소 추가하기
+# insert(position, value) 참고로 시작위치의 값은 0
+list_manual.insert(2, 10)
+print(list_manual)</code></pre><pre class="notebook-output">[0, 1, 10, 2, 3, 4, 5]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># list의 맨 뒤에 원소 제거하기
+list_manual.pop()
+print(list_manual)</code></pre><pre class="notebook-output">[0, 1, 10, 2, 3, 4]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># list의 원하는 위치에 원소 제거하기
+# pop(position)
+list_manual.pop(2)
+print(list_manual)</code></pre><pre class="notebook-output">[0, 1, 2, 3, 4]
+</pre></section><section class="notebook-cell">
+<ul>
+<li>그외 여러 가지 편리한 함수들이 기본으로 제공된다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># list의 원소 개수 세기
+num_data = len(list_manual)
+print(num_data)</code></pre><pre class="notebook-output">5
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 원소의 위치 찾기 (처음으로 발견된 원소의 위치 반환)
+position = list_manual.index(2)
+print(position)</code></pre><pre class="notebook-output">2
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># list 크기순으로 정렬하기 (기본 오름차순)
+list_manual.sort()
+print(list_manual)
+list_manual.sort(reverse=True)
+print(list_manual)</code></pre><pre class="notebook-output">[0, 1, 2, 3, 4]
+[4, 3, 2, 1, 0]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 원하는 부위 잘라내기 (슬라이싱)
+# 하나만 선택해 반환하기
+print(list_manual[2])</code></pre><pre class="notebook-output">2
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># [A:B] A위치부터, B보다 '작은'위치까지 선택
+# [2:4] = 2,3의 위치 선택
+print(list_manual[2:4])</code></pre><pre class="notebook-output">[2, 1]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># [A:] A위치부터, 끝까지
+# [:B] 시작부터, B보다 '작은'위치까지 선택
+print(list_manual[2:])
+print(list_manual[:4])</code></pre><pre class="notebook-output">[2, 1, 0]
+[4, 3, 2, 1]
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># [-A] 맨 뒤에서 부터 A번째
+print(list_manual[-2])</code></pre><pre class="notebook-output">1
+</pre></section><section class="notebook-cell">
+<span id="3.2-튜플"></span><h3 id="튜플">3.2 튜플</h3>
+<ul>
+<li>튜플(Tuple)는 List와 같지만 한 번 선언하면, 이후 수정이 불가능한 묶음이다.</li>
+<li>튜플의 시작과 끝은 <code>( )</code> 기호로 표현하고, 나머지는 리스트와 같다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 비어있는 튜플 생성 = 하지만 수정이 안되기 때문에 사실상 의미가 없다.
+empty_tuple = ()
+print(empty_tuple)</code></pre><pre class="notebook-output">()
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 직접 입력해서 생성
+tuple_manual = (0, 1, 2, 3, 4)
+print(tuple_manual)</code></pre><pre class="notebook-output">(0, 1, 2, 3, 4)
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># range 함수를 이용한 생성 (이하 A, B, C 모두 정수)
+print(tuple(range(2,10,2)))</code></pre><pre class="notebook-output">(2, 4, 6, 8)
+</pre></section><section class="notebook-cell">
+<ul>
+<li>수정과 관련된 함수를 제외한, 나머지 제공 함수들은 리스트와 거의 같다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>len(tuple_manual)</code></pre><pre class="notebook-output">5</pre></section><section class="notebook-cell"><pre class="notebook-code"><code>tuple_manual.index(4)</code></pre><pre class="notebook-output">4</pre></section><section class="notebook-cell"><pre class="notebook-code"><code>tuple_manual[1:]</code></pre><pre class="notebook-output">(1, 2, 3, 4)</pre></section><section class="notebook-cell">
+<span id="3.3-세트"></span><h3 id="세트">3.3 세트</h3>
+<ul>
+<li>세트(Set)도 List와 유사하지만, 원소의 중복을 허용하지 않는다는 점이 다르다.</li>
+<li>세트의 시작과 끝은 <code>{ }</code> 기호로 표현하고, 나머지는 리스트와 같다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 비어있는 세트 생성
+empty_set = {}
+print(empty_set)</code></pre><pre class="notebook-output">{}
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 직접 입력해서 생성 - 중복원소는 제거된다.
+set_manual = {0, 1, 2, 3, 4, 4, 3, 2, 1, 0}
+print(set_manual)</code></pre><pre class="notebook-output">{0, 1, 2, 3, 4}
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># range 함수를 이용한 생성 (이하 A, B, C 모두 정수)
+print(set(range(2,10,2)))</code></pre><pre class="notebook-output">{8, 2, 4, 6}
+</pre></section><section class="notebook-cell">
+<ul>
+<li>세트는 즉 집합이므로, 수학에서의 집합과 관련된 연산 기능도 대부분 제공된다.</li>
+<li>예를 들어,</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 교집합 '&amp;'
+set_first = {1, 3, 5}
+set_second = {1, 2, 4, 8}
+print(set_first&amp;set_second)</code></pre><pre class="notebook-output">{1}
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 합집합 '|'
+print(set_first|set_second)</code></pre><pre class="notebook-output">{1, 2, 3, 4, 5, 8}
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 차집합 '-'
+print(set_first-set_second)</code></pre><pre class="notebook-output">{3, 5}
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 부분집합 여부 확인
+# A.issuperset(B) - B가 A의 부분집합인지 여부 (A가 B를 포함하는지 여부)
+set_third = {1, 3, 5, 7}
+set_third.issuperset(set_first)</code></pre><pre class="notebook-output">True</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 원소 여부 확인
+3 in set_first</code></pre><pre class="notebook-output">True</pre></section><section class="notebook-cell">
+<span id="3.4-딕셔너리"></span><h3 id="딕셔너리">3.4 딕셔너리</h3>
+</section><section class="notebook-cell">
+<ul>
+<li>딕셔너리(Dictionary)는 List와 유사하지만, 위치(index)가 정수가 아닌 ’key’라는 임의의 값으로</li>
+</ul>
+<ol type="1">
+<li>항목 추가</li>
+<li>항목 추가</li>
+</ol>
+<p>관리된다. * 딕셔너리의 시작과 끝은 <code>{ }</code> 기호로 세트와 표현방법이 같지만, 각 원소가 ’key:value’의 형태로 저장된다.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>my_dictionary = {'name':'John', 'age':15, 'height': 1.76}
+print(my_dictionary)</code></pre><pre class="notebook-output">{'name': 'John', 'age': 15, 'height': 1.76}
+</pre></section><section class="notebook-cell">
+<ul>
+<li>선택 방법 역시 List와 유사하지만 위치(index) 대신 ’key’로 접근한다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>my_dictionary['name']</code></pre><pre class="notebook-output">'John'</pre></section><section class="notebook-cell">
+<ul>
+<li>당연히, 딕셔너리가 리스트의 원소가 될 수 있고, 그 반대도 가능하다.</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>first_user = {'name':'John', 'age':15, 'height':1.76, 'position':[15,3]}
+second_user = {'name':'Paul', 'age':17, 'height':1.88, 'position':[-2,7]}
+users = [first_user, second_user]
+print(users[0]['name'])</code></pre><pre class="notebook-output">John
+</pre></section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-1_Python_Data_Manipulation.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

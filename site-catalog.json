@@ -284,6 +284,41 @@
           "kind": "exam"
         }
       ]
+    },
+    {
+      "slug": "control-2",
+      "title": "제어공학2",
+      "lessons": []
+    },
+    {
+      "slug": "robot-basic-lab",
+      "title": "로봇기초실습",
+      "lessons": []
+    },
+    {
+      "slug": "microprocessor",
+      "title": "마이크로프로세서응용설계",
+      "lessons": []
+    },
+    {
+      "slug": "intro-machine-learning",
+      "title": "머신러닝의 이해",
+      "lessons": []
+    },
+    {
+      "slug": "machine-learning-lab",
+      "title": "전기공학머신러닝실습",
+      "lessons": []
+    },
+    {
+      "slug": "reinforcement-learning",
+      "title": "전기공학을 위한 강화학습",
+      "lessons": []
+    },
+    {
+      "slug": "ee-seminar",
+      "title": "전기공학세미나",
+      "lessons": []
     }
   ]
 }

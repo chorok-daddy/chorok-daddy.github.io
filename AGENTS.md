@@ -9,7 +9,7 @@
 - Template languages: Korean, English, Simplified Chinese, Japanese, Spanish,
   Thai, Vietnamese and Arabic. Keep translations together regardless of UI language.
 - Course source lives in the separate `chorok-daddy/courses` repository under
-  `courses/<slug>/lessons/` and `materials/`. Never edit generated `niil/courses/`
+  `<slug>/<chapter>/`. Never edit generated `niil/courses/`
   or `assets/site.css` here. Import a committed source revision with
   `python3 tools/sync_courses.py --source ../courses`; then build and validate.
 - `build_niil.py` reproduces the pinned `tools/course-source.json` revision before

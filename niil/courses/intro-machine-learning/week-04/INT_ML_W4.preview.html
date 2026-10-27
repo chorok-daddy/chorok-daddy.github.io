@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>[4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻 | 머신러닝의 이해 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "[4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="머신러닝의 이해: [4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻. 안녕하세요! 4주차 수업에 오신 것을 환영합니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html" rel="canonical"/><meta content="[4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻 | 머신러닝의 이해 · 광운대학교 NiiL" property="og:title"/><meta content="머신러닝의 이해: [4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻. 안녕하세요! 4주차 수업에 오신 것을 환영합니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="[4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻 | 머신러닝의 이해 · 광운대학교 NiiL" name="twitter:title"/><meta content="머신러닝의 이해: [4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻. 안녕하세요! 4주차 수업에 오신 것을 환영합니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html", "name": "[4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻 | 머신러닝의 이해 · 광운대학교 NiiL", "description": "머신러닝의 이해: [4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻. 안녕하세요! 4주차 수업에 오신 것을 환영합니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>[4주차] 살아 움직이는 데이터: 제어문과 함수 👨‍💻</h1><nav class="notebook-actions"><a download="" href="INT_ML_W4.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/intro-machine-learning/week-04/INT_ML_W4.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<p>안녕하세요! 4주차 수업에 오신 것을 환영합니다.</p>
+<p>지난 시간에는 파이썬의 변수와 자료구조를 이용해 데이터를 ’저장’하는 법을 배웠습니다.</p>
+<p>오늘은 여기서 한 단계 더 나아가, 저장된 데이터를 ’처리’하고 ’조작’하는 방법을 배우겠습니다.</p>
+<p><strong>조건문(if)</strong> 을 이용해 특정 조건의 데이터를 골라내고,</p>
+<p><strong>반복문(for)</strong> 으로 수백, 수만 개의 데이터를 한 번에 처리하며,</p>
+<p>이 모든 과정을 <strong>함수(def)</strong> 라는 재사용 가능한 부품으로 만드는 방법을 알아봅니다.</p>
+</section><section class="notebook-cell">
+<h2 id="모듈-1-조건을-따라-움직이는-코드-조건문if">🚦 모듈 1: 조건을 따라 움직이는 코드, 조건문(if)</h2>
+<ul>
+<li><strong>조건문이란?</strong>
+<ul>
+<li>특정 조건이 ’참(True)’일 때만 코드 블록을 실행하도록 만드는 문법입니다.</li>
+</ul></li>
+<li><strong>기본 구조</strong> ```python if 조건식: # 조건식이 True일 때 실행할 코드 elif 다른_조건식: # 다른_조건식이 True일 때 실행할 코드 else: # 위의 모든 조건식이 False일 때 실행할 코드</li>
+<li>머신러닝에서의 활용
+<ul>
+<li>ex1) “만약 평점이 9.0 이상이면 ’추천 영화’로 분류해라”</li>
+<li>ex2) “만약 데이터에 빈 값이 있으면, 특정 값으로 채워라”</li>
+<li>데이터 전처리나 모델의 규칙을 정의할 때 필수적으로 사용됩니다.</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 영화 평점에 따라 추천 여부를 결정하는 예제
+movie_rating = 9.1
+
+# '만약' movie_rating이 9.0보다 크거나 같으면
+if movie_rating &gt;= 9.0:
+    print("✨ 강력 추천하는 영화입니다!")
+# '그렇지 않으면'
+else:
+    print("볼만한 영화입니다.")</code></pre><pre class="notebook-output">✨ 강력 추천하는 영화입니다!
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 영화 평점에 따라 추천 여부를 결정하는 예제
+movie_rating = 8.5
+
+# '만약' movie_rating이 9.0보다 크거나 같으면
+if movie_rating &gt;= 9.0:
+    print("✨ 강력 추천하는 영화입니다!")
+# '그렇지 않으면'
+else:
+    print("볼만한 영화입니다.")
+
+# movie_rating 값을 8.5로 바꾸고 다시 실행해보세요!</code></pre><pre class="notebook-output">볼만한 영화입니다.
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 조금 더 세분화된 추천 시스템
+movie_rating = 8.8
+
+if movie_rating &gt;= 9.0:
+    print("✨ 강력 추천! (9.0점 이상)")
+# '그렇지 않고 만약' 8.5점 이상이면
+elif movie_rating &gt;= 8.5:
+    print("👍 추천! (8.5점 이상)")
+# '그 외 모든 경우'
+else:
+    print("🤔 보통. (8.5점 미만)")</code></pre><pre class="notebook-output">👍 추천! (8.5점 이상)
+</pre></section><section class="notebook-cell">
+<h2 id="모듈-2-모든-데이터를-한-번에-반복문for">🔁 모듈 2: 모든 데이터를 한 번에! 반복문(for)</h2>
+<ul>
+<li><p><strong>반복문이란?</strong></p>
+<ul>
+<li>리스트나 딕셔너리 같은 자료구조에 담긴 모든 데이터에 대해,</li>
+<li><strong>동일한 작업을 순서대로 반복</strong> 실행하도록 만드는 문법입니다.</li>
+</ul></li>
+<li><p><strong>기본 구조</strong> ```python for 아이템을_담을_변수 in 데이터_리스트: # 리스트의 각 아이템에 대해 실행할 코드</p></li>
+<li><p>머신러닝에서의 활용</p>
+<ul>
+<li>수백만 개의 이미지 데이터를 하나씩 불러와 처리하거나,</li>
+<li>전체 데이터의 평균/합계를 구하는 등 대규모 데이터 처리에 필수적입니다.</li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 3주차에 만들었던 영화 데이터셋
+my_movie_dataset = [
+    { "title": "인셉션",
+     "director": "크리스토퍼 놀란",
+      "rating": 9.29 },
+    { "title": "기생충",
+     "director": "봉준호",
+      "rating": 9.07 },
+    { "title": "어바웃 타임",
+     "director": "리차드 커티스",
+      "rating": 9.27 }
+]
+
+# 데이터셋(리스트)에서 영화 정보(딕셔너리)를 하나씩 꺼내 movie라는 변수에 담아 반복
+print("--- 모든 영화 제목 출력 ---")
+for movie in my_movie_dataset:
+    # 각 영화(딕셔너리)에서 'title' 키의 값을 꺼내 출력
+    print(movie['title'])</code></pre><pre class="notebook-output">--- 모든 영화 제목 출력 ---
+인셉션
+기생충
+어바웃 타임
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 반복문과 조건문을 함께 사용하여 '평점 9.2 이상인 영화'만 골라내기
+
+print("\n--- 평점 9.2 이상인 추천 영화 ---")
+for movie in my_movie_dataset:
+    # '만약' 현재 영화의 평점이 9.2보다 크거나 같으면
+    if movie['rating'] &gt;= 9.2:
+        # 해당 영화의 제목과 평점을 출력
+        print(f"제목: {movie['title']}, 평점: {movie['rating']}")</code></pre><pre class="notebook-output">
+--- 평점 9.2 이상인 추천 영화 ---
+제목: 인셉션, 평점: 9.29
+제목: 어바웃 타임, 평점: 9.27
+</pre></section><section class="notebook-cell">
+<h2 id="모듈-3-나만의-코드-부품-함수def">⚙️ 모듈 3: 나만의 코드 부품, 함수(def)</h2>
+<ul>
+<li><strong>함수란?</strong>
+<ul>
+<li>특정 작업을 수행하는 코드 덩어리에,</li>
+<li><strong>이름을 붙여 재사용</strong>할 수 있도록 만든 것입니다.</li>
+</ul></li>
+<li><strong>기본 구조</strong> ```python def 함수이름(입력값1, 입력값2, …): # 실행할 코드 return 결과값</li>
+<li>머신러닝에서의 활용
+<ul>
+<li><p>데이터 전처리 과정을 함수로 만들어 여러 데이터셋에 동일하게 적용.</p></li>
+<li><p>모델 자체를 하나의 함수로 볼 수 있습니다.</p>
+<p>[입력(데이터) → 처리(예측) → 출력(결과)]</p></li>
+<li><p>복잡한 코드를 기능별로 나누어 관리하기 용이해집니다.</p></li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># 두 숫자를 더하는 간단한 함수
+def add_numbers(x, y):
+    """
+    이 함수는 두 개의 숫자 x와 y를 입력받아,
+    그 합을 계산하여 결과값으로 돌려줍니다.
+    """
+    result = x + y
+    return result
+
+# 함수 호출 (사용)
+sum_result = add_numbers(5, 3)
+print(f"5와 3의 합은? {sum_result}")
+
+another_sum = add_numbers(100, 200)
+print(f"100과 200의 합은? {another_sum}")</code></pre><pre class="notebook-output">5와 3의 합은? 8
+100과 200의 합은? 300
+</pre></section><section class="notebook-cell"><pre class="notebook-code"><code># 모듈 2에서 했던 '평점 기반 영화 추천' 로직을 함수로 만들어 봅시다.
+
+def recommend_movies(dataset, min_rating):
+    """
+    영화 데이터셋과 최소 평점을 입력받아,
+    조건에 맞는 영화 제목 리스트를 결과로 돌려줍니다.
+    """
+    recommended_list = [] # 추천 목록을 담을 빈 리스트
+    for movie in dataset:
+        if movie['rating'] &gt;= min_rating:
+            recommended_list.append(movie['title']) # 리스트에 추가
+    return recommended_list
+
+
+# 함수를 이용해 평점 9.0 이상 영화 추천받기
+my_best_movies = recommend_movies(my_movie_dataset, 9.0)
+print(f"평점 9.0 이상 추천 영화: {my_best_movies}")
+
+# 같은 함수를 재사용해서 평점 9.1 이상 영화 추천받기
+my_good_movies = recommend_movies(my_movie_dataset, 9.1)
+print(f"평점 9.1 이상 추천 영화: {my_good_movies}")</code></pre><pre class="notebook-output">평점 9.0 이상 추천 영화: ['인셉션', '기생충', '어바웃 타임']
+평점 9.1 이상 추천 영화: ['인셉션', '어바웃 타임']
+</pre></section><section class="notebook-cell">
+<pre><code>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</code></pre>
+</section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

@@ -2,7 +2,7 @@
 
 Copyright © 2026 Ki-Baek Lee (이기백), Kwangwoon University · NiiL.
 
-Unless otherwise identified, the original course materials under `courses/`
+Unless otherwise identified, the original course materials in the course directories
 are available under these terms:
 
 - Teaching text, explanations, figures and presentation content: **CC BY 4.0**.

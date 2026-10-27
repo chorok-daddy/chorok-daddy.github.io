@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>Recurrent Neural Network | 인공지능응용 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "Recurrent Neural Network", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/L18_Recurrent_Neural_Network.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="인공지능응용: Recurrent Neural Network." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/L18_Recurrent_Neural_Network.preview.html" rel="canonical"/><meta content="Recurrent Neural Network | 인공지능응용 · 광운대학교 NiiL" property="og:title"/><meta content="인공지능응용: Recurrent Neural Network." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/L18_Recurrent_Neural_Network.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="Recurrent Neural Network | 인공지능응용 · 광운대학교 NiiL" name="twitter:title"/><meta content="인공지능응용: Recurrent Neural Network." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/L18_Recurrent_Neural_Network.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/L18_Recurrent_Neural_Network.preview.html", "name": "Recurrent Neural Network | 인공지능응용 · 광운대학교 NiiL", "description": "인공지능응용: Recurrent Neural Network.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>Recurrent Neural Network</h1><nav class="notebook-actions"><a download="" href="L18_Recurrent_Neural_Network.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/recurrent/L18_Recurrent_Neural_Network.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+</section><section class="notebook-cell">
+<h3 id="imports">Imports</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# for reproducibility
+torch.manual_seed(100)
+</code></pre><pre class="notebook-output">&lt;torch._C.Generator at 0x79192b2df150&gt;</pre></section><section class="notebook-cell">
+<h3 id="dataset-construction">1 Dataset Construction</h3>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># Dictionary
+sample_sentence = 'hi!hello.'
+char_set = list(set(sample_sentence))
+dic = {c: i for i, c in enumerate(char_set)}
+
+# Parameters
+dic_size = len(dic)
+input_size = dic_size
+hidden_size = dic_size
+
+# Dataset setting
+x_batch = []
+y_batch = []
+
+x_data = [dic[c] for c in sample_sentence[:-1]]
+x_one_hot = [np.eye(dic_size)[x] for x in x_data]
+y_data = [dic[c] for c in sample_sentence[1:]]
+
+x_batch.append(x_one_hot)
+y_batch.append(y_data)
+
+# To torch tensors
+X = torch.FloatTensor(x_batch)
+Y = torch.LongTensor(y_batch)
+print(X.shape)
+print(Y.shape)</code></pre><pre class="notebook-output">torch.Size([1, 8, 7])
+torch.Size([1, 8])
+</pre></section><section class="notebook-cell">
+<h3 id="rnn-model">2 RNN model</h3>
+<ul>
+<li>Input (입력의 형태)
+<ul>
+<li>Input type: torch.Tensor</li>
+<li>Input shape: (N x S x E)
+<ul>
+<li>N: Batch size, S: Sequence length, E: Embedding size</li>
+<li>단, <strong>batch_first=True</strong> 일 때</li>
+</ul></li>
+<li>입력값 ‘hi!hello’
+<ul>
+<li>(1, 8, 7)</li>
+</ul></li>
+</ul></li>
+<li>Hidden (출력의 형태)
+<ul>
+<li>Hidden type: torch.Tensor</li>
+<li>출력값 ‘i!hello.’
+<ul>
+<li>(1, 8, 7)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code># Model
+learning_rate = 0.1
+training_epochs = 50
+model = nn.RNN(input_size, hidden_size, batch_first=True)</code></pre></section><section class="notebook-cell"><pre class="notebook-code"><code># define cost/loss &amp; optimizer
+criterion = nn.CrossEntropyLoss()    # Softmax
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# train
+for epoch in range(training_epochs):
+  optimizer.zero_grad()
+  outputs, _status = model(X)
+  loss = criterion(outputs.reshape(-1, dic_size), Y.reshape(-1))
+  loss.backward()
+  optimizer.step()
+  if epoch % 5 == 4:
+    result = outputs.data.numpy().argmax(axis=2)
+    result_str = ''.join([char_set[c] for c in np.squeeze(result)])
+    print('epoch: ',epoch, 'loss: ', loss.item(), 'prediction: ', result_str, 'true Y: ', sample_sentence[1:])
+</code></pre><pre class="notebook-output">epoch:  4 loss:  1.2792741060256958 prediction:  i!hillo. true Y:  i!hello.
+epoch:  9 loss:  0.9466097354888916 prediction:  i!hillo. true Y:  i!hello.
+epoch:  14 loss:  0.8066588640213013 prediction:  i!hillo. true Y:  i!hello.
+epoch:  19 loss:  0.7434771656990051 prediction:  i!hillo. true Y:  i!hello.
+epoch:  24 loss:  0.712984561920166 prediction:  i!hillo. true Y:  i!hello.
+epoch:  29 loss:  0.6942877769470215 prediction:  i!hillo. true Y:  i!hello.
+epoch:  34 loss:  0.6845752596855164 prediction:  i!hillo. true Y:  i!hello.
+epoch:  39 loss:  0.6790880560874939 prediction:  i!hillo. true Y:  i!hello.
+epoch:  44 loss:  0.6758877635002136 prediction:  i!hillo. true Y:  i!hello.
+epoch:  49 loss:  0.6733384132385254 prediction:  i!hillo. true Y:  i!hello.
+</pre></section><section class="notebook-cell">
+<h3 id="assignment">3 Assignment</h3>
+<h3 id="다음-3개의-문장을-batch-data로-활용해-rnn을-학습해보자-아래의-미완성-코드-위-실습코드-실행결과를-참고">다음 3개의 문장을 batch data로 활용해 RNN을 학습해보자 (아래의 미완성 코드, 위 실습코드, 실행결과를 참고)</h3>
+<ul>
+<li>‘howareyou’</li>
+<li>‘whats up?’</li>
+<li>‘iamgreat.’</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+
+# for reproducibility
+torch.manual_seed(100)
+
+# Dictionary
+sample_sentences = ['howareyou', 'whats up?', 'iamgreat.']
+char_set = list(set(''.join(sample_sentences)))
+dic = {c: i for i, c in enumerate(char_set)}
+
+# Parameters
+dic_size = len(dic)
+input_size = dic_size
+hidden_size = dic_size
+
+# Dataset setting
+input_batch = []
+target_batch = []
+
+for sentence in sample_sentences:
+
+
+# To torch tensors
+X = torch.FloatTensor(input_batch)
+Y = torch.LongTensor(target_batch)
+
+# Model
+learning_rate = 0.05
+training_epochs = 500
+model = nn.RNN(input_size, hidden_size, batch_first=True)
+
+# define cost/loss &amp; optimizer
+criterion = nn.CrossEntropyLoss()    # Softmax
+optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+
+# train
+for epoch in range(training_epochs):
+
+result = outputs.data.numpy().argmax(axis=2)
+for sentence in result:
+  print(''.join([char_set[c] for c in np.squeeze(sentence)]))
+</code></pre></section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/L18_Recurrent_Neural_Network.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>

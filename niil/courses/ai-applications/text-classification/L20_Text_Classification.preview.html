@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>L20. Text Classification | 인공지능응용 · 광운대학교 NiiL</title><link data-course-ui="" href="../../assets/course-ui.css" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "L20. Text Classification", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/L20_Text_Classification.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=20261026-outputs1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261026-sharing1" rel="stylesheet"/><meta content="인공지능응용: L20. Text Classification. 이 노트북은 작은 review dataset으로 sequence classification의 기본 흐름을 확인한다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/L20_Text_Classification.preview.html" rel="canonical"/><meta content="L20. Text Classification | 인공지능응용 · 광운대학교 NiiL" property="og:title"/><meta content="인공지능응용: L20. Text Classification. 이 노트북은 작은 review dataset으로 sequence classification의 기본 흐름을 확인한다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/L20_Text_Classification.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="L20. Text Classification | 인공지능응용 · 광운대학교 NiiL" name="twitter:title"/><meta content="인공지능응용: L20. Text Classification. 이 노트북은 작은 review dataset으로 sequence classification의 기본 흐름을 확인한다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/L20_Text_Classification.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/L20_Text_Classification.preview.html", "name": "L20. Text Classification | 인공지능응용 · 광운대학교 NiiL", "description": "인공지능응용: L20. Text Classification. 이 노트북은 작은 review dataset으로 sequence classification의 기본 흐름을 확인한다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><h1>L20. Text Classification</h1><nav class="notebook-actions"><a download="" href="L20_Text_Classification.ipynb">Notebook 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/text-classification/L20_Text_Classification.ipynb#copy=true" rel="noopener" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<p>이 노트북은 작은 review dataset으로 sequence classification의 기본 흐름을 확인한다.</p>
+<p>핵심 목표: - text를 token list로 나누기 - vocabulary를 만들고 word를 index로 바꾸기 - index sequence를 embedding vector sequence로 바꾸기 - sequence 전체를 하나의 vector로 요약하기 - classifier output, argmax, accuracy, mismatch를 확인하기</p>
+<p>외부 dataset, Hugging Face login, pretrained model 실행은 Appendix 자료에서 다룬다.</p>
+</section><section class="notebook-cell">
+<h2 id="toy-review-dataset">1. Toy review dataset</h2>
+<p>label 기준은 다음과 같이 고정</p>
+<ul>
+<li><code>0</code>: negative</li>
+<li><code>1</code>: neutral</li>
+<li><code>2</code>: positive</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>review_texts = [
+    "great battery bright screen",
+    "bad camera slow app",
+    "screen size okay",
+    "love fast performance",
+    "broken charger bad battery",
+    "average design normal speed",
+    "great sound love display",
+    "slow response hate keyboard",
+    "okay price average camera",
+    "bright screen fast app",
+    "bad screen okay battery",
+    "normal package average manual",
+]
+
+review_labels = [2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1]
+label_names = {0: "negative", 1: "neutral", 2: "positive"}
+
+print("sample count:", len(review_texts))
+print("label count:", len(review_labels))
+for text, label in zip(review_texts[:3], review_labels[:3]):
+    print(label, label_names[label], "|", text)</code></pre><pre class="notebook-output">sample count: 12
+label count: 12
+2 positive | great battery bright screen
+0 negative | bad camera slow app
+1 neutral | screen size okay
+</pre></section><section class="notebook-cell">
+<h2 id="tokenization">2. Tokenization</h2>
+<p>첫 단계는 text를 word token list로 나누는 것이다. 여기서는 이미 소문자와 간단한 공백 기준 text를 사용한다.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>tokenized_texts = [text.split() for text in review_texts]
+
+print(tokenized_texts[0])
+print("first length:", len(tokenized_texts[0]))</code></pre><pre class="notebook-output">['great', 'battery', 'bright', 'screen']
+first length: 4
+</pre></section><section class="notebook-cell">
+<h2 id="vocabulary-indexing">3. Vocabulary indexing</h2>
+<p>model은 단어 문자열을 직접 계산하지 않는다. 먼저 vocabulary를 만들고, 각 word를 integer index로 바꾼다.</p>
+<ul>
+<li><code>0</code>: padding token</li>
+<li><code>1</code>부터 실제 word index</li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>vocab = sorted({word for tokens in tokenized_texts for word in tokens})
+word_to_idx = {"&lt;pad&gt;": 0}
+for word in vocab:
+    word_to_idx[word] = len(word_to_idx)
+idx_to_word = {idx: word for word, idx in word_to_idx.items()}
+
+indexed_texts = [[word_to_idx[word] for word in tokens] for tokens in tokenized_texts]
+
+print("vocab size:", len(word_to_idx))
+print("word_to_idx sample:", list(word_to_idx.items())[:8])
+print("first indexed text:", indexed_texts[0])</code></pre><pre class="notebook-output">vocab size: 28
+word_to_idx sample: [('&lt;pad&gt;', 0), ('app', 1), ('average', 2), ('bad', 3), ('battery', 4), ('bright', 5), ('broken', 6), ('camera', 7)]
+first indexed text: [12, 4, 5, 23]
+</pre></section><section class="notebook-cell">
+<h2 id="padding">4. Padding</h2>
+<p>batch로 묶으려면 sequence length를 맞춰야 한다. 짧은 문장은 <code>&lt;pad&gt;</code> index <code>0</code>으로 채운다.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+
+max_len = max(len(seq) for seq in indexed_texts)
+padded_sequences = np.zeros((len(indexed_texts), max_len), dtype=np.int64)
+
+for i, seq in enumerate(indexed_texts):
+    padded_sequences[i, :len(seq)] = seq
+
+labels = np.array(review_labels, dtype=np.int64)
+
+print("padded shape:", padded_sequences.shape)
+print("first padded sequence:", padded_sequences[0].tolist())
+print("first words:", [idx_to_word[int(i)] for i in padded_sequences[0]])</code></pre><pre class="notebook-output">padded shape: (12, 4)
+first padded sequence: [12, 4, 5, 23]
+first words: ['great', 'battery', 'bright', 'screen']
+</pre></section><section class="notebook-cell">
+<h2 id="embedding">5. Embedding</h2>
+<p><code>nn.Embedding(vocab_size, embedding_dim)</code>은 word index를 dense vector로 바꾼다.</p>
+<p>입력 shape가 <code>(batch, seq_len)</code>이면 embedding output shape는 <code>(batch, seq_len, embedding_dim)</code>.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import torch
+import torch.nn as nn
+import torch.optim as optim
+
+torch.manual_seed(7)
+
+x = torch.tensor(padded_sequences, dtype=torch.long)
+y = torch.tensor(labels, dtype=torch.long)
+
+embedding = nn.Embedding(num_embeddings=len(word_to_idx), embedding_dim=5, padding_idx=0)
+embedded = embedding(x)
+
+print("x shape:", tuple(x.shape))
+print("embedded shape:", tuple(embedded.shape))</code></pre><pre class="notebook-output">x shape: (12, 4)
+embedded shape: (12, 4, 5)
+</pre></section><section class="notebook-cell">
+<h2 id="sequence-representation">6. Sequence representation</h2>
+<p>classification은 sequence 전체에 label 하나를 붙인다. 가장 단순한 방법으로 padding이 아닌 token embedding만 평균내어 sequence vector를 만든다.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>mask = (x != 0).unsqueeze(-1)
+lengths = mask.sum(dim=1).clamp(min=1)
+sequence_vectors = (embedded * mask).sum(dim=1) / lengths
+
+print("mask shape:", tuple(mask.shape))
+print("sequence_vectors shape:", tuple(sequence_vectors.shape))</code></pre><pre class="notebook-output">mask shape: (12, 4, 1)
+sequence_vectors shape: (12, 5)
+</pre></section><section class="notebook-cell">
+<h2 id="text-classifier">7. Text classifier</h2>
+<p>Embedding과 classifier를 하나의 model로 묶는다.</p>
+<ul>
+<li>input: word index sequence <code>(batch, seq_len)</code></li>
+<li>embedding: <code>(batch, seq_len, embedding_dim)</code></li>
+<li>mean pooling: <code>(batch, embedding_dim)</code></li>
+<li>classifier output logits: <code>(batch, class_count)</code></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>class MeanEmbeddingClassifier(nn.Module):
+    def __init__(self, vocab_size, embedding_dim, class_count):
+        super().__init__()
+        self.embedding = nn.Embedding(vocab_size, embedding_dim, padding_idx=0)
+        self.classifier = nn.Linear(embedding_dim, class_count)
+
+    def forward(self, token_ids):
+        embedded = self.embedding(token_ids)
+        mask = (token_ids != 0).unsqueeze(-1)
+        lengths = mask.sum(dim=1).clamp(min=1)
+        sequence_vectors = (embedded * mask).sum(dim=1) / lengths
+        logits = self.classifier(sequence_vectors)
+        return logits
+
+model = MeanEmbeddingClassifier(
+    vocab_size=len(word_to_idx),
+    embedding_dim=8,
+    class_count=3,
+)
+
+logits = model(x)
+print("logits shape:", tuple(logits.shape))</code></pre><pre class="notebook-output">logits shape: (12, 3)
+</pre></section><section class="notebook-cell">
+<h2 id="training">8. Training</h2>
+<p><code>CrossEntropyLoss</code>는 logits와 class index target을 받는다.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.05)
+
+for epoch in range(201):
+    optimizer.zero_grad()
+    logits = model(x)
+    loss = criterion(logits, y)
+    loss.backward()
+    optimizer.step()
+
+    if epoch % 50 == 0:
+        pred = logits.argmax(dim=1)
+        acc = (pred == y).float().mean().item()
+        print(f"epoch={epoch:3d} loss={loss.item():.4f} accuracy={acc:.2f}")</code></pre><pre class="notebook-output">epoch=  0 loss=1.1429 accuracy=0.33
+epoch= 50 loss=0.0001 accuracy=1.00
+epoch=100 loss=0.0001 accuracy=1.00
+epoch=150 loss=0.0001 accuracy=1.00
+epoch=200 loss=0.0001 accuracy=1.00
+</pre></section><section class="notebook-cell">
+<h2 id="output-verification">9. Output verification</h2>
+<p>학습이 끝난 뒤에는 accuracy만 보지 말고 prediction label과 mismatch를 text와 함께 확인합니다.</p>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>with torch.no_grad():
+    logits = model(x)
+    probabilities = torch.softmax(logits, dim=1)
+    pred = probabilities.argmax(dim=1)
+    accuracy = (pred == y).float().mean().item()
+
+print("probabilities shape:", tuple(probabilities.shape))
+print("pred:", pred.tolist())
+print("accuracy:", accuracy)
+
+mismatch_indices = (pred != y).nonzero(as_tuple=True)[0].tolist()
+if len(mismatch_indices) == 0:
+    print("No mismatch in this toy example.")
+else:
+    for i in mismatch_indices:
+        print("index:", i)
+        print("text:", review_texts[i])
+        print("true:", label_names[int(y[i])])
+        print("pred:", label_names[int(pred[i])])</code></pre><pre class="notebook-output">probabilities shape: (12, 3)
+pred: [2, 0, 1, 2, 0, 1, 2, 0, 1, 2, 0, 1]
+accuracy: 1.0
+No mismatch in this toy example.
+</pre></section><section class="notebook-cell">
+<h2 id="replay-checklist">10. Replay checklist</h2>
+<ul>
+<li>text와 label 개수가 맞는가?</li>
+<li>vocabulary index에서 <code>&lt;pad&gt;</code>와 실제 word index를 구분하는가?</li>
+<li>padded sequence shape를 설명할 수 있는가?</li>
+<li>embedding output shape <code>(batch, seq_len, embedding_dim)</code>을 설명할 수 있는가?</li>
+<li>sequence vector가 text 전체를 대표하는 vector라는 점을 설명할 수 있는가?</li>
+<li>logits, softmax, argmax, label name, accuracy를 연결할 수 있는가?</li>
+<li>mismatch sample을 text와 함께 확인했는가?</li>
+</ul>
+</section><p class="course-credit" data-niil-frame="">이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br/><a data-source-origin="" href="https://chorok-daddy.github.io/niil/courses/ai-applications/text-classification/L20_Text_Classification.preview.html">강의 출처</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a><!--NiiL Easter Egg
+
+[ko]
+이 주석까지 읽었다면 당신도 동료 공돌이입니다.
+이기백 교수님을 향한 respect += 1;
+단, 과학적 반박과 버그 제보는 언제나 환영합니다.
+자료가 유용했다면 원 저자에 대한 shout out을 매우 적극적으로 충분히 널리 해 주세요
+
+[en]
+If you have read this far into the comments, you are a fellow engineering geek.
+respect for Professor Ki-Baek Lee += 1;
+Scientific challenges and bug reports are always welcome.
+If you found these materials useful, please give the original author enthusiastic shout-outs, generously and far and wide.
+
+[zh]
+能读到这条注释，看来你也是一位理工同好。
+对 Ki-Baek Lee 教授的 respect += 1;
+当然，始终欢迎科学质疑和错误反馈。
+如果这些资料对你有帮助，请非常积极地为原作者点赞、宣传，让更多人知道原作者的贡献。
+
+[ja]
+このコメントまで読んだあなたも、理工系オタクの仲間です。
+Ki-Baek Lee 教授への respect += 1;
+もちろん、科学的な反論やバグ報告はいつでも歓迎です。
+この資料が役に立ったら、元の著者への感謝と称賛の shout out を、ぜひ積極的に、惜しみなく、広く届けてください。
+
+[es]
+Si has llegado hasta este comentario, eres de los nuestros: un apasionado de la ingeniería.
+respect por el profesor Ki-Baek Lee += 1;
+Las objeciones científicas y los informes de errores siempre son bienvenidos.
+Si estos materiales te han resultado útiles, reconoce y recomienda con mucho entusiasmo al autor original, generosamente y tan ampliamente como puedas.
+
+[th]
+ถ้าคุณอ่านมาถึงคอมเมนต์นี้ คุณก็คือเพื่อนสายวิศวะของเราแล้ว
+respect ที่มีต่ออาจารย์ Ki-Baek Lee += 1;
+ยินดีรับข้อโต้แย้งทางวิทยาศาสตร์และรายงานบั๊กเสมอ
+ถ้าเนื้อหานี้มีประโยชน์กับคุณ ช่วยกล่าวชื่นชมและบอกต่อถึงผู้เขียนต้นฉบับอย่างกระตือรือร้น ให้เต็มที่และแพร่หลายด้วยนะ
+
+[vi]
+Nếu đã đọc đến dòng chú thích này, bạn cũng là một người anh em mê kỹ thuật.
+respect dành cho Giáo sư Ki-Baek Lee += 1;
+Luôn hoan nghênh các phản biện khoa học và báo cáo lỗi.
+Nếu thấy tài liệu hữu ích, hãy thật nhiệt tình dành lời ghi nhận và giới thiệu tác giả gốc, một cách hào phóng và rộng rãi nhé.
+
+[ar]
+إذا وصلت في القراءة إلى هذا التعليق، فأنت أيضًا من رفاقنا الشغوفين بالهندسة.
+respect للأستاذ Ki-Baek Lee += 1;
+نرحب دائمًا بالنقد العلمي وبلاغات الأخطاء.
+إذا وجدت هذه المواد مفيدة، فأغدق على المؤلف الأصلي عبارات التقدير والإشادة بحماس كبير، وعرّف به على أوسع نطاق.--></p></main><footer data-niil-frame=""><a class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><div>자연모사 인공지능 연구실<br/><span>광운대학교 · 서울</span></div><a href="/niil/contact/">문의·지원</a><small>© NiiL</small></footer></body></html>
