@@ -187,11 +187,11 @@ def shell(title,content,section='',desc='',path='/niil/'):
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=course-viewer4"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=course-viewer5"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
     if path=='/niil/courses/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=course-viewer4"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=course-viewer5"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
@@ -252,7 +252,6 @@ def research_outputs():
         rows.append([tr('Patent','특허') if p['category']=='patent' else tr('Software','소프트웨어'),title,''.join(numbers),''.join(dates)])
     count=len(rows)
     out='<section class="wrap research-outputs" aria-label="'+tr('Research outputs','연구 성과')+'"><details id="intellectual-property" class="output-panel"><summary>'+tr('Intellectual property','지식재산권')+' <span class="output-count">'+str(count)+'</span></summary><div class="output-body">'
-    out+='<p class="muted">'+tr('Patents co-invented by Ki-Baek Lee.','이기백 교수가 발명에 참여한 특허입니다.')+'</p>'
     out+=table([tr('Type','구분'),tr('Title (status)','명칭 (상태)'),tr('Registration / application number','등록 / 출원번호'),tr('Registration / application date','등록 / 출원일')],rows)+'</div></details>'
     rows=[]
     for t in data['technology_transfers']:
@@ -324,7 +323,7 @@ for LANG in ('en','ko'):
     for p in pubs:
         citation=p['venue']+(' '+p['volume'] if p['volume'] else '')+(' ('+p['issue']+')' if p['issue'] else '')+(', '+p['pages'] if p['pages'] else '')
         content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title'])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
-    content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
+    content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
     def course_cards(group):
         cards=''
@@ -395,7 +394,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         else:doc.body.insert(0 if selector=='.skip' else 1,element)
     for element in frame.head.select('link[rel="stylesheet"],script[src]'):
         element['data-niil-frame']='';doc.head.append(element)
-    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=course-viewer4')
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=course-viewer5')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
     course_file.write_text(str(doc))

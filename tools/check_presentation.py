@@ -44,8 +44,23 @@ for course in courses:
   if assignment.is_file():
    doc=BeautifulSoup(assignment.read_text(),'html.parser')
    assert doc.select_one('a[data-course-overlay][href="index.html"]'),assignment
+   study=BeautifulSoup((directory/chapter['slug']/'index.html').read_text(),'html.parser')
+   assert not study.select('a[href^="assignment.html"]'),assignment
+   for a in doc.select('a[href^="index.html"]'):assert a.has_attr('data-course-overlay'),assignment
+   preview=doc.select_one('[data-notebook-preview]')
+   if preview:
+    assert preview.get_text()=='Colab 노트북 미리보기' and preview.has_attr('data-course-overlay'),assignment
+    download=preview.find_next_sibling('a')
+    assert download.get_text()=='Colab 노트북 다운로드' and download.has_attr('download'),assignment
 for page in (ROOT/'niil/courses').rglob('*.html'):
  doc=BeautifulSoup(page.read_text(),'html.parser')
  assert not doc.select('.course-author'),page
+ if page.name.endswith('.preview.html') or page.name=='assignment.html' or len(page.relative_to(ROOT/'niil/courses').parts)>2:
+  for a in doc.select('main a[href^="https://"]'):assert a.get('target')=='_blank',page
  assert '이기백' not in doc.title.get_text() and 'Ki-Baek' not in doc.title.get_text(),page
 print(f'PASS: {count} content footers, dialogs, exercise entry points, concise course titles and alumni cleanup')
+
+assert '전체 페이지' not in (ROOT/'niil/courses/assets/course-ui.js').read_text()
+for lang in ('','en/'):
+ text=(ROOT/('niil/'+lang+'research/index.html')).read_text()
+ assert '이기백 교수가 발명에 참여한' not in text and 'Patents co-invented by' not in text

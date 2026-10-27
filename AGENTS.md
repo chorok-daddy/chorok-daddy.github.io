@@ -47,7 +47,10 @@ keep license details off routine page footers.
 
 Course catalog: primary courses are visible; additional courses start collapsed.
 Course titles enter the exercise when available; study material opens in a
-responsive dialog with a full-page fallback. Keep one GitHub link at the catalog entry. Old standalone course introductions redirect to their indexes.
+responsive dialog with close-only navigation and a normal-link fallback. Keep one GitHub link at the catalog entry. Old standalone course introductions redirect to their indexes.
 
 Avoid repeated course bylines and personal-name suffixes in browser titles.
 Keep authorship in reuse guidance and structured metadata.
+
+Omit explanations that restate a table heading, ownership or selection criteria.
+Keep meaningful results, conditions, deadlines and attribution requirements.

@@ -7,9 +7,9 @@
     });
     document.addEventListener('click', e => {
       const a = e.target.closest('a[href]');
-      if (!a || !new URL(a.href).pathname.endsWith('/assignment.html') || e.metaKey || e.ctrlKey) return;
-      e.preventDefault();
-      parent.postMessage({type:'course-exercise', href:a.href}, location.origin === 'null' ? '*' : location.origin);
+      if (a && new URL(a.href).origin !== location.origin) {
+        a.target = '_blank'; a.rel = 'noopener noreferrer';
+      }
     });
     return;
   }
@@ -18,7 +18,7 @@
     dialog = document.createElement('dialog');
     dialog.className = 'course-overlay';
     dialog.setAttribute('aria-labelledby','course-overlay-title');
-    dialog.innerHTML = '<header class="overlay-bar"><strong id="course-overlay-title">학습자료</strong><a class="overlay-full">전체 페이지 ↗</a><button type="button" class="overlay-close" aria-label="학습자료 닫기">닫기 ×</button></header><div class="overlay-content"></div>';
+    dialog.innerHTML = '<header class="overlay-bar"><strong id="course-overlay-title">학습자료</strong><a class="overlay-run" target="_blank" rel="noopener noreferrer" hidden>Colab 실행 ↗</a><button type="button" class="overlay-close" aria-label="자료 닫기">닫기 ×</button></header><div class="overlay-content"></div>';
     document.body.append(dialog);
     dialog.querySelector('button').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', e => {
@@ -34,13 +34,7 @@
     window.addEventListener('message', e => {
       if (!frame || e.source !== frame.contentWindow || e.origin !== location.origin) return;
       if (e.data?.type === 'course-close') dialog.close();
-      if (e.data?.type === 'course-exercise') {
-        const target = new URL(e.data.href, location.href);
-        if (target.origin !== location.origin || !target.pathname.endsWith('/assignment.html')) return;
-        dialog.close();
-        if (target.pathname === location.pathname) document.getElementById('lab-activities')?.scrollIntoView();
-        else location.href = target.href;
-      }
+
     });
   }
   document.addEventListener('click', e => {
@@ -51,7 +45,9 @@
     e.preventDefault();
     if (!dialog) prepare();
     trigger = a;
-    dialog.querySelector('.overlay-full').href = a.href;
+    const run = dialog.querySelector('.overlay-run');
+    run.hidden = !a.dataset.colabUrl;
+    if (a.dataset.colabUrl) run.href = a.dataset.colabUrl; else run.removeAttribute('href');
     dialog.querySelector('#course-overlay-title').textContent = a.dataset.courseOverlay || '학습자료';
     url.searchParams.set('embedded','1');
     frame = document.createElement('iframe');
