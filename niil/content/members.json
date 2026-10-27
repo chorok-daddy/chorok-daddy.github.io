@@ -192,7 +192,18 @@
       "height": 900
     },
     "thumbnail_image": "/niil/assets/media/sunmok-thumbnail-20261027.png",
-    "thumbnail_provenance": "Background-cleaned thumbnail from original portrait, 2026-10-27; detail photo unchanged."
+    "thumbnail_provenance": "Background-cleaned thumbnail from original portrait, 2026-10-27; detail photo unchanged.",
+    "updates": [
+      {
+        "url": "https://www.ktr.or.kr/ktr-intro/employee/list.do?f=0&q=AX%EC%A0%84%EB%9E%B5TF%ED%8C%80",
+        "source": "KTR",
+        "label": {
+          "ko": "KTR AX전략TF팀 선임연구원 — 공식 직원 소개",
+          "en": "Senior Researcher, KTR AX Strategy TF — official staff directory"
+        },
+        "checked": "2026-10-27"
+      }
+    ]
   },
   {
     "id": "1b6888a17b3080948f5ad68279728645",
@@ -274,7 +285,18 @@
       "height": 400
     },
     "portrait_source": "homecoming-2025",
-    "thumbnail_image": "/niil/assets/media/sangkyu-thumbnail-color-20261026.png"
+    "thumbnail_image": "/niil/assets/media/sangkyu-thumbnail-color-20261026.png",
+    "updates": [
+      {
+        "url": "https://kr.linkedin.com/in/sangkyu-lim-867b9222b",
+        "source": "LinkedIn",
+        "label": {
+          "ko": "LG전자 경력 및 연구 이력 — 공개 프로필",
+          "en": "LG Electronics experience and research — public profile"
+        },
+        "checked": "2026-10-27"
+      }
+    ]
   },
   {
     "id": "1b6888a17b30805fb0fce8da884d74ee",
@@ -325,7 +347,18 @@
     "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months).",
     "thumbnail_image": "/niil/assets/media/jiwon-thumbnail-20261027.png",
     "thumbnail_provenance": "Owner-approved second background-cleanup version from restored 2019 group photo, 2026-10-27. Original detail crop preserved.",
-    "affiliation_name_source": "https://corp.kt.com/eng/data/kthome/social/data/csrReport/01/SR_eng_2014_Full.pdf"
+    "affiliation_name_source": "https://corp.kt.com/eng/data/kthome/social/data/csrReport/01/SR_eng_2014_Full.pdf",
+    "updates": [
+      {
+        "url": "https://kr.linkedin.com/in/%EC%A7%80%EC%9B%90-%EB%AC%B8-31061b22b",
+        "source": "LinkedIn",
+        "label": {
+          "ko": "KT 연구 활동 및 공개 이력 — LegalMidm·Mi:dm K 2.5 Pro",
+          "en": "KT research and public profile — LegalMidm and Mi:dm K 2.5 Pro"
+        },
+        "checked": "2026-10-27"
+      }
+    ]
   },
   {
     "id": "1b6888a17b3080958465c407bd26a00b",
@@ -607,7 +640,29 @@
       }
     ],
     "reference": null,
-    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months).",
+    "updates": [
+      {
+        "date": "2026-09",
+        "url": "https://www.mhealthlab.io/",
+        "source": "mHealthLAB",
+        "label": {
+          "ko": "한국연구재단 박사과정생 연구장려금 지원사업 선정",
+          "en": "Selected for the NRF Doctoral Student Research Grant"
+        },
+        "checked": "2026-10-27"
+      },
+      {
+        "date": "2026-05-22",
+        "url": "https://sustainability.korea.ac.kr/campus/SDG_view.html?no=997&page=1",
+        "source": "Korea University",
+        "label": {
+          "ko": "ACS Nano 리뷰 논문 공동제1저자 — 고려대학교 연구 소식",
+          "en": "Co-first author of an ACS Nano review — Korea University research news"
+        },
+        "checked": "2026-10-27"
+      }
+    ]
   },
   {
     "id": "29b888a17b3080a2b5f8ea17e29192b2",

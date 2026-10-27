@@ -286,8 +286,7 @@ for LANG in ('en','ko'):
             elif m.get('portrait_crop') or m.get('thumbnail_crop'):
                 portrait=frame_portrait(portrait,m.get('portrait_crop') or m['thumbnail_crop'])
             content+=f'<article class="person"><a href="{href(p)}">{portrait}</a><div><p class="eyebrow">{m["role"][LANG]}</p><h3><a href="{href(p)}">{esc(m["name"][LANG])}</a></h3>'+history(m)
-            if m.get('profile_link'):content+='<p class="member-affiliation">'+member_profile_link(m)+'</p>'
-            elif m['affiliation'][LANG]:content+='<p class="member-affiliation">'+member_affiliation(m)+'</p>'
+            if m['affiliation'][LANG]:content+='<p class="member-affiliation">'+member_affiliation(m)+'</p>'
             content+='</div></article>'
         content+='</div></section>'
     emit('/niil/members/',tr('People','구성원'),content,'members')
@@ -306,7 +305,8 @@ for LANG in ('en','ko'):
         if m.get('updates'):
             content+='<h2>'+tr('Recent updates','최근 근황')+'</h2><ul>'
             for update in m['updates']:
-                content+=f'<li><a href="{esc(update["url"])}" target="_blank" rel="noopener noreferrer">{esc(update["label"][LANG])} ↗</a> <span class="muted">({esc(update["date"])})</span></li>'
+                date=f' <span class="muted">({esc(update["date"])})</span>' if update.get('date') else ''
+                content+=f'<li><a href="{esc(update["url"])}" target="_blank" rel="noopener noreferrer">{esc(update["label"][LANG])} ↗</a>{date}</li>'
             content+='</ul>'
         if m['email']:content+='<h2>'+tr('Email','이메일')+'</h2><a href="mailto:'+esc(m['email'])+'">'+esc(m['email'])+'</a>'
         if m['reference']:content+=f'<p><a href="{m["reference"]}">{tr("UNICON Lab profile","UNICON Lab 구성원 소개")} ↗</a></p>'
