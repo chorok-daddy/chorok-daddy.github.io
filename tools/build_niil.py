@@ -254,7 +254,7 @@ def research_outputs():
     return out
 
 for LANG in ('en','ko'):
-    home=heading('',tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실'),tr('We study robot learning, visual perception and human-centered AI at Kwangwoon University.','광운대학교에서 로봇 학습, 시각 인식, 인간 중심 인공지능을 연구합니다.'))
+    home=heading('',tr('Nature-inspired Intelligence Lab (NiiL)','자연모사 인공지능 연구실<span class="lab-name-en" lang="en">Nature-inspired Intelligence Lab (NiiL)</span>'),tr('We study robot learning, visual perception and human-centered AI at Kwangwoon University.','광운대학교에서 로봇 학습, 시각 인식, 인간 중심 인공지능을 연구합니다.'))
     home+='<section class="wrap section compact">'+cluster_cards()+'</section><section class="wrap section compact"><div class="section-title"><h2>'+tr('Ongoing projects','수행 중 과제')+'</h2><a href="/niil/research/">'+tr('All research','전체 연구')+'</a></div>'+project_rows([p for p in CATALOG if p['status']=='In progress'])+'</section>'
     home+='<section class="wrap section compact"><div class="resource-note"><h2>'+tr('Join the lab','연구실 참여')+'</h2><p>'+tr('Undergraduate internship applications are accepted throughout the year.','학부 인턴 지원은 상시 접수합니다.')+'</p><a href="/niil/contact/#join">'+tr('Lab application guide','연구실 지원 안내')+'</a></div></section>'
     emit('/niil/',tr('Home','홈'),home)
