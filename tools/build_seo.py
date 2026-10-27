@@ -61,18 +61,18 @@ for file in sorted(SITE.rglob('*.html')):
     member=member_paths.get(ko_path)
     course=next((c for c in COURSES if ko_path.startswith('/niil/courses/'+c['slug']+'/')),None)
     if ko_path=='/niil/':
-        title='Kwangwoon University NiiL | Ki-Baek Lee · AI & Robotics' if lang=='en' else '광운대학교 NiiL | 이기백 교수 · 인공지능·로봇 연구'
+        title='NiiL | AI & Robotics' if lang=='en' else 'NiiL | 자연모사 인공지능 연구실'
         description='Nature-inspired Intelligence Lab at Kwangwoon University, led by Ki-Baek Lee. Explore robotics, visual perception, human-centered AI, publications and open course materials.' if lang=='en' else '이기백 교수의 광운대학교 자연모사 인공지능 연구실 NiiL. 로봇·자율 시스템, 시각 인식·물류, 인간 중심 AI 연구와 논문, 공개 강의자료를 소개합니다.'
     elif member:
         role=member['role'][lang];affiliation=member['affiliation'][lang]
         title=(f'{name} | Kwangwoon University NiiL' if lang=='en' else f'{name}{" 교수" if member==faculty else ""} | 광운대학교 NiiL')
         description=(f'{name}: {role}. NiiL membership history'+(f' and affiliation: {affiliation}.' if affiliation else '.')) if lang=='en' else f'{name}의 NiiL 이력과 소속 안내.'+(f' {affiliation}.' if affiliation else '')
     elif ko_path=='/niil/courses/':
-        title='Open Course Materials | Ki-Baek Lee · Kwangwoon University' if lang=='en' else '공개 강의자료 | 이기백 · 광운대학교 NiiL'
+        title='Course | NiiL' if lang=='en' else '강의자료 | NiiL'
         description='Course notes, notebooks, exercises and datasets by Ki-Baek Lee, Kwangwoon University.' if lang=='en' else '광운대학교 이기백 교수의 공개 강의자료. 과목별 학습자료, 실습 안내, Notebook·MATLAB 파일과 데이터를 제공합니다.'
     elif course:
         root=ko_path==f'/niil/courses/{course["slug"]}/'
-        title=(f'{course["title"]} 공개 강의·실습 | 이기백 · 광운대학교' if root else f'{name} | {course["title"]} · 광운대학교 NiiL')
+        title=(f'{course["title"]} | NiiL' if root else f'{name} | {course["title"]}')
         description=(f'광운대학교 이기백 교수의 {course["title"]} 강의. '+('PyTorch·Notebook을 활용한 인공지능 실습과 주차별 학습자료.' if course['slug']=='ai-applications' else ('MATLAB·Simulink를 활용한 제어 시스템 모델링과 응답·안정성 실습.' if course['slug']=='control-1' else '학습자료와 실습 파일.'))) if root else f'{course["title"]}: {name}. '
         if not root:
             paragraphs=doc.select('main p:not(.course-credit):not(.source-note)')

@@ -33,3 +33,7 @@ body.niil-course{display:block;background:var(--paper);color:var(--ink)}
 .niil-course main .breadcrumb a{text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
 .niil-course main .breadcrumb a::before{content:'←'}
 @media(max-width:600px){.niil-course main .chapter-list h2{font-size:18px}}
+
+.course-embedded .course-author{display:none!important}
+.niil-course main .chapter-list>li{grid-template-columns:40px minmax(0,1fr)}
+@media(max-width:600px){.niil-course main .chapter-list>li{grid-template-columns:25px minmax(0,1fr)}}

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Check language-specific footers and the lightweight source-note references."""
-import re
+import json,re
 from pathlib import Path
 from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1]
@@ -31,4 +31,21 @@ for lang in ('','en/'):
  guide=ROOT/('niil/'+lang+'courses/reuse.html')
  assert guide.is_file()
  assert not BeautifulSoup(guide.read_text(),'html.parser').select_one('footer a')
-print(f'PASS: {count} content footers, note references, reuse pages and alumni link cleanup')
+courses=json.loads((ROOT/'tools/course-catalog.json').read_text())['courses']
+for course in courses:
+ if not course['published']:continue
+ directory=ROOT/'niil/courses'/course['slug']
+ index=BeautifulSoup((directory/'index.html').read_text(),'html.parser')
+ assert not index.select('.chapter-exercise')
+ for chapter in course['chapters']:
+  assignment=directory/chapter['slug']/'assignment.html'
+  entry=chapter['slug']+('/assignment.html' if assignment.is_file() else '/index.html')
+  assert len(index.select('h2 a[href="'+entry+'"]'))==1
+  if assignment.is_file():
+   doc=BeautifulSoup(assignment.read_text(),'html.parser')
+   assert doc.select_one('a[data-course-overlay][href="index.html"]'),assignment
+for page in (ROOT/'niil/courses').rglob('*.html'):
+ doc=BeautifulSoup(page.read_text(),'html.parser')
+ assert not doc.select('.course-author'),page
+ assert '이기백' not in doc.title.get_text() and 'Ki-Baek' not in doc.title.get_text(),page
+print(f'PASS: {count} content footers, dialogs, exercise entry points, concise course titles and alumni cleanup')
