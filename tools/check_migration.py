@@ -18,9 +18,14 @@ for item in manifest['files']:
         downloads += 1
         continue
     alias = BeautifulSoup(old.read_text(), 'html.parser')
-    assert alias.select_one('meta[http-equiv="refresh"]')['content'] == '0;url=' + item['new'], old
+    target=item['new']
+    if new.name=='files.html':target='/'+new.parent.relative_to(ROOT).as_posix()+'/index.html'
+    assert alias.select_one('meta[http-equiv="refresh"]')['content'] == '0;url=' + target, old
     assert 'location.search+location.hash' in old.read_text(), old
     new_page = BeautifulSoup(new.read_text(), 'html.parser')
+    if new.name=='files.html':
+        assert new_page.select_one('meta[http-equiv="refresh"]')['content']=='0;url=index.html'
+        new_page=BeautifulSoup((new.parent/'index.html').read_text(),'html.parser')
     assert set(item['anchors']) <= {x['id'] for x in new_page.select('[id]')}, new
     homes = new_page.select('a[href="/niil/courses/"]:not([data-language])')
     assert len(homes) == 1 and homes[0].get_text() == '강의자료', new

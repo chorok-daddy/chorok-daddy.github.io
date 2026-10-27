@@ -37,6 +37,10 @@ for course in courses:
  directory=ROOT/'niil/courses'/course['slug']
  index=BeautifulSoup((directory/'index.html').read_text(),'html.parser')
  assert not index.select('.chapter-exercise')
+ assert not index.select('a[href="files.html"]')
+ if (directory/'files.html').is_file():
+  old=BeautifulSoup((directory/'files.html').read_text(),'html.parser')
+  assert old.select_one('meta[http-equiv="refresh"]')['content']=='0;url=index.html'
  download=index.select_one('[data-course-download]')
  assert download and download['href']=='https://github.com/chorok-daddy/courses/blob/main/'+course['slug']+'/README.md'
  assert not download.has_attr('download') and download.get_text()=='자료 받기 ↗'

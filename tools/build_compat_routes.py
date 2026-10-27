@@ -41,7 +41,9 @@ def main():
         new = ROOT / item['new'].lstrip('/')
         old = ROOT / item['old'].lstrip('/')
         if item['kind'] == 'page':
-            redirect(item['old'], item['new'], item['anchors'])
+            target=item['new']
+            if new.name=='files.html':target='/'+new.parent.relative_to(ROOT).as_posix()+'/index.html'
+            redirect(item['old'], target, item['anchors'])
         else:
             # Static hosting cannot redirect arbitrary binary downloads. Keep an
             # exact mirror so existing direct downloads and Colab links work.
