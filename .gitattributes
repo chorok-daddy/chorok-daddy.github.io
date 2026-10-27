@@ -3,3 +3,7 @@
 *.mlx -text
 *.slx -text
 *.preview.html -whitespace
+# Imported teaching examples retain their authored formatting.
+niil/courses/**/*.py -whitespace
+niil/courses/**/*.m -whitespace
+niil/courses/**/license.txt -whitespace
