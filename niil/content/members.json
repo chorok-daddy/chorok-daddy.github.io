@@ -11,10 +11,10 @@
     },
     "alumni": false,
     "affiliation": {
-      "en": "Kwangwoon University",
-      "ko": "광운대학교"
+      "en": "Dept. Electrical Engineering, Kwangwoon University",
+      "ko": "광운대학교 전기공학과"
     },
-    "affiliation_verified": null,
+    "affiliation_verified": "2026-10-27",
     "email": "kblee@kw.ac.kr",
     "history": [
       {
@@ -48,10 +48,10 @@
     },
     "alumni": false,
     "affiliation": {
-      "en": "Kwangwoon University",
-      "ko": "광운대학교"
+      "en": "Dept. Electrical Engineering, Kwangwoon University",
+      "ko": "광운대학교 전기공학과"
     },
-    "affiliation_verified": null,
+    "affiliation_verified": "2026-10-27",
     "email": "parkyh2024@kw.ac.kr",
     "history": [
       {
@@ -78,10 +78,10 @@
     },
     "alumni": false,
     "affiliation": {
-      "en": "Kwangwoon University",
-      "ko": "광운대학교"
+      "en": "Dept. Electrical Engineering, Kwangwoon University",
+      "ko": "광운대학교 전기공학과"
     },
-    "affiliation_verified": null,
+    "affiliation_verified": "2026-10-27",
     "email": "pjho9370@kw.ac.kr",
     "history": [
       {
@@ -190,7 +190,9 @@
       "y": 230,
       "width": 720,
       "height": 900
-    }
+    },
+    "thumbnail_image": "/niil/assets/media/sunmok-thumbnail-20261027.png",
+    "thumbnail_provenance": "Background-cleaned thumbnail from original portrait, 2026-10-27; detail photo unchanged."
   },
   {
     "id": "1b6888a17b3080948f5ad68279728645",
@@ -231,7 +233,8 @@
     ],
     "reference": null,
     "portrait_source": "artint-2019-solo",
-    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months).",
+    "portrait_provenance": "Owner-approved restoration from supplied 2019 group screenshot, preserving original head tilt and expression; 2026-10-27."
   },
   {
     "id": "1b6888a17b3080f1a4eaeb47d72ebf28",
@@ -469,7 +472,9 @@
       "y": 350,
       "width": 320,
       "height": 400
-    }
+    },
+    "thumbnail_image": "/niil/assets/media/changhyun-thumbnail-20261027.png",
+    "thumbnail_provenance": "Background-cleaned thumbnail from original portrait, 2026-10-27; detail photo unchanged."
   },
   {
     "id": "1b6888a17b3080f6b335e32d4bfb793c",
