@@ -397,7 +397,18 @@
       }
     ],
     "reference": null,
-    "portrait_provenance": "Generated restoration from user-identified composited head in 2019 group photo; subtle cheek adjustment requested by owner, 2026-10-27."
+    "portrait_provenance": "Generated restoration from user-identified composited head in 2019 group photo; subtle cheek adjustment requested by owner, 2026-10-27.",
+    "updates": [
+      {
+        "date": "2025-05-14",
+        "url": "https://www.mt.co.kr/future/2025/05/14/2025051415181082591",
+        "source": "머니투데이",
+        "label": {
+          "ko": "김캐디 AI팀의 골프 스윙 분석 연구 참여 — CVPR 2025 워크숍",
+          "en": "Golf swing analysis research with Kimcaddie AI team — CVPR 2025 workshop"
+        }
+      }
+    ]
   },
   {
     "id": "1b6888a17b3080c4ba45df0e2d9c85ce",

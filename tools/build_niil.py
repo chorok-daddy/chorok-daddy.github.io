@@ -303,6 +303,11 @@ for LANG in ('en','ko'):
         content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+portrait+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
         if m.get('profile_link'):content+='<h2>'+tr('Profile','프로필')+'</h2><p>'+member_profile_link(m)+'</p>'
         elif m['affiliation'][LANG]:content+='<h2>'+tr('Affiliation','소속')+'</h2><p>'+member_affiliation(m)+'</p>'
+        if m.get('updates'):
+            content+='<h2>'+tr('Recent updates','최근 근황')+'</h2><ul>'
+            for update in m['updates']:
+                content+=f'<li><a href="{esc(update["url"])}" target="_blank" rel="noopener noreferrer">{esc(update["label"][LANG])} ↗</a> <span class="muted">({esc(update["date"])})</span></li>'
+            content+='</ul>'
         if m['email']:content+='<h2>'+tr('Email','이메일')+'</h2><a href="mailto:'+esc(m['email'])+'">'+esc(m['email'])+'</a>'
         if m['reference']:content+=f'<p><a href="{m["reference"]}">{tr("UNICON Lab profile","UNICON Lab 구성원 소개")} ↗</a></p>'
         content+='</article></section>';emit(href(p),m['name'][LANG],content,'members')
