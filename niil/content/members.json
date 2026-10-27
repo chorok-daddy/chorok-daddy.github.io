@@ -40,11 +40,11 @@
     "id": "1b6888a17b3080828d26d1354c44feb4",
     "name": {
       "en": "Yuhyun Park",
-      "ko": "Yuhyun Park"
+      "ko": "박유현"
     },
     "role": {
-      "en": "Ph.D. student",
-      "ko": "박사과정"
+      "en": "Integrated M.S.–Ph.D. student",
+      "ko": "석박사통합과정"
     },
     "alumni": false,
     "affiliation": {
@@ -56,8 +56,8 @@
     "history": [
       {
         "role": {
-          "en": "Ph.D. student",
-          "ko": "박사과정"
+          "en": "Integrated M.S.–Ph.D. student",
+          "ko": "석박사통합과정"
         },
         "start": "2023-03",
         "end": null,
@@ -153,8 +153,8 @@
       "ko": "김선목"
     },
     "role": {
-      "en": "Ph.D.",
-      "ko": "박사"
+      "en": "Integrated M.S.–Ph.D.",
+      "ko": "석박사통합"
     },
     "alumni": true,
     "affiliation": {
@@ -166,11 +166,20 @@
     "history": [
       {
         "role": {
-          "en": "Ph.D.",
-          "ko": "박사"
+          "en": "Integrated M.S.–Ph.D.",
+          "ko": "석박사통합"
+        },
+        "start": "2017-03",
+        "end": "2024-02",
+        "ongoing": false
+      },
+      {
+        "role": {
+          "en": "Undergraduate intern",
+          "ko": "학부 인턴"
         },
         "start": "2016-06",
-        "end": "2024-02",
+        "end": "2017-02",
         "ongoing": false
       }
     ],
@@ -431,8 +440,8 @@
       "ko": "이창현"
     },
     "role": {
-      "en": "Ph.D.",
-      "ko": "박사"
+      "en": "Integrated M.S.–Ph.D.",
+      "ko": "석박사통합"
     },
     "alumni": true,
     "affiliation": {
@@ -444,8 +453,8 @@
     "history": [
       {
         "role": {
-          "en": "Ph.D.",
-          "ko": "박사"
+          "en": "Integrated M.S.–Ph.D.",
+          "ko": "석박사통합"
         },
         "start": "2018-09",
         "end": "2025-08",
