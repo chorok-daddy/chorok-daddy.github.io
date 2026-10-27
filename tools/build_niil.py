@@ -186,9 +186,9 @@ def project_rows(items):
         search=esc(' '.join([p['title'],p['title_ko'],p.get('official_title_en') or '',p.get('translated_title_en') or '', ' '.join(q['title'] for q in p['phases']),p['summary'],PROJECT_LOCALES[p['key']]['summary_en']]+p['sponsors']+[sponsor(s) for s in p['sponsors']]))
         out+=f'<article class="project-row" data-project data-search="{search}" data-topic="{key}" data-status="{p["status"]}"><div><span class="badge">{status}</span><p class="muted">{p["start"][:4]}–{p["end"][:4]}</p></div><div><p class="eyebrow">{cluster(p["cluster"])}</p><h2><a href="{ROUTES[p["page_id"]]}">{esc(project_title(p))}</a></h2>{project_titles(p)}<p>{esc(project_summary(p))}</p><p class="muted">{esc(" · ".join(sponsor(s) for s in p["sponsors"]))}</p></div></article>'
     return out+'</div>'
-def member_affiliation(m):
+def member_affiliation(m, linked=True):
     text=esc(m['affiliation'][LANG])
-    if m.get('affiliation_url'):
+    if linked and m.get('affiliation_url'):
         return f'<a href="{esc(m["affiliation_url"])}" target="_blank" rel="noopener noreferrer">{text} ↗</a>'
     return text
 def member_profile_link(m):
@@ -286,7 +286,7 @@ for LANG in ('en','ko'):
             elif m.get('portrait_crop') or m.get('thumbnail_crop'):
                 portrait=frame_portrait(portrait,m.get('portrait_crop') or m['thumbnail_crop'])
             content+=f'<article class="person"><a href="{href(p)}">{portrait}</a><div><p class="eyebrow">{m["role"][LANG]}</p><h3><a href="{href(p)}">{esc(m["name"][LANG])}</a></h3>'+history(m)
-            if m['affiliation'][LANG]:content+='<p class="member-affiliation">'+member_affiliation(m)+'</p>'
+            if m['affiliation'][LANG]:content+='<p class="member-affiliation">'+member_affiliation(m, linked=False)+'</p>'
             content+='</div></article>'
         content+='</div></section>'
     emit('/niil/members/',tr('People','구성원'),content,'members')
@@ -299,7 +299,7 @@ for LANG in ('en','ko'):
     for m in MEMBER_DATA:
         p=byid[m['id']];portrait=image(p,'portrait')
         if m.get('portrait_crop'):portrait=frame_portrait(portrait,m['portrait_crop'])
-        content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+portrait+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
+        content=heading('',esc(m['name'][LANG]))+'<section class="wrap document-layout member-detail"><aside><a href="/niil/members/">← '+tr('People','구성원')+'</a>'+portrait+'</aside><article class="prose"><h2>'+tr('At NiiL','NiiL 이력')+'</h2>'+history(m)
         if m.get('profile_link'):content+='<h2>'+tr('Profile','프로필')+'</h2><p>'+member_profile_link(m)+'</p>'
         elif m['affiliation'][LANG]:content+='<h2>'+tr('Affiliation','소속')+'</h2><p>'+member_affiliation(m)+'</p>'
         if m.get('updates'):
