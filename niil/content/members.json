@@ -288,8 +288,8 @@
     },
     "alumni": true,
     "affiliation": {
-      "en": "KT Inc.",
-      "ko": "KT"
+      "ko": "KT 융합기술원",
+      "en": "KT Institute of Convergence Technology"
     },
     "affiliation_verified": null,
     "email": "",
@@ -324,7 +324,8 @@
     "portrait_source": "artint-2019",
     "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months).",
     "thumbnail_image": "/niil/assets/media/jiwon-thumbnail-20261027.png",
-    "thumbnail_provenance": "Owner-approved second background-cleanup version from restored 2019 group photo, 2026-10-27. Original detail crop preserved."
+    "thumbnail_provenance": "Owner-approved second background-cleanup version from restored 2019 group photo, 2026-10-27. Original detail crop preserved.",
+    "affiliation_name_source": "https://corp.kt.com/eng/data/kthome/social/data/csrReport/01/SR_eng_2014_Full.pdf"
   },
   {
     "id": "1b6888a17b3080958465c407bd26a00b",
@@ -410,8 +411,8 @@
     },
     "alumni": true,
     "affiliation": {
-      "en": "Mirae High School of Sci. & Tech.",
-      "ko": "미래산업과학고등학교"
+      "ko": "미래산업과학고등학교 인공지능콘텐츠과 교사",
+      "en": "Teacher, Department of AI Contents (인공지능콘텐츠과), Mirae High School of Science and Technology"
     },
     "affiliation_verified": null,
     "email": "sew00n@sen.go.kr",
@@ -437,7 +438,8 @@
     ],
     "reference": null,
     "portrait_source": "artint-2019-solo",
-    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months)."
+    "history_basis": "M.S. duration confirmed by lab PI on 2026-10-26; start inferred from graduation month (inclusive academic months).",
+    "affiliation_url": "https://mist-aic.imweb.me/creator"
   },
   {
     "id": "1b6888a17b3080ccaa14f5c77fe8d644",
