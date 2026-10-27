@@ -226,6 +226,9 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/course-setup/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/course-setup/assignment.html</loc>
   </url>
   <url>
@@ -235,10 +238,16 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-one/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-one/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-two/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-two/assignment.html</loc>
@@ -250,6 +259,9 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/lti-laplace/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/lti-laplace/assignment.html</loc>
   </url>
   <url>
@@ -259,10 +271,16 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-one/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-one/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-three/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-three/assignment.html</loc>
@@ -271,10 +289,16 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-two/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/performance-two/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/physical-models/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/physical-models/assignment.html</loc>
@@ -286,10 +310,16 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/stability/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/stability/Control_Engineering_1_Week14_Stability.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/stability/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-one/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-one/assignment.html</loc>
@@ -298,16 +328,25 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-three/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-three/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-two/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/state-space-two/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/transfer-blocks/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/transfer-blocks/assignment.html</loc>
@@ -703,7 +742,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/adv_img_process.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/basic_img_process.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/keyboard-control/</loc>
@@ -716,6 +761,9 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/tello_image_processing.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/en/</loc>

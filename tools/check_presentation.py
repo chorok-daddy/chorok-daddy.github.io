@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Check language-specific footers and the lightweight source-note references."""
-import json,re
+import json,re,hashlib
 from pathlib import Path
 from bs4 import BeautifulSoup,Comment
 from easter_egg import EASTER_EGG_TEXT
@@ -60,6 +60,16 @@ for course in courses:
     assert preview.get_text()=='Colab 노트북 미리보기' and preview.has_attr('data-course-overlay'),assignment
     download=preview.find_next_sibling('a')
     assert download.get_text()=='Colab 노트북 다운로드' and download.has_attr('download'),assignment
+   mlx=doc.select_one('[data-mlx-preview]')
+   if mlx:
+    assert mlx.get_text()=='mlx 스크립트 미리보기' and mlx.has_attr('data-matlab-url'),assignment
+    download=mlx.find_next_sibling('a')
+    assert download.get_text()=='mlx 스크립트 다운로드' and download.has_attr('download'),assignment
+  for source in (directory/chapter['slug']).glob('*.mlx'):
+   preview=source.with_suffix('.mlx.preview.html')
+   page=BeautifulSoup(preview.read_text(),'html.parser')
+   assert page.select_one('.mlx-document') and page.select_one('meta[name="mlx-export-run"]')['content']=='false'
+   assert page.select_one('meta[name="mlx-source-sha256"]')['content']==hashlib.sha256(source.read_bytes()).hexdigest()
 for page in (ROOT/'niil/courses').rglob('*.html'):
  doc=BeautifulSoup(page.read_text(),'html.parser')
  assert not doc.select('.course-author'),page

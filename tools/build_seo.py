@@ -73,6 +73,7 @@ for file in sorted(SITE.rglob('*.html')):
     elif course:
         root=ko_path==f'/niil/courses/{course["slug"]}/'
         title=(f'{course["title"]} | NiiL' if root else f'{name} | {course["title"]}')
+        if not root and course['title'] in name:title=f'{name} | NiiL'
         description=(f'광운대학교 이기백 교수의 {course["title"]} 강의. '+('PyTorch·Notebook을 활용한 인공지능 실습과 주차별 학습자료.' if course['slug']=='ai-applications' else ('MATLAB·Simulink를 활용한 제어 시스템 모델링과 응답·안정성 실습.' if course['slug']=='control-1' else '학습자료와 실습 파일.'))) if root else f'{course["title"]}: {name}. '
         if not root:
             paragraphs=doc.select('main p:not(.course-credit):not(.source-note)')

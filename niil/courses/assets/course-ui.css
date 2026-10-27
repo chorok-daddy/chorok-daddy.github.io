@@ -22,3 +22,11 @@ footer.course-footer{display:flex;align-items:center;justify-content:space-betwe
 .overlay-run[hidden]{display:none}.course-embedded .notebook-actions,.course-embedded [data-chapter-files]{display:none!important}
 @media(max-width:600px){nav#lab-files.resource-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}nav#lab-files.resource-links a{font-size:13px;padding:8px 10px;text-align:center}nav#lab-files.resource-links a[data-course-overlay="학습자료"],nav#lab-files.resource-links a[href*="colab.research.google.com"]{grid-column:1/-1}}
 .course-embedded math[display="block"]{display:block;max-width:100%;overflow-x:auto;overflow-y:hidden}.course-embedded table{display:block;max-width:100%;overflow-x:auto}.course-embedded svg{max-width:100%;height:auto}.course-embedded pre{max-width:100%;overflow-x:auto}
+
+.mlx-document .rtcContent{padding:0}.mlx-document .rtcContent>:not(.CodeBlock){white-space:normal;overflow-wrap:anywhere}.mlx-document .rtcContent>div:not(.CodeBlock){font-size:15px;line-height:1.8}.mlx-document .rtcContent h1{color:#173c2d;font-weight:650;white-space:normal;line-height:1.35}.mlx-document .CodeBlock{max-width:100%;overflow-x:auto;border-radius:7px;margin:20px 0}.mlx-document .CodeBlock>*{min-width:max-content}.mlx-document img,.mlx-document svg{max-width:100%;height:auto}.mlx-document table{display:block;max-width:100%;overflow-x:auto}.resource-list .resource-name{flex-basis:100%;font-weight:500}@media(max-width:600px){.mlx-document .rtcContent h1{font-size:28px}}
+
+.resource-links a[href*="matlab.mathworks.com"]{background:#e7eedf;border-color:#b1c4a7}@media(max-width:600px){nav#lab-files.resource-links a[href*="matlab.mathworks.com"]{grid-column:1/-1}}
+
+main p code,main li>code{white-space:normal;overflow-wrap:anywhere}
+
+.mlx-document .CodeBlock>.outputs{min-width:0;max-width:100%;display:block}.mlx-document .embeddedOutputsFigure,.mlx-document .figureElement{width:100%!important;max-width:100%}.mlx-document .figureImage{width:auto!important;max-width:100%;height:auto}

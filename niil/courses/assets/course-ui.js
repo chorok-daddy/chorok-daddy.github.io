@@ -46,8 +46,10 @@
     if (!dialog) prepare();
     trigger = a;
     const run = dialog.querySelector('.overlay-run');
-    run.hidden = !a.dataset.colabUrl;
-    if (a.dataset.colabUrl) run.href = a.dataset.colabUrl; else run.removeAttribute('href');
+    const runUrl = a.dataset.colabUrl || a.dataset.matlabUrl;
+    run.hidden = !runUrl;
+    run.textContent = a.dataset.matlabUrl ? 'MATLAB 실행 ↗' : 'Colab 실행 ↗';
+    if (runUrl) run.href = runUrl; else run.removeAttribute('href');
     dialog.querySelector('#course-overlay-title').textContent = a.dataset.courseOverlay || '학습자료';
     url.searchParams.set('embedded','1');
     frame = document.createElement('iframe');

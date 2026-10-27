@@ -187,11 +187,11 @@ def shell(title,content,section='',desc='',path='/niil/'):
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=course-packages1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=mlx-preview1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
     if path=='/niil/courses/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=course-packages1"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=mlx-preview1"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
@@ -395,7 +395,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         else:doc.body.insert(0 if selector=='.skip' else 1,element)
     for element in frame.head.select('link[rel="stylesheet"],script[src]'):
         element['data-niil-frame']='';doc.head.append(element)
-    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=course-packages1')
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=mlx-preview1')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
     course_file.write_text(str(doc))
