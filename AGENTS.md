@@ -31,3 +31,13 @@ Detailed license terms belong in LICENSE.md, not repeated in page introductions.
 The website root redirects to /niil/; legacy /courses/ URLs remain until 2026-12-31.
 The build ends with SEO metadata and sitemap generation. Run check_seo.py after it.
 Course authoring rules belong in the course repository's AGENTS.md.
+
+## Lab content
+
+Members: `niil/content/members.json`. Research: `niil/content/projects.json` and
+`niil/content/projects/*.md` with matching English files. Original Notion records
+remain in `pages.json`; use current member/project records when updating profiles.
+Research eligibility: external research led by Ki-Baek Lee; exclude university
+sponsors, intramural funding, matching funds, personnel-training and non-PI work.
+Keep registered titles and reported results distinct from translations and targets.
+Old review repositories are archived; production is deployed only from master.
