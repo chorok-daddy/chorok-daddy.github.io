@@ -2,7 +2,8 @@
 """Check language-specific footers and the lightweight source-note references."""
 import json,re
 from pathlib import Path
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup,Comment
+from easter_egg import EASTER_EGG_TEXT
 ROOT=Path(__file__).resolve().parents[1]
 count=0
 for p in (ROOT/'niil').rglob('*.html'):
@@ -15,10 +16,9 @@ for p in (ROOT/'niil').rglob('*.html'):
  assert identity==expected,(p,identity)
  assert not footer.select('a[href="/niil/contact/"]'),p
  assert not doc.select('.course-credit'),p
- assert 'NiiL Easter Egg' not in text,p
- refs=re.findall(r'<!--\s*ref:\s*([^>]+render\.logtmp)\s*-->',text)
- assert len(refs)==1,(p,refs)
- assert (ROOT/refs[0].strip().lstrip('/')).is_file(),p
+ notes=[str(c).strip() for c in doc.find_all(string=lambda c:isinstance(c,Comment)) if 'NiiL Easter Egg' in c]
+ assert not notes,p
+ assert 'NiiL Easter Egg' not in doc.get_text(),p
  count+=1
 for lang in ('','en/'):
  catalog=BeautifulSoup((ROOT/('niil/'+lang+'courses/index.html')).read_text(),'html.parser')
@@ -37,6 +37,9 @@ for course in courses:
  directory=ROOT/'niil/courses'/course['slug']
  index=BeautifulSoup((directory/'index.html').read_text(),'html.parser')
  assert not index.select('.chapter-exercise')
+ download=index.select_one('[data-course-download]')
+ assert download and download['href'].endswith('/downloads/'+course['slug']+'.zip')
+ assert (ROOT/'niil/courses/downloads'/(course['slug']+'.zip')).is_file()
  for chapter in course['chapters']:
   assignment=directory/chapter['slug']/'assignment.html'
   entry=chapter['slug']+('/assignment.html' if assignment.is_file() else '/index.html')
@@ -64,3 +67,7 @@ assert '전체 페이지' not in (ROOT/'niil/courses/assets/course-ui.js').read_
 for lang in ('','en/'):
  text=(ROOT/('niil/'+lang+'research/index.html')).read_text()
  assert '이기백 교수가 발명에 참여한' not in text and 'Patents co-invented by' not in text
+
+css=(ROOT/'niil/assets/niil.css').read_text()
+assert css.count('NiiL Easter Egg')==1 and EASTER_EGG_TEXT in css
+assert 'NiiL Easter Egg' not in (ROOT/'niil/courses/assets/course-ui.css').read_text()

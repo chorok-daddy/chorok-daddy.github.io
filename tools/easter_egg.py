@@ -1,5 +1,5 @@
-"""Keep the playful multilingual source note in a separate static file."""
-import json
+"""Compile the shared multilingual template into a shared stylesheet comment."""
+import json,re
 from pathlib import Path
 TEMPLATE=json.loads((Path(__file__).resolve().parents[1]/'templates/website-easter-egg.json').read_text())
 NOTE_PATH='assets/meta/cache/render.logtmp'
@@ -11,10 +11,13 @@ def render_text(site_name=None,author=None,author_ko=None):
         localized={**values,'author':values['author_ko'] if language=='ko' else values['author']}
         lines+=['',f'[{language}]',*[line.format(**localized) for line in TEMPLATE['translations'][language]]]
     return '\n'.join(lines)
-def render_reference(path):return '<!-- ref: '+path+' -->'
-def write_note(root):
+def strip_note(text):return re.sub(r'/\*\s*NiiL Easter Egg[\s\S]*?\*/\s*','',text)
+def render_css():return '/*\n'+render_text()+'\n*/'
+def write_note(root,stylesheet):
     path=Path(root)/NOTE_PATH
     path.parent.mkdir(parents=True,exist_ok=True)
     path.write_text(render_text()+'\n')
+    css=Path(root)/stylesheet
+    css.write_text(strip_note(css.read_text()).rstrip()+'\n\n'+render_css()+'\n')
 EASTER_EGG_TEXT=render_text()
-EASTER_EGG_HTML=render_reference('/niil/'+NOTE_PATH)
+EASTER_EGG_HTML=''

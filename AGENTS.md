@@ -1,16 +1,16 @@
 # Website maintenance
 
 - Preserve course URLs, anchors and downloads; run the relevant checks in `tools/`.
-- Keep the multilingual source note in `niil/assets/meta/cache/render.logtmp`.
-  Content HTML carries one short source-comment pointer only. Do not repeat the
-  note text in HTML or execute it. Templates live under templates/.
+- Compile the shared multilingual template once into niil/assets/niil.css as
+  a CSS comment. Keep it out of HTML and rendered/accessibility text.
 - Course source lives in the separate `chorok-daddy/courses` repository under
   `<slug>/<chapter>/`. Never edit generated `niil/courses/`
   or `assets/site.css` here. Import a committed source revision with
   `python3 tools/sync_courses.py --source ../courses`; then build and validate.
 - `build_niil.py` reproduces the pinned `tools/course-source.json` revision before
   adding the lab frame. `tools/course-catalog.json` is imported, not hand-edited.
-- Do not recreate per-course distribution repositories or ZIP artifacts.
+- Do not recreate per-course distribution repositories. Import the generated
+  per-course ZIPs with their source revision; do not hand-edit archives.
   Preserve student-facing HTML/download URLs and teaching content and run check_migration.py, check_site.py,
   check_course_source.py, and check_seo.py before publishing. Push source before the website.
 
