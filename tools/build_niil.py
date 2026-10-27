@@ -187,16 +187,16 @@ def shell(title,content,section='',desc='',path='/niil/'):
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=layout2"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=courses3"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
     if path=='/niil/courses/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=layout2"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=courses3"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
 def route_redirect(path,target):
-    section='teaching' if target=='/niil/courses/' else ('contact' if target.startswith('/niil/contact/') else 'research')
+    section='teaching' if target.startswith('/niil/courses/') else ('contact' if target.startswith('/niil/contact/') else 'research')
     title=tr('Course','강의자료') if section=='teaching' else (tr('Contact & apply','문의·지원') if section=='contact' else tr('Research','연구'))
     page=shell(title,heading('',title)+f'<section class="wrap section"><a href="{local(target)}">{tr("Continue","이동")}</a></section>',section,path=path)
     page=page.replace('<meta charset="utf-8">',f'<meta charset="utf-8"><meta http-equiv="refresh" content="0;url={local(target)}">')
@@ -326,10 +326,17 @@ for LANG in ('en','ko'):
         content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title'])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
-    course_content=heading('',tr('Course','강의자료'),tr('Ki-Baek Lee · Kwangwoon University','이기백 · 광운대학교'))+'<section class="wrap section compact"><p><a href="https://github.com/chorok-daddy/courses">'+tr('Course materials on GitHub','강의자료 저장소')+' ↗</a></p><ul class="course-list">'
-    for course in COURSE_CATALOG:
-        course_content+='<li><a href="/niil/courses/'+course['slug']+'/index.html">'+esc(course['title'] if LANG=='ko' else course['title_en'])+'</a></li>'
-    course_content+='</ul></section>'
+    def course_cards(group):
+        cards=''
+        for course in COURSE_CATALOG:
+            if course.get('catalog_group','additional')!=group:continue
+            title=course['title'] if LANG=='ko' else course['title_en']
+            caption=course['title_en'] if LANG=='ko' else str(len(course['chapters']))+' topics'
+            cards+='<a class="course-card-link" href="/niil/courses/'+course['slug']+'/index.html"><span class="course-card-copy"><strong>'+esc(title)+'</strong><span>'+esc(caption)+'</span></span><span class="card-arrow" aria-hidden="true">→</span></a>'
+        return '<div class="course-cards">'+cards+'</div>'
+    additional=sum(c.get('catalog_group','additional')=='additional' for c in COURSE_CATALOG)
+    course_heading='<header class="wrap publication-heading course-heading"><div><h1>'+tr('Course','강의자료')+'</h1><p class="lede">'+tr('Ki-Baek Lee · Kwangwoon University','이기백 · 광운대학교')+'</p></div><a class="repository-link" href="https://github.com/chorok-daddy/courses">GitHub <span aria-hidden="true">↗</span></a></header>'
+    course_content=course_heading+'<section class="wrap section compact course-catalog">'+course_cards('primary')+'<details class="additional-courses"><summary>'+tr('Other courses','기타 과목')+' <span>'+str(additional)+'</span></summary>'+course_cards('additional')+'</details></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
     reuse_content=heading('',tr('Using course materials','강의자료 활용'))+'<section class="wrap prose reuse-guide"><p>'+tr('You may use, adapt and share these materials with attribution.','출처를 표시하고 자료를 활용·수정·공유할 수 있습니다.')+'</p><h2>'+tr('Attribution','출처 표기')+'</h2><blockquote>'+tr('Ki-Baek Lee, Kwangwoon University, “Course · Material title”','이기백, 광운대학교, 「과목명 · 자료명」')+'<br>https://github.com/chorok-daddy/courses</blockquote><details><summary>'+tr('Terms','이용 조건')+'</summary><p>'+tr('Text and figures: CC BY 4.0. Original code: MIT. Third-party materials retain their own terms.','설명·그림은 CC BY 4.0, 직접 작성한 코드는 MIT입니다. 제3자 자료는 해당 출처의 이용 조건을 따릅니다.')+'</p><a href="/niil/courses/LICENSE.md">'+tr('Full license','라이선스 전문')+'</a></details></section>'
@@ -344,6 +351,8 @@ for LANG in ('en','ko'):
     handled={p['id'] for p in PAGES[:6]}|{PAGES[12]['id']}|{p['id'] for p in AREAS+VISIONS+PROJECTS+MEMBERS+NOTICE}
     for p in PAGES:
         if p['id'] in handled:continue
+        if p in PAGES[6:12]:
+            route_redirect(href(p),'/niil/courses/'+TOP[PAGES.index(p)]+'/index.html');continue
         content=heading('',tr('Original course material','강의자료 원문'))+'<section class="wrap document-layout"><aside><a href="/niil/courses/">← '+tr('Course','강의자료')+'</a><nav class="toc" aria-label="'+tr('On this page','페이지 목차')+'"></nav></aside><article class="prose"><p class="archive-note">'+tr('Past course materials. See KLAS for current semester announcements.','이전 강의자료입니다. 현재 학기 공지는 KLAS에서 확인하세요.')+'</p><div class="archive-source" lang="ko">'+meta(p)+render(p)+'</div></article></section>'
         emit(href(p),tr('Original course material','강의자료 원문'),content,'teaching')
 (SITE/'content/routes.json').write_text(json.dumps(ROUTES,ensure_ascii=False,indent=2)+'\n')
@@ -389,7 +398,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         else:doc.body.insert(0 if selector=='.skip' else 1,element)
     for element in frame.head.select('link[rel="stylesheet"],script[src]'):
         element['data-niil-frame']='';doc.head.append(element)
-    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=layout2')
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=courses3')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
     course_file.write_text(str(doc))

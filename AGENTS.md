@@ -44,3 +44,7 @@ content JSON; do not render their history or editorial explanations. Preserve
 formal project titles and meaningful NTIS/report links. Prefer positive scope
 labels to boilerplate disclaimers. Course reuse guidance lives at reuse.html;
 keep license details off routine page footers.
+
+Course catalog: primary courses are visible; additional courses start collapsed.
+Use direct page navigation, not iframe/dialog overlays. Keep one GitHub link at
+the catalog entry. Old standalone course introductions redirect to their indexes.

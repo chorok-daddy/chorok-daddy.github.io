@@ -5,7 +5,7 @@ body.niil-course{display:block;background:var(--paper);color:var(--ink)}
 .niil-course main h2{font-size:1.6rem;line-height:1.4;margin:2rem 0 1rem}
 .niil-course main h3{font-size:1.25rem;line-height:1.5;margin:1.5rem 0 .7rem}
 .niil-course main p{margin-bottom:1rem}
-.niil-course main a,.niil-course .site-nav a{text-decoration:underline;text-underline-offset:.2em}
+.niil-course main a{text-underline-offset:.2em}
 .niil-course main img{max-width:100%;height:auto}
 .niil-course main pre{max-width:100%;overflow:auto}
 .niil-course .resource-links{gap:.5rem 1.2rem;margin:1rem 0 1.5rem}
@@ -26,15 +26,10 @@ body.niil-course{display:block;background:var(--paper);color:var(--ink)}
  .niil-course main{overflow-wrap:anywhere}
 }
 @media print{.niil-course>.site-header,.niil-course>footer{display:none}}
-.course-list{list-style:none;padding:0;margin:32px 0 0;border-top:1px solid var(--line)}
-.course-list li{border-bottom:1px solid var(--line)}
-.course-list a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 0;font-size:24px;font-weight:600}
-.course-list a::after{content:'→';font-weight:400}
-.course-distribution{display:flex;flex-wrap:wrap;gap:12px 24px;margin:0 0 24px;font-size:14px}
-.course-list .course-distribution a{padding:2px 0;font-size:14px;font-weight:400;text-decoration:underline}
-.course-list .course-distribution a::after{content:none}
-.course-license,.course-credit{color:var(--muted);font-size:13px;line-height:1.8;margin-top:32px}
-.niil-course main .course-credit{border-top:1px solid var(--line);padding-top:24px;margin-top:48px;font-size:13px;break-inside:avoid}
-.course-license a,.course-distribution a{text-decoration:underline;text-underline-offset:3px}
-@media print{.course-distribution{display:none}.course-credit a[data-source-origin]::after{content:' (' attr(href) ')';font-size:10px;overflow-wrap:anywhere}}
-.course-embedded .course-author{display:none!important}
+.niil-course main .chapter-list h2{margin:0;font-size:21px;line-height:1.5}
+.niil-course main .chapter-list h2 a,.niil-course main .chapter-exercise,.niil-course main .chapter-actions a,.niil-course main .resource-links a,.niil-course main .notebook-actions a,.niil-course main .resource-list a,.niil-course main .exercise-action{text-decoration:none}
+.niil-course main .resource-list a:hover{text-decoration:underline}
+.niil-course main .resource-links a{padding:8px 15px}
+.niil-course main .breadcrumb a{text-decoration:none;display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--muted)}
+.niil-course main .breadcrumb a::before{content:'←'}
+@media(max-width:600px){.niil-course main .chapter-list h2{font-size:18px}}

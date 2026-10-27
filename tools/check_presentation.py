@@ -21,6 +21,11 @@ for p in (ROOT/'niil').rglob('*.html'):
  assert (ROOT/refs[0].strip().lstrip('/')).is_file(),p
  count+=1
 for lang in ('','en/'):
+ catalog=BeautifulSoup((ROOT/('niil/'+lang+'courses/index.html')).read_text(),'html.parser')
+ additional=catalog.select_one('details.additional-courses')
+ assert additional and not additional.has_attr('open')
+ assert len(catalog.select('.course-catalog > .course-cards a'))==2
+ assert len(catalog.select('.repository-link'))==1
  member=ROOT/('niil/'+lang+'pages/sunmok-kim-41337dc6/index.html')
  assert 'ktr.or.kr/ktr-intro/employee' not in member.read_text()
  guide=ROOT/('niil/'+lang+'courses/reuse.html')
