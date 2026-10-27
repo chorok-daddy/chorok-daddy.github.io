@@ -4,9 +4,9 @@
 
 ## 현재 원본
 
-`niil/courses/`의 HTML과 실습 파일이 현재 편집 원본이다. 이전 임시 폴더의 생성 원고를 다시 실행해 덮어쓰지 않는다. `site-catalog.json`은 실제 원본 파일과 주차를 가리키는 목록이다. `assets/`는 공통 스타일·동작을 관리한다.
+`chorok-daddy/courses`의 `courses/<slug>/lessons/`와 `materials/`가 편집 원본이다. 이 저장소의 `niil/courses/`는 커밋을 고정해 가져온 게시본이며 직접 편집하지 않는다. `site-catalog.json`은 실제 원본 파일과 주차를 가리키는 목록이다. `assets/`는 공통 스타일·동작을 관리한다.
 
-HTML을 직접 수정한 뒤 `python3 tools/check_site.py`로 로컬 파일·anchor·Notebook 구조를 확인한다. 화면·수식·실습 실행과 외부 서비스 로그인/복사는 변경 영향에 맞춰 별도로 확인한다. 도구가 외부 주소를 검사한 것으로 해석하지 않는다.
+원본을 수정하고 가져온 뒤 `python3 tools/check_site.py`로 로컬 파일·anchor·Notebook 구조를 확인한다. 화면·수식·실습 실행과 외부 서비스 로그인/복사는 변경 영향에 맞춰 별도로 확인한다. 도구가 외부 주소를 검사한 것으로 해석하지 않는다.
 
 `/`는 `/niil/`로 이동하며, 강의자료는 `/niil/courses/` → 과목 → 각 주차 자료로 연결된다. 기존 `/courses/` 주소는 2026년 12월 31일 제거 전까지 호환용으로 유지한다. 과제 안내와 실습 파일도 해당 주차 폴더에서 관리한다.
 
@@ -26,37 +26,38 @@ HTML을 직접 수정한 뒤 `python3 tools/check_site.py`로 로컬 파일·anc
 
 학습자료는 개념과 상세 설명의 중심이며, 실습 안내는 수행 조건·작업·제출 방법을 관리한다. `opening-digest`는 질문별 짧은 복습과 실습 목적 설정을 유지하고 자세한 설명은 학습자료로 연결한다. 긴 시나리오와 상세 실습 지시를 양쪽에 중복 저장하지 않는다.
 
-## 과목별 Clone / ZIP 배포
+## 강의자료 원본과 게시
 
-- 인공지능응용: https://github.com/chorok-daddy/course-ai-applications
-- 제어공학1: https://github.com/chorok-daddy/course-control-engineering-1
+[통합 강의 저장소](https://github.com/chorok-daddy/courses)에서 모든 과목의 강의,
+Notebook, MATLAB·Simulink, 데이터와 원자료를 관리합니다. 학기·개설 여부는
+해당 저장소의 `catalog.json`에 기록하며 과목 경로는 바꾸지 않습니다.
 
-각 과목 저장소는 현재 사이트 원본에서 내보낸 배포본이며, Git clone / Fork /
-GitHub의 Code → Download ZIP을 지원한다. 원본 편집 위치는 계속 `niil/courses/`다.
-저장소를 이동하거나 기존 강의 링크를 변경하지 않는다.
+이 사이트는 `tools/course-source.json`에 고정된 커밋과 해시를 기준으로 원본을
+가져와 연구실 공통 프레임·검색 메타데이터·기존 URL 호환을 적용합니다.
+`tools/course-catalog.json`, `niil/courses/`, `assets/site.css`는 생성 결과입니다.
+별도 과목 배포 저장소와 ZIP 산출물은 사용하지 않습니다.
 
-강의 설명·그림은 CC BY 4.0, 직접 작성한 실습 코드는 MIT로 배포한다.
-범위·제3자 자료 예외는 [강의 라이선스](niil/courses/LICENSE.md)에 명시한다.
-이 라이선스는 연구실 인물 사진이나 연구 페이지 전체에 적용하는 허가가 아니다.
-
-갱신 순서:
+원본 저장소에서 검증·commit·push한 뒤:
 
 ```sh
+python3 tools/sync_courses.py --source ../courses
 python3 tools/build_niil.py
 python3 tools/check_site.py
 python3 tools/check_migration.py
-python3 tools/export_course_repos.py --output /tmp/niil-course-export
-# 검토 후 과목 저장소에 일반 commit/push (force-push 없음)
-python3 tools/publish_course_repos.py --publish
-# 이후 이 사이트 변경을 commit/push
+python3 tools/check_course_source.py
+python3 tools/check_seo.py
+# 이 사이트 변경을 commit/push → GitHub Pages
 ```
 
-배포 명령은 기존 과목 저장소에만 게시하고 자동으로 새 저장소를 만들지 않는다.
-`SOURCE.json`에 기록된 이전 생성 파일만 교체하며, 과목 저장소의 독립 편집은
-다음 배포에 덮어써질 수 있으므로 원본 저장소에 반영한다. 해시 스냅샷으로 출처와
-버전을 추적한다. ZIP은 GitHub가 생성하므로 별도 바이너리 ZIP을 Git에 넣지 않는다.
-기존 학생용 다운로드는 그대로 두고, 배포본 Notebook에는 출처 셀을 추가한다.
-MATLAB·데이터 파일은 바이트를 유지하고 `.SOURCE.txt`를 함께 제공한다.
+일반 사이트 빌드는 마지막에 고정한 원본 커밋을 재현합니다. 인접 `courses`
+체크아웃이 없으면 GitHub에서 해당 커밋을 가져옵니다. 신규 강의 내용을 게시할 때만
+명시적으로 원본 커밋을 갱신하므로 사이트 작업 중 강의가 임의로 바뀌지 않습니다.
+학생용 HTML·다운로드 URL은 유지하며, Colab·MATLAB 실행 링크는 통합 원본을 가리킵니다.
+Notebook의 이전 웹 주소도 현재 주소로 갱신했습니다. 계산 코드·문제·데이터는 변경하지 않았습니다.
+
+[강의 라이선스](niil/courses/LICENSE.md): 저자 소유 설명·그림 CC BY 4.0,
+직접 작성한 코드 MIT. 제3자 자료는 기존 조건을 따릅니다. 연구실 사진 등 다른
+사이트 자료에 적용하는 허가는 아닙니다.
 
 ## 검색 메타데이터
 

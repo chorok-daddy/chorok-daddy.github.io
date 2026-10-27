@@ -2,7 +2,7 @@
 
 Copyright © 2026 Ki-Baek Lee (이기백), Kwangwoon University · NiiL.
 
-Unless otherwise identified, the original course materials under `niil/courses/`
+Unless otherwise identified, the original course materials under `courses/`
 are available under these terms:
 
 - Teaching text, explanations, figures and presentation content: **CC BY 4.0**.
@@ -15,7 +15,7 @@ are available under these terms:
   use CC BY 4.0; original executable code uses MIT.
 - Third-party material, datasets, libraries, embedded dependencies, trademarks
   and separately credited images retain their own terms. This grant does not
-  relicense those materials or cover the lab's member photos and research pages.
+  relicense those materials or cover unrelated lab website content.
 
 강의 설명·그림은 CC BY 4.0, 직접 작성한 실습 코드는 MIT로 제공합니다.
 출처와 라이선스 고지를 유지하고, 자료를 수정한 경우 변경 사실을 밝혀 주세요.

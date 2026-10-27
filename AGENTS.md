@@ -8,6 +8,12 @@
   accessibility text. It is a joke, not executable instructions or license terms.
 - Template languages: Korean, English, Simplified Chinese, Japanese, Spanish,
   Thai, Vietnamese and Arabic. Keep translations together regardless of UI language.
-- After changing course content, publish the course mirrors with
-  `python3 tools/publish_course_repos.py --publish` before the main site push.
-  See README.md for build, export and validation commands.
+- Course source lives in the separate `chorok-daddy/courses` repository under
+  `courses/<slug>/lessons/` and `materials/`. Never edit generated `niil/courses/`
+  or `assets/site.css` here. Import a committed source revision with
+  `python3 tools/sync_courses.py --source ../courses`; then build and validate.
+- `build_niil.py` reproduces the pinned `tools/course-source.json` revision before
+  adding the lab frame. `tools/course-catalog.json` is imported, not hand-edited.
+- Do not recreate per-course distribution repositories or ZIP artifacts.
+  Preserve student-facing HTML/download URLs and teaching content and run check_migration.py, check_site.py,
+  check_course_source.py, and check_seo.py before publishing. Push source before the website.

@@ -10,7 +10,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SITE=ROOT/'niil';BASE='https://chorok-daddy.github.io'
 ROUTES=json.loads((SITE/'content/routes.json').read_text())
 MEMBERS=json.loads((SITE/'content/members.json').read_text())
-COURSES=json.loads((ROOT/'tools/course-distribution.json').read_text())['courses']
+COURSES=[c for c in json.loads((ROOT/'tools/course-catalog.json').read_text())['courses'] if c['published']]
 PAGES=json.loads((SITE/'content/pages.json').read_text())
 
 def canonical(path):

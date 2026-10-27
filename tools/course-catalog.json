@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/chorok-daddy/courses",
+  "branch": "main",
+  "courses": [
+    {
+      "slug": "ai-applications",
+      "title": "인공지능응용",
+      "title_en": "AI Applications",
+      "source": "courses/ai-applications",
+      "web_path": "/niil/courses/ai-applications/",
+      "published": true,
+      "offering": {
+        "academic_year": 2026,
+        "semester": 2,
+        "status": "offered",
+        "source": "courses/ai-applications/lessons/schedule.html"
+      },
+      "materials": true,
+      "lessons": [
+        {
+          "slug": "course-orientation",
+          "week": 1,
+          "title": "AI 실습에서 무엇을 확인할까?",
+          "source": "courses/ai-applications/lessons/course-orientation/index.html",
+          "lab": null,
+          "assignment_source": "courses/ai-applications/lessons/course-orientation/assignment.html",
+          "kind": "orientation"
+        },
+        {
+          "slug": "notebook-literacy",
+          "week": 2,
+          "title": "Notebook으로 생각을 설명하기",
+          "source": "courses/ai-applications/lessons/notebook-literacy/index.html",
+          "lab": "courses/ai-applications/lessons/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/notebook-literacy/assignment.html"
+        },
+        {
+          "slug": "python-arrays-plots",
+          "week": 3,
+          "title": "배열을 읽고 그래프로 설명하기",
+          "source": "courses/ai-applications/lessons/python-arrays-plots/index.html",
+          "lab": "courses/ai-applications/lessons/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/python-arrays-plots/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "git-collaboration",
+          "week": 4,
+          "title": "변경 이력을 남기며 협업하기",
+          "source": "courses/ai-applications/lessons/git-collaboration/index.html",
+          "lab": "courses/ai-applications/lessons/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/git-collaboration/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "tensor-manipulation",
+          "week": 5,
+          "title": "Tensor의 모양을 먼저 예측하기",
+          "source": "courses/ai-applications/lessons/tensor-manipulation/index.html",
+          "lab": "courses/ai-applications/lessons/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/tensor-manipulation/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "linear-regression",
+          "week": 6,
+          "title": "예측 오차를 줄이며 직선 찾기",
+          "source": "courses/ai-applications/lessons/linear-regression/index.html",
+          "lab": "courses/ai-applications/lessons/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/linear-regression/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "logistic-regression",
+          "week": 7,
+          "title": "확률과 분류 기준을 구분하기",
+          "source": "courses/ai-applications/lessons/logistic-regression/index.html",
+          "lab": "courses/ai-applications/lessons/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/logistic-regression/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "multiclass",
+          "week": 8,
+          "title": "클래스별 점수를 읽고 비교하기",
+          "source": "courses/ai-applications/lessons/multiclass/index.html",
+          "lab": "courses/ai-applications/lessons/multiclass/AI_Applications_Week08_Multiclass.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/multiclass/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "convolution",
+          "week": 9,
+          "title": "CNN의 층별 연산과 Tensor shape",
+          "source": "courses/ai-applications/lessons/convolution/index.html",
+          "lab": "courses/ai-applications/lessons/convolution/AI_Applications_Week09_Convolution.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/convolution/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "image-classification",
+          "week": 10,
+          "title": "이미지 분류의 학습과 평가 분리하기",
+          "source": "courses/ai-applications/lessons/image-classification/index.html",
+          "lab": "courses/ai-applications/lessons/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/image-classification/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "midterm",
+          "week": 11,
+          "title": "중간시험 · 핵심 정리와 준비",
+          "source": "courses/ai-applications/lessons/midterm/index.html",
+          "lab": null,
+          "assignment_source": null,
+          "kind": "exam"
+        },
+        {
+          "slug": "recurrent",
+          "week": 12,
+          "title": "이전 문자를 기억하며 다음 문자 예측하기",
+          "source": "courses/ai-applications/lessons/recurrent/index.html",
+          "lab": "courses/ai-applications/lessons/recurrent/AI_Applications_Week12_Recurrent.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/recurrent/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "lstm-gru",
+          "week": 13,
+          "title": "긴 글을 나누어 다음 문자 예측하기",
+          "source": "courses/ai-applications/lessons/lstm-gru/index.html",
+          "lab": "courses/ai-applications/lessons/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/lstm-gru/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "text-classification",
+          "week": 14,
+          "title": "문장을 Tensor로 바꾸어 감정 분류하기",
+          "source": "courses/ai-applications/lessons/text-classification/index.html",
+          "lab": "courses/ai-applications/lessons/text-classification/AI_Applications_Week14_TextClassification.ipynb",
+          "assignment_source": "courses/ai-applications/lessons/text-classification/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "final-exam",
+          "week": 15,
+          "title": "기말시험 · 핵심 정리와 준비",
+          "source": "courses/ai-applications/lessons/final-exam/index.html",
+          "lab": null,
+          "assignment_source": null,
+          "kind": "exam"
+        }
+      ],
+      "previous_materials_path": "AI_Appl"
+    },
+    {
+      "slug": "control-1",
+      "title": "제어공학1",
+      "title_en": "Control Engineering I",
+      "source": "courses/control-1",
+      "web_path": "/niil/courses/control-1/",
+      "published": true,
+      "offering": {
+        "academic_year": 2026,
+        "semester": 2,
+        "status": "offered",
+        "source": "courses/control-1/lessons/schedule.html"
+      },
+      "materials": false,
+      "lessons": [
+        {
+          "slug": "course-setup",
+          "week": 1,
+          "title": "제어 시스템과 MATLAB 시작하기",
+          "source": "courses/control-1/lessons/course-setup/index.html",
+          "lab": "courses/control-1/lessons/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx",
+          "assignment_source": "courses/control-1/lessons/course-setup/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "physical-models",
+          "week": 2,
+          "title": "물리 시스템을 모델로 표현하기",
+          "source": "courses/control-1/lessons/physical-models/index.html",
+          "lab": "courses/control-1/lessons/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx",
+          "assignment_source": "courses/control-1/lessons/physical-models/assignment.html"
+        },
+        {
+          "slug": "lti-laplace",
+          "week": 3,
+          "title": "Linearity(선형성)에서 Laplace Transform(라플라스 변환)까지",
+          "source": "courses/control-1/lessons/lti-laplace/index.html",
+          "lab": "courses/control-1/lessons/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
+          "assignment_source": "courses/control-1/lessons/lti-laplace/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "transfer-blocks",
+          "week": 4,
+          "title": "Transfer Function(전달함수)와 블록을 연결하기",
+          "source": "courses/control-1/lessons/transfer-blocks/index.html",
+          "lab": "courses/control-1/lessons/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
+          "assignment_source": "courses/control-1/lessons/transfer-blocks/assignment.html",
+          "kind": "lesson",
+          "extra_files": [
+            "../course-materials/control/transfer-blocks/Control_Engineering_1_Week04_Block_Model.slx"
+          ]
+        },
+        {
+          "slug": "state-space-one",
+          "week": 5,
+          "title": "상태를 선택해 행렬 모델 만들기",
+          "source": "courses/control-1/lessons/state-space-one/index.html",
+          "lab": "courses/control-1/lessons/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx",
+          "assignment_source": "courses/control-1/lessons/state-space-one/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "state-space-two",
+          "week": 6,
+          "title": "State Transition과 시스템 응답",
+          "source": "courses/control-1/lessons/state-space-two/index.html",
+          "lab": "courses/control-1/lessons/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
+          "assignment_source": "courses/control-1/lessons/state-space-two/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "state-space-three",
+          "week": 7,
+          "title": "모델 표현을 바꾸어도 같은 응답일까?",
+          "source": "courses/control-1/lessons/state-space-three/index.html",
+          "lab": "courses/control-1/lessons/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx",
+          "assignment_source": "courses/control-1/lessons/state-space-three/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "midterm",
+          "week": 8,
+          "title": "중간시험 · 필기와 MATLAB 준비",
+          "source": "courses/control-1/lessons/midterm/index.html",
+          "lab": null,
+          "assignment_source": null,
+          "kind": "exam"
+        },
+        {
+          "slug": "feedback-one",
+          "week": 9,
+          "title": "Feedback(피드백)으로 이득 변화 줄이기",
+          "source": "courses/control-1/lessons/feedback-one/index.html",
+          "lab": "courses/control-1/lessons/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
+          "assignment_source": "courses/control-1/lessons/feedback-one/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "feedback-two",
+          "week": 10,
+          "title": "DC 모터의 Disturbance(외란) 경로 읽기",
+          "source": "courses/control-1/lessons/feedback-two/index.html",
+          "lab": "courses/control-1/lessons/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
+          "assignment_source": "courses/control-1/lessons/feedback-two/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "performance-one",
+          "week": 11,
+          "title": "응답 지표로 설계 결과 검증하기",
+          "source": "courses/control-1/lessons/performance-one/index.html",
+          "lab": "courses/control-1/lessons/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
+          "assignment_source": "courses/control-1/lessons/performance-one/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "performance-two",
+          "week": 12,
+          "title": "2차 시스템의 감쇠와 속도 조절하기",
+          "source": "courses/control-1/lessons/performance-two/index.html",
+          "lab": "courses/control-1/lessons/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
+          "assignment_source": "courses/control-1/lessons/performance-two/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "performance-three",
+          "week": 13,
+          "title": "P와 PI의 Steady-state Error(정상상태 오차) 비교하기",
+          "source": "courses/control-1/lessons/performance-three/index.html",
+          "lab": "courses/control-1/lessons/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
+          "assignment_source": "courses/control-1/lessons/performance-three/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "stability",
+          "week": 14,
+          "title": "안정성을 먼저 확인하고 성능 비교하기",
+          "source": "courses/control-1/lessons/stability/index.html",
+          "lab": "courses/control-1/lessons/stability/Control_Engineering_1_Week14_Stability.mlx",
+          "assignment_source": "courses/control-1/lessons/stability/assignment.html",
+          "kind": "lesson"
+        },
+        {
+          "slug": "final-exam",
+          "week": 15,
+          "title": "기말시험 · 필기와 MATLAB 준비",
+          "source": "courses/control-1/lessons/final-exam/index.html",
+          "lab": null,
+          "assignment_source": null,
+          "kind": "exam"
+        }
+      ],
+      "previous_materials_path": null
+    },
+    {
+      "slug": "control-2",
+      "title": "제어공학2",
+      "title_en": "Control Engineering II",
+      "source": "courses/control-2",
+      "web_path": "/niil/courses/control-2/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": true,
+      "lessons": [],
+      "previous_materials_path": "CSE2"
+    },
+    {
+      "slug": "robot-basic-lab",
+      "title": "로봇기초실습",
+      "title_en": "Robot Basic Lab",
+      "source": "courses/robot-basic-lab",
+      "web_path": "/niil/courses/robot-basic-lab/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": true,
+      "lessons": [],
+      "previous_materials_path": "RBL"
+    },
+    {
+      "slug": "microprocessor",
+      "title": "마이크로프로세서응용설계",
+      "title_en": "Microprocessor Applications",
+      "source": "courses/microprocessor",
+      "web_path": "/niil/courses/microprocessor/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": true,
+      "lessons": [],
+      "previous_materials_path": "MP_Appl"
+    },
+    {
+      "slug": "intro-machine-learning",
+      "title": "머신러닝의 이해",
+      "title_en": "Introduction to Machine Learning",
+      "source": "courses/intro-machine-learning",
+      "web_path": "/niil/courses/intro-machine-learning/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": true,
+      "lessons": [],
+      "previous_materials_path": "INT_ML"
+    },
+    {
+      "slug": "machine-learning-lab",
+      "title": "전기공학머신러닝실습",
+      "title_en": "Machine Learning Lab",
+      "source": "courses/machine-learning-lab",
+      "web_path": "/niil/courses/machine-learning-lab/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": true,
+      "lessons": [],
+      "previous_materials_path": "ML_Exp"
+    },
+    {
+      "slug": "reinforcement-learning",
+      "title": "전기공학을 위한 강화학습",
+      "title_en": "Reinforcement Learning for Electrical Engineering",
+      "source": "courses/reinforcement-learning",
+      "web_path": "/niil/courses/reinforcement-learning/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": true,
+      "lessons": [],
+      "previous_materials_path": "RL"
+    },
+    {
+      "slug": "ee-seminar",
+      "title": "전기공학세미나",
+      "title_en": "Electrical Engineering Seminar",
+      "source": "courses/ee-seminar",
+      "web_path": "/niil/courses/ee-seminar/",
+      "published": false,
+      "offering": {
+        "semester": null,
+        "status": "unconfirmed"
+      },
+      "materials": false,
+      "lessons": [],
+      "previous_materials_path": null
+    }
+  ]
+}

@@ -7,7 +7,9 @@ from easter_egg import EASTER_EGG_TEXT, EASTER_EGG_HTML
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'niil'
-COURSE_DISTRIBUTION=json.loads((ROOT/'tools/course-distribution.json').read_text())['courses']
+subprocess.run(['python3',str(ROOT/'tools/sync_courses.py'),'--locked'],check=True)
+COURSE_INVENTORY=json.loads((ROOT/'tools/course-catalog.json').read_text())['courses']
+COURSE_CATALOG=[c for c in COURSE_INVENTORY if c['published']]
 PAGES = json.loads((SITE/'content/pages.json').read_text())
 CATALOG = json.loads((SITE/'content/projects.json').read_text())
 PROJECT_BY_ID = {p['page_id']:p for p in CATALOG}
@@ -80,6 +82,12 @@ def render(p):
     result=subprocess.run(['pandoc','-f','markdown+raw_html+markdown_in_html_blocks','-t','html','--wrap=none'],input=text,text=True,capture_output=True,check=True).stdout
     soup=BeautifulSoup(result,'html.parser')
     for a in soup.find_all('a',href=True):
+        for course in COURSE_INVENTORY:
+            old=course.get('previous_materials_path')
+            if not old:continue
+            for prefix in ('chorok-daddy/courses/tree/main/','chorok-daddy/courses/blob/main/','chorok-daddy/courses/main/'):
+                a['href']=a['href'].replace(prefix+old+'/',prefix+course['source']+'/materials/')
+                if a['href'].endswith(prefix+old):a['href']=a['href'][:-len(old)]+course['source']+'/materials'
         if a['href'].startswith('https://www.ntis.go.kr/'):
             a['target']='_blank'
             a['rel']=['noopener','noreferrer']
@@ -150,6 +158,12 @@ def heading(kicker,title,desc=''):
 def shell(title,content,section='',desc='',path='/niil/'):
     soup=BeautifulSoup(content,'html.parser')
     for a in soup.find_all('a',href=True):
+        for course in COURSE_INVENTORY:
+            old=course.get('previous_materials_path')
+            if not old:continue
+            for prefix in ('chorok-daddy/courses/tree/main/','chorok-daddy/courses/blob/main/','chorok-daddy/courses/main/'):
+                a['href']=a['href'].replace(prefix+old+'/',prefix+course['source']+'/materials/')
+                if a['href'].endswith(prefix+old):a['href']=a['href'][:-len(old)]+course['source']+'/materials'
         if a['href'].startswith('/niil/') and not a['href'].startswith('/niil/assets/'):
             a['href']=local(a['href'])
         if a['href'].startswith('/') or a['href'].startswith('#'):
@@ -321,10 +335,9 @@ for LANG in ('en','ko'):
         content+=f'''<article class="publication-row" data-publication data-search="{esc(p["title"]+" "+p["title_ko"]+" "+p["authors"]+" "+p["venue"])}" data-year="{p["year"]}" data-type="{p["type"]}"><div class="publication-year">{p["year"]}<span>{kind[p["type"]]}</span></div><div><h2><a href="{esc(p["url"])}">{esc(p['title'])} ↗</a></h2><p class="publication-authors">{esc(p["authors"])}</p><p class="publication-venue">{esc(citation)}</p></div></article>'''
     content+=f'</div><p id="publication-empty" hidden>{tr("No publications found.","검색 결과가 없습니다.")}</p><p class="publication-source">{tr("Source","출처")}: Google Scholar · {PUBLICATION_DATA["updated"]}</p></section>'
     emit('/niil/publications/',tr('Publications','논문'),content,'publications')
-    course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Read the course online, clone its repository, or download the complete ZIP.','온라인으로 읽거나, 과목별 저장소를 Clone하고 ZIP으로 한 번에 내려받을 수 있습니다.')+'</p><ul class="course-list">'
-    for course in COURSE_DISTRIBUTION:
-        repo='https://github.com/chorok-daddy/'+course['repository']
-        course_content+='<li><a href="/niil/courses/'+course['slug']+'/index.html">'+esc(course['title'] if LANG=='ko' else course['title_en'])+'</a><div class="course-distribution"><a href="'+repo+'">'+tr('Source repository','원본 저장소')+' ↗</a><a href="'+repo+'/archive/refs/heads/main.zip">'+tr('Download ZIP','과목 묶음 ZIP')+'</a></div></li>'
+    course_content=heading('',tr('Course','강의자료'))+'<section class="wrap section compact"><p>'+tr('Lecture notes, notebooks and practice files are maintained together.','강의노트와 노트북·실습 파일을 함께 제공합니다.')+'</p><p><a href="https://github.com/chorok-daddy/courses">'+tr('Course materials on GitHub','강의자료 저장소')+' ↗</a></p><ul class="course-list">'
+    for course in COURSE_CATALOG:
+        course_content+='<li><a href="/niil/courses/'+course['slug']+'/index.html">'+esc(course['title'] if LANG=='ko' else course['title_en'])+'</a></li>'
     course_content+='</ul><p class="course-license">'+tr('Ki-Baek Lee · Kwangwoon University NiiL. Teaching content: CC BY 4.0; original code: MIT. Retain attribution and indicate modifications. Third-party terms remain applicable.','이기백 · 광운대학교 NiiL. 강의 설명·그림: CC BY 4.0 · 직접 작성한 코드: MIT. 출처를 유지하고 수정 사항을 밝혀 주세요. 제3자 자료는 별도 조건을 따릅니다.')+' <a href="/niil/courses/LICENSE.md">'+tr('License details','라이선스 안내')+'</a></p></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
@@ -356,7 +369,7 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         if not breadcrumb.get_text(strip=True):breadcrumb.decompose()
     main=doc.select_one('main')
     if main is not None and not main.get('id'):main['id']='main'
-    course=next((c for c in COURSE_DISTRIBUTION if course_file.is_relative_to(SITE/'courses'/c['slug'])),None)
+    course=next((c for c in COURSE_CATALOG if course_file.is_relative_to(SITE/'courses'/c['slug'])),None)
     source_url='https://chorok-daddy.github.io/'+course_file.relative_to(ROOT).as_posix()
     credit=BeautifulSoup('<p class="course-credit" data-niil-frame>이기백 (Ki-Baek Lee) · 광운대학교 NiiL<br><a data-source-origin href="'+source_url+'">원본 강의자료</a> · 설명·그림 <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> · 코드 <a href="/niil/courses/LICENSES/MIT.txt">MIT</a></p>','html.parser')
     credit.p.append(Comment(EASTER_EGG_TEXT))
@@ -367,8 +380,8 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.h1.get_text() if doc.h1 else doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
     doc.head.append(structured)
     if course and course_file == SITE/'courses'/course['slug']/'index.html':
-        repo='https://github.com/chorok-daddy/'+course['repository']
-        downloads=BeautifulSoup('<nav class="course-distribution" data-niil-frame aria-label="자료 가져오기"><a href="'+repo+'">GitHub 저장소 ↗</a><a href="'+repo+'/archive/refs/heads/main.zip">과목 묶음 ZIP ↓</a></nav>','html.parser')
+        repo='https://github.com/chorok-daddy/courses/tree/main/courses/'+course['slug']
+        downloads=BeautifulSoup('<nav class="course-distribution" data-niil-frame aria-label="자료 가져오기"><a href="'+repo+'">강의·실습 원본 ↗</a></nav>','html.parser')
         main.h1.insert_after(downloads)
     frame=BeautifulSoup(shell(doc.h1.get_text() if doc.h1 else doc.title.get_text(),'','teaching'),'html.parser')
     # Course documents retain their original language; the bilingual catalog has the switch.

@@ -4,7 +4,7 @@
     {
       "old": "/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
       "new": "/niil/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
-      "sha256": "506011a7e6eaa4fa095dc49dcf83f2de812121c4d92d2bcafb3446eb356833ac",
+      "sha256": "cb8e28e7e0e6a9462cd0c783155129adaa514f93214bdc2e492164f712c6c106",
       "kind": "download"
     },
     {
@@ -164,7 +164,7 @@
     {
       "old": "/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
       "new": "/niil/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
-      "sha256": "a069b28fcd951c37b3bc9236d9449d15776ac03bfec4753b78ec23c1714b592d",
+      "sha256": "a8bdfdeee202da89b523d1dae26ed0521b7f520aa4c105e1e8e64c51bb167654",
       "kind": "download"
     },
     {
@@ -214,7 +214,7 @@
     {
       "old": "/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
       "new": "/niil/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
-      "sha256": "09320a6efccb2dba93ca86e9c7113d2666d85751ead8b4a18c2a14df32c4fb2b",
+      "sha256": "ea73dea88bcddf0a37188dd100153fa92e28b167d0b60dceb20bc6602d48c8cd",
       "kind": "download"
     },
     {
@@ -273,7 +273,7 @@
     {
       "old": "/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
       "new": "/niil/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
-      "sha256": "0bdc2de7abd9c92aa00d101211348c15bf089189433c991d23e7e07ddd4de8e1",
+      "sha256": "8d804f863830fa72e33e54e82834ef3166729f141abdd2b2ef295c9a1bab78ef",
       "kind": "download"
     },
     {
@@ -325,7 +325,7 @@
     {
       "old": "/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
       "new": "/niil/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
-      "sha256": "529b42018466849e4e1773cc497258ed569810efc342cac5653b6d166612235a",
+      "sha256": "7dea3d7c51eafe08947f98db5a4da4b6b7bd74b254a2da95b9fbe54aeb4cc795",
       "kind": "download"
     },
     {
@@ -375,7 +375,7 @@
     {
       "old": "/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
       "new": "/niil/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
-      "sha256": "0c6bb5d6b092f26ac425056d3fd906bb760f8208599d3fa7ebf48e75407535b0",
+      "sha256": "e7b056c0c798de7706944a4a7d436d839b36598608df12460ca321e53252a26f",
       "kind": "download"
     },
     {
@@ -466,7 +466,7 @@
     {
       "old": "/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
       "new": "/niil/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
-      "sha256": "dfbbec632ebd0224c5cd7d54ef969c045390645017d5a5453de74343210cf4f1",
+      "sha256": "28129d7107f2b068ddb5eab8cd92b23d11f71a8b8477ddc9ca35baa8c897c4e1",
       "kind": "download"
     },
     {
@@ -516,7 +516,7 @@
     {
       "old": "/courses/ai-applications/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
       "new": "/niil/courses/ai-applications/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
-      "sha256": "b64ccd8507c58e222f52e2fc305905237980eca02b2886aa2d4d8d469999dbb4",
+      "sha256": "0c0b092278fab737d47e710627a2aa4b2c37fc8684e768d26b21dc58d9a34f2c",
       "kind": "download"
     },
     {
@@ -625,7 +625,7 @@
     {
       "old": "/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
       "new": "/niil/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
-      "sha256": "9101b9e9bd44ed5a69884977a7b51f3edd144992d1430193db222c56f8760751",
+      "sha256": "ed523ce1d5f0a548ef6fcb7749c34512392f7d8cda3352bf36178f46a8c4bfda",
       "kind": "download"
     },
     {
@@ -675,7 +675,7 @@
     {
       "old": "/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
       "new": "/niil/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
-      "sha256": "30bb9cceb9f6f044554ef5ce9026b7675fa2b552a6c39ce9921b9b134e2cfc14",
+      "sha256": "e49a0c3e4ed128b6c9f154546f63c40398a8cbff62eafdda38f1356a41a38755",
       "kind": "download"
     },
     {
@@ -736,7 +736,7 @@
     {
       "old": "/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
       "new": "/niil/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
-      "sha256": "9f228f3d7b5551c38749230c8da7af494b516661a3a536c24ad57e17c7668b24",
+      "sha256": "ce6e5270776c22b1c86035d2c131d54ad8fc430be580d3a8e99d232d9217e325",
       "kind": "download"
     },
     {
@@ -788,7 +788,7 @@
     {
       "old": "/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
       "new": "/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
-      "sha256": "f472ebdba9246a1cef5dbdd04f776900fb1e4ead23462dcd29bb51d7f9b9265f",
+      "sha256": "3cf9fb1c0d8945a6efda5d1944b7811f1b668813c7177ba339fad5ee6eda11f4",
       "kind": "download"
     },
     {

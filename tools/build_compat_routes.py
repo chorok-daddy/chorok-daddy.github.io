@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Maintain temporary course compatibility through 2026-2, and lab URL aliases.
 
-Edit course content only under niil/courses. Remove the course compatibility
+Edit course content in the courses source repository; niil/courses is generated. Remove the course compatibility
 manifest/files together at the approved 2026-12-31 cutoff, never the canonical files.
 """
 import html
