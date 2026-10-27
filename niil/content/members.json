@@ -507,7 +507,14 @@
       }
     ],
     "reference": null,
-    "portrait_source": "artint-2019-solo"
+    "portrait_source": "artint-2019-solo",
+    "profile_link": {
+      "url": "https://github.com/YoungGaLee",
+      "label": {
+        "ko": "GitHub 이력서",
+        "en": "GitHub résumé"
+      }
+    }
   },
   {
     "id": "1b6888a17b3080a0ad03dbb0ea790fd8",
