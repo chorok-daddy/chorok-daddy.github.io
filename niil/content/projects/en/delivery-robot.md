@@ -14,6 +14,6 @@ Connected cargo perception to task instructions and delivery confirmation, integ
 
 ## Evaluation scope
 
-The 100% figure applies to the limited internal test. Formal testing was still marked as planned in parts of the report; the result is not presented as certification or a guarantee across labels and lighting conditions.
+The 100% result is limited to the internal test conditions. Formal testing was listed as planned in the report.
 
 *Source: 2024 delivery-robot task instruction and delivery confirmation module report, chapter 3.*

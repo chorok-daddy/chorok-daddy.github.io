@@ -14,6 +14,6 @@ Connected visual perception to physical task execution on compact logistics equi
 
 ## Evaluation scope
 
-The reported success applies to the 2024 test conditions. The 2025 task covers further validation under changing lighting and ground conditions; its scope is distinguished from earlier results.
+The results apply to the 2024 test conditions. The 2025 task covers further validation under changing lighting, ground and vehicle-mounted conditions.
 
-*Sources: 2024 embedded automation module report; 2025 advanced validation task specification. Registered end date: 30 November 2025.*
+*Sources: 2024 embedded automation module report; 2025 advanced validation task specification.*

@@ -10,6 +10,6 @@ This KRRI contract has been in progress since October 2026. It develops a vision
 
 ## Current stage
 
-The description follows the technical proposal. Performance targets are not presented as completed results; evaluation results will be added when available.
+Ongoing development; performance figures are research targets.
 
-*Sources: 2026 project record and technical proposal for vision systems supporting robotic picking and loading.*
+*Sources: 2026 technical proposal for vision systems supporting robotic picking and loading.*

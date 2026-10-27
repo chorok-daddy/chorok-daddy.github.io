@@ -12,4 +12,4 @@ Related contracts in 2015 and 2016 cover a microprocessor board and an MCU-based
 
 Connect sensors, a controller and actuators in a compact structure suitable for dock installation.
 
-*Sources: 2015 processor-board presentation and 2016 MCU dock-control task specification. Energy savings and safety certification are not established by these materials.*
+*Sources: 2015 processor-board presentation and 2016 MCU dock-control task specification.*

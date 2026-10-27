@@ -12,4 +12,4 @@ This project implements deep-learning methods that turn indoor spatial geometry 
 
 Object-level spatial understanding supports robot perception and the use of indoor spatial information.
 
-*Sources: 2021 ETRI project record and preserved report contents page. No quantitative result text was available for verification.*
+*Sources: 2021 ETRI project record and report contents page. Quantitative results unavailable.*

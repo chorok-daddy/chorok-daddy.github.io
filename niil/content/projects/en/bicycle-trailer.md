@@ -12,4 +12,4 @@ The study combines sensing and control to assist a trailer pulled by a person or
 
 Reduce perceived inertia and resistance through joint sensor-mechanism and control design, including modular construction and adjustable mounting height.
 
-*Source: public technical and execution plans. Quantitative experimental results were not available in the reviewed material.*
+*Source: public technical and execution plans. Quantitative results unavailable.*

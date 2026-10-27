@@ -19,4 +19,4 @@ This five-year study co-designs compact workspaces and robot learning, using ver
 
 These are research targets, not achieved results. The work progresses from spatial and kinematic modeling to learning, miniature validation, real-world adaptation and integrated demonstration.
 
-*Source: 2026 agreement research plan. Overall period: 2026–2031; the administrative record covers the first year.*
+*Source: 2026 agreement research plan. Planned period: 2026–2031.*

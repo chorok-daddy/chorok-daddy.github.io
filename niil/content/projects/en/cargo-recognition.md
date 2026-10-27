@@ -18,4 +18,4 @@ The project combines cargo shape, position, barcode and damage recognition. Two 
 
 Results were tracked through per-trial logs. These figures apply to the reported test conditions.
 
-*Source: 2022 cargo-recognition prototype final report, chapter 5. Results from the separate 2021 report are not combined.*
+*Source: 2022 cargo-recognition prototype final report, chapter 5.*

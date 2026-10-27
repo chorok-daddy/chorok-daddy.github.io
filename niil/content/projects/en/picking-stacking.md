@@ -13,4 +13,4 @@ The study connects recognition of varied refrigerated goods with three-dimension
 
 Treat classification, geometry estimation and placement as one logistics task, providing a basis for later loading-assistance and cargo-vision work.
 
-*Source: 2017 public task document. A 10 mm position-error figure is a target, not a verified result.*
+*Source: 2017 public task document. Position-error target: 10 mm.*

@@ -17,3 +17,17 @@
 - Do not recreate per-course distribution repositories or ZIP artifacts.
   Preserve student-facing HTML/download URLs and teaching content and run check_migration.py, check_site.py,
   check_course_source.py, and check_seo.py before publishing. Push source before the website.
+
+## Public-facing copy
+
+Keep README files and rendered pages focused on visitor tasks. Do not include
+internal migration decisions, source-of-truth explanations, implementation
+workflows, agent reports or hypothetical warnings. Retain useful navigation,
+authorship, license links, scientific qualifications and required course instructions.
+Detailed license terms belong in LICENSE.md, not repeated in page introductions.
+
+## Maintenance
+
+The website root redirects to /niil/; legacy /courses/ URLs remain until 2026-12-31.
+The build ends with SEO metadata and sitemap generation. Run check_seo.py after it.
+Course authoring rules belong in the course repository's AGENTS.md.
