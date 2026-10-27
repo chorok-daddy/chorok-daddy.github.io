@@ -170,7 +170,7 @@ def footer_html(section,path):
     reuse=''
     if section=='teaching' and not path.endswith('reuse.html'):
         target=tr('/niil/en/courses/reuse.html','/niil/courses/reuse.html')
-        reuse='<a href="'+target+'">'+tr('Using course materials','강의자료 활용')+'</a>'
+        reuse='<a href="'+target+'">'+tr('Author & use','저자·이용 안내')+'</a>'
     return '<footer class="site-footer"><div class="footer-identity"><strong>'+tr('Nature-inspired Intelligence Lab','자연모사 인공지능 연구실')+'</strong><span>'+tr('Kwangwoon University · Seoul, Korea','광운대학교')+'</span></div><div class="footer-meta">'+reuse+'<small>© NiiL</small></div></footer>'
 
 def shell(title,content,section='',desc='',path='/niil/'):
@@ -338,8 +338,10 @@ for LANG in ('en','ko'):
     course_content=course_heading+'<section class="wrap section compact course-catalog">'+course_cards('primary')+'<details class="additional-courses"><summary>'+tr('Other courses','기타 과목')+' <span>'+str(additional)+'</span></summary>'+course_cards('additional')+'</details></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
-    reuse_content=heading('',tr('Using course materials','강의자료 활용'))+'<section class="wrap prose reuse-guide"><p>'+tr('You may use, adapt and share these materials with attribution.','출처를 표시하고 자료를 활용·수정·공유할 수 있습니다.')+'</p><h2>'+tr('Attribution','출처 표기')+'</h2><blockquote>'+tr('Ki-Baek Lee, Kwangwoon University, “Course · Material title”','이기백, 광운대학교, 「과목명 · 자료명」')+'<br>https://github.com/chorok-daddy/courses</blockquote><details><summary>'+tr('Terms','이용 조건')+'</summary><p>'+tr('Text and figures: CC BY 4.0. Original code: MIT. Third-party materials retain their own terms.','설명·그림은 CC BY 4.0, 직접 작성한 코드는 MIT입니다. 제3자 자료는 해당 출처의 이용 조건을 따릅니다.')+'</p><a href="/niil/courses/LICENSE.md">'+tr('Full license','라이선스 전문')+'</a></details></section>'
-    emit('/niil/courses/reuse.html',tr('Using course materials','강의자료 활용'),reuse_content,'teaching')
+    author=next(m for m in MEMBER_DATA if m['role']['en']=='Professor')
+    author_link=local(href(byid[author['id']]))
+    reuse_content=heading('',tr('Author & use','저자·이용 안내'))+'<section class="wrap prose reuse-guide"><h2>'+tr('Author','저자')+'</h2><p><a href="'+author_link+'">'+esc(author['name'][LANG])+'</a><br>'+esc(author['affiliation'][LANG])+'</p><h2>'+tr('Using the materials','자료 이용')+'</h2><p>'+tr('You may use, adapt and share these materials with attribution.','출처를 표시하고 자료를 활용·수정·공유할 수 있습니다.')+'</p><h2>'+tr('Attribution example','출처 표기 예시')+'</h2><blockquote>'+tr('Ki-Baek Lee, Kwangwoon University, “Course · Material title”','이기백, 광운대학교, 「과목명 · 자료명」')+'<br>https://github.com/chorok-daddy/courses</blockquote><details><summary>'+tr('Terms','이용 조건')+'</summary><p>'+tr('Text and figures: CC BY 4.0. Original code: MIT. Third-party materials retain their own terms.','설명·그림은 CC BY 4.0, 직접 작성한 코드는 MIT입니다. 제3자 자료는 해당 출처의 이용 조건을 따릅니다.')+'</p><a href="/niil/courses/LICENSE.md">'+tr('Full license','라이선스 전문')+'</a> · <a href="/niil/courses/CITATION.cff">'+tr('Citation metadata','인용 정보')+'</a></details></section>'
+    emit('/niil/courses/reuse.html',tr('Author & use','저자·이용 안내'),reuse_content,'teaching')
 
     application=(SITE/'content/join'/f'application-{LANG}.md').read_text().replace('{{CONTACT_FORM}}',CONTACT_FORM)
     application_html=subprocess.run(['pandoc','-f','markdown','-t','html','--wrap=none'],input=application,text=True,capture_output=True,check=True).stdout

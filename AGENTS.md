@@ -54,3 +54,9 @@ Keep authorship in reuse guidance and structured metadata.
 
 Omit explanations that restate a table heading, ownership or selection criteria.
 Keep meaningful results, conditions, deadlines and attribution requirements.
+
+Course acquisition links go to the corresponding GitHub README. Keep ZIP links
+in those READMEs; do not add direct archive links to course pages.
+
+Keep author identity in the dedicated reuse.html author/use guide and faculty
+profile. The course footer links to 저자·이용 안내 / Author & use, without bylines.
