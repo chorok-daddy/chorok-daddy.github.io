@@ -4,7 +4,7 @@
     {
       "old": "/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
       "new": "/niil/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
-      "sha256": "0bdc319e4ae6f9b503395ccfaf601a84f50d46f8c4390cf4fbf14966d29edd02",
+      "sha256": "fb6e88c3319ab4ff09d4c12af3b186fce1b772425d6338ce81a2d62755455737",
       "kind": "download"
     },
     {
@@ -164,7 +164,7 @@
     {
       "old": "/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
       "new": "/niil/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
-      "sha256": "7e84bf97d107181636226aadbf7a10b426f7ad7d8e7852a8b8d60e93e70b1321",
+      "sha256": "55c4eb3dbfce0eb662e61dc44adf3acac5953fa2d137e40a09051687f6b5b857",
       "kind": "download"
     },
     {
@@ -214,7 +214,7 @@
     {
       "old": "/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
       "new": "/niil/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
-      "sha256": "26b70144c21f26fa8b886fc042423452a5412568d9951850ea1abb466d502de2",
+      "sha256": "b117cbce1bcfd4b764a14be2f371070dea6685146b811af702e4199172a0ce11",
       "kind": "download"
     },
     {
@@ -273,7 +273,7 @@
     {
       "old": "/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
       "new": "/niil/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
-      "sha256": "763590eef124a71f7c76f2a1ee90e908313b8d72f9dc79feb0ac8e601742a32d",
+      "sha256": "896f83adfa7fb6df8481de727ab9d17998804b79f438c94bb0790a23cf40002d",
       "kind": "download"
     },
     {
@@ -325,7 +325,7 @@
     {
       "old": "/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
       "new": "/niil/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
-      "sha256": "33cbcf5097e468d3de685fcab0cc16f103293c0f03f9c632c934b93b27763bf4",
+      "sha256": "52e4a5e728e157e043e8177f3d184654b417a992bc64441589779d06dd9084d7",
       "kind": "download"
     },
     {
@@ -375,7 +375,7 @@
     {
       "old": "/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
       "new": "/niil/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
-      "sha256": "7054a13fe412234debcf5f9ae76d7b8e333c7cb268352591a0cf02b73a98979d",
+      "sha256": "74a63ea50f26ea3cbc0c0c44a4b1796c166824c19702f85e5b4b16c3bba60da7",
       "kind": "download"
     },
     {
@@ -466,7 +466,7 @@
     {
       "old": "/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
       "new": "/niil/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
-      "sha256": "57f6a5004ef7549b2d63d357c1a4298b825b064b09daa5d257cb79ac358004fc",
+      "sha256": "340ba65fecdce17775c6606b209c396e3961e817982f89c3c7008deec7716584",
       "kind": "download"
     },
     {
@@ -516,7 +516,7 @@
     {
       "old": "/courses/ai-applications/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
       "new": "/niil/courses/ai-applications/notebook-literacy/AI_Applications_Week02_Notebook_Basics.ipynb",
-      "sha256": "40ecf4bd8e064abe286b521822ee37d9946cf50e7dd4dd6bdc993f28c485a7eb",
+      "sha256": "47439efccfc7ce5521dd299f85b7a295ef5308d318a40efbda934198ebba1c22",
       "kind": "download"
     },
     {
@@ -625,7 +625,7 @@
     {
       "old": "/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
       "new": "/niil/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
-      "sha256": "0560eab017636d0675b7fb075f2b47d267d45d4bb92e05c0f5f4a422b55e4dd1",
+      "sha256": "2f88051f21fc44f55420f4f2f7197ee6c14a5fd26fb2a8ae6e8111e3edbe25e0",
       "kind": "download"
     },
     {
@@ -675,7 +675,7 @@
     {
       "old": "/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
       "new": "/niil/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
-      "sha256": "0b191fcc402ba5e281cc499b3af8e9c20658c835e323fbd765652ee51cc272b0",
+      "sha256": "9f71c2a7abad6d5e86ad6f9dbf82decc3dc55f362a5a92141b2634e1dd89cf6c",
       "kind": "download"
     },
     {
@@ -736,7 +736,7 @@
     {
       "old": "/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
       "new": "/niil/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
-      "sha256": "13d9c496c87e95b8a866875fc798a5ccc95bc9c23518b9ce93c819fb806bfd11",
+      "sha256": "f2ec7bf5e69354e79359f5495fc7065a14637b9994a7ad718d77123872af128b",
       "kind": "download"
     },
     {
@@ -788,7 +788,7 @@
     {
       "old": "/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
       "new": "/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
-      "sha256": "39d07f6bbe3adcf6f3d7625847a54b4bee9f6d0a4c5d63ce59441495d55b816c",
+      "sha256": "e2a7e8bd31daeeb7cad08fa0aa58a57a99405f68e14077e44fe782ff5d3c4e92",
       "kind": "download"
     },
     {
@@ -846,7 +846,7 @@
     {
       "old": "/courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx",
       "new": "/niil/courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx",
-      "sha256": "70f05bb6cf9828ec19be7a3304a4e4b838ea775928def90444e97316f9f0ee0d",
+      "sha256": "63bb81544350711a213120d84a0a78e5e4cc393f4085403c23c72f0b4b608bae",
       "kind": "download"
     },
     {
@@ -901,7 +901,7 @@
     {
       "old": "/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
       "new": "/niil/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
-      "sha256": "291960973584aa6e45e099a50474161f04c815ca163e3eda158f7986276da7fe",
+      "sha256": "6d618212b3c2d57ce99cce177ef2f5566fb6b4ea0b0511e6b2ade6abd165c870",
       "kind": "download"
     },
     {
@@ -951,7 +951,7 @@
     {
       "old": "/courses/control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
       "new": "/niil/courses/control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
-      "sha256": "7051f18e136bd4fee3078abe2680d60c1314fa33f92be33feb88748ba87b4367",
+      "sha256": "e79b9cf57bfb1296a4d87c50f163a2e754096471e708e2486bdf40a8320413d5",
       "kind": "download"
     },
     {
@@ -1054,7 +1054,7 @@
     {
       "old": "/courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
       "new": "/niil/courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
-      "sha256": "7f0d656729073be583af6fe91d5a36fc1c10051e760cbf1c1b053af687a0c811",
+      "sha256": "42574f2bfd9b11a4d46b55bd3c92600c166d09ca2f60f4468f871bc3c99f5e63",
       "kind": "download"
     },
     {
@@ -1141,7 +1141,7 @@
     {
       "old": "/courses/control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
       "new": "/niil/courses/control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
-      "sha256": "20f0ffb282a3b690eba46ae328bf1b211a4a243eb4cbcf471e76b48f4d2a90ed",
+      "sha256": "edf2cc82bf6c4e8fd0ebbf3298470b291d32f26a79534f68b0d49aa43ea865d3",
       "kind": "download"
     },
     {
@@ -1191,7 +1191,7 @@
     {
       "old": "/courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
       "new": "/niil/courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
-      "sha256": "f7ff9faa8fba910cf4db2e782ebe48cab12c81627b3daa5483096989c6a7671e",
+      "sha256": "3a74dcd193ad92b01f964127976ee0d274947a7d57eab2364b21ad78dd57547b",
       "kind": "download"
     },
     {
@@ -1243,7 +1243,7 @@
     {
       "old": "/courses/control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
       "new": "/niil/courses/control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
-      "sha256": "f93415cdbadf2897b47c29ab62db4535e843fd5e17af3f9ae02dfd4663f4e07a",
+      "sha256": "9fa3a2b11a3faba1a8efd14b09555c331fbac3a4230d8bae4e0b198f3bd89e5d",
       "kind": "download"
     },
     {
@@ -1295,7 +1295,7 @@
     {
       "old": "/courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx",
       "new": "/niil/courses/control-1/physical-models/Control_Engineering_1_Week02_Physical_Models.mlx",
-      "sha256": "ba052e312e5ba887f9afb429917c33d731083e84cf174eece36b076d51e3c19a",
+      "sha256": "04ab61c2ba45815cbbbea68a81ad60e24df0777eaa3705004c0548a02deb56aa",
       "kind": "download"
     },
     {
@@ -1378,7 +1378,7 @@
     {
       "old": "/courses/control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
       "new": "/niil/courses/control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
-      "sha256": "8b0c7c3490ba5f022b2676b8580d6eb76319024ceaee3e606e04c144fd70f234",
+      "sha256": "c8fc1128a0961007317f0bc748e5801e2fbb8ae1adf13ae078c0866d087b6308",
       "kind": "download"
     },
     {
@@ -1428,7 +1428,7 @@
     {
       "old": "/courses/control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx",
       "new": "/niil/courses/control-1/state-space-one/Control_Engineering_1_Week05_StateSpaceOne.mlx",
-      "sha256": "3634d3ca58e679f718f96ffe9bb0f23daca69e263d98a5955385dfa66c97324e",
+      "sha256": "087b8cc875ec3fafe867819377bd5aebcee4ff6679fc7b8cb72263a4754183c8",
       "kind": "download"
     },
     {
@@ -1480,7 +1480,7 @@
     {
       "old": "/courses/control-1/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx",
       "new": "/niil/courses/control-1/state-space-three/Control_Engineering_1_Week07_StateSpaceThree.mlx",
-      "sha256": "543721fb2d4714696094ad3df0ea6154fbef2f8615d08c91cf99a4e6398a96b4",
+      "sha256": "ce8eba037ba8f3b5822fce84c3e4ea2eb23282466f64c46dcd9f833f001fbeb6",
       "kind": "download"
     },
     {
@@ -1530,7 +1530,7 @@
     {
       "old": "/courses/control-1/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
       "new": "/niil/courses/control-1/state-space-two/Control_Engineering_1_Week06_StateSpaceTwo.mlx",
-      "sha256": "2546f157e6e92f55288162f139c20840d1fc563d771f58ed9d643e5a233c5810",
+      "sha256": "2e7fa8a8ae6cf9c924c920996f1f34ee08e9c457c9775023db9104d5f0319c0e",
       "kind": "download"
     },
     {
@@ -1588,7 +1588,7 @@
     {
       "old": "/courses/control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
       "new": "/niil/courses/control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
-      "sha256": "0de64ff3576becd5bf6eb03202cd9b9b12de88c735352c56a7fd6a6a8ecf0639",
+      "sha256": "873d97c45e674f566637f7d5fe3213139e12f6cc3fd31af5408ff5973a11334b",
       "kind": "download"
     },
     {

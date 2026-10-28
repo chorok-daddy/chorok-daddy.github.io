@@ -6,9 +6,9 @@
 <li>이름: <strong>⟦여기에 직접 입력⟧</strong></li>
 <li>학번: <strong>⟦여기에 직접 입력⟧</strong></li>
 </ul>
-<h2 id="시작-전-셀-실행과-작성-방법">시작 전 · 셀 실행과 작성 방법</h2>
-<p>Code Cell 왼쪽 ▶ 또는 Shift+Enter로 실행하세요. 위에서부터 진행하며 앞 셀의 변수를 사용합니다. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong> 부분을 바꾸고 Shift+Enter로 표시합니다. 기준 예제는 실행해서 이해하고, <strong>직접 작성</strong> 셀에 본인 코드를 작성하세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
-<p>Colab에 필요한 라이브러리가 없으면 새 런타임에서 환경을 확인하고 조교에게 문의하세요. CPU로 기준 실습을 실행할 수 있습니다. 외부 다운로드가 필요한 실습은 해당 셀에 표시합니다.</p>
+<h2 id="실행작성-방법">실행·작성 방법</h2>
+<p>위에서부터 Code Cell의 ▶ 또는 Shift+Enter로 실행하세요. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong>을 작성하고 Shift+Enter로 표시합니다. <strong>직접 작성</strong> 셀에는 본인 코드를 넣으세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
+<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요.</p>
 </section><section class="notebook-cell">
 <h2 id="간단한-cnn으로-각-층의-shape-확인하기">1. 간단한 CNN으로 각 층의 shape 확인하기</h2>
 <p>먼저 Conv Layer가 하나인 모델을 실행한 뒤, Conv Layer가 세 개인 CNN을 직접 만들어봅니다.</p>
@@ -99,9 +99,8 @@ print('parameters:',sum(p.numel() for p in small.parameters()))
 <p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다.</p>
 <h2 id="저장-전-확인">저장 전 확인</h2>
 <ol type="1">
-<li>직접 작성란을 채우고 필요한 출력·그래프를 남겼는지 확인합니다.</li>
-<li>새 런타임에서 위에서부터 실행해 숨은 변수 의존성을 확인합니다.</li>
-<li>수정한 파일을 본인 Drive에 저장하고 <code>.ipynb</code>로 내려받습니다.</li>
-<li>제출 파일명·기한은 블로그의 이번 주 실습 안내와 최신 KLAS 공지를 따릅니다.</li>
+<li>작성란과 출력·그래프를 확인하고 새 런타임에서 전체 셀을 순서대로 실행하세요.</li>
+<li>본인 Drive에 저장한 뒤 <code>.ipynb</code>로 내려받으세요.</li>
+<li>제출 파일명·기한은 이번 주 실습 안내와 최신 KLAS 공지를 따르세요.</li>
 </ol>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>
