@@ -10,9 +10,10 @@
 <p>수정 내용을 Commit으로 기록하고, PR에서 변경을 검토한 뒤 Merge했을 때 main에 반영되는 과정을 확인합니다. 이번 실습은 본인 Repository에서 수행하며, 동료 Repository의 Fork·PR은 선택 실습입니다.</p>
 <p>외부 기여자의 수정 제안 사례와 각 단계가 필요한 이유는 학습자료의 설명을 참고하세요.</p>
 <p><strong>실습 순서와 이유:</strong> 먼저 Colab의 임시 Repository에서 로그인·권한 설정 없이 파일 수정·Commit·Branch의 관계를 확인합니다. 이어서 GitHub 웹에 별도 저장소를 만들어 PR의 검토와 Merge를 연습합니다. Colab에서 만든 저장소를 업로드하는 과정이 아니라, Git의 변경 기록을 이해한 뒤 GitHub의 협업 기능을 사용하는 구성입니다.</p>
+<!-- exercise-guidance:ai-applications/git-collaboration/execution -->
 <h2 id="실행작성-방법">실행·작성 방법</h2>
 <p>위에서부터 Code Cell의 ▶ 또는 Shift+Enter로 실행하세요. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong>을 작성하고 Shift+Enter로 표시합니다. <strong>직접 작성</strong> 셀에는 본인 코드를 넣으세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
-<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요.</p>
+<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요. <!-- /exercise-guidance:ai-applications/git-collaboration/execution --></p>
 </section><section class="notebook-cell">
 <h2 id="내-작업-공간에서-git-연습하기">1. 내 작업 공간에서 Git 연습하기</h2>
 <p>Colab의 임시 폴더에서 Commit·Branch를 연습한 뒤, 아래 순서로 GitHub에서 PR·Merge를 진행하세요.</p>
@@ -87,7 +88,11 @@ print(git('log','--oneline','--all','--graph'))
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 반복 실험 코드
 </code></pre></section><section class="notebook-cell">
 <h2 id="선택-실습-fork와-pull-request">선택 실습 · Fork와 Pull Request</h2>
-<p>동료의 연습 Repository를 Fork하고 문장 한 줄을 수정해 Pull Request를 제안하세요. 본인 Repository에서 Branch를 만드는 방식과 비교하세요.</p>
+<!-- exercise-guidance:ai-applications/git-collaboration/optional -->
+<p>동료의 연습 Repository를 Fork하고 문장 한 줄을 수정해 Pull Request를 제안하세요. 본인 Repository에서 Branch를 만드는 방식과 비교하세요. <!-- /exercise-guidance:ai-applications/git-collaboration/optional --></p>
 <h2 id="저장제출">저장·제출</h2>
-<p>본인 Drive에 Notebook을 저장하세요. GitHub 저장소 URL과 수정 내용, Commit·Branch·PR·Merge 이력, 단계별 설명을 기록하고 변경 내용과 Merge 완료 화면을 캡처하세요. 인증 정보는 제외합니다. 제출은 KLAS의 해당 과제에서 안내하는 파일명·형식·기한을 따르세요.</p>
+<p>본인 Drive에 Notebook을 저장하세요.</p>
+<!-- exercise-guidance:ai-applications/git-collaboration/submission -->
+<p>수정한 내용, Commit·Pull Request·Merge 이력, 각 단계에서 한 일을 설명한 메모를 포함하세요. 제출은 KLAS를 이용하며 기한은 학기 일정과 최신 공지를 확인합니다.</p>
+<p>GitHub 협업 결과는 저장소·Branch·PR의 변경 내용과 Merge 이력이 보이는 캡처로 남기세요. 인증 정보는 포함하지 않습니다. Notebook은 연습·기록용입니다. <!-- /exercise-guidance:ai-applications/git-collaboration/submission --></p>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>

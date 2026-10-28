@@ -6,9 +6,10 @@
 <li>이름: <strong>⟦여기에 직접 입력⟧</strong></li>
 <li>학번: <strong>⟦여기에 직접 입력⟧</strong></li>
 </ul>
+<!-- exercise-guidance:ai-applications/multiclass/execution -->
 <h2 id="실행작성-방법">실행·작성 방법</h2>
 <p>위에서부터 Code Cell의 ▶ 또는 Shift+Enter로 실행하세요. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong>을 작성하고 Shift+Enter로 표시합니다. <strong>직접 작성</strong> 셀에는 본인 코드를 넣으세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
-<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요.</p>
+<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요. <!-- /exercise-guidance:ai-applications/multiclass/execution --></p>
 </section><section class="notebook-cell">
 <h2 id="csv의-입력-확인">1. CSV의 입력 확인</h2>
 <p>CSV의 앞 16열이 특징, 마지막 열이 Class Index입니다. Label은 0부터 C−1까지의 정수여야 합니다. 각 특징을 (값−평균)/표준편차로 바꾸어 규모를 맞추며, 새 데이터에도 같은 평균과 표준편차를 사용합니다.</p>
@@ -36,7 +37,8 @@ print(x.shape,y.shape,y.dtype)
 
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행">B. 직접 수행</h3>
-<p>전처리 전후 shape·dtype·처음 다섯 표본을 확인하세요. 평균과 표준편차를 새 입력에도 동일하게 적용해야 하는 이유를 쓰세요.</p>
+<!-- exercise-guidance:ai-applications/multiclass/activity-1 -->
+<p>전처리 전후 shape·dtype·처음 다섯 표본을 확인하세요. 평균과 표준편차를 새 입력에도 동일하게 적용해야 하는 이유를 쓰세요. <!-- /exercise-guidance:ai-applications/multiclass/activity-1 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -70,7 +72,8 @@ plt.show()
 
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행-1">B. 직접 수행</h3>
-<p>같은 초기화와 1000 epoch에서 Learning Rate 0.001·0.01·0.1을 비교하세요. 마지막 Training Loss·Accuracy를 표로 기록하고 Loss와 Accuracy의 변화가 항상 같은지 해석하세요. 이 값은 별도 Test Accuracy가 아닙니다.</p>
+<!-- exercise-guidance:ai-applications/multiclass/activity-2 -->
+<p>같은 초기화와 1000 epoch에서 Learning Rate 0.001·0.01·0.1을 비교하세요. 마지막 Training Loss·Accuracy를 표로 기록하고 Loss와 Accuracy의 변화가 항상 같은지 해석하세요. 이 값은 별도 Test Accuracy가 아닙니다. <!-- /exercise-guidance:ai-applications/multiclass/activity-2 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -96,7 +99,8 @@ assert torch.allclose(probability.sum(1),torch.ones(len(x)),atol=1e-5)
 
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행-2">B. 직접 수행</h3>
-<p>첫 10개 표본의 Logit·Probability·예측·정답을 비교하세요. Softmax 합이 표본마다 1인지, Logit과 Probability의 argmax가 같은지 검증하세요. 오분류를 최대 3개 골라 실제 Label과 예측 Label을 적고, 없으면 없다고 기록하세요.</p>
+<!-- exercise-guidance:ai-applications/multiclass/activity-3 -->
+<p>첫 10개 표본의 Logit·Probability·예측·정답을 비교하세요. Softmax 합이 표본마다 1인지, Logit과 Probability의 argmax가 같은지 검증하세요. 오분류를 최대 3개 골라 실제 Label과 예측 Label을 적고, 없으면 없다고 기록하세요. <!-- /exercise-guidance:ai-applications/multiclass/activity-3 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -144,11 +148,14 @@ assert torch.allclose(probability.sum(1),torch.ones(len(x)),atol=1e-5)
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 반복 실험 코드
 </code></pre></section><section class="notebook-cell">
 <h2 id="선택-실습-오류의-원인을-찾아-코드-고치기">선택 실습 · 오류의 원인을 찾아 코드 고치기</h2>
-<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다.</p>
+<!-- exercise-guidance:ai-applications/multiclass/optional -->
+<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다. <!-- /exercise-guidance:ai-applications/multiclass/optional --></p>
 <h2 id="저장-전-확인">저장 전 확인</h2>
 <ol type="1">
 <li>작성란과 출력·그래프를 확인하고 새 런타임에서 전체 셀을 순서대로 실행하세요.</li>
 <li>본인 Drive에 저장한 뒤 <code>.ipynb</code>로 내려받으세요.</li>
-<li>제출 파일명·기한은 이번 주 실습 안내와 최신 KLAS 공지를 따르세요.</li>
 </ol>
+<!-- exercise-guidance:ai-applications/multiclass/submission -->
+<p>코드, 실제 Output·그래프, 직접 작성한 해석을 포함하세요. 제출은 KLAS를 이용하며 기한은 학기 일정과 최신 공지를 확인합니다.</p>
+<p>파일명: <code>이름_학번_8주차.ipynb</code>. <!-- /exercise-guidance:ai-applications/multiclass/submission --></p>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>

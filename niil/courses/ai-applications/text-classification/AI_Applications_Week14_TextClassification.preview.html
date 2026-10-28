@@ -6,9 +6,10 @@
 <li>이름: <strong>⟦여기에 직접 입력⟧</strong></li>
 <li>학번: <strong>⟦여기에 직접 입력⟧</strong></li>
 </ul>
+<!-- exercise-guidance:ai-applications/text-classification/execution -->
 <h2 id="실행작성-방법">실행·작성 방법</h2>
 <p>위에서부터 Code Cell의 ▶ 또는 Shift+Enter로 실행하세요. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong>을 작성하고 Shift+Enter로 표시합니다. <strong>직접 작성</strong> 셀에는 본인 코드를 넣으세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
-<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요.</p>
+<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요. <!-- /exercise-guidance:ai-applications/text-classification/execution --></p>
 </section><section class="notebook-cell">
 <h2 id="토큰과-vocabulary">1. 토큰과 vocabulary</h2>
 <p>문장을 Token과 Index로 바꾸고, Embedding 벡터를 평균 내어 문장 전체의 감정을 분류합니다. 이번 실습은 전처리 결과와 문장 벡터를 직접 확인하기 위해 짧은 영어 Review와 학습 가능한 Mean Embedding 모델을 사용합니다. 강의의 IMDB 예제처럼 문장 전체에 Label을 붙이되, 여기서는 세 감정으로 분류합니다. Mean Pooling은 단어 순서를 생략한 단순한 모델이며 RNN을 반드시 대체해야 해서 사용하는 것은 아닙니다. TorchText 설치, Hugging Face 로그인, 외부 모델 다운로드는 필요하지 않습니다. PAD=0은 빈자리, UNK=1은 모르는 단어입니다. screen size okay처럼 짧은 문장에 PAD가 붙는지 확인하고, 아래 비교 셀에서도 다른 길이의 문장을 사용합니다.</p>
@@ -38,7 +39,8 @@ assert (probe_ids[0] == 0).sum().item() == 2
 assert probe_ids[2, 0].item() == vocab['&lt;UNK&gt;']
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행">B. 직접 수행</h3>
-<p>길이가 다른 두 영어 문장을 Token → Index → PAD 순서로 출력하세요. 학습 사전에 없는 단어 하나를 넣고 UNK 위치를 확인하세요. 실제 단어를 뜻하는 Index와 PAD·UNK를 구별해 적으세요.</p>
+<!-- exercise-guidance:ai-applications/text-classification/activity-1 -->
+<p>길이가 다른 두 영어 문장을 Token → Index → PAD 순서로 출력하세요. 학습 사전에 없는 단어 하나를 넣고 UNK 위치를 확인하세요. 실제 단어를 뜻하는 Index와 PAD·UNK를 구별해 적으세요. <!-- /exercise-guidance:ai-applications/text-classification/activity-1 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 설명은 아래 Text Cell에 기록하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -89,7 +91,8 @@ with torch.no_grad():
     assert torch.allclose(order_logits[0], order_logits[1], atol=1e-6)
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행-1">B. 직접 수행</h3>
-<p>같은 문장을 혼자 처리할 때와 긴 문장과 묶을 때 Mask 적용 전후 평균을 비교하세요. 다른 문장 쌍으로 한 번 더 확인하고, 단어 순서를 바꾼 두 문장의 Logit도 비교하세요. 차이가 0에 가까운 이유를 설명하세요.</p>
+<!-- exercise-guidance:ai-applications/text-classification/activity-2 -->
+<p>같은 문장을 혼자 처리할 때와 긴 문장과 묶을 때 Mask 적용 전후 평균을 비교하세요. 다른 문장 쌍으로 한 번 더 확인하고, 단어 순서를 바꾼 두 문장의 Logit도 비교하세요. 차이가 0에 가까운 이유를 설명하세요. <!-- /exercise-guidance:ai-applications/text-classification/activity-2 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 설명은 아래 Text Cell에 기록하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -116,7 +119,8 @@ print('unknown token example:',encode(['excellent battery']))
 
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행-2">B. 직접 수행</h3>
-<p>학습 사전의 단어로 긍정·중립·부정 영어 문장을 하나씩 my_reviews에 작성하세요. 의도한 감정·예측·Token을 기록하고, 모르는 단어나 문장부호를 하나 넣어 UNK 처리를 확인하세요. 예측이 의도와 달라도 원인을 설명하면 됩니다.</p>
+<!-- exercise-guidance:ai-applications/text-classification/activity-3 -->
+<p>학습 사전의 단어로 긍정·중립·부정 영어 문장을 하나씩 my_reviews에 작성하세요. 의도한 감정·예측·Token을 기록하고, 모르는 단어나 문장부호를 하나 넣어 UNK 처리를 확인하세요. 예측이 의도와 달라도 원인을 설명하면 됩니다. <!-- /exercise-guidance:ai-applications/text-classification/activity-3 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 설명은 아래 Text Cell에 기록하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -164,11 +168,14 @@ print('unknown token example:',encode(['excellent battery']))
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 반복 실험 코드
 </code></pre></section><section class="notebook-cell">
 <h2 id="선택-실습-오류의-원인을-찾아-코드-고치기">선택 실습 · 오류의 원인을 찾아 코드 고치기</h2>
-<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다.</p>
+<!-- exercise-guidance:ai-applications/text-classification/optional -->
+<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다. <!-- /exercise-guidance:ai-applications/text-classification/optional --></p>
 <h2 id="저장-전-확인">저장 전 확인</h2>
 <ol type="1">
 <li>작성란과 출력·그래프를 확인하고 새 런타임에서 전체 셀을 순서대로 실행하세요.</li>
 <li>본인 Drive에 저장한 뒤 <code>.ipynb</code>로 내려받으세요.</li>
-<li>제출 파일명·기한은 이번 주 실습 안내와 최신 KLAS 공지를 따르세요.</li>
 </ol>
+<!-- exercise-guidance:ai-applications/text-classification/submission -->
+<p>코드, 실제 Output·그래프, 직접 작성한 해석을 포함하세요. 제출은 KLAS를 이용하며 기한은 학기 일정과 최신 공지를 확인합니다.</p>
+<p>파일명: <code>이름_학번_14주차.ipynb</code>. <!-- /exercise-guidance:ai-applications/text-classification/submission --></p>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>

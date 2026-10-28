@@ -6,9 +6,10 @@
 <li>이름: <strong>⟦여기에 직접 입력⟧</strong></li>
 <li>학번: <strong>⟦여기에 직접 입력⟧</strong></li>
 </ul>
+<!-- exercise-guidance:ai-applications/tensor-manipulation/execution -->
 <h2 id="실행작성-방법">실행·작성 방법</h2>
 <p>위에서부터 Code Cell의 ▶ 또는 Shift+Enter로 실행하세요. Text Cell은 더블클릭해 <strong>⟦직접 입력⟧</strong>을 작성하고 Shift+Enter로 표시합니다. <strong>직접 작성</strong> 셀에는 본인 코드를 넣으세요. 값을 바꾸면 해당 셀과 뒤의 관련 셀을 다시 실행합니다.</p>
-<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요.</p>
+<p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요. <!-- /exercise-guidance:ai-applications/tensor-manipulation/execution --></p>
 </section><section class="notebook-cell">
 <h2 id="tensor-만들기">1. Tensor 만들기</h2>
 <p>축과 dtype을 출력하고 예측과 비교합니다.</p>
@@ -25,7 +26,8 @@ print(x,'\nshape:',x.shape,'dtype:',x.dtype)
 print('features mean:',x.mean(dim=0));print('samples mean:',x.mean(dim=1))
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행">B. 직접 수행</h3>
-<p>0~5의 1D Tensor, 0~11의 (4,3) Tensor, 0~23의 (2,3,4) Tensor를 float로 생성하세요. (4,3)을 표본 4개·특징 3개로 보고 특징별 평균과 표본별 평균의 예상 shape를 적은 뒤 dim=0·1로 검증하세요.</p>
+<!-- exercise-guidance:ai-applications/tensor-manipulation/activity-1 -->
+<p>0~5의 1D Tensor, 0~11의 (4,3) Tensor, 0~23의 (2,3,4) Tensor를 float로 생성하세요. (4,3)을 표본 4개·특징 3개로 보고 특징별 평균과 표본별 평균의 예상 shape를 적은 뒤 dim=0·1로 검증하세요. <!-- /exercise-guidance:ai-applications/tensor-manipulation/activity-1 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -50,7 +52,8 @@ print('unsqueeze:',x.unsqueeze(0).shape)
 print('restore:',x.unsqueeze(0).squeeze(0).shape)
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행-1">B. 직접 수행</h3>
-<p>dim 값을 바꾸어 결과를 비교하고 cat과 stack의 차이를 쓰세요. 원소 수 12를 유지하는 세 가지 reshape와 -1 사용 예를 작성하세요.</p>
+<!-- exercise-guidance:ai-applications/tensor-manipulation/activity-2 -->
+<p>dim 값을 바꾸어 결과를 비교하고 cat과 stack의 차이를 쓰세요. 원소 수 12를 유지하는 세 가지 reshape와 -1 사용 예를 작성하세요. <!-- /exercise-guidance:ai-applications/tensor-manipulation/activity-2 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -73,7 +76,8 @@ print((A+torch.tensor([10,20,30])).shape)
 assert (A@B).shape==(2,4)
 </code></pre></section><section class="notebook-cell">
 <h3 id="b.-직접-수행-2">B. 직접 수행</h3>
-<p>A.shape=(2,3), B.shape=(3,4)인 기준 예에서 A*B와 A@B 중 실행 가능한 연산과 그 이유를 쓰세요. A+torch.tensor([10,20])가 실패하는 이유를 설명하고, 행별로 10과 20을 더하도록 Tensor shape를 수정하세요. 실패 코드는 Markdown에만 남기고 수정한 Code Cell을 실행하세요.</p>
+<!-- exercise-guidance:ai-applications/tensor-manipulation/activity-3 -->
+<p>A.shape=(2,3), B.shape=(3,4)인 기준 예에서 A*B와 A@B 중 실행 가능한 연산과 그 이유를 쓰세요. A+torch.tensor([10,20])가 실패하는 이유를 설명하고, 행별로 10과 20을 더하도록 Tensor shape를 수정하세요. 실패 코드는 Markdown에만 남기고 수정한 Code Cell을 실행하세요. <!-- /exercise-guidance:ai-applications/tensor-manipulation/activity-3 --></p>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -121,11 +125,14 @@ assert (A@B).shape==(2,4)
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 반복 실험 코드
 </code></pre></section><section class="notebook-cell">
 <h2 id="선택-실습-오류의-원인을-찾아-코드-고치기">선택 실습 · 오류의 원인을 찾아 코드 고치기</h2>
-<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다.</p>
+<!-- exercise-guidance:ai-applications/tensor-manipulation/optional -->
+<p>앞 코드의 축·dtype·입력 크기·모델 설정 중 하나를 일부러 바꿔 예상과 달라지는 사례를 만드세요. 오류를 그대로 남기지 말고, 어떤 입력 조건이나 연산 규칙이 맞지 않았는지 설명한 뒤 수정된 코드로 실행하세요. 인증·설치 설정을 바꾸는 실험은 하지 않습니다. <!-- /exercise-guidance:ai-applications/tensor-manipulation/optional --></p>
 <h2 id="저장-전-확인">저장 전 확인</h2>
 <ol type="1">
 <li>작성란과 출력·그래프를 확인하고 새 런타임에서 전체 셀을 순서대로 실행하세요.</li>
 <li>본인 Drive에 저장한 뒤 <code>.ipynb</code>로 내려받으세요.</li>
-<li>제출 파일명·기한은 이번 주 실습 안내와 최신 KLAS 공지를 따르세요.</li>
 </ol>
+<!-- exercise-guidance:ai-applications/tensor-manipulation/submission -->
+<p>코드, 실제 Output·그래프, 직접 작성한 해석을 포함하세요. 제출은 KLAS를 이용하며 기한은 학기 일정과 최신 공지를 확인합니다.</p>
+<p>파일명: <code>이름_학번_5주차.ipynb</code>. <!-- /exercise-guidance:ai-applications/tensor-manipulation/submission --></p>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>
