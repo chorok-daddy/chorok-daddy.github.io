@@ -42,9 +42,14 @@ for course in courses:
   old=BeautifulSoup((directory/'files.html').read_text(),'html.parser')
   assert old.select_one('meta[http-equiv="refresh"]')['content']=='0;url=index.html'
  download=index.select_one('[data-course-download]')
- assert download and download['href']=='https://github.com/chorok-daddy/courses/blob/main/'+course['slug']+'/README.md'
- assert not download.has_attr('download') and download.get_text()=='자료 받기 ↗'
- assert (ROOT/'niil/courses/downloads'/(course['slug']+'.zip')).is_file()
+ enabled=course.get('zip_enabled',True) and bool(course.get('chapters') or course.get('lessons'))
+ if enabled:
+  assert download and download['href']=='https://github.com/chorok-daddy/courses/blob/main/'+course['slug']+'/README.md'
+  assert not download.has_attr('download') and download.get_text()=='자료 받기 ↗'
+  assert (ROOT/'niil/courses/downloads'/(course['slug']+'.zip')).is_file()
+ else:
+  assert download is None
+  assert not (ROOT/'niil/courses/downloads'/(course['slug']+'.zip')).exists()
  for chapter in course['chapters']:
   assignment=directory/chapter['slug']/'assignment.html'
   entry=chapter['slug']+('/assignment.html' if assignment.is_file() else '/index.html')

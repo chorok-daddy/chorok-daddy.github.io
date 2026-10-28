@@ -25,7 +25,8 @@ for course in catalog['courses']:
     p=ROOT/'niil/courses'/course['slug']/'index.html'
     doc=BeautifulSoup(p.read_text(),'html.parser')
     links=doc.select('main a[href*="github.com/chorok-daddy/courses"]')
-    assert len(links)==1 and links[0].has_attr('data-course-download')
+    assert len(links)==int(course.get('zip_enabled',True) and bool(course.get('chapters') or course.get('lessons')))
+    if links:assert links[0].has_attr('data-course-download')
     assert doc.select_one('header a[href="/niil/courses/"]')
     assert not doc.select('a[href$="/main.zip"]')
 print(f'PASS: source revision, {checked} unchanged imports, single-repository navigation')

@@ -1956,7 +1956,8 @@
           "chapters": [],
           "focus": ""
         }
-      ]
+      ],
+      "zip_enabled": false
     },
     {
       "slug": "robot-basic-lab",
@@ -2397,7 +2398,8 @@
           "chapters": [],
           "focus": ""
         }
-      ]
+      ],
+      "zip_enabled": false
     },
     {
       "slug": "microprocessor",
@@ -2841,7 +2843,8 @@
           "chapters": [],
           "focus": ""
         }
-      ]
+      ],
+      "zip_enabled": false
     },
     {
       "slug": "intro-machine-learning",
@@ -3317,7 +3320,8 @@
           "chapters": [],
           "focus": ""
         }
-      ]
+      ],
+      "zip_enabled": false
     },
     {
       "slug": "machine-learning-lab",
@@ -3465,7 +3469,8 @@
         }
       ],
       "catalog_group": "additional",
-      "semester_plan": []
+      "semester_plan": [],
+      "zip_enabled": false
     },
     {
       "slug": "reinforcement-learning",
@@ -3889,7 +3894,8 @@
           "focus": "실행 가능한 코드·결과·기여와 한계 정리",
           "project_section": "results"
         }
-      ]
+      ],
+      "zip_enabled": false
     },
     {
       "slug": "ee-seminar",
@@ -3904,7 +3910,8 @@
       },
       "lessons": [],
       "chapters": [],
-      "catalog_group": "additional"
+      "catalog_group": "additional",
+      "zip_enabled": false
     }
   ]
 }
