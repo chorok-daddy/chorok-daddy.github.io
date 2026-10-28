@@ -4,8 +4,10 @@
     {
       "old": "/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
       "new": "/niil/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
-      "sha256": "559774282fc967f9461a7e75843f7915283c8f21cd433c939e56012cbe287216",
-      "kind": "download"
+      "sha256": "7a65cc4a808e99f61b430cd29a7860a59cc0106c866665b2c478dfad418e3f5f",
+      "kind": "download",
+      "previous_sha256": "559774282fc967f9461a7e75843f7915283c8f21cd433c939e56012cbe287216",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/convolution/assignment.html",
@@ -164,8 +166,10 @@
     {
       "old": "/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
       "new": "/niil/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
-      "sha256": "958335bc6a70021e46348c6f2cba314f71f936669d71ca52dba7372de22f3f66",
-      "kind": "download"
+      "sha256": "d149ba739547715c905223ef9c94ba4db9ddd3d175474f2fe854736755f2a2bc",
+      "kind": "download",
+      "previous_sha256": "958335bc6a70021e46348c6f2cba314f71f936669d71ca52dba7372de22f3f66",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/git-collaboration/assignment.html",
@@ -214,8 +218,10 @@
     {
       "old": "/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
       "new": "/niil/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
-      "sha256": "72063f06250c6b8ceb8ba5ab55fdc374d799df7d7b99d2b71b0f81357816472c",
-      "kind": "download"
+      "sha256": "24f84dfa8d9b15811da5f511471b60b3d540eae2793e5f0b3af861c014ee8e76",
+      "kind": "download",
+      "previous_sha256": "72063f06250c6b8ceb8ba5ab55fdc374d799df7d7b99d2b71b0f81357816472c",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/image-classification/assignment.html",
@@ -273,8 +279,10 @@
     {
       "old": "/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
       "new": "/niil/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
-      "sha256": "46d2e77337aad12793e86cafab61b4d7556457566dc686b11c4cdfcb750c36d0",
-      "kind": "download"
+      "sha256": "344bd2d28ccbcdd47c405e3aa14b5edfd331c8e2c64f4519a2afee8090f02f1e",
+      "kind": "download",
+      "previous_sha256": "46d2e77337aad12793e86cafab61b4d7556457566dc686b11c4cdfcb750c36d0",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/linear-regression/assignment.html",
@@ -325,8 +333,10 @@
     {
       "old": "/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
       "new": "/niil/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
-      "sha256": "d7177acde0d4a12fbf5381a9728fa53a55a3d6419d050a656be0dac02af32135",
-      "kind": "download"
+      "sha256": "b1cce7cca74918d438b0be8edea73fa63943038c30123d77ee698dcdef4f3211",
+      "kind": "download",
+      "previous_sha256": "d7177acde0d4a12fbf5381a9728fa53a55a3d6419d050a656be0dac02af32135",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/logistic-regression/assignment.html",
@@ -375,8 +385,10 @@
     {
       "old": "/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
       "new": "/niil/courses/ai-applications/lstm-gru/AI_Applications_Week13_LstmGru.ipynb",
-      "sha256": "202413be156de700349a364e76809c70b06b5bc7703946c9601f292fe5ed7c69",
-      "kind": "download"
+      "sha256": "af9581b0c5d49d33a7db7a06017c3ec7bc01b6a1e84d27630ff29a48a7bfd4cc",
+      "kind": "download",
+      "previous_sha256": "202413be156de700349a364e76809c70b06b5bc7703946c9601f292fe5ed7c69",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/lstm-gru/assignment.html",
@@ -466,8 +478,10 @@
     {
       "old": "/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
       "new": "/niil/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
-      "sha256": "3b293b67bfe540cc99530110ecc160e38f53d4a19c2d44a027346f7f42f16036",
-      "kind": "download"
+      "sha256": "1b7c87b16a342d98a6bcb1c4a55494365027f806ba40c03edcf9bfa216464ac6",
+      "kind": "download",
+      "previous_sha256": "3b293b67bfe540cc99530110ecc160e38f53d4a19c2d44a027346f7f42f16036",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/multiclass/assignment.html",
@@ -625,8 +639,10 @@
     {
       "old": "/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
       "new": "/niil/courses/ai-applications/python-arrays-plots/AI_Applications_Week03_PythonArraysPlots.ipynb",
-      "sha256": "2f7666c824093fad88132200dbabdeaeaf1e668644d92b64edd077fe1089d7ff",
-      "kind": "download"
+      "sha256": "01fb4df3c1616960d4b70f512c7b69c386865c95dfbed6510b48064547b4d95d",
+      "kind": "download",
+      "previous_sha256": "2f7666c824093fad88132200dbabdeaeaf1e668644d92b64edd077fe1089d7ff",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/python-arrays-plots/assignment.html",
@@ -675,8 +691,10 @@
     {
       "old": "/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
       "new": "/niil/courses/ai-applications/recurrent/AI_Applications_Week12_Recurrent.ipynb",
-      "sha256": "3d9555691f74f00c2f8080093f7b9f4d326983813514e203ce1d7b2414a9c99b",
-      "kind": "download"
+      "sha256": "fdb6b9eeb73f35a749fd66df4c97e029202c87a628c695f71026abc4cf2c4133",
+      "kind": "download",
+      "previous_sha256": "3d9555691f74f00c2f8080093f7b9f4d326983813514e203ce1d7b2414a9c99b",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/recurrent/assignment.html",
@@ -736,8 +754,10 @@
     {
       "old": "/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
       "new": "/niil/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
-      "sha256": "80b9e5c6ee4ed0b869f53316b0b0f41ab10a5409cba4df905277b8d9f3f6cfb5",
-      "kind": "download"
+      "sha256": "08f2054917fd44e958d406db9cc5b05e10427cbd41fe83e962b7844e88dd1630",
+      "kind": "download",
+      "previous_sha256": "80b9e5c6ee4ed0b869f53316b0b0f41ab10a5409cba4df905277b8d9f3f6cfb5",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/tensor-manipulation/assignment.html",
@@ -788,8 +808,10 @@
     {
       "old": "/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
       "new": "/niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
-      "sha256": "88ac6a8dd0c2507a29708cad1f5058f067fdb620a42e01c4354ffd4bac6d58b8",
-      "kind": "download"
+      "sha256": "e3e2098b67c2701bbfe019c8bff004457a5ca7b7384d0c3ade01231fe50397d0",
+      "kind": "download",
+      "previous_sha256": "88ac6a8dd0c2507a29708cad1f5058f067fdb620a42e01c4354ffd4bac6d58b8",
+      "revision_note": "2026-10-28: remove fixed semester week from the first notebook heading; all other notebook data unchanged."
     },
     {
       "old": "/courses/ai-applications/text-classification/assignment.html",

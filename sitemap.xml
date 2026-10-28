@@ -40,9 +40,6 @@
     <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/course-orientation/assignment.html</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format-examples.html</loc>
-  </url>
-  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/final-exam/</loc>
   </url>
   <url>
@@ -190,9 +187,6 @@
     <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/recurrent/assignment.html</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/schedule.html</loc>
-  </url>
-  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/tensor-manipulation/</loc>
   </url>
   <url>
@@ -230,9 +224,6 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/course-setup/assignment.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/control-1/exam-format-examples.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-one/</loc>
@@ -304,9 +295,6 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/physical-models/assignment.html</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/control-1/schedule.html</loc>
-  </url>
-  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/stability/</loc>
   </url>
   <url>
@@ -361,10 +349,31 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/W12_CompensatorDesign.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/final-exam/</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/W10_FrequencyResponse.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/</loc>
@@ -373,10 +382,31 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/W11_StabilityOnFrequencyResponse.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/W5_1_SymbolicCalculation_LaplaceTransform.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/midterm/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/</loc>
@@ -385,10 +415,55 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/W7_PIDController.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/W9_ControlRootLocus.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/</loc>
@@ -397,19 +472,40 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/W6_SystemModeling.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/W5_2_TransferFunction.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/ee-seminar/</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/exam-format-examples.html</loc>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/</loc>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/final-exam/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/midterm/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-01/</loc>
@@ -418,10 +514,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-01/INT_ML_W1.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-01/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-01/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-01/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-02/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-02/INT_ML_W2.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-02/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-02/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-02/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/</loc>
@@ -430,10 +544,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/INT_ML_W3.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-03/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/INT_ML_W4.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-04/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-05/</loc>
@@ -442,10 +574,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-05/INT_ML_W5.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-05/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-05/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-05/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-06/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-06/INT_ML_W6.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-06/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-06/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-06/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-07/</loc>
@@ -454,10 +604,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-07/INT_ML_W7.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-07/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-07/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-07/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-08/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-08/INT_ML_W8.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-08/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-08/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-08/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-10/</loc>
@@ -466,10 +634,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-10/INT_ML_W10.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-10/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-10/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-10/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-12/</loc>
@@ -478,10 +664,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-12/INT_ML_W12.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-12/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-12/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-12/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/</loc>
@@ -493,16 +697,43 @@
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/linear-regression/EX3_Linear_Regression.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/linear-regression/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/linear-regression/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/linear-regression/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/logistic-regression/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/logistic-regression/EX4_Logistic_Regression.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/logistic-regression/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/logistic-regression/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/logistic-regression/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/multiclass/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/multiclass/EX5_Multinomial_Classification.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/multiclass/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/multiclass/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/multiclass/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/notebook-basics/</loc>
@@ -512,6 +743,15 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/notebook-basics/EX1-2_Markdown_Tutorial.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/notebook-basics/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/notebook-basics/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/notebook-basics/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/python-review/</loc>
@@ -535,10 +775,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/python-review/Review_06_python_matplotlib.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/python-review/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/python-review/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/python-review/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/tensor-manipulation/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/tensor-manipulation/EX2_Tensor_Manipulation.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/tensor-manipulation/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/tensor-manipulation/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/machine-learning-lab/tensor-manipulation/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/</loc>
@@ -559,10 +817,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/Week4-4_Python_Matplotlib.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/arrays-and-plots/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/camera/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/camera/Week12-1_picamera_test.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/camera/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/camera/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/camera/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/dynamodb/</loc>
@@ -577,6 +853,18 @@
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/dynamodb/Week8-3_DynamoDB_Local_Test_CloudAccess.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/dynamodb/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/dynamodb/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/dynamodb/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/final-exam/</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/git-collaboration/</loc>
   </url>
   <url>
@@ -587,6 +875,15 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/git-collaboration/Week5-3_Github_Fork_Branch_PR.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/git-collaboration/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/git-collaboration/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/git-collaboration/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/gpio/</loc>
@@ -616,6 +913,15 @@
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/gpio/Week6-8_Interrupt_Test2.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/gpio/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/gpio/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/gpio/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/i2c/</loc>
   </url>
   <url>
@@ -623,6 +929,18 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/i2c/Week7-2_I2C_IMU_lib.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/i2c/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/i2c/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/i2c/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/midterm/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/python-basics/</loc>
@@ -634,7 +952,25 @@
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/python-basics/Week3-2_Python_Basic.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/python-basics/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/python-basics/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/python-basics/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/telegram-bot/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/telegram-bot/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/telegram-bot/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/telegram-bot/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-scraping/</loc>
@@ -643,10 +979,31 @@
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-scraping/Week13-1_web_scraping.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-scraping/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-scraping/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-scraping/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-server/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-server/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-server/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/web-server/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/design-project/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/getting-started/</loc>
@@ -655,10 +1012,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/getting-started/GettingStarted.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/getting-started/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/getting-started/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/getting-started/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/RL_W1.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-01/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/</loc>
@@ -667,10 +1042,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/RL_W2.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-02/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-03/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-03/RL_W3.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-03/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-03/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-03/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-04/</loc>
@@ -679,10 +1072,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-04/RL_W4.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-04/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-04/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-04/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-05/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-05/RL_W5.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-05/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-05/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-05/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-06/</loc>
@@ -691,10 +1102,28 @@
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-06/RL_W6.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-06/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-06/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-06/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-07/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-07/RL_W7.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-07/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-07/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-07/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-08/</loc>
@@ -703,16 +1132,43 @@
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-08/RL_W8.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-08/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-08/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-08/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-09/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-09/RL_W9.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-09/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-09/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-09/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-10/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-10/RL_W10.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-10/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-10/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/reinforcement-learning/week-10/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/reuse.html</loc>
@@ -727,6 +1183,18 @@
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/drone-navigation/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/drone-navigation/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/drone-navigation/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/drone-navigation/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/final-exam/</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/git-collaboration/</loc>
   </url>
   <url>
@@ -739,19 +1207,94 @@
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/git-collaboration/Week5-3_Github_Fork_Branch_PR.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/git-collaboration/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/git-collaboration/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/git-collaboration/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/adv_img_process.mlx.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing-toolbox/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/assignment.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/basic_img_process.mlx.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/image-processing/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/keyboard-control/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/keyboard-control/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/keyboard-control/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/keyboard-control/practice.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-data/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-data/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-data/practice.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-functions/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-functions/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-functions/practice.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-routines/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-routines/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-routines/practice.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-start/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-start/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/matlab-start/practice.mlx.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/midterm/</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/notebook-basics/</loc>
@@ -760,7 +1303,25 @@
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/notebook-basics/Week2_Markdown_Tutorial.preview.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/notebook-basics/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/notebook-basics/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/notebook-basics/practice.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/assignment.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/practice.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/vision-control/tello_image_processing.mlx.preview.html</loc>

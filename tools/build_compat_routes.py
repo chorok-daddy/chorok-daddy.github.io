@@ -8,6 +8,7 @@ import html
 import json
 import shutil
 from pathlib import Path
+from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -43,6 +44,13 @@ def main():
         if item['kind'] == 'page':
             target=item['new']
             if new.name=='files.html':target='/'+new.parent.relative_to(ROOT).as_posix()+'/index.html'
+            doc=BeautifulSoup(new.read_text(),'html.parser')
+            missing=set(item['anchors'])-{x['id'] for x in doc.select('[id]')}
+            if missing:
+                container=doc.new_tag('div',attrs={'hidden':'','data-course-compat-anchors':''})
+                for identifier in sorted(missing):container.append(doc.new_tag('span',id=identifier))
+                (doc.select_one('main') or doc.body).insert(0,container)
+                new.write_text(str(doc))
             redirect(item['old'], target, item['anchors'])
         else:
             # Static hosting cannot redirect arbitrary binary downloads. Keep an

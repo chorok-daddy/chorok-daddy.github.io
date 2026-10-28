@@ -27,6 +27,12 @@ for item in manifest['files']:
         assert new_page.select_one('meta[http-equiv="refresh"]')['content']=='0;url=index.html'
         new_page=BeautifulSoup((new.parent/'index.html').read_text(),'html.parser')
     assert set(item['anchors']) <= {x['id'] for x in new_page.select('[id]')}, new
+    visited={new.resolve()}
+    while new_page.select_one('meta[http-equiv="refresh"]'):
+        location=new_page.select_one('meta[http-equiv="refresh"]')['content'].split('url=',1)[1]
+        next_page=ROOT/location.lstrip('/') if location.startswith('/') else new.parent/location
+        assert next_page.resolve().is_relative_to(ROOT) and next_page.resolve() not in visited, new
+        visited.add(next_page.resolve());new=next_page;new_page=BeautifulSoup(new.read_text(),'html.parser')
     homes = new_page.select('a[href="/niil/courses/"]:not([data-language])')
     assert len(homes) == 1 and homes[0].get_text() == '강의자료', new
     assert new_page.select_one('.site-header #site-nav') and new_page.select_one('footer'), new

@@ -48,20 +48,28 @@ for course in courses:
  for chapter in course['chapters']:
   assignment=directory/chapter['slug']/'assignment.html'
   entry=chapter['slug']+('/assignment.html' if assignment.is_file() else '/index.html')
-  assert len(index.select('h2 a[href="'+entry+'"]'))==1
+  assert index.select('main a[href="'+entry+'"], main a[href^="'+entry+'#"]'), (course['slug'], entry)
   if assignment.is_file():
    doc=BeautifulSoup(assignment.read_text(),'html.parser')
-   assert doc.select_one('a[data-course-overlay][href="index.html"]'),assignment
+   lesson=next((l for l in course['lessons'] if l['slug']==chapter['slug']),{})
+   split=bool(lesson.get('learning_notebook'))
+   if split:
+    for role,word in [('learning','학습용'),('practice','실습용')]:
+     links=doc.select('[data-course-overlay][data-notebook-role="'+role+'"]');assert len(links)==1,(assignment,role)
+     link=links[0];assert link.has_attr('data-course-overlay') and word in link.get_text(),assignment
+     target=assignment.parent/link['href'];assert target.is_file(),target
+     download=link.find_next_sibling('a');assert word in download.get_text() and download.has_attr('download'),assignment
+   else:assert doc.select_one('a[data-course-overlay][href="index.html"]'),assignment
    study=BeautifulSoup((directory/chapter['slug']/'index.html').read_text(),'html.parser')
-   assert not study.select('a[href^="assignment.html"]'),assignment
+   if not study.select_one('meta[http-equiv="refresh"]'):assert not study.select('a[href^="assignment.html"]'),assignment
    for a in doc.select('a[href^="index.html"]'):assert a.has_attr('data-course-overlay'),assignment
    preview=doc.select_one('[data-notebook-preview]')
-   if preview:
+   if preview and not split:
     assert preview.get_text()=='Colab 노트북 미리보기' and preview.has_attr('data-course-overlay'),assignment
     download=preview.find_next_sibling('a')
     assert download.get_text()=='Colab 노트북 다운로드' and download.has_attr('download'),assignment
    mlx=doc.select_one('[data-mlx-preview]')
-   if mlx:
+   if mlx and not split:
     assert mlx.get_text()=='mlx 스크립트 미리보기' and mlx.has_attr('data-matlab-url'),assignment
     download=mlx.find_next_sibling('a')
     assert download.get_text()=='mlx 스크립트 다운로드' and download.has_attr('download'),assignment

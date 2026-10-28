@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>시스템 모델링 · 실습 | 제어공학2</title><link data-course-ui="" href="../../assets/course-ui.css?v=6" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=6"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "시스템 모델링 · 실습", "url": "https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=mlx-preview1" rel="stylesheet"/><meta content="제어공학2: 시스템 모델링 · 실습. 질량이나 저항을 바꿀 때 응답 속도와 정상상태 값 중 무엇이 변하는지 모델로 판단합니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html" rel="canonical"/><meta content="시스템 모델링 · 실습 | 제어공학2" property="og:title"/><meta content="제어공학2: 시스템 모델링 · 실습. 질량이나 저항을 바꿀 때 응답 속도와 정상상태 값 중 무엇이 변하는지 모델로 판단합니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="시스템 모델링 · 실습 | 제어공학2" name="twitter:title"/><meta content="제어공학2: 시스템 모델링 · 실습. 질량이나 저항을 바꿀 때 응답 속도와 정상상태 값 중 무엇이 변하는지 모델로 판단합니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html", "name": "시스템 모델링 · 실습 | 제어공학2", "description": "제어공학2: 시스템 모델링 · 실습. 질량이나 저항을 바꿀 때 응답 속도와 정상상태 값 중 무엇이 변하는지 모델로 판단합니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a href="/niil/courses/control-2/index.html">제어공학2</a></nav><h1>시스템 모델링 · 실습</h1><nav class="notebook-actions"><a download="" href="practice.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/control-2/system-modeling/practice.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+</section><section class="notebook-cell">
+<h2 id="학습-목표">학습 목표</h2>
+<!-- exercise-guidance:control-2/system-modeling/objective -->
+<p>질량이나 저항을 바꿀 때 응답 속도와 정상상태 값 중 무엇이 변하는지 모델로 판단합니다. <!-- /exercise-guidance:control-2/system-modeling/objective --></p>
+</section><section class="notebook-cell">
+<h2 id="cruise-모델과-단위">Cruise 모델과 단위</h2>
+<!-- exercise-guidance:control-2/system-modeling/activity-1 -->
+<h3 id="시작-조건">시작 조건</h3>
+<p>m=1000 kg, b=50 N·s/m, 힘 500 N. 상태와 출력은 속도[m/s]입니다.</p>
+<h3 id="진행-방법">진행 방법</h3>
+<ol type="1">
+<li>A=-b/m, B=1/m, C=1, D=0으로 모델을 만들고 t=0~150 s의 응답을 그리세요.</li>
+<li>m=500,1000,1500만 바꾸고 같은 500 N을 입력하세요.</li>
+<li>정상상태 속도와 시정수를 식으로 예상한 뒤 그래프·dcgain과 대조하세요.</li>
+</ol>
+<h3 id="남길-결과">남길 결과</h3>
+<ul>
+<li>질량 3조건 표, 속도곡선 1개, 질량이 바꾼 특성 짧은 설명. <!-- /exercise-guidance:control-2/system-modeling/activity-1 --></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+import matplotlib.pyplot as plt
+import control as ctl
+s = ctl.tf('s')
+m=1000.; b=50.; force=500.
+G=ctl.ss([[-b/m]],[[1/m]],[[1]],[[0]])
+t=np.linspace(0,150,1501)
+t,v=ctl.step_response(force*G,t)
+plt.plot(t,v); plt.xlabel('Time [s]'); plt.ylabel('Speed [m/s]'); plt.grid()
+# TODO: 질량 3조건과 식으로 예상한 값을 비교하세요.
+</code></pre></section><section class="notebook-cell">
+<h2 id="결과-기록자가-점검">결과 기록·자가 점검</h2>
+<!-- exercise-guidance:control-2/system-modeling/activity-1-record -->
+<p><strong>m [kg]:</strong></p>
+<p><strong>예상 최종 속도 [m/s]:</strong></p>
+<p><strong>측정 속도 [m/s]:</strong></p>
+<p><strong>시정수 [s]:</strong></p>
+<h3 id="확인할-점">확인할 점</h3>
+<ul>
+<li>입력 힘 500을 중복 곱하지 않았는가?</li>
+<li>같은 b에서 질량 변화가 최종 속도보다 응답 속도에 영향을 주는가? <!-- /exercise-guidance:control-2/system-modeling/activity-1-record --></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="motor-모델의-계수-비교">Motor 모델의 계수 비교</h2>
+<!-- exercise-guidance:control-2/system-modeling/activity-2 -->
+<h3 id="시작-조건-1">시작 조건</h3>
+<p>J=.01, b=.1, K=.01, L=.5. R=.5,1,2 Ω를 비교하며 입력은 1 V입니다.</p>
+<h3 id="진행-방법-1">진행 방법</h3>
+<ol type="1">
+<li>G=K/((J<em>s+b)</em>(L*s+R)+K²)를 만들고 t=0~10 s 응답을 구하세요.</li>
+<li>각 R에서 Pole·DC Gain·최종 출력값을 표에 적으세요.</li>
+<li>전기 저항과 관성 계수가 식의 어느 항을 바꾸는지 설명하세요.</li>
+</ol>
+<h3 id="남길-결과-1">남길 결과</h3>
+<ul>
+<li>응답 3곡선과 계수 표 1개. <!-- /exercise-guidance:control-2/system-modeling/activity-2 --></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
+import matplotlib.pyplot as plt
+import control as ctl
+s = ctl.tf('s')
+J=.01; b=.1; K=.01; L=.5
+for R in [.5,1.,2.]:
+    G=K/((J*s+b)*(L*s+R)+K**2)
+    print(R,ctl.poles(G),ctl.dcgain(G))
+# TODO: 같은 시간축의 응답을 추가하세요.
+</code></pre></section><section class="notebook-cell">
+<h2 id="결과-기록자가-점검-1">결과 기록·자가 점검</h2>
+<!-- exercise-guidance:control-2/system-modeling/activity-2-record -->
+<p><strong>R [Ω]:</strong></p>
+<p><strong>Pole:</strong></p>
+<p><strong>DC Gain:</strong></p>
+<p><strong>최종 속도 [rad/s]:</strong></p>
+<h3 id="확인할-점-1">확인할 점</h3>
+<ul>
+<li>모든 조건에서 같은 J·b·K·L·입력을 사용했는가?</li>
+<li>장기 출력과 1 V×DC Gain을 비교했는가? <!-- /exercise-guidance:control-2/system-modeling/activity-2-record --></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="측정한-응답에서-모델-추정하기">측정한 응답에서 모델 추정하기</h2>
+<!-- exercise-guidance:control-2/system-modeling/activity-3 -->
+<h3 id="시작-조건-2">시작 조건</h3>
+<p>센서의 합성 Step 기록 y=1.8(1−exp(−t/3))+잡음입니다. t=0…15 s, 151점, 잡음 표준편차 .03, seed=7입니다.</p>
+<h3 id="진행-방법-2">진행 방법</h3>
+<ol type="1">
+<li>학습 예제의 curve_fit으로 Gain과 시정수를 추정하고 측정값·추정 곡선을 겹쳐 그리세요.</li>
+<li>기록 구간을 앞 3초로 제한해 같은 추정을 해 보세요. 긴 구간의 결과와 비교합니다.</li>
+<li>추정값과 잔차를 보고 추가로 측정할 시간 구간을 정하세요.</li>
+</ol>
+<h3 id="남길-결과-2">남길 결과</h3>
+<ul>
+<li>두 측정 구간의 추정값 표와 응답·잔차 그림. <!-- /exercise-guidance:control-2/system-modeling/activity-3 --></li>
+</ul>
+</section><section class="notebook-cell"><pre class="notebook-code"><code>from scipy.optimize import curve_fit
+rng=np.random.default_rng(7); tm=np.linspace(0,15,151)
+measured=1.8*(1-np.exp(-tm/3))+rng.normal(0,.03,len(tm))
+def response(t,gain,tau):return gain*(1-np.exp(-t/tau))
+for end in [3,15]:
+    select=tm&lt;=end
+    parameters,_=curve_fit(response,tm[select],measured[select],p0=[1,2],bounds=(0,np.inf))
+    print(end,parameters)
+# TODO: 곡선과 잔차를 같은 시간축으로 비교하세요.
+</code></pre></section><section class="notebook-cell">
+<h2 id="결과-기록자가-점검-2">결과 기록·자가 점검</h2>
+<!-- exercise-guidance:control-2/system-modeling/activity-3-record -->
+<p><strong>기록 구간 [s]:</strong></p>
+<p><strong>추정 Gain:</strong></p>
+<p><strong>추정 시정수 [s]:</strong></p>
+<p><strong>RMSE:</strong></p>
+<h3 id="확인할-점-2">확인할 점</h3>
+<ul>
+<li>실제 측정처럼 합성 자료의 설정값을 모른다고 가정하고 추정했는가?</li>
+<li>기록이 짧을 때의 불확실성을 잔차 크기만으로 판단하지 않았는가? <!-- /exercise-guidance:control-2/system-modeling/activity-3-record --></li>
+</ul>
+</section><section class="notebook-cell">
+<h2 id="공식-예제데이터">공식 예제·데이터</h2>
+<!-- exercise-guidance:control-2/system-modeling/resources -->
+<ul>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html" rel="noopener noreferrer" target="_blank">SciPy · curve_fit</a> <!-- /exercise-guidance:control-2/system-modeling/resources --></li>
+</ul>
+</section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>
