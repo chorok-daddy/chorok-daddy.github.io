@@ -335,7 +335,7 @@ for LANG in ('en','ko'):
         return '<div class="course-cards">'+cards+'</div>'
     additional=sum(c.get('catalog_group','additional')=='additional' for c in COURSE_CATALOG)
     course_heading='<header class="wrap publication-heading course-heading"><div><h1>'+tr('Course','강의자료')+'</h1></div><a class="repository-link" href="https://github.com/chorok-daddy/courses">GitHub <span aria-hidden="true">↗</span></a></header>'
-    course_content=course_heading+'<section class="wrap section compact course-catalog">'+course_cards('primary')+'<details class="additional-courses"><summary>'+tr('Other courses','기타 과목')+' <span>'+str(additional)+'</span></summary>'+course_cards('additional')+'</details></section>'
+    course_content=course_heading+'<section class="wrap section compact course-catalog">'+course_cards('primary')+'<details class="additional-courses"><summary>'+tr('Courses under revision','개편 중인 과목')+' <span>'+str(additional)+'</span></summary>'+course_cards('additional')+'</details></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
     author=next(m for m in MEMBER_DATA if m['role']['en']=='Professor')

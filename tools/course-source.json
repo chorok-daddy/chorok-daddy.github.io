@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/chorok-daddy/courses",
-  "revision": "9e2f743966f0443300d0d68fb87ed07c24e2e49a",
+  "revision": "423f2f906706853dcf08618458bac1fee5f53d9e",
   "files": {
     "assets/site.css": "d682a3ff5e5e12bee3b935462177dc1ff3e4ebc85a56d2e00f63a5b1e830524d",
     "niil/courses/CITATION.cff": "eb9d9cc1a252f3f5a040e20e82aed32aa4f7f51bdf1a388194897a8d41afcd65",
@@ -830,7 +830,7 @@
     "niil/courses/downloads/control-1.zip": "2a74b726ac98a15ae1f82c9e9c1721b4b74482b87977b4bba6d0ecafceab5a0a",
     "niil/courses/ee-seminar/index.html": "251ffe27ea2e6beffcfa18bd2fda50ed7743eb771db2f0bc986387ae47ba11a6",
     "niil/courses/exam-format-examples.html": "6c578869fd5b4ddba6c03c9b70cdad5554d5509cb83794568f2c19cd31b198c9",
-    "niil/courses/index.html": "9ace9195898bf6cb3b103c43c8bc9f73e168405f06ff7d661c99629fe1c6fcca",
+    "niil/courses/index.html": "40c837455a2ce9a6701161871e4c1a0c8b9694d570351b3109c8b5af89ef25c6",
     "niil/courses/intro-machine-learning/final-exam/index.html": "c6e7c3e8cb314090a6f7cb0ecf3db6fae3a89757cfe246ee80ad3f37741ba5d4",
     "niil/courses/intro-machine-learning/index.html": "27579c869a5264f301ed3a1bc6b15951ba439598a0851ee7b981a0e62ec78d3e",
     "niil/courses/intro-machine-learning/midterm/index.html": "55e37823c2bf427d64025d8272e44cdb693920cd40ef38d6be5ba14b1a71c510",
