@@ -15,7 +15,7 @@
 <p><strong>실행 환경:</strong> Colab CPU. 외부 다운로드는 해당 셀에 안내합니다. 라이브러리 오류가 나면 새 런타임에서 확인한 뒤 조교에게 문의하세요.</p>
 </section><section class="notebook-cell">
 <h2 id="내-작업-공간에서-git-연습하기">1. 내 작업 공간에서 Git 연습하기</h2>
-<p>임시 폴더에서 commit과 branch만 연습합니다. 실제 협업 과제는 과제 안내에서 이어갑니다.</p>
+<p>Colab의 임시 폴더에서 Commit·Branch를 연습한 뒤, 아래 순서로 GitHub에서 PR·Merge를 진행하세요.</p>
 <h3 id="a.-기준-예제-먼저-읽고-실행">A. 기준 예제 · 먼저 읽고 실행</h3>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>import tempfile, pathlib, subprocess
 repo=pathlib.Path(tempfile.mkdtemp(prefix='course-git-'))
@@ -39,7 +39,6 @@ print(git('log','--oneline','--all','--graph'))
 <li><p><strong>변경 전후 설명하기:</strong> 조교 또는 동료에게 두 Branch의 역할과 Merge 전후 차이를 설명하세요.</p></li>
 <li><p><strong>결과 기록하기:</strong> Repository URL, Commit 이력, PR 변경 내용과 Merge 완료 화면을 Notebook에 기록하세요.</p></li>
 </ol>
-<p><strong>선택 실습:</strong> 동료의 연습 Repository를 Fork하고 한 줄 수정하여 원본으로 PR을 제안해 Collaborator 방식과 비교하세요.</p>
 <p>각 단계에서 변경이 어느 Branch에 기록되어 있는지 확인하세요. PR을 열었을 때와 Merge했을 때 main의 내용이 어떻게 다른지 비교합니다.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.
 # 코드가 길어지면 Code Cell을 추가해도 됩니다.
@@ -87,12 +86,8 @@ print(git('log','--oneline','--all','--graph'))
 </table>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 반복 실험 코드
 </code></pre></section><section class="notebook-cell">
-<h2 id="선택-실습-pr-변경-내용-읽기">선택 실습 · PR 변경 내용 읽기</h2>
-<p>연습 Repository의 README 한 줄을 바꾸는 PR을 하나 더 만들고, Merge 전에 변경 내용을 설명하세요.</p>
-<h2 id="저장-전-확인">저장 전 확인</h2>
-<ol type="1">
-<li>작성란과 출력·그래프를 확인하고 새 런타임에서 전체 셀을 순서대로 실행하세요.</li>
-<li>본인 Drive에 저장한 뒤 <code>.ipynb</code>로 내려받으세요.</li>
-<li>제출 파일명·기한은 이번 주 실습 안내와 최신 KLAS 공지를 따르세요.</li>
-</ol>
+<h2 id="선택-실습-fork와-pull-request">선택 실습 · Fork와 Pull Request</h2>
+<p>동료의 연습 Repository를 Fork하고 문장 한 줄을 수정해 Pull Request를 제안하세요. 본인 Repository에서 Branch를 만드는 방식과 비교하세요.</p>
+<h2 id="저장제출">저장·제출</h2>
+<p>본인 Drive에 Notebook을 저장하세요. GitHub 저장소 URL과 수정 내용, Commit·Branch·PR·Merge 이력, 단계별 설명을 기록하고 변경 내용과 Merge 완료 화면을 캡처하세요. 인증 정보는 제외합니다. 제출은 KLAS의 해당 과제에서 안내하는 파일명·형식·기한을 따르세요.</p>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>
