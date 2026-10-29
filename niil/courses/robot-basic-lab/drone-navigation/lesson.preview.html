@@ -8,19 +8,19 @@
 </section><section class="notebook-cell">
 <h2 id="이번에-배울-내용">이번에 배울 내용</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-intro -->
-<p>앞·옆 이동의 기준이 회전 후에도 같다고 생각하면 경로가 어긋납니다. 좌표계를 계산으로 먼저 확인합니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-intro --></p>
+<p>앞·옆 이동의 기준이 회전 후에도 같다고 생각하면 Path가 어긋납니다. Coordinate Frame을 계산으로 먼저 확인합니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-intro --></p>
 </section><section class="notebook-cell">
 <h2 id="전체-흐름">전체 흐름</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-flow -->
-<p>영상·입력 사건 → 좌표·유효성 검사 → 제한된 명령 → 경로·실패 확인 <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-flow --></p>
+<p>영상·입력 사건 → 좌표·유효성 검사 → 제한된 명령 → Path·실패 확인 <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-flow --></p>
 </section><section class="notebook-cell">
-<h2 id="동체-좌표와-세계-좌표">동체 좌표와 세계 좌표</h2>
+<h2 id="body-frame과-world-frame">Body Frame과 World Frame</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-1 -->
-<p>기체의 앞쪽을 x, 왼쪽을 y로 정하면, yaw 회전 뒤의 전진은 세계 좌표에서 다른 방향이 됩니다. yaw=90°일 때 동체 전방 이동은 세계 y 방향으로 이어집니다. 회전과 이동의 순서는 일반적으로 바꿔도 같지 않습니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-1 --></p>
+<p>기체의 앞쪽을 x, 왼쪽을 y로 정하면, yaw 회전 뒤의 전진은 World Frame에서 다른 방향이 됩니다. yaw=90°일 때 동체 전방 이동은 세계 y 방향으로 이어집니다. 회전과 이동의 순서는 일반적으로 바꿔도 같지 않습니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-1 --></p>
 </section><section class="notebook-cell">
-<h2 id="경로와-오차를-함께-보기">경로와 오차를 함께 보기</h2>
+<h2 id="path와-오차를-함께-보기">Path와 오차를 함께 보기</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-2 -->
-<p>명령 경로가 맞더라도 이동 거리 오차가 누적되면 도착점이 달라집니다. 먼저 모의 경로에서 좌표·단위·회전 부호를 확인한 뒤 여러 오차 조건의 도착점 분포를 봅니다. 실제 비행 명령은 이 계산과 별도로 검증합니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-2 --></p>
+<p>명령 Path가 맞더라도 이동 거리 오차가 누적되면 도착점이 달라집니다. 먼저 모의 Path에서 좌표·단위·회전 부호를 확인한 뒤 여러 오차 조건의 도착점 분포를 봅니다. 실제 비행 명령은 이 계산과 별도로 검증합니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-2 --></p>
 </section><section class="notebook-cell">
 <h2 id="matlab과-python의-tello-명령-비교">MATLAB과 Python의 Tello 명령 비교</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-3 -->

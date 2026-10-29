@@ -67,7 +67,7 @@
         {
           "slug": "tensor-manipulation",
           "week": 4,
-          "title": "Tensor의 모양을 먼저 예측하기",
+          "title": "Tensor Shape와 연산",
           "source": "ai-applications/tensor-manipulation/index.html",
           "lab": "ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
           "assignment_source": "ai-applications/tensor-manipulation/assignment.html",
@@ -105,7 +105,7 @@
         {
           "slug": "multiclass",
           "week": 9,
-          "title": "클래스별 점수를 읽고 비교하기",
+          "title": "Multiclass Classification과 Logits",
           "source": "ai-applications/multiclass/index.html",
           "lab": "ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
           "assignment_source": "ai-applications/multiclass/assignment.html",
@@ -177,7 +177,7 @@
         {
           "slug": "text-classification",
           "week": 14,
-          "title": "문장을 Tensor로 바꾸어 감정 분류하기",
+          "title": "Text Classification과 Sentiment Analysis",
           "source": "ai-applications/text-classification/index.html",
           "lab": "ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
           "assignment_source": "ai-applications/text-classification/assignment.html",
@@ -252,7 +252,7 @@
         },
         {
           "slug": "tensor-manipulation",
-          "title": "Tensor의 모양을 먼저 예측하기",
+          "title": "Tensor Shape와 연산",
           "files": [
             "ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
             "ai-applications/tensor-manipulation/L12_Tensor_Manipulation.ipynb",
@@ -286,7 +286,7 @@
         },
         {
           "slug": "multiclass",
-          "title": "클래스별 점수를 읽고 비교하기",
+          "title": "Multiclass Classification과 Logits",
           "files": [
             "ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
             "ai-applications/multiclass/L15_Multinomial_Classification.ipynb",
@@ -896,7 +896,7 @@
         },
         {
           "slug": "text-classification",
-          "title": "문장을 Tensor로 바꾸어 감정 분류하기",
+          "title": "Text Classification과 Sentiment Analysis",
           "files": [
             "ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
             "ai-applications/text-classification/L20_Appendix_Text_Classification.ipynb",
@@ -948,7 +948,7 @@
         {
           "week": 4,
           "kind": "lesson",
-          "title": "Tensor의 축과 연산",
+          "title": "Tensor Shape와 연산",
           "chapters": [
             "tensor-manipulation"
           ],
@@ -994,7 +994,7 @@
         {
           "week": 9,
           "kind": "lesson",
-          "title": "다중 클래스 분류",
+          "title": "Multiclass Classification과 Logits",
           "chapters": [
             "multiclass"
           ],
@@ -1039,7 +1039,7 @@
         {
           "week": 14,
           "kind": "lesson",
-          "title": "텍스트 분류와 비교 평가",
+          "title": "Text Classification과 Sentiment Analysis",
           "chapters": [
             "text-classification"
           ],
@@ -1094,7 +1094,7 @@
         {
           "slug": "lti-laplace",
           "week": 3,
-          "title": "Linearity(선형성)에서 Laplace Transform까지",
+          "title": "Linearity에서 Laplace Transform까지",
           "source": "control-1/lti-laplace/index.html",
           "lab": "control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
           "assignment_source": "control-1/lti-laplace/assignment.html",
@@ -1106,7 +1106,7 @@
         {
           "slug": "transfer-blocks",
           "week": 4,
-          "title": "Transfer Function와 블록을 연결하기",
+          "title": "Transfer Function과 블록을 연결하기",
           "source": "control-1/transfer-blocks/index.html",
           "lab": "control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
           "assignment_source": "control-1/transfer-blocks/assignment.html",
@@ -1169,7 +1169,7 @@
         {
           "slug": "feedback-one",
           "week": 9,
-          "title": "Feedback으로 이득 변화 줄이기",
+          "title": "Closed-loop Gain과 Sensitivity",
           "source": "control-1/feedback-one/index.html",
           "lab": "control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
           "assignment_source": "control-1/feedback-one/assignment.html",
@@ -1181,7 +1181,7 @@
         {
           "slug": "feedback-two",
           "week": 10,
-          "title": "DC 모터의 Disturbance(외란) 경로 읽기",
+          "title": "DC Motor의 Disturbance Rejection",
           "source": "control-1/feedback-two/index.html",
           "lab": "control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
           "assignment_source": "control-1/feedback-two/assignment.html",
@@ -1193,7 +1193,7 @@
         {
           "slug": "performance-one",
           "week": 11,
-          "title": "응답 지표로 설계 결과 검증하기",
+          "title": "Step Response 성능 지표",
           "source": "control-1/performance-one/index.html",
           "lab": "control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
           "assignment_source": "control-1/performance-one/assignment.html",
@@ -1205,7 +1205,7 @@
         {
           "slug": "performance-two",
           "week": 12,
-          "title": "2차 시스템의 감쇠와 속도 조절하기",
+          "title": "Second-Order System의 Damping Ratio와 Natural Frequency",
           "source": "control-1/performance-two/index.html",
           "lab": "control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
           "assignment_source": "control-1/performance-two/assignment.html",
@@ -1217,7 +1217,7 @@
         {
           "slug": "performance-three",
           "week": 13,
-          "title": "P와 PI의 Steady-state Error(Steady State 오차) 비교하기",
+          "title": "P·PI Control의 Steady-State Error",
           "source": "control-1/performance-three/index.html",
           "lab": "control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
           "assignment_source": "control-1/performance-three/assignment.html",
@@ -1229,7 +1229,7 @@
         {
           "slug": "stability",
           "week": 14,
-          "title": "안정성을 먼저 확인하고 성능 비교하기",
+          "title": "Stability와 Performance Index 비교",
           "source": "control-1/stability/index.html",
           "lab": "control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
           "assignment_source": "control-1/stability/assignment.html",
@@ -1272,7 +1272,7 @@
         },
         {
           "slug": "lti-laplace",
-          "title": "Linearity(선형성)에서 Laplace Transform까지",
+          "title": "Linearity에서 Laplace Transform까지",
           "files": [
             "control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
             "control-1/lti-laplace/assignment.html",
@@ -1281,7 +1281,7 @@
         },
         {
           "slug": "transfer-blocks",
-          "title": "Transfer Function와 블록을 연결하기",
+          "title": "Transfer Function과 블록을 연결하기",
           "files": [
             "control-1/transfer-blocks/Control_Engineering_1_Week04_Block_Model.slx",
             "control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
@@ -1325,7 +1325,7 @@
         },
         {
           "slug": "feedback-one",
-          "title": "Feedback으로 이득 변화 줄이기",
+          "title": "Closed-loop Gain과 Sensitivity",
           "files": [
             "control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
             "control-1/feedback-one/assignment.html",
@@ -1334,7 +1334,7 @@
         },
         {
           "slug": "feedback-two",
-          "title": "DC 모터의 Disturbance(외란) 경로 읽기",
+          "title": "DC Motor의 Disturbance Rejection",
           "files": [
             "control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
             "control-1/feedback-two/assignment.html",
@@ -1343,7 +1343,7 @@
         },
         {
           "slug": "performance-one",
-          "title": "응답 지표로 설계 결과 검증하기",
+          "title": "Step Response 성능 지표",
           "files": [
             "control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
             "control-1/performance-one/assignment.html",
@@ -1352,7 +1352,7 @@
         },
         {
           "slug": "performance-two",
-          "title": "2차 시스템의 감쇠와 속도 조절하기",
+          "title": "Second-Order System의 Damping Ratio와 Natural Frequency",
           "files": [
             "control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
             "control-1/performance-two/assignment.html",
@@ -1361,7 +1361,7 @@
         },
         {
           "slug": "performance-three",
-          "title": "P와 PI의 Steady-state Error(Steady State 오차) 비교하기",
+          "title": "P·PI Control의 Steady-State Error",
           "files": [
             "control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
             "control-1/performance-three/assignment.html",
@@ -1370,7 +1370,7 @@
         },
         {
           "slug": "stability",
-          "title": "안정성을 먼저 확인하고 성능 비교하기",
+          "title": "Stability와 Performance Index 비교",
           "files": [
             "control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
             "control-1/stability/assignment.html",
@@ -1414,7 +1414,7 @@
           "chapters": [
             "lti-laplace"
           ],
-          "focus": "선형성, Initial Condition과 변환식",
+          "focus": "Linearity, Initial Condition과 변환식",
           "reading": "Ch. 2.3–2.4"
         },
         {
@@ -1450,7 +1450,7 @@
         {
           "week": 7,
           "kind": "lesson",
-          "title": "State Equation·Transfer Function과 시간응답",
+          "title": "State Equation·Transfer Function과 Time Response",
           "chapters": [
             "state-space-three"
           ],
@@ -1467,7 +1467,7 @@
         {
           "week": 9,
           "kind": "lesson",
-          "title": "Feedback과 이득 변화",
+          "title": "Closed-loop Gain과 Sensitivity",
           "chapters": [
             "feedback-one"
           ],
@@ -1477,17 +1477,17 @@
         {
           "week": 10,
           "kind": "lesson",
-          "title": "모터의 외란 경로",
+          "title": "DC Motor의 Disturbance Rejection",
           "chapters": [
             "feedback-two"
           ],
-          "focus": "입력·외란·측정 신호의 구분",
+          "focus": "Disturbance Torque·Angular Velocity Deviation·Amplifier Gain",
           "reading": "Ch. 4.4"
         },
         {
           "week": 11,
           "kind": "lesson",
-          "title": "과도응답과 Steady State 오차",
+          "title": "Step Response 성능 지표",
           "chapters": [
             "performance-one"
           ],
@@ -1497,7 +1497,7 @@
         {
           "week": 12,
           "kind": "lesson",
-          "title": "2차 시스템의 감쇠와 속도",
+          "title": "Second-Order System의 Damping Ratio와 Natural Frequency",
           "chapters": [
             "performance-two"
           ],
@@ -1507,7 +1507,7 @@
         {
           "week": 13,
           "kind": "lesson",
-          "title": "Steady State 오차와 성능 지표",
+          "title": "P·PI Control의 Steady-State Error",
           "chapters": [
             "performance-three"
           ],
@@ -1517,7 +1517,7 @@
         {
           "week": 14,
           "kind": "lesson",
-          "title": "안정성과 성능의 종합 점검",
+          "title": "Stability와 Performance Index 비교",
           "chapters": [
             "stability"
           ],
@@ -1579,7 +1579,7 @@
         {
           "slug": "system-modeling",
           "week": 2,
-          "title": "시스템 모델링",
+          "title": "System Modeling",
           "source": "control-2/system-modeling/lesson.preview.html",
           "assignment_source": "control-2/system-modeling/assignment.html",
           "lab": "control-2/system-modeling/practice.ipynb",
@@ -1595,7 +1595,7 @@
         {
           "slug": "pid-control",
           "week": 2,
-          "title": "PID 제어",
+          "title": "PID Control",
           "source": "control-2/pid-control/lesson.preview.html",
           "assignment_source": "control-2/pid-control/assignment.html",
           "lab": "control-2/pid-control/practice.ipynb",
@@ -1644,7 +1644,7 @@
         {
           "slug": "frequency-stability",
           "week": 6,
-          "title": "Frequency Domain 안정성",
+          "title": "Frequency-Domain Stability",
           "source": "control-2/frequency-stability/lesson.preview.html",
           "assignment_source": "control-2/frequency-stability/assignment.html",
           "lab": "control-2/frequency-stability/practice.ipynb",
@@ -1661,7 +1661,7 @@
         {
           "slug": "compensator-design",
           "week": 9,
-          "title": "보상기 설계",
+          "title": "Compensator Design",
           "source": "control-2/compensator-design/lesson.preview.html",
           "assignment_source": "control-2/compensator-design/assignment.html",
           "lab": "control-2/compensator-design/practice.ipynb",
@@ -1694,7 +1694,7 @@
         {
           "slug": "reference-optimal-control",
           "week": 13,
-          "title": "참조입력과 최적제어",
+          "title": "Reference Tracking과 Optimal Control",
           "source": "control-2/reference-optimal-control/lesson.preview.html",
           "assignment_source": "control-2/reference-optimal-control/assignment.html",
           "lab": "control-2/reference-optimal-control/practice.ipynb",
@@ -1709,7 +1709,7 @@
         {
           "slug": "robustness-check",
           "week": 14,
-          "title": "모델 불확실성과 제어 성능",
+          "title": "Model Uncertainty와 Robustness",
           "source": "control-2/robustness-check/lesson.preview.html",
           "assignment_source": "control-2/robustness-check/assignment.html",
           "lab": "control-2/robustness-check/practice.ipynb",
@@ -1741,7 +1741,7 @@
         },
         {
           "slug": "system-modeling",
-          "title": "시스템 모델링",
+          "title": "System Modeling",
           "files": [
             "control-2/system-modeling/Cruise.png",
             "control-2/system-modeling/Motor.png",
@@ -1751,7 +1751,7 @@
         },
         {
           "slug": "pid-control",
-          "title": "PID 제어",
+          "title": "PID Control",
           "files": [
             "control-2/pid-control/PID.png",
             "control-2/pid-control/W7_PIDController.ipynb"
@@ -1776,7 +1776,7 @@
         },
         {
           "slug": "frequency-stability",
-          "title": "Frequency Domain 안정성",
+          "title": "Frequency-Domain Stability",
           "files": [
             "control-2/frequency-stability/W11_StabilityOnFrequencyResponse.ipynb"
           ],
@@ -1784,7 +1784,7 @@
         },
         {
           "slug": "compensator-design",
-          "title": "보상기 설계",
+          "title": "Compensator Design",
           "files": [
             "control-2/compensator-design/W12_CompensatorDesign.ipynb"
           ],
@@ -1796,11 +1796,11 @@
         },
         {
           "slug": "reference-optimal-control",
-          "title": "참조입력과 최적제어"
+          "title": "Reference Tracking과 Optimal Control"
         },
         {
           "slug": "robustness-check",
-          "title": "모델 불확실성과 제어 성능"
+          "title": "Model Uncertainty와 Robustness"
         }
       ],
       "catalog_group": "additional",
@@ -1818,7 +1818,7 @@
         {
           "week": 2,
           "kind": "lesson",
-          "title": "제어 이론 복습",
+          "title": "Control Theory 복습",
           "chapters": [
             "system-modeling",
             "pid-control"
@@ -1865,7 +1865,7 @@
         {
           "week": 6,
           "kind": "lesson",
-          "title": "Frequency Domain 안정성 1",
+          "title": "Frequency-Domain Stability 1",
           "chapters": [
             "frequency-stability",
             "system-modeling"
@@ -1878,12 +1878,12 @@
         {
           "week": 7,
           "kind": "lesson",
-          "title": "Frequency Domain 안정성 2",
+          "title": "Frequency-Domain Stability 2",
           "chapters": [
             "frequency-stability",
             "pid-control"
           ],
-          "focus": "시간응답·Bandwidth·지연·PID / 기본 PID 복습",
+          "focus": "Time Response·Bandwidth·지연·PID / 기본 PID 복습",
           "reading": "Ch. 9.5–9.7, 9.9",
           "primary_chapter": "frequency-stability",
           "secondary_role": "review"
@@ -1898,7 +1898,7 @@
         {
           "week": 9,
           "kind": "lesson",
-          "title": "Feedback 제어기 설계 1",
+          "title": "Feedback Controller Design 1",
           "chapters": [
             "compensator-design",
             "root-locus"
@@ -1911,7 +1911,7 @@
         {
           "week": 10,
           "kind": "lesson",
-          "title": "Feedback 제어기 설계 2",
+          "title": "Feedback Controller Design 2",
           "chapters": [
             "compensator-design",
             "frequency-response"
@@ -1924,7 +1924,7 @@
         {
           "week": 11,
           "kind": "lesson",
-          "title": "Feedback 제어기 설계 3",
+          "title": "Feedback Controller Design 3",
           "chapters": [
             "compensator-design",
             "frequency-stability"
@@ -1954,7 +1954,7 @@
           "chapters": [
             "reference-optimal-control"
           ],
-          "focus": "참조입력·최적제어·Internal Model / State Space 제어 실습",
+          "focus": "참조입력·Optimal Control·Internal Model / State Space 제어 실습",
           "reading": "Ch. 11.6–11.8"
         },
         {
@@ -2550,7 +2550,7 @@
         {
           "slug": "camera",
           "week": 11,
-          "title": "카메라",
+          "title": "Camera Frame과 Frame Rate",
           "source": "microprocessor/camera/lesson.preview.html",
           "assignment_source": "microprocessor/camera/assignment.html",
           "lab": "microprocessor/camera/practice.ipynb",
@@ -2672,7 +2672,7 @@
         },
         {
           "slug": "camera",
-          "title": "카메라",
+          "title": "Camera Frame과 Frame Rate",
           "files": [
             "microprocessor/camera/Week12-1_picamera_test.ipynb",
             "microprocessor/camera/Week12-2-1_opencv_camera.py",
@@ -2827,7 +2827,7 @@
         {
           "week": 11,
           "kind": "lesson",
-          "title": "카메라의 배열·시간·ROI",
+          "title": "Camera Frame과 Frame Rate",
           "chapters": [
             "camera"
           ],
@@ -2845,7 +2845,7 @@
         {
           "week": 13,
           "kind": "lesson",
-          "title": "명령 처리와 상태 전이",
+          "title": "명령 처리와 State Transition",
           "chapters": [
             "telegram-bot"
           ],
@@ -2919,7 +2919,7 @@
         {
           "slug": "week-03",
           "week": 4,
-          "title": "측정 데이터 읽기와 정리",
+          "title": "측정 데이터의 Shape와 Missing Value 처리",
           "source": "intro-machine-learning/week-03/lesson.preview.html",
           "assignment_source": "intro-machine-learning/week-03/assignment.html",
           "lab": "intro-machine-learning/week-03/practice.ipynb",
@@ -3010,7 +3010,7 @@
         {
           "slug": "week-10",
           "week": 9,
-          "title": "결정 트리와 랜덤 포레스트",
+          "title": "Decision Tree와 Random Forest",
           "source": "intro-machine-learning/week-10/lesson.preview.html",
           "assignment_source": "intro-machine-learning/week-10/assignment.html",
           "lab": "intro-machine-learning/week-10/practice.ipynb",
@@ -3026,7 +3026,7 @@
         {
           "slug": "week-11",
           "week": 11,
-          "title": "비지도 학습",
+          "title": "Unsupervised Learning",
           "source": "intro-machine-learning/week-11/lesson.preview.html",
           "assignment_source": "intro-machine-learning/week-11/assignment.html",
           "lab": "intro-machine-learning/week-11/practice.ipynb",
@@ -3041,7 +3041,7 @@
         {
           "slug": "week-12",
           "week": 12,
-          "title": "다층 퍼셉트론",
+          "title": "Multilayer Perceptron",
           "source": "intro-machine-learning/week-12/lesson.preview.html",
           "assignment_source": "intro-machine-learning/week-12/assignment.html",
           "lab": "intro-machine-learning/week-12/practice.ipynb",
@@ -3091,7 +3091,7 @@
         },
         {
           "slug": "week-03",
-          "title": "측정 데이터 읽기와 정리",
+          "title": "측정 데이터의 Shape와 Missing Value 처리",
           "files": [
             "intro-machine-learning/week-03/INT_ML_W3.ipynb",
             "intro-machine-learning/week-03/INT_ML_W3.pdf"
@@ -3145,7 +3145,7 @@
         },
         {
           "slug": "week-10",
-          "title": "결정 트리와 랜덤 포레스트",
+          "title": "Decision Tree와 Random Forest",
           "files": [
             "intro-machine-learning/week-10/INT_ML_W10.ipynb",
             "intro-machine-learning/week-10/INT_ML_W10.pdf"
@@ -3154,7 +3154,7 @@
         },
         {
           "slug": "week-11",
-          "title": "비지도 학습",
+          "title": "Unsupervised Learning",
           "files": [
             "intro-machine-learning/week-11/INT_ML_W11.ipynb",
             "intro-machine-learning/week-11/INT_ML_W11.pdf"
@@ -3163,7 +3163,7 @@
         },
         {
           "slug": "week-12",
-          "title": "다층 퍼셉트론",
+          "title": "Multilayer Perceptron",
           "files": [
             "intro-machine-learning/week-12/INT_ML_W12.ipynb",
             "intro-machine-learning/week-12/INT_ML_W12.pdf"
@@ -3216,7 +3216,7 @@
         {
           "week": 4,
           "kind": "lesson",
-          "title": "측정 데이터 정리",
+          "title": "측정 데이터의 Shape와 Missing Value 처리",
           "chapters": [
             "week-03"
           ],
@@ -3270,7 +3270,7 @@
         {
           "week": 9,
           "kind": "lesson",
-          "title": "결정 트리와 일반화",
+          "title": "Decision Tree와 일반화",
           "chapters": [
             "week-10"
           ],
@@ -3428,7 +3428,7 @@
         {
           "slug": "multiclass",
           "week": null,
-          "title": "다중 클래스 분류",
+          "title": "Multiclass Classification",
           "source": "machine-learning-lab/multiclass/lesson.preview.html",
           "assignment_source": "machine-learning-lab/multiclass/assignment.html",
           "lab": "machine-learning-lab/multiclass/practice.ipynb",
@@ -3490,7 +3490,7 @@
         },
         {
           "slug": "multiclass",
-          "title": "다중 클래스 분류",
+          "title": "Multiclass Classification",
           "files": [
             "machine-learning-lab/multiclass/EX5_Multinomial_Classification.ipynb",
             "machine-learning-lab/multiclass/data_multinomial_classification.csv"
@@ -3548,7 +3548,7 @@
         {
           "slug": "week-02",
           "week": 3,
-          "title": "가치 기반 접근",
+          "title": "Value-Based Reinforcement Learning",
           "source": "reinforcement-learning/week-02/lesson.preview.html",
           "assignment_source": "reinforcement-learning/week-02/assignment.html",
           "lab": "reinforcement-learning/week-02/practice.ipynb",
@@ -3578,7 +3578,7 @@
         {
           "slug": "week-04",
           "week": 5,
-          "title": "가치 학습의 개선과 데이터 분포",
+          "title": "DQN Variants와 Replay Buffer Sampling",
           "source": "reinforcement-learning/week-04/lesson.preview.html",
           "assignment_source": "reinforcement-learning/week-04/assignment.html",
           "lab": "reinforcement-learning/week-04/practice.ipynb",
@@ -3593,7 +3593,7 @@
         {
           "slug": "week-05",
           "week": 6,
-          "title": "정책 경사에서 Actor–Critic으로",
+          "title": "Policy Gradient와 Actor–Critic",
           "source": "reinforcement-learning/week-05/lesson.preview.html",
           "assignment_source": "reinforcement-learning/week-05/assignment.html",
           "lab": "reinforcement-learning/week-05/practice.ipynb",
@@ -3639,7 +3639,7 @@
         {
           "slug": "week-08",
           "week": 9,
-          "title": "Sim-to-real: 모델 오차와 입력 지연",
+          "title": "Sim-to-Real: Model Uncertainty와 Action Delay",
           "source": "reinforcement-learning/week-08/lesson.preview.html",
           "assignment_source": "reinforcement-learning/week-08/assignment.html",
           "lab": "reinforcement-learning/week-08/practice.ipynb",
@@ -3657,7 +3657,7 @@
         {
           "slug": "week-09",
           "week": 10,
-          "title": "Isaac Lab과 로봇 시뮬레이션 온보딩",
+          "title": "Isaac Lab과 Robot Simulation",
           "source": "reinforcement-learning/week-09/lesson.preview.html",
           "assignment_source": "reinforcement-learning/week-09/assignment.html",
           "lab": "reinforcement-learning/week-09/practice.ipynb",
@@ -3673,7 +3673,7 @@
         {
           "slug": "week-10",
           "week": 11,
-          "title": "공개 로봇 데이터와 VLA 온보딩",
+          "title": "Robot Dataset 분석과 VLA 입출력",
           "source": "reinforcement-learning/week-10/lesson.preview.html",
           "assignment_source": "reinforcement-learning/week-10/assignment.html",
           "lab": "reinforcement-learning/week-10/practice.ipynb",
@@ -3707,7 +3707,7 @@
         },
         {
           "slug": "week-02",
-          "title": "가치 기반 접근",
+          "title": "Value-Based Reinforcement Learning",
           "files": [
             "reinforcement-learning/week-02/RL_W2.ipynb"
           ],
@@ -3723,7 +3723,7 @@
         },
         {
           "slug": "week-04",
-          "title": "가치 학습의 개선과 데이터 분포",
+          "title": "DQN Variants와 Replay Buffer Sampling",
           "files": [
             "reinforcement-learning/week-04/RL_W4.ipynb"
           ],
@@ -3731,7 +3731,7 @@
         },
         {
           "slug": "week-05",
-          "title": "정책 경사에서 Actor–Critic으로",
+          "title": "Policy Gradient와 Actor–Critic",
           "files": [
             "reinforcement-learning/week-05/RL_W5.ipynb"
           ],
@@ -3755,7 +3755,7 @@
         },
         {
           "slug": "week-08",
-          "title": "Sim-to-real: 모델 오차와 입력 지연",
+          "title": "Sim-to-Real: Model Uncertainty와 Action Delay",
           "files": [
             "reinforcement-learning/week-08/RL_W8.ipynb"
           ],
@@ -3763,7 +3763,7 @@
         },
         {
           "slug": "week-09",
-          "title": "Isaac Lab과 로봇 시뮬레이션 온보딩",
+          "title": "Isaac Lab과 Robot Simulation",
           "files": [
             "reinforcement-learning/week-09/RL_W9.ipynb"
           ],
@@ -3771,7 +3771,7 @@
         },
         {
           "slug": "week-10",
-          "title": "공개 로봇 데이터와 VLA 온보딩",
+          "title": "Robot Dataset 분석과 VLA 입출력",
           "files": [
             "reinforcement-learning/week-10/RL_W10.ipynb"
           ],
@@ -3804,11 +3804,11 @@
         {
           "week": 3,
           "kind": "lesson",
-          "title": "가치 함수와 Q-learning",
+          "title": "Value-Based Reinforcement Learning",
           "chapters": [
             "week-02"
           ],
-          "focus": "전이에서 Target·갱신을 계산하고 정책 비교"
+          "focus": "Transition에서 Target·갱신을 계산하고 정책 비교"
         },
         {
           "week": 4,
@@ -3822,7 +3822,7 @@
         {
           "week": 5,
           "kind": "lesson",
-          "title": "가치 학습의 개선과 데이터 분포",
+          "title": "DQN Variants와 Replay Buffer Sampling",
           "chapters": [
             "week-04"
           ],
@@ -3831,7 +3831,7 @@
         {
           "week": 6,
           "kind": "lesson",
-          "title": "정책 경사와 Actor–Critic",
+          "title": "Policy Gradient와 Actor–Critic",
           "chapters": [
             "week-05"
           ],
@@ -3860,7 +3860,7 @@
         {
           "week": 9,
           "kind": "lesson",
-          "title": "Sim-to-real과 모델 오차",
+          "title": "Sim-to-Real: Model Uncertainty와 Action Delay",
           "chapters": [
             "week-08"
           ],
@@ -3869,16 +3869,16 @@
         {
           "week": 10,
           "kind": "lesson",
-          "title": "로봇 Simulator 온보딩",
+          "title": "Isaac Lab과 Robot Simulation",
           "chapters": [
             "week-09"
           ],
-          "focus": "Isaac Lab 경로 또는 CPU 전이 분석"
+          "focus": "Isaac Lab 경로 또는 CPU Transition 분석"
         },
         {
           "week": 11,
           "kind": "lesson",
-          "title": "공개 로봇 데이터와 VLA",
+          "title": "Robot Dataset 분석과 VLA 입출력",
           "chapters": [
             "week-10"
           ],
@@ -3887,7 +3887,7 @@
         {
           "week": 12,
           "kind": "lesson",
-          "title": "연구 적용 설계와 실험계획 점검",
+          "title": "Robot Dataset 분석과 VLA 입출력",
           "chapters": [
             "week-08",
             "week-09",
@@ -3899,7 +3899,7 @@
         {
           "week": 13,
           "kind": "project",
-          "title": "설계과제: 기준 구현",
+          "title": "Sim-to-Real: Model Uncertainty와 Action Delay",
           "chapters": [
             "week-07",
             "week-08"
@@ -3910,7 +3910,7 @@
         {
           "week": 14,
           "kind": "project",
-          "title": "설계과제: 비교 실험·실패 분석",
+          "title": "Robot Dataset 분석과 VLA 입출력",
           "chapters": [
             "week-08",
             "week-10"

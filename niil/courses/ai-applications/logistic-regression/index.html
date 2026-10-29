@@ -2273,7 +2273,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </section>
 <section class="level2" id="무엇이-바뀌었는지-통제하기">
 <h2 class="anchored" data-anchor-id="무엇이-바뀌었는지-통제하기">4. 무엇이 바뀌었는지 통제하기</h2>
-<p>threshold 0.3과 0.5의 비교에서는 모델을 다시 학습하지 않습니다. Learning Rate(학습률) 0.001과 0.1의 비교에서는 새 모델을 같은 초기 상태로 만들고 같은 epoch 수로 학습합니다. Threshold 비교는 판정 기준만, Learning Rate 비교는 학습할 때 Weight를 바꾸는 크기만 달라지도록 다른 조건을 맞추세요.</p>
+<p>threshold 0.3과 0.5의 비교에서는 모델을 다시 학습하지 않습니다. Learning Rate(학습률) 0.001과 0.1의 비교에서는 새 모델을 같은 Initial State로 만들고 같은 epoch 수로 학습합니다. Threshold 비교는 판정 기준만, Learning Rate 비교는 학습할 때 Weight를 바꾸는 크기만 달라지도록 다른 조건을 맞추세요.</p>
 <details class="explain">
 <summary>무엇이 바뀌었는지 통제하기</summary>
 <p>Accuracy가 높은 threshold가 모든 목적에 좋은 것은 아닙니다. 어떤 오분류가 늘었는지도 확인하면 판정 기준의 의미를 더 잘 이해할 수 있습니다.</p>

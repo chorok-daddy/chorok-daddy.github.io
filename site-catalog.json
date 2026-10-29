@@ -56,7 +56,7 @@
         {
           "slug": "tensor-manipulation",
           "week": 4,
-          "title": "Tensor의 모양을 먼저 예측하기",
+          "title": "Tensor Shape와 연산",
           "source": "niil/courses/ai-applications/tensor-manipulation/index.html",
           "lab": "niil/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
           "assignment_source": "niil/courses/ai-applications/tensor-manipulation/assignment.html",
@@ -94,7 +94,7 @@
         {
           "slug": "multiclass",
           "week": 9,
-          "title": "클래스별 점수를 읽고 비교하기",
+          "title": "Multiclass Classification과 Logits",
           "source": "niil/courses/ai-applications/multiclass/index.html",
           "lab": "niil/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
           "assignment_source": "niil/courses/ai-applications/multiclass/assignment.html",
@@ -166,7 +166,7 @@
         {
           "slug": "text-classification",
           "week": 14,
-          "title": "문장을 Tensor로 바꾸어 감정 분류하기",
+          "title": "Text Classification과 Sentiment Analysis",
           "source": "niil/courses/ai-applications/text-classification/index.html",
           "lab": "niil/courses/ai-applications/text-classification/AI_Applications_Week14_TextClassification.ipynb",
           "assignment_source": "niil/courses/ai-applications/text-classification/assignment.html",
@@ -219,7 +219,7 @@
         {
           "slug": "lti-laplace",
           "week": 3,
-          "title": "Linearity(선형성)에서 Laplace Transform까지",
+          "title": "Linearity에서 Laplace Transform까지",
           "source": "niil/courses/control-1/lti-laplace/index.html",
           "lab": "niil/courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx",
           "assignment_source": "niil/courses/control-1/lti-laplace/assignment.html",
@@ -231,7 +231,7 @@
         {
           "slug": "transfer-blocks",
           "week": 4,
-          "title": "Transfer Function와 블록을 연결하기",
+          "title": "Transfer Function과 블록을 연결하기",
           "source": "niil/courses/control-1/transfer-blocks/index.html",
           "lab": "niil/courses/control-1/transfer-blocks/Control_Engineering_1_Week04_TransferBlocks.mlx",
           "assignment_source": "niil/courses/control-1/transfer-blocks/assignment.html",
@@ -294,7 +294,7 @@
         {
           "slug": "feedback-one",
           "week": 9,
-          "title": "Feedback으로 이득 변화 줄이기",
+          "title": "Closed-loop Gain과 Sensitivity",
           "source": "niil/courses/control-1/feedback-one/index.html",
           "lab": "niil/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx",
           "assignment_source": "niil/courses/control-1/feedback-one/assignment.html",
@@ -306,7 +306,7 @@
         {
           "slug": "feedback-two",
           "week": 10,
-          "title": "DC 모터의 Disturbance(외란) 경로 읽기",
+          "title": "DC Motor의 Disturbance Rejection",
           "source": "niil/courses/control-1/feedback-two/index.html",
           "lab": "niil/courses/control-1/feedback-two/Control_Engineering_1_Week10_FeedbackTwo.mlx",
           "assignment_source": "niil/courses/control-1/feedback-two/assignment.html",
@@ -318,7 +318,7 @@
         {
           "slug": "performance-one",
           "week": 11,
-          "title": "응답 지표로 설계 결과 검증하기",
+          "title": "Step Response 성능 지표",
           "source": "niil/courses/control-1/performance-one/index.html",
           "lab": "niil/courses/control-1/performance-one/Control_Engineering_1_Week11_PerformanceOne.mlx",
           "assignment_source": "niil/courses/control-1/performance-one/assignment.html",
@@ -330,7 +330,7 @@
         {
           "slug": "performance-two",
           "week": 12,
-          "title": "2차 시스템의 감쇠와 속도 조절하기",
+          "title": "Second-Order System의 Damping Ratio와 Natural Frequency",
           "source": "niil/courses/control-1/performance-two/index.html",
           "lab": "niil/courses/control-1/performance-two/Control_Engineering_1_Week12_PerformanceTwo.mlx",
           "assignment_source": "niil/courses/control-1/performance-two/assignment.html",
@@ -342,7 +342,7 @@
         {
           "slug": "performance-three",
           "week": 13,
-          "title": "P와 PI의 Steady-state Error(Steady State 오차) 비교하기",
+          "title": "P·PI Control의 Steady-State Error",
           "source": "niil/courses/control-1/performance-three/index.html",
           "lab": "niil/courses/control-1/performance-three/Control_Engineering_1_Week13_PerformanceThree.mlx",
           "assignment_source": "niil/courses/control-1/performance-three/assignment.html",
@@ -354,7 +354,7 @@
         {
           "slug": "stability",
           "week": 14,
-          "title": "안정성을 먼저 확인하고 성능 비교하기",
+          "title": "Stability와 Performance Index 비교",
           "source": "niil/courses/control-1/stability/index.html",
           "lab": "niil/courses/control-1/stability/Control_Engineering_1_Week14_Stability.mlx",
           "assignment_source": "niil/courses/control-1/stability/assignment.html",
@@ -415,7 +415,7 @@
         {
           "slug": "system-modeling",
           "week": 2,
-          "title": "시스템 모델링",
+          "title": "System Modeling",
           "source": "niil/courses/control-2/system-modeling/lesson.preview.html",
           "assignment_source": "niil/courses/control-2/system-modeling/assignment.html",
           "lab": "niil/courses/control-2/system-modeling/practice.ipynb",
@@ -431,7 +431,7 @@
         {
           "slug": "pid-control",
           "week": 2,
-          "title": "PID 제어",
+          "title": "PID Control",
           "source": "niil/courses/control-2/pid-control/lesson.preview.html",
           "assignment_source": "niil/courses/control-2/pid-control/assignment.html",
           "lab": "niil/courses/control-2/pid-control/practice.ipynb",
@@ -480,7 +480,7 @@
         {
           "slug": "frequency-stability",
           "week": 6,
-          "title": "Frequency Domain 안정성",
+          "title": "Frequency-Domain Stability",
           "source": "niil/courses/control-2/frequency-stability/lesson.preview.html",
           "assignment_source": "niil/courses/control-2/frequency-stability/assignment.html",
           "lab": "niil/courses/control-2/frequency-stability/practice.ipynb",
@@ -497,7 +497,7 @@
         {
           "slug": "compensator-design",
           "week": 9,
-          "title": "보상기 설계",
+          "title": "Compensator Design",
           "source": "niil/courses/control-2/compensator-design/lesson.preview.html",
           "assignment_source": "niil/courses/control-2/compensator-design/assignment.html",
           "lab": "niil/courses/control-2/compensator-design/practice.ipynb",
@@ -530,7 +530,7 @@
         {
           "slug": "reference-optimal-control",
           "week": 13,
-          "title": "참조입력과 최적제어",
+          "title": "Reference Tracking과 Optimal Control",
           "source": "niil/courses/control-2/reference-optimal-control/lesson.preview.html",
           "assignment_source": "niil/courses/control-2/reference-optimal-control/assignment.html",
           "lab": "niil/courses/control-2/reference-optimal-control/practice.ipynb",
@@ -545,7 +545,7 @@
         {
           "slug": "robustness-check",
           "week": 14,
-          "title": "모델 불확실성과 제어 성능",
+          "title": "Model Uncertainty와 Robustness",
           "source": "niil/courses/control-2/robustness-check/lesson.preview.html",
           "assignment_source": "niil/courses/control-2/robustness-check/assignment.html",
           "lab": "niil/courses/control-2/robustness-check/practice.ipynb",
@@ -852,7 +852,7 @@
         {
           "slug": "camera",
           "week": 11,
-          "title": "카메라",
+          "title": "Camera Frame과 Frame Rate",
           "source": "niil/courses/microprocessor/camera/lesson.preview.html",
           "assignment_source": "niil/courses/microprocessor/camera/assignment.html",
           "lab": "niil/courses/microprocessor/camera/practice.ipynb",
@@ -934,7 +934,7 @@
         {
           "slug": "week-03",
           "week": 4,
-          "title": "측정 데이터 읽기와 정리",
+          "title": "측정 데이터의 Shape와 Missing Value 처리",
           "source": "niil/courses/intro-machine-learning/week-03/lesson.preview.html",
           "assignment_source": "niil/courses/intro-machine-learning/week-03/assignment.html",
           "lab": "niil/courses/intro-machine-learning/week-03/practice.ipynb",
@@ -1025,7 +1025,7 @@
         {
           "slug": "week-10",
           "week": 9,
-          "title": "결정 트리와 랜덤 포레스트",
+          "title": "Decision Tree와 Random Forest",
           "source": "niil/courses/intro-machine-learning/week-10/lesson.preview.html",
           "assignment_source": "niil/courses/intro-machine-learning/week-10/assignment.html",
           "lab": "niil/courses/intro-machine-learning/week-10/practice.ipynb",
@@ -1041,7 +1041,7 @@
         {
           "slug": "week-11",
           "week": 11,
-          "title": "비지도 학습",
+          "title": "Unsupervised Learning",
           "source": "niil/courses/intro-machine-learning/week-11/lesson.preview.html",
           "assignment_source": "niil/courses/intro-machine-learning/week-11/assignment.html",
           "lab": "niil/courses/intro-machine-learning/week-11/practice.ipynb",
@@ -1056,7 +1056,7 @@
         {
           "slug": "week-12",
           "week": 12,
-          "title": "다층 퍼셉트론",
+          "title": "Multilayer Perceptron",
           "source": "niil/courses/intro-machine-learning/week-12/lesson.preview.html",
           "assignment_source": "niil/courses/intro-machine-learning/week-12/assignment.html",
           "lab": "niil/courses/intro-machine-learning/week-12/practice.ipynb",
@@ -1153,7 +1153,7 @@
         {
           "slug": "multiclass",
           "week": null,
-          "title": "다중 클래스 분류",
+          "title": "Multiclass Classification",
           "source": "niil/courses/machine-learning-lab/multiclass/lesson.preview.html",
           "assignment_source": "niil/courses/machine-learning-lab/multiclass/assignment.html",
           "lab": "niil/courses/machine-learning-lab/multiclass/practice.ipynb",
@@ -1202,7 +1202,7 @@
         {
           "slug": "week-02",
           "week": 3,
-          "title": "가치 기반 접근",
+          "title": "Value-Based Reinforcement Learning",
           "source": "niil/courses/reinforcement-learning/week-02/lesson.preview.html",
           "assignment_source": "niil/courses/reinforcement-learning/week-02/assignment.html",
           "lab": "niil/courses/reinforcement-learning/week-02/practice.ipynb",
@@ -1232,7 +1232,7 @@
         {
           "slug": "week-04",
           "week": 5,
-          "title": "가치 학습의 개선과 데이터 분포",
+          "title": "DQN Variants와 Replay Buffer Sampling",
           "source": "niil/courses/reinforcement-learning/week-04/lesson.preview.html",
           "assignment_source": "niil/courses/reinforcement-learning/week-04/assignment.html",
           "lab": "niil/courses/reinforcement-learning/week-04/practice.ipynb",
@@ -1247,7 +1247,7 @@
         {
           "slug": "week-05",
           "week": 6,
-          "title": "정책 경사에서 Actor–Critic으로",
+          "title": "Policy Gradient와 Actor–Critic",
           "source": "niil/courses/reinforcement-learning/week-05/lesson.preview.html",
           "assignment_source": "niil/courses/reinforcement-learning/week-05/assignment.html",
           "lab": "niil/courses/reinforcement-learning/week-05/practice.ipynb",
@@ -1293,7 +1293,7 @@
         {
           "slug": "week-08",
           "week": 9,
-          "title": "Sim-to-real: 모델 오차와 입력 지연",
+          "title": "Sim-to-Real: Model Uncertainty와 Action Delay",
           "source": "niil/courses/reinforcement-learning/week-08/lesson.preview.html",
           "assignment_source": "niil/courses/reinforcement-learning/week-08/assignment.html",
           "lab": "niil/courses/reinforcement-learning/week-08/practice.ipynb",
@@ -1311,7 +1311,7 @@
         {
           "slug": "week-09",
           "week": 10,
-          "title": "Isaac Lab과 로봇 시뮬레이션 온보딩",
+          "title": "Isaac Lab과 Robot Simulation",
           "source": "niil/courses/reinforcement-learning/week-09/lesson.preview.html",
           "assignment_source": "niil/courses/reinforcement-learning/week-09/assignment.html",
           "lab": "niil/courses/reinforcement-learning/week-09/practice.ipynb",
@@ -1327,7 +1327,7 @@
         {
           "slug": "week-10",
           "week": 11,
-          "title": "공개 로봇 데이터와 VLA 온보딩",
+          "title": "Robot Dataset 분석과 VLA 입출력",
           "source": "niil/courses/reinforcement-learning/week-10/lesson.preview.html",
           "assignment_source": "niil/courses/reinforcement-learning/week-10/assignment.html",
           "lab": "niil/courses/reinforcement-learning/week-10/practice.ipynb",

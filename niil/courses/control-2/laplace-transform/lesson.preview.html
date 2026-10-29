@@ -8,7 +8,7 @@
 </section><section class="notebook-cell">
 <h2 id="전체-흐름">전체 흐름</h2>
 <!-- exercise-guidance:control-2/laplace-transform/learning-flow -->
-<p>Differential Equation·초기값 → s 영역의 식 → Y(s) → 시간응답·잔차 <!-- /exercise-guidance:control-2/laplace-transform/learning-flow --></p>
+<p>Differential Equation·초기값 → s 영역의 식 → Y(s) → Time Response·잔차 <!-- /exercise-guidance:control-2/laplace-transform/learning-flow --></p>
 </section><section class="notebook-cell">
 <h2 id="식과-적용-범위를-함께-보기">식과 적용 범위를 함께 보기</h2>
 <!-- exercise-guidance:control-2/laplace-transform/learning-1 -->
@@ -16,11 +16,11 @@
 </section><section class="notebook-cell">
 <h2 id="differential-equation을-대수식으로-바꾸기">Differential Equation을 대수식으로 바꾸기</h2>
 <!-- exercise-guidance:control-2/laplace-transform/learning-2 -->
-<p>y′+2y=1에 Laplace Transform을 적용하면 입력과 초기 상태의 영향이 별도 항으로 나타납니다.</p>
+<p>y′+2y=1에 Laplace Transform을 적용하면 입력과 Initial State의 영향이 별도 항으로 나타납니다.</p>
 <p><span class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>+</mo><mn>2</mn><mo form="postfix" stretchy="false">)</mo><mi>Y</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mi>s</mi></mfrac><mo>+</mo><mi>y</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(s+2)Y(s)=\frac{1}{s}+y(0)</annotation></semantics></math></span></p>
 <p>초기값이 다를 때의 두 해는 다음과 같습니다.</p>
 <p><span class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo form="prefix" stretchy="false">(</mo><mi>t</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>+</mo><mrow><mo form="prefix" stretchy="true">(</mo><mi>y</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>−</mo><mfrac><mn>1</mn><mn>2</mn></mfrac><mo form="postfix" stretchy="true">)</mo></mrow><msup><mi>e</mi><mrow><mi>−</mi><mn>2</mn><mi>t</mi></mrow></msup></mrow><annotation encoding="application/x-tex">y(t)=\frac12+\left(y(0)-\frac12\right)e^{-2t}</annotation></semantics></math></span></p>
-<p>y(0)=0과 1을 대입하면 Steady State 값은 같고 시작점과 과도응답은 달라집니다. <!-- /exercise-guidance:control-2/laplace-transform/learning-2 --></p>
+<p>y(0)=0과 1을 대입하면 Steady State 값은 같고 시작점과 Transient Response는 달라집니다. <!-- /exercise-guidance:control-2/laplace-transform/learning-2 --></p>
 </section><section class="notebook-cell">
 <h2 id="초기값이-다른-두-응답">초기값이 다른 두 응답</h2>
 <!-- exercise-guidance:control-2/laplace-transform/learning-example -->

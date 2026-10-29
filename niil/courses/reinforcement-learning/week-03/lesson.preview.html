@@ -17,11 +17,11 @@
 </section><section class="notebook-cell">
 <h2 id="공개-구현-읽기">공개 구현 읽기</h2>
 <!-- exercise-guidance:reinforcement-learning/week-03/learning-2 -->
-<p>Policy 이름만 맞추지 말고 Buffer·학습 시작·Target 갱신·입력 정규화·탐색 일정을 대응시킵니다. 다른 환경의 Return은 같은 성능 단위가 아닙니다. <!-- /exercise-guidance:reinforcement-learning/week-03/learning-2 --></p>
+<p>Policy 이름만 맞추지 말고 Buffer·학습 시작·Target 갱신·입력 Normalization·탐색 일정을 대응시킵니다. 다른 환경의 Return은 같은 성능 단위가 아닙니다. <!-- /exercise-guidance:reinforcement-learning/week-03/learning-2 --></p>
 </section><section class="notebook-cell">
 <h2 id="풀이-예제">풀이 예제</h2>
 <!-- exercise-guidance:reinforcement-learning/week-03/learning-example -->
-<p>Queue, 네트워크 1→32→3, Adam lr=.001, γ=.95, Replay 3000, Batch 32, 1800 전이를 사용합니다. Q-table 대신 함수 근사가 필요한 이유를 실제 정책으로 확인합니다. <!-- /exercise-guidance:reinforcement-learning/week-03/learning-example --></p>
+<p>Queue, 네트워크 1→32→3, Adam lr=.001, γ=.95, Replay 3000, Batch 32, 1800 Transition을 사용합니다. Q-table 대신 함수 근사가 필요한 이유를 실제 정책으로 확인합니다. <!-- /exercise-guidance:reinforcement-learning/week-03/learning-example --></p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>"""Synthetic service queue. An action chooses capacity, including its energy cost."""
 import numpy as np
 

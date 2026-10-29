@@ -8,8 +8,8 @@
 <ul>
 <li>정책 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>π</mi><mi>θ</mi></msub><mo form="prefix" stretchy="false">(</mo><mi>a</mi><mo form="prefix" stretchy="false">|</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\pi_\theta(a|s)</annotation></semantics></math></span>: 상태 s에서 행동 a를 선택할 확률</li>
 </ul></li>
-<li><strong>가치 기반 방법</strong>은 <strong>상태-행동 가치함수</strong> <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mo>*</mo></msup><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q^*(s,a)</annotation></semantics></math></span> 를 직접 근사하여 학습하고, 매 상태마다 Q 값이 최대인 행동을 선택</li>
-<li><strong>정책 기반 방법</strong>은 가치 함수를 통하지 않고 정책 자체를 직접 최적화하는 접근</li>
+<li><strong>가치 기반 방법</strong>은 <strong>상태-행동 Value Function</strong> <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>Q</mi><mo>*</mo></msup><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo>,</mo><mi>a</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">Q^*(s,a)</annotation></semantics></math></span> 를 직접 근사하여 학습하고, 매 상태마다 Q 값이 최대인 행동을 선택</li>
+<li><strong>정책 기반 방법</strong>은 Value Function을 통하지 않고 정책 자체를 직접 최적화하는 접근</li>
 <li><strong>장점</strong>
 <ul>
 <li><strong>연속적</strong> 및 <strong>큰 행동 공간</strong> 처리 용이
@@ -30,8 +30,8 @@
 </section><section class="notebook-cell">
 <h2 id="reinforce-알고리즘">[REINFORCE 알고리즘]</h2>
 <ul>
-<li><strong>몬테카를로 정책 경사법</strong>: 에피소드 전체를 경험한 후 정책 업데이트</li>
-<li><strong>정책 경사 정리</strong> (Policy Gradient Theorem)
+<li><strong>몬테카를로 Policy Gradient법</strong>: 에피소드 전체를 경험한 후 정책 업데이트</li>
+<li><strong>Policy Gradient 정리</strong> (Policy Gradient Theorem)
 <ul>
 <li>정책의 성능에 대한 <strong>그래디언트</strong>를 추정, 경사 상승(gradient ascent)으로 정책 파라미터 업데이트
 <ul>
@@ -61,7 +61,7 @@
 <ul>
 <li><strong>어드밴티지 함수</strong> <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>A</mi><mi>t</mi></msub><mo>=</mo><msub><mi>G</mi><mi>t</mi></msub><mo>−</mo><msup><mi>V</mi><mi>π</mi></msup><mo form="prefix" stretchy="false">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">A_t = G_t - V^\pi(S_t)</annotation></semantics></math></span> : <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>G</mi><mi>t</mi></msub><annotation encoding="application/x-tex">G_t</annotation></semantics></math></span> 대신 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>A</mi><mi>t</mi></msub><annotation encoding="application/x-tex">A_t</annotation></semantics></math></span> 사용
 <ul>
-<li><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mi>π</mi></msup><mo form="prefix" stretchy="false">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V^\pi(S_t)</annotation></semantics></math></span>: 상태 가치 함수</li>
+<li><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>V</mi><mi>π</mi></msup><mo form="prefix" stretchy="false">(</mo><msub><mi>S</mi><mi>t</mi></msub><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">V^\pi(S_t)</annotation></semantics></math></span>: 상태 Value Function</li>
 <li>어드밴티지 함수는 특정 상태에서 행동을 했을 때 얻을 수 있는 <strong>추가적인</strong> 이득을 나타냄</li>
 <li>보상의 평균 수준을 빼주어 편차만 갖고 학습하는 기법 (Dueling DQN에서 등장했던 개념)</li>
 </ul></li>
@@ -95,7 +95,7 @@
 </ul></li>
 <li><strong>수집된 에피소드</strong>를 사용하여 <strong>정책 업데이트</strong>
 <ul>
-<li>정책 경사 정리와 업데이트 식을 사용하여 정책 네트워크의 파라미터를 업데이트 REINFORCE 알고리즘의 정책 업데이트 과정을 수식으로 나타내면 다음과 같습니다. 핵심은 정책 경사(policy gradient)를 이용하여 정책 파라미터를 업데이트하는 것입니다.</li>
+<li>Policy Gradient 정리와 업데이트 식을 사용하여 정책 네트워크의 파라미터를 업데이트 REINFORCE 알고리즘의 정책 업데이트 과정을 수식으로 나타내면 다음과 같습니다. 핵심은 Policy Gradient(policy gradient)를 이용하여 정책 파라미터를 업데이트하는 것입니다.</li>
 </ul></li>
 </ul>
 </section><section class="notebook-cell">
@@ -112,7 +112,7 @@
 <li><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>∇</mi><mi>θ</mi></msub><annotation encoding="application/x-tex">\nabla_\theta</annotation></semantics></math></span>: <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>θ</mi><annotation encoding="application/x-tex">\theta</annotation></semantics></math></span>에 대한 gradient</li>
 </ul>
 </section><section class="notebook-cell">
-<h3 id="정책-경사-policy-gradient-계산">2. 정책 경사 (Policy Gradient) 계산</h3>
+<h3 id="policy-gradient-policy-gradient-계산">2. Policy Gradient (Policy Gradient) 계산</h3>
 <p><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>θ</mi></msub><mi>J</mi><mo form="prefix" stretchy="false">(</mo><mi>θ</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><msub><mi mathvariant="double-struck">𝔼</mi><mrow><mi>τ</mi><mo>∼</mo><msub><mi>π</mi><mi>θ</mi></msub></mrow></msub><mrow><mo form="prefix" stretchy="true">[</mo><msubsup><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mi>T</mi></msubsup><msub><mi>∇</mi><mi>θ</mi></msub><mi mathvariant="normal">log</mi><msub><mi>π</mi><mi>θ</mi></msub><mo form="prefix" stretchy="false">(</mo><msub><mi>a</mi><mi>t</mi></msub><mo form="prefix" stretchy="false">|</mo><msub><mi>s</mi><mi>t</mi></msub><mo form="postfix" stretchy="false">)</mo><msub><mi>R</mi><mi>t</mi></msub><mo form="postfix" stretchy="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">\nabla_\theta J(\theta) = \mathbb{E}_{\tau \sim \pi_\theta} \left[ \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t|s_t) R_t \right]</annotation></semantics></math></span></p>
 <ul>
 <li><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo form="prefix" stretchy="false">(</mo><mi>θ</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J(\theta)</annotation></semantics></math></span>: 정책의 성능 지표 (기대값)
@@ -128,7 +128,7 @@
 </section><section class="notebook-cell">
 <h3 id="정책-업데이트-policy-update-계산">3. 정책 업데이트 (Policy Update) 계산</h3>
 <ul>
-<li><p>정책 경사를 계산한 후, 경사 상승법(gradient ascent)을 사용하여 정책 파라미터를 업데이트</p></li>
+<li><p>Policy Gradient를 계산한 후, 경사 상승법(gradient ascent)을 사용하여 정책 파라미터를 업데이트</p></li>
 <li><p><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>θ</mi><mo>←</mo><mi>θ</mi><mo>+</mo><mi>α</mi><msub><mi>∇</mi><mi>θ</mi></msub><mi>J</mi><mo form="prefix" stretchy="false">(</mo><mi>θ</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\theta \leftarrow \theta + \alpha \nabla_\theta J(\theta)</annotation></semantics></math></span></p>
 <ul>
 <li><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>α</mi><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span>: 학습률 (learning rate)</li>
@@ -139,7 +139,7 @@
 <ul>
 <li>실제로는 기대값을 정확하게 계산할 수 없으므로, 몬테카를로 샘플링을 사용하여 근사<br/>
 </li>
-<li>하나의 에피소드 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span>를 샘플링하여 정책 경사를 다음과 같이 추정</li>
+<li>하나의 에피소드 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>τ</mi><annotation encoding="application/x-tex">\tau</annotation></semantics></math></span>를 샘플링하여 Policy Gradient를 다음과 같이 추정</li>
 <li><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>∇</mi><mi>θ</mi></msub><mi>J</mi><mo form="prefix" stretchy="false">(</mo><mi>θ</mi><mo form="postfix" stretchy="false">)</mo><mo>≈</mo><msubsup><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>0</mn></mrow><mi>T</mi></msubsup><msub><mi>∇</mi><mi>θ</mi></msub><mrow><mi mathvariant="normal">log</mi><mo>⁡</mo></mrow><msub><mi>π</mi><mi>θ</mi></msub><mo form="prefix" stretchy="false">(</mo><msub><mi>a</mi><mi>t</mi></msub><mo form="prefix" stretchy="false">|</mo><msub><mi>s</mi><mi>t</mi></msub><mo form="postfix" stretchy="false">)</mo><msub><mi>R</mi><mi>t</mi></msub></mrow><annotation encoding="application/x-tex">\nabla_\theta J(\theta) \approx  \sum_{t=0}^{T} \nabla_\theta \log \pi_\theta(a_t|s_t) R_t</annotation></semantics></math></span></li>
 </ul>
 </section><section class="notebook-cell">

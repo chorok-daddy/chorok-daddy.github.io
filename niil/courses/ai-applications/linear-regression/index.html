@@ -2283,7 +2283,7 @@ Loss 하나로 모으고, Loss가 줄어드는 방향으로 기울기를 조금�
 <p>먼저 model(x)로 예측하고 정답과 비교해 Loss를 구합니다. zero_grad로 이전 Gradient를 지운 뒤 backward로 현재 Loss의 Gradient를 구합니다. 마지막으로 step이 그 Gradient를 이용해 Weight를 바꿉니다. 바뀐 Weight로 다시 예측하는 것이 다음 학습의 시작입니다.</p>
 <details class="explain">
 <summary>Gradient로 조금씩 갱신하기</summary>
-<p>Gradient는 기본적으로 누적됩니다. 일반적인 한 번의 Batch(배치) 갱신에서는 이전 Gradient를 지워야 합니다. Learning Rate(학습률) 비교는 같은 초기 파라미터와 같은 반복 횟수로 시작해야 공정합니다.</p>
+<p>Gradient는 기본적으로 누적됩니다. 일반적인 한 번의 Batch 갱신에서는 이전 Gradient를 지워야 합니다. Learning Rate(학습률) 비교는 같은 초기 파라미터와 같은 반복 횟수로 시작해야 공정합니다.</p>
 </details>
 </section>
 <section class="level2" id="반복-학습과-직접-계산-비교">

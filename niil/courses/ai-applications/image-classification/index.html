@@ -2218,7 +2218,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <ul>
 <li><a class="nav-link active" data-scroll-target="#모델에-데이터를-넣기까지" href="#모델에-데이터를-넣기까지" id="toc-모델에-데이터를-넣기까지">모델에 데이터를 넣기까지</a></li>
 <li><a class="nav-link" data-scroll-target="#데이터-하나를-먼저-살펴보기" href="#데이터-하나를-먼저-살펴보기" id="toc-데이터-하나를-먼저-살펴보기">1. 데이터 하나를 먼저 살펴보기</a></li>
-<li><a class="nav-link" data-scroll-target="#dataloader는-batch배치를-만든다" href="#dataloader는-batch배치를-만든다" id="toc-dataloader는-batch배치를-만든다">2. DataLoader는 Batch(배치)를 만든다</a></li>
+<li><a class="nav-link" data-scroll-target="#dataloader는-batch배치를-만든다" href="#dataloader는-batch배치를-만든다" id="toc-dataloader는-batch배치를-만든다">2. DataLoader는 Batch를 만든다</a></li>
 <li><a class="nav-link" data-scroll-target="#학습과-평가는-다른-모드" href="#학습과-평가는-다른-모드" id="toc-학습과-평가는-다른-모드">3. 학습과 평가는 다른 모드</a></li>
 <li><a class="nav-link" data-scroll-target="#숫자와-이미지를-같이-확인" href="#숫자와-이미지를-같이-확인" id="toc-숫자와-이미지를-같이-확인">4. 숫자와 이미지를 같이 확인</a></li>
 <li><a class="nav-link" data-scroll-target="#스스로-점검하기" href="#스스로-점검하기" id="toc-스스로-점검하기">학습 내용 확인</a></li>
@@ -2247,11 +2247,11 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 <p>MNIST는 28×28 흑백 손글씨 숫자와 0~9 label로 구성됩니다. 데이터 전체를 학습하기 전에 이미지 한 장을 그려 보고 Tensor(텐서) shape와 label을 출력하세요.</p>
 <details class="explain">
 <summary>데이터 하나를 먼저 살펴보기</summary>
-<p>ToTensor는 이미지 값을 Tensor로 바꿉니다. 추가 정규화를 적용하면 학습·평가에 같은 변환을 사용해야 합니다. 이미지가 뒤집혀 보이면 shape와 표시할 축을 확인하세요.</p>
+<p>ToTensor는 이미지 값을 Tensor로 바꿉니다. 추가 Normalization을 적용하면 학습·평가에 같은 변환을 사용해야 합니다. 이미지가 뒤집혀 보이면 shape와 표시할 축을 확인하세요.</p>
 </details>
 </section>
 <section class="level2" id="dataloader는-batch배치를-만든다">
-<h2 class="anchored" data-anchor-id="dataloader는-batch배치를-만든다">2. DataLoader는 Batch(배치)를 만든다</h2>
+<h2 class="anchored" data-anchor-id="dataloader는-batch배치를-만든다">2. DataLoader는 Batch를 만든다</h2>
 <p>Dataset은 한 표본을 꺼내는 규칙이고 DataLoader는 표본을 묶어 순회하는 도구입니다. 학습에서는 shuffle로 순서를 섞고, 평가에서는 모든 표본을 빠짐없이 한 번씩 처리합니다.</p>
 <details class="explain">
 <summary>DataLoader는 Batch를 만든다</summary>
@@ -2284,7 +2284,7 @@ main details.check[open] > summary::after { content:"답변 접기"; }
 </ol>
 <p><a href="https://docs.pytorch.org/tutorials/" rel="noopener noreferrer" target="_blank">PyTorch 공식 Tutorials</a></p>
 </section>
-<section data-chapter-files=""><h2>실습 자료</h2><ul class="resource-list"><li><span class="resource-name">AI_Applications_Week10_ImageClassification.ipynb</span><a data-colab-url="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb#copy=true" data-course-overlay="Colab 노트북 미리보기" data-document-version="c7c9d8bec8e646f8" href="AI_Applications_Week10_ImageClassification.preview.html">Colab 노트북 미리보기</a> · <a download="" href="AI_Applications_Week10_ImageClassification.ipynb">Colab 노트북 다운로드</a></li><li><span class="resource-name">L17_Image_Classification_MNIST.ipynb</span><a data-colab-url="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/image-classification/L17_Image_Classification_MNIST.ipynb#copy=true" data-course-overlay="Colab 노트북 미리보기" data-document-version="63ad3669a3622f77" href="L17_Image_Classification_MNIST.preview.html">Colab 노트북 미리보기</a> · <a download="" href="L17_Image_Classification_MNIST.ipynb">Colab 노트북 다운로드</a></li></ul></section></main>
+<section data-chapter-files=""><h2>실습 자료</h2><ul class="resource-list"><li><span class="resource-name">AI_Applications_Week10_ImageClassification.ipynb</span><a data-colab-url="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb#copy=true" data-course-overlay="Colab 노트북 미리보기" data-document-version="dc877d37ef42b3f9" href="AI_Applications_Week10_ImageClassification.preview.html">Colab 노트북 미리보기</a> · <a download="" href="AI_Applications_Week10_ImageClassification.ipynb">Colab 노트북 다운로드</a></li><li><span class="resource-name">L17_Image_Classification_MNIST.ipynb</span><a data-colab-url="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/ai-applications/image-classification/L17_Image_Classification_MNIST.ipynb#copy=true" data-course-overlay="Colab 노트북 미리보기" data-document-version="63ad3669a3622f77" href="L17_Image_Classification_MNIST.preview.html">Colab 노트북 미리보기</a> · <a download="" href="L17_Image_Classification_MNIST.ipynb">Colab 노트북 다운로드</a></li></ul></section></main>
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

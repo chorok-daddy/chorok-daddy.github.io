@@ -15,16 +15,16 @@
 <!-- exercise-guidance:reinforcement-learning/week-06/case-studies -->
 <h3 id="장비통신-자원의-처리량과-비용">장비·통신 자원의 처리량과 비용</h3>
 <p>합성 대기열에 매 시점 평균 2건이 도착합니다. 서비스 용량을 높이면 대기는 줄지만 에너지 비용이 늘어납니다.</p>
-<p><strong>관측·상태:</strong> 대기 수 q=0…20. 관측 q/20.</p>
+<p><strong>Observation·State:</strong> 대기 수 q=0…20. 관측 q/20.</p>
 <p><strong>행동:</strong> 처리 용량 0·2·4 중 선택.</p>
-<p><strong>보상·제약:</strong> −(다음 대기 수 + 0.2×용량² + 10×유실 수). 100 step에서 시간 제한.</p>
+<p><strong>Reward·Constraint:</strong> −(다음 대기 수 + 0.2×용량² + 10×유실 수). 100 step에서 시간 제한.</p>
 <p><strong>비교 기준:</strong> 항상 용량 2, 대기 수에 따른 Threshold policy.</p>
 <p><strong>확인할 지표:</strong> 평가 Return, 평균 대기 수, 평균 용량², 유실 수.</p>
 <h3 id="에너지-저장장치-운전-설계">에너지 저장장치 운전 설계</h3>
 <p>실측 자료를 연결하기 전, 가격·부하·저장량의 역할을 구분하는 연구 설계 사례입니다.</p>
-<p><strong>관측·상태:</strong> SOC, 부하, 가격, 시간. 미래 정보를 포함하지 않는 관측.</p>
+<p><strong>Observation·State:</strong> SOC, 부하, 가격, 시간. 미래 정보를 포함하지 않는 관측.</p>
 <p><strong>행동:</strong> 충·방전 전력. 이산 단계 또는 연속 범위를 먼저 결정.</p>
-<p><strong>보상·제약:</strong> 전력 비용과 열화 비용. SOC·전력 한계의 처리 규칙 명시.</p>
+<p><strong>Reward·Constraint:</strong> 전력 비용과 열화 비용. SOC·전력 한계의 처리 규칙 명시.</p>
 <p><strong>비교 기준:</strong> 시간대 규칙, 가능하면 동일 정보의 최적화.</p>
 <p><strong>확인할 지표:</strong> 총 비용, 제약 위반, 최대 수전 전력. 날짜 단위 Train/Test 분리.</p>
 <p>이산·연속 행동 선택이 알고리즘과 맞는지 먼저 확인합니다. 자신의 도메인에서는 규칙 제어를 같은 정보·입력 제한으로 비교합니다. <!-- /exercise-guidance:reinforcement-learning/week-06/case-studies --></p>
@@ -36,7 +36,7 @@
 <h3 id="진행-방법">진행 방법</h3>
 <ol type="1">
 <li>기준 정책의 성능을 먼저 기록하세요. 제공된 Wrapper의 관측·행동 범위와 reset/step 반환값을 확인합니다.</li>
-<li>2048 전이의 짧은 학습을 실행하고 동일 조건에서 결정적으로 평가하세요.</li>
+<li>2048 Transition의 짧은 학습을 실행하고 동일 조건에서 결정적으로 평가하세요.</li>
 <li>기준보다 개선된 지표와 악화된 지표를 분리하고, 짧은 학습의 한계를 해석하세요.</li>
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
@@ -131,7 +131,7 @@ print(evaluate(lambda q:int(model.predict(np.array([q/20],dtype=np.float32),dete
 <h2 id="ppo를-공개-benchmark에서-비교하기">PPO를 공개 Benchmark에서 비교하기</h2>
 <!-- exercise-guidance:reinforcement-learning/week-06/activity-2 -->
 <h3 id="시작-조건-1">시작 조건</h3>
-<p>CartPole-v1에서 clip_range=.1과 .2, 각각 2048 전이입니다. 같은 seed와 평가군을 사용합니다.</p>
+<p>CartPole-v1에서 clip_range=.1과 .2, 각각 2048 Transition입니다. 같은 seed와 평가군을 사용합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
 <li>공개 구현의 clip_range·n_steps·batch_size·n_epochs가 무엇을 제어하는지 코드와 공식 설명을 연결하세요.</li>
@@ -221,13 +221,13 @@ for clipping in [.1,.2]:
 <p>앞의 실험을 바탕으로 Queue·Motor 또는 본인의 연구 문제 하나를 선택해, 실제 적용을 위한 실험을 설계합니다.</p>
 <h3 id="진행-방법-2">진행 방법</h3>
 <ol type="1">
-<li>상태·관측·행동·보상·종료·시간 제한을 표 한 장으로 정의하세요. 각 변수의 단위와 실제로 얻을 수 있는 정보를 적습니다.</li>
-<li>예상 전이 3개를 수치로 적어, 좋은 행동과 나쁜 행동의 보상이 의도에 맞는지 확인하세요.</li>
+<li>State·Observation·Action·Reward·종료·시간 제한을 표 한 장으로 정의하세요. 각 변수의 단위와 실제로 얻을 수 있는 정보를 적습니다.</li>
+<li>예상 Transition 3개를 수치로 적어, 좋은 행동과 나쁜 행동의 보상이 의도에 맞는지 확인하세요.</li>
 <li>규칙 기반 비교 기준 한 개, 평가 조건 한 개, 가장 우려되는 실패 사례 한 개를 정하세요. 필요한 실측 자료나 Simulator도 적습니다.</li>
 </ol>
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
-<li>MDP 설계 표, 전이 예 3개, 비교 실험 계획 실험 계획.</li>
+<li>MDP 설계 표, Transition 예 3개, 비교 실험 계획.</li>
 <li>실제 연구 자료가 없으면 적용 사례의 합성 조건으로 설계합니다. <!-- /exercise-guidance:reinforcement-learning/week-06/activity-3 --></li>
 </ul>
 </section><section class="notebook-cell">
