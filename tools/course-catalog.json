@@ -932,7 +932,9 @@
             "notebook-literacy",
             "git-collaboration"
           ],
-          "focus": "셀 실행·저장과 작은 변경의 기록"
+          "focus": "셀 실행·저장과 작은 변경의 기록",
+          "primary_chapter": "notebook-literacy",
+          "secondary_role": "practice"
         },
         {
           "week": 3,
@@ -978,7 +980,9 @@
             "linear-regression",
             "logistic-regression"
           ],
-          "focus": "새 입력의 예측, Threshold와 오류 해석"
+          "focus": "새 입력의 예측, Threshold와 오류 해석",
+          "primary_chapter": "linear-regression",
+          "secondary_role": "practice"
         },
         {
           "week": 8,
@@ -1820,7 +1824,9 @@
             "pid-control"
           ],
           "focus": "모델·상태방정식·제어기 복습 / Notebook·Git 준비",
-          "reading": "Ch. 2–6 복습"
+          "reading": "Ch. 2–6 복습",
+          "primary_chapter": "system-modeling",
+          "secondary_role": "practice"
         },
         {
           "week": 3,
@@ -1852,7 +1858,9 @@
             "transfer-functions"
           ],
           "focus": "이득·위상과 Bode / MATLAB·Python의 LT·TF 복습",
-          "reading": "Ch. 8"
+          "reading": "Ch. 8",
+          "primary_chapter": "frequency-response",
+          "secondary_role": "review"
         },
         {
           "week": 6,
@@ -1863,7 +1871,9 @@
             "system-modeling"
           ],
           "focus": "Mapping·Nyquist·상대 안정성 / 시스템 모델링 복습",
-          "reading": "Ch. 9.2–9.4"
+          "reading": "Ch. 9.2–9.4",
+          "primary_chapter": "frequency-stability",
+          "secondary_role": "review"
         },
         {
           "week": 7,
@@ -1874,7 +1884,9 @@
             "pid-control"
           ],
           "focus": "시간응답·Bandwidth·지연·PID / 기본 PID 복습",
-          "reading": "Ch. 9.5–9.7, 9.9"
+          "reading": "Ch. 9.5–9.7, 9.9",
+          "primary_chapter": "frequency-stability",
+          "secondary_role": "review"
         },
         {
           "week": 8,
@@ -1892,7 +1904,9 @@
             "root-locus"
           ],
           "focus": "설계 접근·Cascade 보상 / 근궤적 실습",
-          "reading": "Ch. 10.1–10.3"
+          "reading": "Ch. 10.1–10.3",
+          "primary_chapter": "compensator-design",
+          "secondary_role": "review"
         },
         {
           "week": 10,
@@ -1903,7 +1917,9 @@
             "frequency-response"
           ],
           "focus": "Lead·적분·Lag 보상 / 주파수 응답 실습",
-          "reading": "Ch. 10.4–10.8"
+          "reading": "Ch. 10.4–10.8",
+          "primary_chapter": "compensator-design",
+          "secondary_role": "review"
         },
         {
           "week": 11,
@@ -1914,7 +1930,9 @@
             "frequency-stability"
           ],
           "focus": "Bode 설계·Prefilter·Deadbeat / 주파수 안정성 실습",
-          "reading": "Ch. 10.9–10.11"
+          "reading": "Ch. 10.9–10.11",
+          "primary_chapter": "compensator-design",
+          "secondary_role": "review"
         },
         {
           "week": 12,
@@ -1925,7 +1943,9 @@
             "compensator-design"
           ],
           "focus": "가제어성·가관측성·상태피드백·Observer / 보상기 실습",
-          "reading": "Ch. 11.2–11.5"
+          "reading": "Ch. 11.2–11.5",
+          "primary_chapter": "state-feedback-observer",
+          "secondary_role": "review"
         },
         {
           "week": 13,
@@ -2237,7 +2257,9 @@
             "notebook-basics",
             "git-collaboration"
           ],
-          "focus": "과목 운영·자료 이용·실행 확인"
+          "focus": "과목 운영·자료 이용·실행 확인",
+          "primary_chapter": "notebook-basics",
+          "secondary_role": "preparation"
         },
         {
           "week": 2,
@@ -2247,7 +2269,9 @@
             "matlab-start",
             "matlab-data"
           ],
-          "focus": "변수·단위·행렬과 조건 선택"
+          "focus": "변수·단위·행렬과 조건 선택",
+          "primary_chapter": "matlab-start",
+          "secondary_role": "practice"
         },
         {
           "week": 3,
@@ -2293,7 +2317,9 @@
             "drone-navigation",
             "keyboard-control"
           ],
-          "focus": "목적지·누적 이동·통신 공백의 처리"
+          "focus": "목적지·누적 이동·통신 공백의 처리",
+          "primary_chapter": "drone-navigation",
+          "secondary_role": "practice"
         },
         {
           "week": 8,
@@ -2682,7 +2708,9 @@
             "python-basics",
             "git-collaboration"
           ],
-          "focus": "과목 운영·자료 이용·실행 확인"
+          "focus": "과목 운영·자료 이용·실행 확인",
+          "primary_chapter": "python-basics",
+          "secondary_role": "preparation"
         },
         {
           "week": 2,
@@ -2832,7 +2860,9 @@
             "web-server",
             "telegram-bot"
           ],
-          "focus": "중복 요청과 오류 상황까지 확인"
+          "focus": "중복 요청과 오류 상황까지 확인",
+          "primary_chapter": "dynamodb",
+          "secondary_role": "practice"
         },
         {
           "week": 15,
@@ -3161,7 +3191,9 @@
             "week-05",
             "week-06"
           ],
-          "focus": "과목 운영·자료 이용·실행 확인"
+          "focus": "과목 운영·자료 이용·실행 확인",
+          "primary_chapter": "week-04",
+          "secondary_role": "preparation"
         },
         {
           "week": 2,
@@ -3765,7 +3797,9 @@
             "getting-started",
             "week-01"
           ],
-          "focus": "관측·행동·종료와 Random·Rule 기준 정책"
+          "focus": "관측·행동·종료와 Random·Rule 기준 정책",
+          "primary_chapter": "getting-started",
+          "secondary_role": "practice"
         },
         {
           "week": 3,
