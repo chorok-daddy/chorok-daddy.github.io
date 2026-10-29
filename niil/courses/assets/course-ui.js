@@ -52,6 +52,7 @@
     if (runUrl) run.href = runUrl; else run.removeAttribute('href');
     dialog.querySelector('#course-overlay-title').textContent = a.dataset.courseOverlay || '학습자료';
     url.searchParams.set('embedded','1');
+    if (a.dataset.documentVersion) url.searchParams.set('v',a.dataset.documentVersion);
     frame = document.createElement('iframe');
     frame.src = url.href;
     frame.title = a.dataset.courseOverlay || '학습자료';

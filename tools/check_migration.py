@@ -7,13 +7,17 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 manifest = json.loads((ROOT / 'tools/course-compatibility.json').read_text())
+source_files = json.loads((ROOT / 'tools/course-source.json').read_text())['files']
 pages = downloads = 0
 for item in manifest['files']:
     old = ROOT / item['old'].lstrip('/')
     new = ROOT / item['new'].lstrip('/')
     assert old.is_file() and new.is_file(), item['old']
     if item['kind'] == 'download':
-        assert hashlib.sha256(old.read_bytes()).hexdigest() == item['sha256'], old
+        # Editable course downloads follow the independently verified pinned source.
+        # Keep the original migration checksum for files outside that source import.
+        expected = source_files.get(item['new'].lstrip('/'), item['sha256'])
+        assert hashlib.sha256(old.read_bytes()).hexdigest() == expected, old
         assert old.read_bytes() == new.read_bytes(), new
         downloads += 1
         continue

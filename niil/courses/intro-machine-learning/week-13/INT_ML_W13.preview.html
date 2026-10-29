@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 
-<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>[13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해</title><link data-course-ui="" href="../../assets/course-ui.css?v=20261029-navigation" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=20261029-navigation"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "[13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=mlx-preview1" rel="stylesheet"/><meta content="머신러닝의 이해: [13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html" rel="canonical"/><meta content="[13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해" property="og:title"/><meta content="머신러닝의 이해: [13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="[13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해" name="twitter:title"/><meta content="머신러닝의 이해: [13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html", "name": "[13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해", "description": "머신러닝의 이해: [13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a href="/niil/courses/intro-machine-learning/index.html">머신러닝의 이해</a></nav><h1>[13주차] 딥러닝이 세상을 바꾼 이유: 고차원 이미지 분류 📸</h1><nav class="notebook-actions"><a download="" href="INT_ML_W13.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/intro-machine-learning/week-13/INT_ML_W13.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>[13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해</title><link data-course-ui="" href="../../assets/course-ui.css?v=2279324f6ed8" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=2279324f6ed8"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "[13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=mlx-preview1" rel="stylesheet"/><meta content="머신러닝의 이해: [13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html" rel="canonical"/><meta content="[13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해" property="og:title"/><meta content="머신러닝의 이해: [13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="[13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해" name="twitter:title"/><meta content="머신러닝의 이해: [13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-13/INT_ML_W13.preview.html", "name": "[13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸 | 머신러닝의 이해", "description": "머신러닝의 이해: [13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸. 안녕하세요! 13주차 수업에 오신 것을 환영합니다. 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a href="/niil/courses/intro-machine-learning/index.html">머신러닝의 이해</a></nav><h1>[13주차] Deep Learning이 세상을 바꾼 이유: 고차원 이미지 분류 📸</h1><nav class="notebook-actions"><a download="" href="INT_ML_W13.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/intro-machine-learning/week-13/INT_ML_W13.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
 <p>안녕하세요! 13주차 수업에 오신 것을 환영합니다.<br/>
 지난 시간까지 우리는 비교적 적은 숫자, 몇 개의 특징(Feature)을 가진<br/>
 붓꽃(Iris), 와인(Wine) 같은 데이터를 다루었습니다.</p>
-<p>오늘은 딥러닝이 왜 세상을 바꾸었는지, 그 강력함을 체감하는 시간입니다.<br/>
+<p>오늘은 Deep Learning이 왜 세상을 바꾸었는지, 그 강력함을 체감하는 시간입니다.<br/>
 우리는 <strong>고차원(High-Dimensional)</strong> 데이터의 대표 주자인 <strong>이미지 데이터</strong>를 다룰 것입니다.</p>
 <p><strong>Fashion-MNIST</strong> 데이터셋을 사용하여,<br/>
-단순한 선형 모델(로지스틱 회귀)과 딥러닝 모델(MLP)의 성능을 비교해 봅니다.<br/>
-<strong>“왜 딥러닝이 강력한가?”</strong> 에 대한 답을 오늘 직접 찾아보겠습니다.</p>
+단순한 선형 모델(Logistic Regression)과 Deep Learning 모델(MLP)의 성능을 비교해 봅니다.<br/>
+<strong>“왜 Deep Learning이 강력한가?”</strong> 에 대한 답을 오늘 직접 찾아보겠습니다.</p>
 </section><section class="notebook-cell">
 <h2 id="모듈-1-이미지-데이터는-숫자다">🖼️ 모듈 1: 이미지 데이터는 ’숫자’다</h2>
 <p><strong>Fashion-MNIST 데이터셋이란?</strong><br/>
 - 10가지 종류의 패션 아이템 (티셔츠, 바지, 신발, 가방 등) 이미지로 구성된<br/>
-유명한 머신러닝 ’공개 데이터셋’입니다.<br/>
+유명한 Machine Learning ’공개 데이터셋’입니다.<br/>
 - 총 70,000개의 흑백 이미지 (연습 60,000개, 시험 10,000개) - 각 이미지는 <strong>가로 28픽셀 x 세로 28픽셀</strong> 크기입니다. <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*fQiUzijdHlukruf9akgH2Q.png" width="600"/></p>
 <p><strong>어떻게 이미지를 ’데이터’로 다룰까요?</strong> - 흑백 이미지는 각 픽셀마다 0(검은색)부터 255(흰색)까지의 밝기 값을 가집니다. - <strong>28 x 28 = 784</strong> - 즉, 하나의 이미지는 <strong>784개의 숫자</strong>로 이루어진 <strong>1차원 벡터(Vector)</strong> 로 표현할 수 있습니다! - 우리의 모델은 이 784개의 특징(Feature)을 보고 10가지 아이템 중 하나로 분류해야 합니다.</p>
 </section><section class="notebook-cell">
@@ -83,7 +83,7 @@ first_image의 Shape: (28, 28)
 </pre></section><section class="notebook-cell">
 <h2 id="모듈-2-데이터-전처리-및-기준-모델-logistic-regression">모듈 2: 데이터 전처리 및 기준 모델 (Logistic Regression)</h2>
 <h3 id="단계-데이터-스케일링-및-분리">[2단계] 데이터 스케일링 및 분리</h3>
-<p><strong>1. 스케일링 (Scaling)</strong> - 현재 픽셀 값은 0~255 범위입니다. - MLP와 같은 신경망 모델은 입력값의 스케일에 민감합니다. - 0~255 범위를 0~1 범위로 정규화(Normalization)하면<br/>
+<p><strong>1. 스케일링 (Scaling)</strong> - 현재 픽셀 값은 0~255 범위입니다. - MLP와 같은 Neural Network 모델은 입력값의 스케일에 민감합니다. - 0~255 범위를 0~1 범위로 정규화(Normalization)하면<br/>
 학습이 훨씬 빠르고 안정적으로 진행됩니다. - <strong>방법</strong>: 모든 픽셀 값을 255.0으로 나누어줍니다.</p>
 <p><strong>2. 데이터 분리</strong> - Fashion-MNIST는 관례적으로<br/>
 60,000개를 연습(Train), 10,000개를 시험(Test)용으로 사용합니다. - <code>train_test_split</code></p>
@@ -108,11 +108,11 @@ print(f"Test 데이터 Shape: {X_test.shape}")</code></pre><pre class="notebook-
 Train 데이터 Shape: (60000, 784)
 Test 데이터 Shape: (10000, 784)
 </pre></section><section class="notebook-cell">
-<h3 id="단계-기준-모델-baseline-학습-로지스틱-회귀">[3단계] 기준 모델 (Baseline) 학습: 로지스틱 회귀</h3>
-<p>딥러닝 모델이 얼마나 좋은지 알려면,<br/>
+<h3 id="단계-기준-모델-baseline-학습-logistic-regression">[3단계] 기준 모델 (Baseline) 학습: Logistic Regression</h3>
+<p>Deep Learning 모델이 얼마나 좋은지 알려면,<br/>
 <strong>비교 대상(Baseline)</strong> 이 필요합니다.</p>
 <p>여기서는 784개의 픽셀 값을 입력받아 10개 클래스를 분류하는<br/>
-<strong>로지스틱 회귀</strong> 모델을 기준 모델로 사용해 보겠습니다.</p>
+<strong>Logistic Regression</strong> 모델을 기준 모델로 사용해 보겠습니다.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># 1. 로지스틱 회귀 모델 생성 및 학습
 # solver='saga'
 # max_iter=30 : 대용량 데이터이므로 반복 횟수 설정 (시간 관계상 30회)
@@ -159,7 +159,7 @@ weighted avg       0.85      0.85      0.85     10000
   warnings.warn(
 </pre></section><section class="notebook-cell">
 <h2 id="모듈-3-mlp로-고차원-이미지-분류하기">🚀 모듈 3: MLP로 고차원 이미지 분류하기</h2>
-<h3 id="단계-딥러닝-모델mlp-학습-및-평가">[4단계] 딥러닝 모델(MLP) 학습 및 평가</h3>
+<h3 id="단계-deep-learning-모델mlp-학습-및-평가">[4단계] Deep Learning 모델(MLP) 학습 및 평가</h3>
 <p>이제 동일한 데이터를 <strong>MLP</strong>로 학습시켜 보겠습니다.<br/>
 MLP는 784개의 픽셀을 입력받아,<br/>
 은닉층에서 이 픽셀들의 <strong>복잡한 조합(패턴)</strong> 을 학습합니다.</p>
@@ -213,7 +213,7 @@ weighted avg       0.90      0.89      0.90     10000
   warnings.warn(
 </pre></section><section class="notebook-cell">
 <h3 id="단계-결과-비교-및-시각화">[5단계] 결과 비교 및 시각화</h3>
-<p>기준 모델(로지스틱 회귀)과 MLP의 성능을 비교해보고,<br/>
+<p>기준 모델(Logistic Regression)과 MLP의 성능을 비교해보고,<br/>
 모델이 무엇을 헷갈려하는지 직접 확인해 봅시다.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># 1. 성능 비교
 print("--- 최종 성능 비교 ---")
@@ -268,19 +268,19 @@ MLP (딥러닝 모델) 정확도: 0.8947
 784차원의 복잡한 이미지 데이터에서,<br/>
 88%가 넘는 (선형 모델을 압도하는) 좋은 성능이 나온 것일까요?</p>
 <hr/>
-<p>이 질문은 딥러닝의 핵심을 짚고 있습니다.</p>
+<p>이 질문은 Deep Learning의 핵심을 짚고 있습니다.</p>
 <p>과거 90년대의 MLP가 실패했던 가장 큰 기술적 원인은<br/>
 <strong>‘기울기 소실(Vanishing Gradient)’</strong> 문제 때문이었습니다.<br/>
 모델의 층이 깊어질수록(Deep),<br/>
-학습 신호(Gradient)가 역전파 과정에서 0에 가깝게 사라져<br/>
+학습 신호(Gradient)가 Backpropagation 과정에서 0에 가깝게 사라져<br/>
 앞쪽 층의 뉴런들이 전혀 학습되지 못했습니다.</p>
-<p>이는 당시 사용하던 ‘Sigmoid’ 활성화 함수의 수학적 한계였습니다.</p>
+<p>이는 당시 사용하던 ‘Sigmoid’ Activation Function의 수학적 한계였습니다.</p>
 <hr/>
 <p>2012년 AlexNet(CNN)이 이 겨울을 깬 비결은,<br/>
 물론 CNN의 뛰어난 구조(공간 정보 학습)도 있었지만,<br/>
 그것과 함께 <strong>AI 겨울을 근본적으로 해결한 핵심 기술들</strong>을 사용했기 때문입니다:</p>
 <ol type="1">
-<li><strong>ReLU 활성화 함수</strong>: Sigmoid 대신 ReLU를 사용하여 기울기 소실을 해결.</li>
+<li><strong>ReLU Activation Function</strong>: Sigmoid 대신 ReLU를 사용하여 기울기 소실을 해결.</li>
 <li><strong>GPU 병렬 처리</strong>: 대규모 연산을 빠르게 처리.</li>
 <li><strong>대용량 데이터</strong>: ‘ImageNet’ 같은 충분한 학습 데이터.</li>
 </ol>
@@ -302,21 +302,21 @@ MLP가 선형 모델보다 훨씬 뛰어난 성능을 보였지만,<br/>
 <p><strong>MLP의 근본적인 한계</strong>: - <strong>공간 정보(Spatial Information)의 손실</strong>: - MLP는 이미지를 <code>(784,)</code> 형태의 <strong>1차원 벡터</strong>로 입력받습니다. - 이 과정에서 픽셀의 <strong>2차원 공간 정보(위/아래/좌/우 관계)</strong> 가 사라집니다. - 모델은 (0,0) 픽셀과 (0,1) 픽셀이 가깝다는 사실을 모릅니다. - <strong>비효율적인 학습 (Parameter Inefficiency)</strong>: - 앵클 부츠의 ’굽’이 이미지의 <strong>왼쪽 아래</strong>에 있을 때의 패턴과,<br/>
 <strong>오른쪽 아래</strong>에 있을 때의 패턴을 <strong>따로따로</strong> 학습해야 합니다. - “굽”이라는 동일한 특징을 위치마다 새로 배워야 하므로 매우 비효율적입니다.</p>
 </section><section class="notebook-cell">
-<p><strong>CNN (합성곱 신경망)의 아이디어</strong>: - CNN은 이미지를 1차원으로 펴지 않고, <strong>2차원(28x28) 그대로</strong> 입력받습니다. - <strong>핵심 아이디어</strong>: “특징(e.g., 선, 코너, 굽)”을 감지하는 작은 <strong>‘필터(Filter)’</strong> (e.g., 3x3)를<br/>
-마치 <strong>돋보기나 스캐너</strong>처럼 이미지 전체에 <strong>슬라이딩(Sliding)</strong> 시킵니다. - <strong>Convolution (합성곱 연산)</strong>: 이 필터가 이미지의 특정 영역과 겹쳐져서<br/>
+<p><strong>CNN (Convolution Neural Network)의 아이디어</strong>: - CNN은 이미지를 1차원으로 펴지 않고, <strong>2차원(28x28) 그대로</strong> 입력받습니다. - <strong>핵심 아이디어</strong>: “특징(e.g., 선, 코너, 굽)”을 감지하는 작은 <strong>‘필터(Filter)’</strong> (e.g., 3x3)를<br/>
+마치 <strong>돋보기나 스캐너</strong>처럼 이미지 전체에 <strong>슬라이딩(Sliding)</strong> 시킵니다. - <strong>Convolution (Convolution 연산)</strong>: 이 필터가 이미지의 특정 영역과 겹쳐져서<br/>
 해당 영역이 필터의 패턴과 얼마나 일치하는지 계산합니다.</p>
 <p><strong>CNN이 강력한 이유</strong>: 1. <strong>공간 정보 유지</strong>: 2D 구조를 그대로 사용하므로 픽셀 간의 이웃 관계를 학습합니다. 2. <strong>파라미터 공유 (Parameter Sharing)</strong>: <strong>‘하나’의 필터<strong>로 이미지 </strong>’전체’</strong> 를 스캔합니다.<br/>
 - ‘굽’ 특징을 감지하는 필터를 한 번만 학습하면,<br/>
 그 굽이 이미지의 왼쪽에 있든 오른쪽에 있든 동일한 필터로 감지할 수 있습니다. - 이는 MLP 대비 학습할 파라미터 수를 획기적으로 줄여,<br/>
 훨씬 효율적이고 강력한 학습을 가능하게 합니다.</p>
-<p>CNN은 (합성곱 계층 + 풀링 계층)을 여러 겹 쌓아,<br/>
+<p>CNN은 (Convolution 계층 + 풀링 계층)을 여러 겹 쌓아,<br/>
 처음에는 <strong>단순한 선/모양</strong>을 학습하고, 뒤로 갈수록 이들이 조합된<br/>
 <strong>더 복잡하고 추상적인 특징</strong>(e.g., 눈, 코, 바퀴)을 학습합니다.<br/>
 이것이 2012년 AlexNet이 AI 겨울을 깬 비결입니다.</p>
 </section><section class="notebook-cell">
 <h3 id="참고-pytorch를-이용한-cnn-구현-예시">[참고] PyTorch를 이용한 CNN 구현 예시</h3>
 <p><code>scikit-learn</code>은 CNN을 지원하지 않습니다.<br/>
-<code>PyTorch</code>나 <code>TensorFlow</code> 같은 딥러닝 전문 라이브러리가 필요합니다.</p>
+<code>PyTorch</code>나 <code>TensorFlow</code> 같은 Deep Learning 전문 라이브러리가 필요합니다.</p>
 <p>아래는 <code>PyTorch</code>를 사용한 간단한 CNN 모델 구현 예시입니다.<br/>
 (실행 시간이 몇 분 이상 걸릴 수 있습니다.)</p>
 <p><strong>단, 지금 이 코드를 완벽히 이해할 필요는 없습니다.</strong><br/>
@@ -438,14 +438,14 @@ CNN (딥러닝 전문가) 정확도: 0.9189
 <h2 id="마무리">✨ 마무리</h2>
 <p>오늘은 784차원이라는 고차원 이미지 데이터를 다루어 보았습니다.</p>
 <ul>
-<li><strong>선형 모델의 한계</strong>: 로지스틱 회귀는 픽셀의 복잡한 조합을 학습하지 못해 낮은 성능(약 85%)을 보였습니다.</li>
+<li><strong>선형 모델의 한계</strong>: Logistic Regression은 픽셀의 복잡한 조합을 학습하지 못해 낮은 성능(약 85%)을 보였습니다.</li>
 <li><strong>MLP의 강력함</strong>: MLP는 <strong>‘은닉층’</strong> 과 <strong>‘비선형 활성화(ReLU)’</strong> 를 통해,<br/>
 데이터로부터 <strong>‘스스로’</strong> 특징(패턴)을 학습하여 더 높은 성능(약 89%)을 달성했습니다.</li>
 <li><strong>CNN의 전문성</strong>: MLP는 픽셀의 <strong>‘공간 정보’</strong> 를 잃어버리는 한계가 있었지만,<br/>
-<strong>‘합성곱(Convolution)’</strong> 연산을 사용하는 CNN은 이 공간 정보를 활용하여<br/>
+<strong>‘Convolution’</strong> 연산을 사용하는 CNN은 이 공간 정보를 활용하여<br/>
 이미지 인식에 훨씬 더 강력한 성능(약 92%)을 보여주었습니다.</li>
 </ul>
-<p>이것이 딥러닝, 특히 CNN이 AI 겨울을 깨고 이미지/음성 인식 분야를 혁신한 이유입니다.</p>
+<p>이것이 Deep Learning, 특히 CNN이 AI 겨울을 깨고 이미지/음성 인식 분야를 혁신한 이유입니다.</p>
 <p>다음 시간에는 이 모든 과정을 총망라하는 <strong>최종 기말 프로젝트</strong>를 진행하겠습니다.</p>
 </section><section class="notebook-cell">
 <pre><code>

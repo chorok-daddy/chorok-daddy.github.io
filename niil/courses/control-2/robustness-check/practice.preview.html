@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>모델 불확실성과 제어 성능 · 실습 | 제어공학2</title><link data-course-ui="" href="../../assets/course-ui.css?v=20261029-navigation" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=20261029-navigation"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "모델 불확실성과 제어 성능 · 실습", "url": "https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=mlx-preview1" rel="stylesheet"/><meta content="제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html" rel="canonical"/><meta content="모델 불확실성과 제어 성능 · 실습 | 제어공학2" property="og:title"/><meta content="제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="모델 불확실성과 제어 성능 · 실습 | 제어공학2" name="twitter:title"/><meta content="제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html", "name": "모델 불확실성과 제어 성능 · 실습 | 제어공학2", "description": "제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a href="/niil/courses/control-2/index.html">제어공학2</a></nav><h1>모델 불확실성과 제어 성능 · 실습</h1><nav class="notebook-actions"><a download="" href="practice.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/control-2/robustness-check/practice.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>모델 불확실성과 제어 성능 · 실습 | 제어공학2</title><link data-course-ui="" href="../../assets/course-ui.css?v=2279324f6ed8" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=2279324f6ed8"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "모델 불확실성과 제어 성능 · 실습", "url": "https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261026-outputs1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=mlx-preview1" rel="stylesheet"/><meta content="제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다." name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html" rel="canonical"/><meta content="모델 불확실성과 제어 성능 · 실습 | 제어공학2" property="og:title"/><meta content="제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다." property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="모델 불확실성과 제어 성능 · 실습 | 제어공학2" name="twitter:title"/><meta content="제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다." name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html", "name": "모델 불확실성과 제어 성능 · 실습 | 제어공학2", "description": "제어공학2: 모델 불확실성과 제어 성능 · 실습. 한 모델에서 설계한 제어기를 여러 실제 모델과 지연 조건에 적용해 성능이 나빠지는 지점을 찾습니다.", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a href="/niil/courses/control-2/index.html">제어공학2</a></nav><h1>모델 불확실성과 제어 성능 · 실습</h1><nav class="notebook-actions"><a download="" href="practice.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/control-2/robustness-check/practice.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
 </section><section class="notebook-cell">
 <h2 id="학습-목표">학습 목표</h2>
 <!-- exercise-guidance:control-2/robustness-check/objective -->
@@ -12,12 +12,12 @@
 <p>m=.7,1,1.3 kg, b=3 N·s/m, k=2 N/m입니다. K와 N은 m=1에서 설계한 값을 고정합니다.</p>
 <h3 id="진행-방법">진행 방법</h3>
 <ol type="1">
-<li>명목 제어기를 고정하고 세 실제 모델의 극점과 응답을 비교하세요.</li>
+<li>명목 제어기를 고정하고 세 실제 모델의 Pole과 응답을 비교하세요.</li>
 <li>각 응답의 최종값과 2% Settling Time을 구하고 가장 느린 조건을 찾으세요.</li>
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>
-<li>세 응답 곡선과 극점·Settling Time의 비교표. <!-- /exercise-guidance:control-2/robustness-check/activity-1 --></li>
+<li>세 응답 곡선과 Pole·Settling Time의 비교표. <!-- /exercise-guidance:control-2/robustness-check/activity-1 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>import numpy as np
 from scipy.signal import place_poles,StateSpace,lsim
@@ -36,7 +36,7 @@ plt.xlabel('Time [s]');plt.ylabel('Position');plt.legend();plt.grid()
 <h2 id="결과-기록자가-점검">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:control-2/robustness-check/activity-1-record -->
 <p><strong>질량:</strong></p>
-<p><strong>극점:</strong></p>
+<p><strong>Pole:</strong></p>
 <p><strong>최종값:</strong></p>
 <p><strong>Settling Time:</strong></p>
 <h3 id="확인할-점">확인할 점</h3>
@@ -51,7 +51,7 @@ plt.xlabel('Time [s]');plt.ylabel('Position');plt.legend();plt.grid()
 <p>m∈{.7,1,1.3}, b∈{2,3,4}, k∈{1,2,3}의 27개 조합입니다. K=[6,3], N=8은 고정합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>모든 조합에서 A−BK의 최대 극점 실수부를 구하세요.</li>
+<li>모든 조합에서 A−BK의 최대 Pole 실수부를 구하세요.</li>
 <li>가장 안정 경계에 가까운 모델과 목표 추종 오차가 가장 큰 모델을 각각 찾으세요.</li>
 <li>검사한 유한 조합의 결과와 연속된 전체 범위에 대한 보장을 구분하세요.</li>
 </ol>
@@ -73,11 +73,11 @@ print('largest error:',max(records,key=lambda r:r[4]))
 <h2 id="결과-기록자가-점검-1">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:control-2/robustness-check/activity-2-record -->
 <p><strong>m,b,k:</strong></p>
-<p><strong>최대 극점 실수부:</strong></p>
-<p><strong>정상상태 오차:</strong></p>
+<p><strong>최대 Pole 실수부:</strong></p>
+<p><strong>Steady State 오차:</strong></p>
 <h3 id="확인할-점-1">확인할 점</h3>
 <ul>
-<li>극점은 A가 아니라 A−BK에서 계산했는가?</li>
+<li>Pole은 A가 아니라 A−BK에서 계산했는가?</li>
 <li>모든 중간 파라미터까지 증명했다고 쓰지 않았는가? <!-- /exercise-guidance:control-2/robustness-check/activity-2-record --></li>
 </ul>
 </section><section class="notebook-cell">
@@ -89,7 +89,7 @@ print('largest error:',max(records,key=lambda r:r[4]))
 <ol type="1">
 <li>실습용 노트북의 함수로 세 지연의 출력·입력을 그리세요.</li>
 <li>dt를 절반으로 줄여 주요 응답이 비슷한지 확인하세요.</li>
-<li>선형 극점의 안정성 판정만으로 지연·포화가 있는 구현을 평가하기 어려운 이유를 설명하세요.</li>
+<li>선형 Pole의 안정성 판정만으로 지연·포화가 있는 구현을 평가하기 어려운 이유를 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
