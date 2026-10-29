@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/chorok-daddy/courses",
-  "revision": "423f2f906706853dcf08618458bac1fee5f53d9e",
+  "revision": "33c8f27b356d551a54612a58ec2868af7f62b4b7",
   "files": {
     "assets/site.css": "d682a3ff5e5e12bee3b935462177dc1ff3e4ebc85a56d2e00f63a5b1e830524d",
     "niil/courses/CITATION.cff": "eb9d9cc1a252f3f5a040e20e82aed32aa4f7f51bdf1a388194897a8d41afcd65",
@@ -679,7 +679,7 @@
     "niil/courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx": "5fdf363afb13d9f0a232cc00c82b8bc1d8093da95c180cb736919db6d9ad49e5",
     "niil/courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx.preview.html": "344001a60f21230869abe743496941904be2116213d34b1fb1909715897d5ffb",
     "niil/courses/control-1/course-setup/assignment.html": "4fff67c119b248fcc43c96ea1435cf215b9d696cde65998edc62be91c1e2a6b8",
-    "niil/courses/control-1/course-setup/index.html": "6107c048ecc1adc5eaff4065d07daf692973425de619a4d8c2ce53619378d360",
+    "niil/courses/control-1/course-setup/index.html": "6ed304a2469eebddc0663e6d21211b88048abafebeb3cc06aafe5367069b7bbb",
     "niil/courses/control-1/exam-format-examples.html": "6cfcb12c567ca0c3b4e86124cf8ca74c9b2a86af382f951c9c0e986f9a22ba69",
     "niil/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx": "2b2fa81dfa86801c48f4eda771e484e1df42cc93f8c03229a431487aed8ac64c",
     "niil/courses/control-1/feedback-one/Control_Engineering_1_Week09_FeedbackOne.mlx.preview.html": "ccbd2f19e447aca7f99ffed1ac3a5c279d5c4e51b55f7cceafc45b830df410b8",
@@ -691,7 +691,7 @@
     "niil/courses/control-1/feedback-two/index.html": "e29219b095c16da1498c7cef94c7d679821a9b04dcc86c05e6fa632ccbd30afe",
     "niil/courses/control-1/files.html": "c9ed991503c04b8e34dc19b7571ff494482884f6858f6628247a17753d096da1",
     "niil/courses/control-1/final-exam/index.html": "10f8e3c848070359a103df1e8c37546ea20f7b806ab58de70284294634cec156",
-    "niil/courses/control-1/index.html": "805e8a73931d738388b5f1ead6d3bab485a6247b7c12fea0d38e2fda086d2a35",
+    "niil/courses/control-1/index.html": "512361bfecba5b09ea0e20b59d24a63a41148b756d9b0edcfd95c171070dbfe8",
     "niil/courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx": "b8d21641b55b58198313358c4e4e19bc341f49b9a72edec5a44b5cb3072e2817",
     "niil/courses/control-1/lti-laplace/Control_Engineering_1_Week03_LtiLaplace.mlx.preview.html": "dc4ccb26cf822c22a95123cfc6fd41978697424d2c5de738b424c9d6891edaee",
     "niil/courses/control-1/lti-laplace/assignment.html": "9374f82de86a5de308d80298a3a01d0b10de73bf6b5d3fd7538a43b10abbc37f",
@@ -827,7 +827,7 @@
     "niil/courses/control-2/transfer-functions/practice.ipynb": "8a1457fbae0431a28b27bbc3175c7886cd073f4157ea7d272050f7fae1280d7e",
     "niil/courses/control-2/transfer-functions/practice.preview.html": "e41a650c7539ba23d1484d7c37ddad435bd467f53b15fdc8e22982c557039069",
     "niil/courses/downloads/ai-applications.zip": "4aad4c927d862f12f7eac12ca9b255a1b45ad346f6e7d562c56d299ec292f9e3",
-    "niil/courses/downloads/control-1.zip": "2a74b726ac98a15ae1f82c9e9c1721b4b74482b87977b4bba6d0ecafceab5a0a",
+    "niil/courses/downloads/control-1.zip": "dcf224e70cf4825afcdc853ef4d43dd4a54c503ace7a27821c81255df96898cb",
     "niil/courses/ee-seminar/index.html": "251ffe27ea2e6beffcfa18bd2fda50ed7743eb771db2f0bc986387ae47ba11a6",
     "niil/courses/exam-format-examples.html": "6c578869fd5b4ddba6c03c9b70cdad5554d5509cb83794568f2c19cd31b198c9",
     "niil/courses/index.html": "40c837455a2ce9a6701161871e4c1a0c8b9694d570351b3109c8b5af89ef25c6",
@@ -1333,8 +1333,8 @@
     "niil/courses/robot-basic-lab/vision-control/tello_image_processing.mlx": "8d91e602cdd3205c01e72f1fb7da90f8f98c513c3280c41e830f75172fb3c52a",
     "niil/courses/robot-basic-lab/vision-control/tello_image_processing.mlx.assets/figure-001.png": "74683016aac75ef46c95a2e69cec52f6cd04decc2edce3bdd2d0bf4c1e37a53e",
     "niil/courses/robot-basic-lab/vision-control/tello_image_processing.mlx.preview.html": "2126cc3686e573302759bc30e8feacc34d11478309ae12720ba66fce49f105c1",
-    "site-catalog.json": "2d468adb738e6e287fd6b6ac7c2e14614d1a012f4bc23ef488d064365813ae38",
-    "tools/course-catalog.json": "c66920388107f01f1c22a4aabd6b055a370a292ac34af41f4ee20be25485e1a2",
+    "site-catalog.json": "e0437e8b5ffff977adaa7bb67778b8933a3a82780507e0db522e04ec2a1be033",
+    "tools/course-catalog.json": "56afbb42aef0c13410a0f72cf8906cdd4b8585f12973b8ca881e0877d5875f7c",
     "tools/course-paths.json": "c027c81fdb10d56a61a4636c0e44e386af6b6bcf54f53f40cdc6a0ec4993b6b1"
   }
 }

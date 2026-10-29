@@ -1073,8 +1073,7 @@
           "assignment_source": "control-1/course-setup/assignment.html",
           "kind": "lesson",
           "weeks": [
-            1,
-            2
+            1
           ]
         },
         {
@@ -1399,7 +1398,6 @@
           "kind": "lesson",
           "title": "물리 시스템과 MATLAB 모델",
           "chapters": [
-            "course-setup",
             "physical-models"
           ],
           "focus": "단위·입출력·미분방정식",
