@@ -40,18 +40,6 @@
     <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/course-orientation/assignment.html</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format/final-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format/final-2.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format/midterm-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/exam-format/midterm-2.html</loc>
-  </url>
-  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/ai-applications/final-exam/</loc>
   </url>
   <url>
@@ -238,12 +226,6 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/course-setup/assignment.html</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/control-1/exam-format/matlab.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/control-1/exam-format/written.html</loc>
-  </url>
-  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-1/feedback-one/</loc>
   </url>
   <url>
@@ -374,12 +356,6 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/practice.preview.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/control-2/exam-format/matlab.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/control-2/exam-format/python.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/final-exam/</loc>
@@ -523,19 +499,10 @@
     <loc>https://chorok-daddy.github.io/niil/courses/ee-seminar/</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/exam-format-examples.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/exam-format/final-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/exam-format/final-2.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/exam-format/midterm-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/exam-format/midterm-2.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/intro-machine-learning/final-exam/</loc>
@@ -898,18 +865,6 @@
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/dynamodb/practice.preview.html</loc>
   </url>
   <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/exam-format/final-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/exam-format/final-2.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/exam-format/midterm-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/exam-format/midterm-2.html</loc>
-  </url>
-  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/microprocessor/final-exam/</loc>
   </url>
   <url>
@@ -1238,18 +1193,6 @@
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/drone-navigation/practice.preview.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/exam-format/final-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/exam-format/final-2.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/exam-format/midterm-1.html</loc>
-  </url>
-  <url>
-    <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/exam-format/midterm-2.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/robot-basic-lab/final-exam/</loc>
