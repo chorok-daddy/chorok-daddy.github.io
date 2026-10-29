@@ -1,4 +1,15 @@
 (() => {
+  const languagePicker = document.querySelector('[data-lab-language]');
+  if (languagePicker) {
+    const selectLanguage = value => {
+      document.documentElement.dataset.selectedRuntime = value;
+      languagePicker.querySelectorAll('input').forEach(input => { input.checked = input.value === value; });
+    };
+    selectLanguage('python');
+    languagePicker.addEventListener('change', event => {
+      if (event.target.matches('input[name="lab-language"]')) selectLanguage(event.target.value);
+    });
+  }
   const embedded = new URLSearchParams(location.search).get('embedded') === '1';
   if (embedded) {
     document.documentElement.classList.add('course-embedded');

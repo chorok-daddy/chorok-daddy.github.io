@@ -43,100 +43,98 @@
         },
         {
           "slug": "git-collaboration",
-          "week": 2,
+          "week": 4,
           "title": "변경 이력을 남기며 협업하기",
           "source": "niil/courses/ai-applications/git-collaboration/index.html",
           "lab": "niil/courses/ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
           "assignment_source": "niil/courses/ai-applications/git-collaboration/assignment.html",
           "kind": "lesson",
           "weeks": [
-            2
+            4
           ]
         },
         {
           "slug": "tensor-manipulation",
-          "week": 4,
+          "week": 5,
           "title": "Tensor Shape와 연산",
           "source": "niil/courses/ai-applications/tensor-manipulation/index.html",
           "lab": "niil/courses/ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
           "assignment_source": "niil/courses/ai-applications/tensor-manipulation/assignment.html",
           "kind": "lesson",
           "weeks": [
-            4
+            5
           ]
         },
         {
           "slug": "linear-regression",
-          "week": 5,
+          "week": 6,
           "title": "예측 오차를 줄이며 직선 찾기",
           "source": "niil/courses/ai-applications/linear-regression/index.html",
           "lab": "niil/courses/ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
           "assignment_source": "niil/courses/ai-applications/linear-regression/assignment.html",
           "kind": "lesson",
           "weeks": [
-            5,
-            7
+            6
           ]
         },
         {
           "slug": "logistic-regression",
-          "week": 6,
+          "week": 7,
           "title": "확률과 분류 기준을 구분하기",
           "source": "niil/courses/ai-applications/logistic-regression/index.html",
           "lab": "niil/courses/ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
           "assignment_source": "niil/courses/ai-applications/logistic-regression/assignment.html",
           "kind": "lesson",
           "weeks": [
-            6,
             7
           ]
         },
         {
           "slug": "multiclass",
-          "week": 9,
+          "week": 8,
           "title": "Multiclass Classification과 Logits",
           "source": "niil/courses/ai-applications/multiclass/index.html",
           "lab": "niil/courses/ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
           "assignment_source": "niil/courses/ai-applications/multiclass/assignment.html",
           "kind": "lesson",
           "weeks": [
-            9
+            8
           ]
         },
         {
           "slug": "convolution",
-          "week": 10,
+          "week": 9,
           "title": "CNN의 층별 연산과 Tensor shape",
           "source": "niil/courses/ai-applications/convolution/index.html",
           "lab": "niil/courses/ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
           "assignment_source": "niil/courses/ai-applications/convolution/assignment.html",
           "kind": "lesson",
           "weeks": [
-            10
+            9
           ]
         },
         {
           "slug": "image-classification",
-          "week": 11,
+          "week": 10,
           "title": "이미지 분류의 학습과 평가 분리하기",
           "source": "niil/courses/ai-applications/image-classification/index.html",
           "lab": "niil/courses/ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
           "assignment_source": "niil/courses/ai-applications/image-classification/assignment.html",
           "kind": "lesson",
           "weeks": [
-            11
+            10
           ]
         },
         {
           "slug": "midterm",
-          "week": 8,
+          "week": 11,
           "title": "중간시험 · 핵심 정리와 준비",
           "source": "niil/courses/ai-applications/midterm/index.html",
           "lab": null,
           "assignment_source": null,
           "kind": "exam",
           "weeks": [
-            8
+            11
           ]
         },
         {

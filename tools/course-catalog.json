@@ -54,100 +54,98 @@
         },
         {
           "slug": "git-collaboration",
-          "week": 2,
+          "week": 4,
           "title": "변경 이력을 남기며 협업하기",
           "source": "ai-applications/git-collaboration/index.html",
           "lab": "ai-applications/git-collaboration/AI_Applications_Week04_GitCollaboration.ipynb",
           "assignment_source": "ai-applications/git-collaboration/assignment.html",
           "kind": "lesson",
           "weeks": [
-            2
+            4
           ]
         },
         {
           "slug": "tensor-manipulation",
-          "week": 4,
+          "week": 5,
           "title": "Tensor Shape와 연산",
           "source": "ai-applications/tensor-manipulation/index.html",
           "lab": "ai-applications/tensor-manipulation/AI_Applications_Week05_TensorManipulation.ipynb",
           "assignment_source": "ai-applications/tensor-manipulation/assignment.html",
           "kind": "lesson",
           "weeks": [
-            4
+            5
           ]
         },
         {
           "slug": "linear-regression",
-          "week": 5,
+          "week": 6,
           "title": "예측 오차를 줄이며 직선 찾기",
           "source": "ai-applications/linear-regression/index.html",
           "lab": "ai-applications/linear-regression/AI_Applications_Week06_LinearRegression.ipynb",
           "assignment_source": "ai-applications/linear-regression/assignment.html",
           "kind": "lesson",
           "weeks": [
-            5,
-            7
+            6
           ]
         },
         {
           "slug": "logistic-regression",
-          "week": 6,
+          "week": 7,
           "title": "확률과 분류 기준을 구분하기",
           "source": "ai-applications/logistic-regression/index.html",
           "lab": "ai-applications/logistic-regression/AI_Applications_Week07_LogisticRegression.ipynb",
           "assignment_source": "ai-applications/logistic-regression/assignment.html",
           "kind": "lesson",
           "weeks": [
-            6,
             7
           ]
         },
         {
           "slug": "multiclass",
-          "week": 9,
+          "week": 8,
           "title": "Multiclass Classification과 Logits",
           "source": "ai-applications/multiclass/index.html",
           "lab": "ai-applications/multiclass/AI_Applications_Week08_Multiclass.ipynb",
           "assignment_source": "ai-applications/multiclass/assignment.html",
           "kind": "lesson",
           "weeks": [
-            9
+            8
           ]
         },
         {
           "slug": "convolution",
-          "week": 10,
+          "week": 9,
           "title": "CNN의 층별 연산과 Tensor shape",
           "source": "ai-applications/convolution/index.html",
           "lab": "ai-applications/convolution/AI_Applications_Week09_Convolution.ipynb",
           "assignment_source": "ai-applications/convolution/assignment.html",
           "kind": "lesson",
           "weeks": [
-            10
+            9
           ]
         },
         {
           "slug": "image-classification",
-          "week": 11,
+          "week": 10,
           "title": "이미지 분류의 학습과 평가 분리하기",
           "source": "ai-applications/image-classification/index.html",
           "lab": "ai-applications/image-classification/AI_Applications_Week10_ImageClassification.ipynb",
           "assignment_source": "ai-applications/image-classification/assignment.html",
           "kind": "lesson",
           "weeks": [
-            11
+            10
           ]
         },
         {
           "slug": "midterm",
-          "week": 8,
+          "week": 11,
           "title": "중간시험 · 핵심 정리와 준비",
           "source": "ai-applications/midterm/index.html",
           "lab": null,
           "assignment_source": null,
           "kind": "exam",
           "weeks": [
-            8
+            11
           ]
         },
         {
@@ -927,14 +925,11 @@
         {
           "week": 2,
           "kind": "lesson",
-          "title": "Notebook과 변경 이력 관리",
+          "title": "Notebook 실행과 저장",
           "chapters": [
-            "notebook-literacy",
-            "git-collaboration"
+            "notebook-literacy"
           ],
-          "focus": "셀 실행·저장과 작은 변경의 기록",
-          "primary_chapter": "notebook-literacy",
-          "secondary_role": "practice"
+          "focus": "셀 실행·작성·저장과 결과 재현"
         },
         {
           "week": 3,
@@ -948,6 +943,15 @@
         {
           "week": 4,
           "kind": "lesson",
+          "title": "변경 이력을 남기며 협업하기",
+          "chapters": [
+            "git-collaboration"
+          ],
+          "focus": "Commit·Branch·Merge와 협업 기록"
+        },
+        {
+          "week": 5,
+          "kind": "lesson",
           "title": "Tensor Shape와 연산",
           "chapters": [
             "tensor-manipulation"
@@ -955,7 +959,7 @@
           "focus": "shape 예측, reshape와 Broadcast"
         },
         {
-          "week": 5,
+          "week": 6,
           "kind": "lesson",
           "title": "Linear Regression과 학습 과정",
           "chapters": [
@@ -964,7 +968,7 @@
           "focus": "모델 출력, Loss와 Parameter 갱신"
         },
         {
-          "week": 6,
+          "week": 7,
           "kind": "lesson",
           "title": "이진 분류와 확률",
           "chapters": [
@@ -973,26 +977,7 @@
           "focus": "Logit·확률·Class 판정의 구분"
         },
         {
-          "week": 7,
-          "kind": "lesson",
-          "title": "회귀·분류 결과 검증",
-          "chapters": [
-            "linear-regression",
-            "logistic-regression"
-          ],
-          "focus": "새 입력의 예측, Threshold와 오류 해석",
-          "primary_chapter": "linear-regression",
-          "secondary_role": "practice"
-        },
-        {
           "week": 8,
-          "kind": "exam",
-          "title": "중간시험",
-          "chapters": [],
-          "focus": ""
-        },
-        {
-          "week": 9,
           "kind": "lesson",
           "title": "Multiclass Classification과 Logits",
           "chapters": [
@@ -1001,7 +986,7 @@
           "focus": "Logit·정답 Index와 Class별 결과"
         },
         {
-          "week": 10,
+          "week": 9,
           "kind": "lesson",
           "title": "CNN의 층별 연산",
           "chapters": [
@@ -1010,13 +995,20 @@
           "focus": "Convolution·Pooling을 지나는 shape"
         },
         {
-          "week": 11,
+          "week": 10,
           "kind": "lesson",
           "title": "이미지 분류의 학습과 평가",
           "chapters": [
             "image-classification"
           ],
           "focus": "데이터 분리, 평가 모드와 오분류"
+        },
+        {
+          "week": 11,
+          "kind": "exam",
+          "title": "중간시험",
+          "chapters": [],
+          "focus": ""
         },
         {
           "week": 12,

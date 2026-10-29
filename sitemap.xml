@@ -352,7 +352,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/compensator-design/practice.preview.html</loc>
@@ -370,7 +376,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-response/practice.preview.html</loc>
@@ -385,7 +397,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/frequency-stability/practice.preview.html</loc>
@@ -400,7 +418,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/laplace-transform/practice.preview.html</loc>
@@ -418,7 +442,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/pid-control/practice.preview.html</loc>
@@ -427,7 +457,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/reference-optimal-control/practice.preview.html</loc>
@@ -436,7 +472,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/robustness-check/practice.preview.html</loc>
@@ -451,7 +493,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/root-locus/practice.preview.html</loc>
@@ -460,7 +508,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/state-feedback-observer/practice.preview.html</loc>
@@ -475,7 +529,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/system-modeling/practice.preview.html</loc>
@@ -490,7 +550,13 @@
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/assignment.html</loc>
   </url>
   <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/lesson.mlx.preview.html</loc>
+  </url>
+  <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/lesson.preview.html</loc>
+  </url>
+  <url>
+    <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/practice.mlx.preview.html</loc>
   </url>
   <url>
     <loc>https://chorok-daddy.github.io/niil/courses/control-2/transfer-functions/practice.preview.html</loc>
