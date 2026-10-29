@@ -57,8 +57,9 @@ print('restore:',x.unsqueeze(0).squeeze(0).shape)
 <h3 id="b.-직접-수행-1">B. 직접 수행</h3>
 <!-- exercise-guidance:ai-applications/tensor-manipulation/activity-2 -->
 <ol type="1">
-<li>dim 값을 바꾸어 결과를 비교하고 cat과 stack의 차이를 쓰세요.</li>
-<li>원소 수 12를 유지하는 세 가지 reshape와 -1 사용 예를 작성하세요. <!-- /exercise-guidance:ai-applications/tensor-manipulation/activity-2 --></li>
+<li>연결 예제의 <code>a,b</code>를 사용해 <code>torch.cat([a,b],dim=0)</code>과 <code>dim=1</code>을 각각 실행하세요. <code>torch.stack([a,b],dim=0)</code>과 <code>dim=1</code>도 실행하세요.</li>
+<li>연산·dim·출력 shape를 네 행으로 적고, 원래 축이 길어지는 경우와 새 축이 생기는 경우를 구분하세요.</li>
+<li>원소 수가 12인 <code>x</code>를 세 가지 shape로 바꾸고 입력·출력 shape와 원소 수를 기록하세요. 예를 들어 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>2</mn><mo>,</mo><mn>6</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2,6)</annotation></semantics></math></span>, <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>3</mn><mo>,</mo><mn>4</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(3,4)</annotation></semantics></math></span>, <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>2</mn><mo>,</mo><mn>2</mn><mo>,</mo><mn>3</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2,2,3)</annotation></semantics></math></span>을 사용할 수 있습니다. 이 중 한 shape의 축 하나를 <code>-1</code>로 바꾸어 실행하고, 자동으로 계산된 축 크기를 적으세요. <!-- /exercise-guidance:ai-applications/tensor-manipulation/activity-2 --></li>
 </ol>
 <p>예상은 정확한 수치 대신 shape나 증가·감소 방향으로 적어도 됩니다. 코드는 위 예제를 참고해 작성하고, 설명만 묻는 항목은 아래 Text Cell에 답하세요.</p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># ✍ 직접 작성: 이 셀 아래에 본인의 코드를 추가하세요.

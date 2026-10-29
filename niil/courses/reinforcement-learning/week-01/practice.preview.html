@@ -30,16 +30,16 @@
 <h2 id="보상을-잘-받는-행동이-좋은-운전인가">보상을 잘 받는 행동이 좋은 운전인가</h2>
 <!-- exercise-guidance:reinforcement-learning/week-01/activity-1 -->
 <h3 id="시작-조건">시작 조건</h3>
-<p>Queue의 두 정책을 기준으로 비용 계수 0.2의 의미를 살펴봅니다.</p>
+<p>Queue의 <code>constant</code>·<code>threshold</code> 정책을 사용합니다. 보상은 대기 수, 용량 제곱의 비용, 유실 수로 구성되며 비용 계수의 기준값은 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>0.2</mn><annotation encoding="application/x-tex">0.2</annotation></semantics></math></span>입니다.</p>
 <h3 id="진행-방법">진행 방법</h3>
 <ol type="1">
-<li>대기·용량²·유실의 평가 평균을 분리해 표로 기록하세요.</li>
-<li>기록한 원시 지표에서 비용 계수 0.05·0.2·1.0일 때 Return을 다시 계산하세요.</li>
-<li>목적이 바뀌어 순위가 달라지는지 확인하고, 실제 연구에서 계수를 정할 근거를 적으세요.</li>
+<li>같은 평가 Seed에서 <code>evaluate</code>를 실행하세요. 반환하는 네 열은 Episode Return, step당 평균 대기 수, step당 평균 용량 제곱, Episode의 총 유실 수입니다. 정책별 평균을 기록하세요.</li>
+<li>같은 평가 기록에 비용 계수 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>c</mi><mo>∈</mo><mo form="prefix" stretchy="false">{</mo><mn>0.05</mn><mo>,</mo><mn>0.2</mn><mo>,</mo><mn>1.0</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">c\in\{0.05,0.2,1.0\}</annotation></semantics></math></span>을 각각 적용하세요. 평균 대기와 평균 용량 제곱에는 Episode 길이 100을 곱하고, 유실의 총합에는 코드와 같은 계수 10을 적용해 세 비용의 합에 음수를 붙이세요.</li>
+<li>비용 계수·정책별 Return을 표로 적고, 정책의 대기·용량 제곱을 산점도에 표시하세요. 계수에 따라 정책 순위가 바뀌는지와 실제 적용에서 비용 계수를 정할 근거를 설명하세요.</li>
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>
-<li>두 정책의 비용–대기 산점도와 보상 계수 비교 표. <!-- /exercise-guidance:reinforcement-learning/week-01/activity-1 --></li>
+<li>두 정책의 비용–대기 산점도와 비용 계수별 Return 표. <!-- /exercise-guidance:reinforcement-learning/week-01/activity-1 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>"""Synthetic service queue. An action chooses capacity, including its energy cost."""
 import numpy as np

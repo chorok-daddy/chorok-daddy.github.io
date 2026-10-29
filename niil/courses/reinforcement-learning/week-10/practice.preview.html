@@ -80,9 +80,10 @@ print('State / action shape:',state.shape,action.shape)
 <p>로드한 Episode를 앞 80%·뒤 20%로 나눕니다. 상태에서 행동을 예측하는 Ridge 기준 모델을 만듭니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>시간적으로 인접한 Frame을 임의 분할하는 것과 Episode 분할의 차이를 적으세요.</li>
-<li>기준 모델을 학습하고 각 Action 성분의 MAE를 Episode 평가 자료에서 계산하세요.</li>
-<li>같은 자료의 무작위 Frame 분할과 비교해 수치가 좋아 보이는 이유를 설명하세요.</li>
+<li><code>episode_index</code>의 고유값을 정렬하고 앞 80%의 Episode 전체를 Train, 나머지 Episode 전체를 Test로 나누세요. 같은 Episode의 Frame이 양쪽에 섞이지 않게 하고 Train/Test의 Episode ID와 Frame 수를 적으세요.</li>
+<li><code>Ridge(alpha=1.)</code>를 Train의 <code>state</code>와 <code>action</code>으로 학습하세요. Test에서 예측한 <code>action</code>과 정답의 성분별 MAE를 <code>multioutput="raw_values"</code>로 구하세요.</li>
+<li>같은 전체 자료의 Frame Index를 무작위 80/20으로 나눈 경우에도 같은 모델을 학습·평가하세요. 분할별 Action 성분의 MAE를 표로 적고, 한 성분의 정답·예측을 해당 Test 순서에 따라 그리세요.</li>
+<li>서로 인접한 Frame이 Train과 Test에 동시에 들어가는 경우와 새 Episode를 평가하는 경우의 차이를, 두 분할의 결과를 근거로 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>

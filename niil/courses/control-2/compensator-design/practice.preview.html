@@ -47,9 +47,9 @@ print('desired pole',p_desired)
 <p>기준 G와 활동 1의 보상 모델에 Unit Step과 Unit Ramp를 적용합니다. 시간은 각각 0~5 s, 0~20 s입니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>Step의 Overshoot·Settling Time과 Ramp의 후반 오차를 구하세요.</li>
-<li>Loop의 Kv를 계산해 Ramp Steady-State Error와 대조하세요.</li>
-<li>빠른 응답과 Steady-State Error를 각각 어떤 설계 항목이 바꾸었는지 정리하세요.</li>
+<li>활동 1의 보상기와 보상 전 모델에 같은 Unit Step·Unit Ramp를 넣으세요. Step은 0–5 s, Ramp는 0–20 s를 사용합니다.</li>
+<li>Step의 Overshoot·Settling Time을 구하고, Ramp에서는 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mi>t</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>t</mi></mrow><annotation encoding="application/x-tex">r(t)=t</annotation></semantics></math></span>에서 출력을 뺀 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>e</mi><mo form="prefix" stretchy="false">(</mo><mi>t</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mi>r</mi><mo form="prefix" stretchy="false">(</mo><mi>t</mi><mo form="postfix" stretchy="false">)</mo><mo>−</mo><mi>y</mi><mo form="prefix" stretchy="false">(</mo><mi>t</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">e(t)=r(t)-y(t)</annotation></semantics></math></span>를 그리세요. 각 모델의 마지막 표본 오차를 기록하세요.</li>
+<li>Loop Transfer Function에서 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>v</mi></msub><mo>=</mo><msub><mrow><mi mathvariant="normal">lim</mi><mo>⁡</mo></mrow><mrow><mi>s</mi><mo>→</mo><mn>0</mn></mrow></msub><mi>s</mi><mi>L</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">K_v=\lim_{s\to0}sL(s)</annotation></semantics></math></span>를 구해 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><msub><mi>K</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">1/K_v</annotation></semantics></math></span>를 계산하고, 앞의 Ramp 마지막 오차와 절대 차이를 기록하세요. 응답 속도와 최종 오차 중 보상 전후에 개선되거나 악화된 항목을 표의 값으로 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>

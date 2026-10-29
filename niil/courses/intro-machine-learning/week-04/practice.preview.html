@@ -41,26 +41,25 @@ print(pass_flags(scores))
 <p>threshold=50,60,80에서 합격자 수와 경계 표본을 비교합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>바뀐 입력·조건을 명시하고 첫 활동과 같은 절차를 적용하세요.</li>
-<li>기준 결과와 변경 결과를 같은 표·그림 형식으로 대조하세요.</li>
-<li>조건 변경으로 결과가 달라진 이유를 설명하세요.</li>
+<li><code>pass_flags</code>를 Threshold <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>50</mn><mo>,</mo><mn>60</mn><mo>,</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">50,60,80</annotation></semantics></math></span>으로 각각 호출하세요. 점수 네 개는 바꾸지 않습니다.</li>
+<li>Threshold별 합격 여부 네 개와 합격자 수를 표로 적으세요. Threshold와 점수가 같은 표본에서 사용하는 비교 연산자가 <code>&gt;=</code>인지 확인하세요.</li>
+<li>Threshold가 바뀌어 판정이 달라진 점수를 지목하고, 바뀐 이유를 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>
-<li>기준과 변경 조건을 비교한 표 1개, 필요한 경우 그림 1개. <!-- /exercise-guidance:intro-machine-learning/week-04/activity-2 --></li>
+<li>Threshold별 판정과 합격자 수의 표. <!-- /exercise-guidance:intro-machine-learning/week-04/activity-2 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>thresholds=[50,60,80]
 </code></pre></section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-1">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:intro-machine-learning/week-04/activity-2-record -->
-<p><strong>조건:</strong></p>
-<p><strong>관측 지표·값:</strong></p>
-<p><strong>기준과 차이:</strong></p>
-<p><strong>해석:</strong></p>
+<p><strong>Threshold:</strong></p>
+<p><strong>네 점수의 판정:</strong></p>
+<p><strong>합격자 수:</strong></p>
+<p><strong>판정이 바뀐 점수:</strong></p>
 <h3 id="확인할-점-1">확인할 점</h3>
 <ul>
-<li>바꾼 요소 이외의 데이터·분할·seed·계산 방법을 고정했는가?</li>
-<li>비교 지표의 정의와 단위가 같은가? <!-- /exercise-guidance:intro-machine-learning/week-04/activity-2-record --></li>
+<li>기준 점수와 같은 값의 판정을 기록했는가? <!-- /exercise-guidance:intro-machine-learning/week-04/activity-2-record --></li>
 </ul>
 </section><section class="notebook-cell">
 <h2 id="다른-입력에서도-확인하기">다른 입력에서도 확인하기</h2>
@@ -69,23 +68,23 @@ print(pass_flags(scores))
 <p>점수 [59,60,61]과 빈 List로 함수의 경계값을 확인합니다.</p>
 <h3 id="진행-방법-2">진행 방법</h3>
 <ol type="1">
-<li>새 입력의 결과를 예측한 뒤 실행하세요.</li>
-<li>기준 실험과 같은 지표로 결과를 비교하세요.</li>
+<li>Threshold 60을 유지하고 점수 <code>[59,60,61]</code>과 빈 List에 대한 함수 반환값을 실행 전에 적으세요.</li>
+<li>두 입력에 <code>pass_flags</code>를 호출하고 예상·실제 반환값을 나란히 기록하세요. 점수 60의 판정과 빈 입력의 반환 형태를 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
-<li>새 입력의 결과 표와 기준 실험과의 차이 해석. <!-- /exercise-guidance:intro-machine-learning/week-04/activity-3 --></li>
+<li>두 입력의 예상·실제 반환값과 경계값 설명. <!-- /exercise-guidance:intro-machine-learning/week-04/activity-3 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># 앞 활동의 데이터와 함수를 사용해 지정된 새 예제를 검사하세요.
 </code></pre></section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-2">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:intro-machine-learning/week-04/activity-3-record -->
-<p><strong>예제:</strong></p>
-<p><strong>예상:</strong></p>
-<p><strong>실제 결과:</strong></p>
-<p><strong>판단 근거:</strong></p>
+<p><strong>입력 점수:</strong></p>
+<p><strong>실행 전 예상:</strong></p>
+<p><strong>실제 반환값:</strong></p>
+<p><strong>경계값·빈 입력의 처리:</strong></p>
 <h3 id="확인할-점-2">확인할 점</h3>
 <ul>
-<li>경계 바로 아래·같은 값·바로 위에서 조건을 확인했는가? <!-- /exercise-guidance:intro-machine-learning/week-04/activity-3-record --></li>
+<li>빈 입력도 같은 함수로 실행했는가? <!-- /exercise-guidance:intro-machine-learning/week-04/activity-3-record --></li>
 </ul>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>

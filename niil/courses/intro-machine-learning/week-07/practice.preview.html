@@ -43,26 +43,25 @@ print(coef)
 <p>마지막 y를 18로 바꾼 자료를 만들고 계수·MSE·<span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">x=6</annotation></semantics></math></span> 예측의 변화를 비교합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>바뀐 입력·조건을 명시하고 첫 활동과 같은 절차를 적용하세요.</li>
-<li>기준 결과와 변경 결과를 같은 표·그림 형식으로 대조하세요.</li>
-<li>조건 변경으로 결과가 달라진 이유를 설명하세요.</li>
+<li><code>x</code>는 유지하고 마지막 <code>y</code>만 18로 바꾼 복사본을 만드세요. 원래 자료와 변경 자료 각각에 <code>np.linalg.lstsq</code>를 적용하세요.</li>
+<li>두 모델의 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi><mo>,</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">w,b</annotation></semantics></math></span>, 각자가 학습한 자료에서의 MSE, <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>=</mo><mn>6</mn></mrow><annotation encoding="application/x-tex">x=6</annotation></semantics></math></span>의 예측을 두 행으로 적으세요. 원래 점·변경한 점·두 예측 직선도 같은 축에 표시하세요.</li>
+<li>한 표본의 변경이 계수와 새 입력의 예측에 어떻게 반영되었는지 표와 그림을 근거로 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>
-<li>기준과 변경 조건을 비교한 표 1개, 필요한 경우 그림 1개. <!-- /exercise-guidance:intro-machine-learning/week-07/activity-2 --></li>
+<li>두 적합 직선과 계수·MSE·새 입력 예측의 비교 표. <!-- /exercise-guidance:intro-machine-learning/week-07/activity-2 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>y2=y.copy();y2[-1]=18
 </code></pre></section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-1">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:intro-machine-learning/week-07/activity-2-record -->
-<p><strong>조건:</strong></p>
-<p><strong>관측 지표·값:</strong></p>
-<p><strong>기준과 차이:</strong></p>
-<p><strong>해석:</strong></p>
+<p><strong>학습 자료:</strong></p>
+<p><strong>w·b:</strong></p>
+<p><strong>MSE:</strong></p>
+<p><strong>x=6 예측:</strong></p>
 <h3 id="확인할-점-1">확인할 점</h3>
 <ul>
-<li>바꾼 요소 이외의 데이터·분할·seed·계산 방법을 고정했는가?</li>
-<li>비교 지표의 정의와 단위가 같은가? <!-- /exercise-guidance:intro-machine-learning/week-07/activity-2-record --></li>
+<li>바꾼 표본을 제외한 자료와 적합 방법을 유지했는가? <!-- /exercise-guidance:intro-machine-learning/week-07/activity-2-record --></li>
 </ul>
 </section><section class="notebook-cell">
 <h2 id="다른-입력에서도-확인하기">다른 입력에서도 확인하기</h2>
@@ -71,23 +70,24 @@ print(coef)
 <p><span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo form="prefix" stretchy="false">{</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>10</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">x\in\{6,8,10\}</annotation></semantics></math></span>에서의 예측을 그리고 관측 범위 안의 예측과 구분합니다.</p>
 <h3 id="진행-방법-2">진행 방법</h3>
 <ol type="1">
-<li>새 입력의 결과를 예측한 뒤 실행하세요.</li>
-<li>기준 실험과 같은 지표로 결과를 비교하세요.</li>
+<li>앞에서 학습한 두 모델에 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi><mo>∈</mo><mo form="prefix" stretchy="false">{</mo><mn>6</mn><mo>,</mo><mn>8</mn><mo>,</mo><mn>10</mn><mo form="postfix" stretchy="false">}</mo></mrow><annotation encoding="application/x-tex">x\in\{6,8,10\}</annotation></semantics></math></span>을 대입해 예측값을 계산하세요. 두 모델의 예측을 같은 표에 적으세요.</li>
+<li>기존 관측 구간과 새 세 입력이 보이는 범위에 예측 직선을 그리고, 관측점과 새 예측점을 다른 기호로 표시하세요. 새 입력의 정답 대신 예측값과 관측 구간 포함 여부를 기록합니다.</li>
+<li>관측 구간 밖으로 갈수록 두 모델의 예측 차이가 어떻게 바뀌는지 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
-<li>새 입력의 결과 표와 기준 실험과의 차이 해석. <!-- /exercise-guidance:intro-machine-learning/week-07/activity-3 --></li>
+<li>새 세 입력의 예측 표와 관측 구간을 구분한 예측 그림. <!-- /exercise-guidance:intro-machine-learning/week-07/activity-3 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># 앞 활동의 데이터와 함수를 사용해 지정된 새 예제를 검사하세요.
 </code></pre></section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-2">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:intro-machine-learning/week-07/activity-3-record -->
-<p><strong>예제:</strong></p>
-<p><strong>예상:</strong></p>
-<p><strong>실제 결과:</strong></p>
-<p><strong>판단 근거:</strong></p>
+<p><strong>새 입력 x:</strong></p>
+<p><strong>원래 자료의 모델 예측:</strong></p>
+<p><strong>변경 자료의 모델 예측:</strong></p>
+<p><strong>관측 범위 포함 여부·두 예측의 차이:</strong></p>
 <h3 id="확인할-점-2">확인할 점</h3>
 <ul>
-<li>관측 범위 안·밖의 예측을 구분했는가? <!-- /exercise-guidance:intro-machine-learning/week-07/activity-3-record --></li>
+<li>정답이 없는 새 입력의 예측을 실제 오차로 해석하지 않았는가? <!-- /exercise-guidance:intro-machine-learning/week-07/activity-3-record --></li>
 </ul>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>

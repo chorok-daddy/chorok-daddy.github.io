@@ -50,14 +50,13 @@ for name,(kp,ki,kd) in configs.items():
 </section><section class="notebook-cell">
 <h2 id="한-항씩-변화시키기">한 항씩 변화시키기</h2>
 <!-- exercise-guidance:control-2/pid-control/activity-2 -->
-<p>세 경우의 Unit Step과 지표를 같은 방식으로 기록하세요.</p>
 <h3 id="시작-조건-1">시작 조건</h3>
 <p>PID 기준 (500,300,30)에서 Kp만 250,500,750으로 바꿉니다. Ki·Kd는 고정합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>PID 기준에서 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>p</mi></msub><mo>=</mo><mn>250</mn></mrow><annotation encoding="application/x-tex">K_p=250</annotation></semantics></math></span>과 750만 비교하고, <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo>=</mo><mn>300</mn></mrow><annotation encoding="application/x-tex">K_i=300</annotation></semantics></math></span>·<span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>d</mi></msub><mo>=</mo><mn>30</mn></mrow><annotation encoding="application/x-tex">K_d=30</annotation></semantics></math></span>은 유지하세요.</li>
-<li>응답이 빨라진 정도와 Overshoot 변화를 같은 그림·표로 확인하세요.</li>
-<li>두 설정 중 하나를 선택하고 선택한 성능 기준을 한 문장으로 적으세요.</li>
+<li>활동 1의 PID <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>500</mn><mo>,</mo><mn>300</mn><mo>,</mo><mn>30</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(500,300,30)</annotation></semantics></math></span> 결과를 기준으로 두고 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><msub><mi>K</mi><mi>p</mi></msub><annotation encoding="application/x-tex">K_p</annotation></semantics></math></span>만 250과 750으로 각각 바꾸세요. <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>i</mi></msub><mo>=</mo><mn>300</mn></mrow><annotation encoding="application/x-tex">K_i=300</annotation></semantics></math></span>, <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>K</mi><mi>d</mi></msub><mo>=</mo><mn>30</mn></mrow><annotation encoding="application/x-tex">K_d=30</annotation></semantics></math></span>, Plant와 시간축은 유지하세요.</li>
+<li>두 설정의 Unit Step을 기준 곡선과 같은 그림에 표시하세요. 같은 <code>ctl.step_info</code> 설정으로 구한 Overshoot·Settling Time·Steady-State Error를 활동 1과 같은 열로 기록하세요.</li>
+<li>두 추가 설정 중 하나를 선택하고, 기준값보다 개선하려는 지표와 허용하려는 변화를 표의 값으로 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>

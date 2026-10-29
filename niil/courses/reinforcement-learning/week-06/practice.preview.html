@@ -35,9 +35,9 @@
 <p>Queue의 이산 행동</p>
 <h3 id="진행-방법">진행 방법</h3>
 <ol type="1">
-<li>기준 정책의 성능을 먼저 기록하세요. 제공된 Wrapper의 관측·행동 범위와 reset/step 반환값을 확인합니다.</li>
-<li>2048 Transition의 짧은 학습을 실행하고 동일 조건에서 결정적으로 평가하세요.</li>
-<li>기준보다 개선된 지표와 악화된 지표를 분리하고, 짧은 학습의 한계를 해석하세요.</li>
+<li>앞의 <code>policies</code> 두 규칙 정책을 <code>evaluate</code>에 넣어 공통 평가 Seed의 결과를 기록하세요. <code>QueueGym</code>에서 대기 수를 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>q</mi><mi>/</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">q/20</annotation></semantics></math></span>으로, 보상을 원래 값의 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>20</mn></mrow><annotation encoding="application/x-tex">1/20</annotation></semantics></math></span>로 변환하는 위치를 찾으세요.</li>
+<li><code>fit_sb3("PPO",seed=0,steps=2048)</code>를 실행하세요. 학습한 정책을 <code>model.predict(...,deterministic=True)</code>로 선택하고, 노트북의 <code>evaluate</code>로 같은 Seed에서 평가하세요.</li>
+<li>규칙 정책과 학습 정책의 Episode Return·평균 대기 수·평균 용량 제곱·총 유실 수를 같은 열의 표로 기록하세요. 개선된 값과 악화된 값을 짚어 설명하고, 판단의 근거가 이번 학습량과 평가 Seed의 결과임을 밝히세요.</li>
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>

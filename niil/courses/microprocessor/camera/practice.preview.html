@@ -51,9 +51,9 @@ print(frame.shape,frame.nbytes,small.shape,small.nbytes)
 <p>획득 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi mathvariant="normal">t</mi><mi mathvariant="normal">i</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">e</mi><mi mathvariant="normal">s</mi><mi mathvariant="normal">t</mi><mi mathvariant="normal">a</mi><mi mathvariant="normal">m</mi><mi mathvariant="normal">p</mi></mrow><mo>=</mo><mrow><mo form="prefix" stretchy="true">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>0</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0.033</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0.067</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0.1</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0.15</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>0.183</mn></mtd></mtr></mtable><mo form="postfix" stretchy="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">\mathrm{timestamp}=\begin{bmatrix}0&amp;0.033&amp;0.067&amp;0.1&amp;0.15&amp;0.183\end{bmatrix}</annotation></semantics></math></span> s를 사용합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>인접 Frame 간격과 평균 간격의 역수로 계산한 관측 FPS를 구하세요.</li>
-<li>일정한 30 FPS 간격과 비교해 가장 긴 간격을 표시하세요.</li>
-<li>요청한 FPS·관측한 FPS·저장된 Frame 수를 서로 다른 항목으로 적으세요.</li>
+<li><code>np.diff(timestamp)</code>로 다섯 Frame 간격을 구하세요. 관측 FPS는 이 다섯 간격의 평균을 구한 뒤 그 역수로 계산하세요.</li>
+<li>각 간격을 비교기준 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mi>/</mi><mn>30</mn></mrow><annotation encoding="application/x-tex">1/30</annotation></semantics></math></span> s와 나란히 적고, 가장 긴 간격의 시작·끝 시각을 표시하세요. 구간 번호를 x축, Frame 간격 [s]를 y축으로 그리세요.</li>
+<li>요청값으로 가정한 30 FPS, 계산한 관측 FPS, 시간 기록에 들어 있는 Frame 수를 서로 다른 항목으로 적으세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>

@@ -16,8 +16,8 @@
 <p>160×120 영상의 중심은 (80,60), 관측 중심은 (110,50)입니다. x는 오른쪽, y는 아래쪽입니다.</p>
 <h3 id="진행-방법">진행 방법</h3>
 <ol type="1">
-<li>영상 오차와 좌표 방향을 계산하고 그림에 표시하세요.</li>
-<li>오차 10 pixel 안에서는 명령 0인 Dead zone을 적용하세요.</li>
+<li>예제의 <code>command(center)</code>와 같은 부호로 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>x</mi></msub><mo>=</mo><mi>x</mi><mo>−</mo><mn>80</mn></mrow><annotation encoding="application/x-tex">e_x=x-80</annotation></semantics></math></span>, <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mi>y</mi></msub><mo>=</mo><mi>y</mi><mo>−</mo><mn>60</mn></mrow><annotation encoding="application/x-tex">e_y=y-60</annotation></semantics></math></span>을 계산하세요. 중심과 관측점을 찍고 중심에서 관측점으로 향하는 화살표에 두 오차를 표시하세요.</li>
+<li>각 축에서 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">|</mo><mi>e</mi><mo form="prefix" stretchy="false">|</mo><mo>≤</mo><mn>10</mn></mrow><annotation encoding="application/x-tex">|e|\le10</annotation></semantics></math></span> pixel이면 명령 0, 나머지는 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0.02</mn><mi>e</mi></mrow><annotation encoding="application/x-tex">0.02e</annotation></semantics></math></span>로 계산한 뒤 범위를 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">[</mo><mi>−</mi><mn>0.5</mn><mo>,</mo><mn>0.5</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[-0.5,0.5]</annotation></semantics></math></span>로 제한하세요. <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo form="prefix" stretchy="false">(</mo><mn>110</mn><mo>,</mo><mn>50</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(110,50)</annotation></semantics></math></span>의 두 축 명령을 계산하고 함수 출력과 나란히 기록하세요.</li>
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>
@@ -50,9 +50,9 @@ plt.scatter([80,110],[60,50]);plt.arrow(80,60,30,-10,head_width=3);plt.xlim(0,16
 <p>x 관측은 [80,82,79,110,None,108], <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>y</mi><mo>=</mo><mn>60</mn></mrow><annotation encoding="application/x-tex">y=60</annotation></semantics></math></span>입니다. None은 물체를 찾지 못한 Frame입니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>현재 값만 쓰는 제어와 3 Frame 이동평균을 비교하세요.</li>
-<li>미검출에서는 오래된 명령을 유지하지 않고 0으로 만드세요.</li>
-<li>Frame별 관측·필터값·명령을 한 그림에 표시하세요.</li>
+<li>각 유효 관측에 <code>command((x,60))</code>를 적용한 명령과, 최근 유효 관측 최대 3개의 x 평균에 적용한 명령을 각각 구하세요. 시작 시 표본이 3개보다 적으면 모인 표본만 평균냅니다.</li>
+<li><code>None</code>에서 명령을 0으로 만들고 평균용 기록도 비우세요. 뒤의 108은 새 기록의 첫 표본으로 처리하세요.</li>
+<li>Frame 순서·원 관측·평균 x·두 명령을 표로 남기고 같은 Frame 축에 표시하세요. 110으로 바뀐 Frame의 두 명령과 미검출 직후 명령을 짚어 차이를 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>

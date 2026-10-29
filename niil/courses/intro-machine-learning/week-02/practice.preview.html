@@ -41,26 +41,25 @@ print(A.mean(),B.mean(),A.sum(axis=0),B.sum(axis=0))
 <p>A와 B를 오른쪽으로 1칸 옮긴 영상에서 같은 특징을 계산합니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
-<li>바뀐 입력·조건을 명시하고 첫 활동과 같은 절차를 적용하세요.</li>
-<li>기준 결과와 변경 결과를 같은 표·그림 형식으로 대조하세요.</li>
-<li>조건 변경으로 결과가 달라진 이유를 설명하세요.</li>
+<li><code>np.roll(A,1,axis=1)</code>과 <code>np.roll(B,1,axis=1)</code>로 오른쪽으로 한 칸씩 옮기세요. 이번 예제에서는 오른쪽 끝 열이 왼쪽으로 돌아옵니다.</li>
+<li>앞 활동에서 선택한 특징과 전체 평균·행 합·열 합을 옮긴 영상에서도 계산하세요. 영상별로 이동 전후 특징값을 나란히 기록하세요.</li>
+<li>특징값이 유지되는 항목과 달라지는 항목을 구분하고, 선택한 특징으로 두 영상을 계속 구분할 수 있는지 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-1">남길 결과</h3>
 <ul>
-<li>기준과 변경 조건을 비교한 표 1개, 필요한 경우 그림 1개. <!-- /exercise-guidance:intro-machine-learning/week-02/activity-2 --></li>
+<li>이동 전후 영상과 같은 특징의 비교 표. <!-- /exercise-guidance:intro-machine-learning/week-02/activity-2 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>A2=np.roll(A,1,axis=1);B2=np.roll(B,1,axis=1)
 </code></pre></section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-1">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:intro-machine-learning/week-02/activity-2-record -->
-<p><strong>조건:</strong></p>
-<p><strong>관측 지표·값:</strong></p>
-<p><strong>기준과 차이:</strong></p>
-<p><strong>해석:</strong></p>
+<p><strong>영상·이동 전후:</strong></p>
+<p><strong>평균:</strong></p>
+<p><strong>행·열 합:</strong></p>
+<p><strong>선택 특징·구분 가능 여부:</strong></p>
 <h3 id="확인할-점-1">확인할 점</h3>
 <ul>
-<li>바꾼 요소 이외의 데이터·분할·seed·계산 방법을 고정했는가?</li>
-<li>비교 지표의 정의와 단위가 같은가? <!-- /exercise-guidance:intro-machine-learning/week-02/activity-2-record --></li>
+<li>같은 특징을 이동 전후에 계산했는가? <!-- /exercise-guidance:intro-machine-learning/week-02/activity-2-record --></li>
 </ul>
 </section><section class="notebook-cell">
 <h2 id="다른-입력에서도-확인하기">다른 입력에서도 확인하기</h2>
@@ -69,22 +68,22 @@ print(A.mean(),B.mean(),A.sum(axis=0),B.sum(axis=0))
 <p>A와 B 각각의 픽셀 하나를 반대로 바꾸어 선택한 특징의 강건성을 봅니다.</p>
 <h3 id="진행-방법-2">진행 방법</h3>
 <ol type="1">
-<li>새 입력의 결과를 예측한 뒤 실행하세요.</li>
-<li>기준 실험과 같은 지표로 결과를 비교하세요.</li>
+<li>A와 B에서 픽셀 하나씩을 선택해 0은 1로, 1은 0으로 바꾸세요. 바꾼 행·열 Index와 변경 전후 값을 적으세요.</li>
+<li>앞에서 선택한 특징값을 다시 계산하고 변경 전후 값과 두 영상의 구분 가능 여부를 기록하세요. 한 픽셀 변화가 특징에 미친 영향을 설명하세요.</li>
 </ol>
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
-<li>새 입력의 결과 표와 기준 실험과의 차이 해석. <!-- /exercise-guidance:intro-machine-learning/week-02/activity-3 --></li>
+<li>바꾼 픽셀·변경 전후 특징과 구분 가능 여부. <!-- /exercise-guidance:intro-machine-learning/week-02/activity-3 --></li>
 </ul>
 </section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-2">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:intro-machine-learning/week-02/activity-3-record -->
-<p><strong>예제:</strong></p>
-<p><strong>예상:</strong></p>
-<p><strong>실제 결과:</strong></p>
+<p><strong>바꾼 픽셀 Index·값:</strong></p>
+<p><strong>변경 전후 특징:</strong></p>
+<p><strong>두 영상의 구분 여부:</strong></p>
 <p><strong>판단 근거:</strong></p>
 <h3 id="확인할-점-2">확인할 점</h3>
 <ul>
-<li>위치를 옮긴 그림의 Label은 유지하고 특징만 다시 계산했는가? <!-- /exercise-guidance:intro-machine-learning/week-02/activity-3-record --></li>
+<li>바꾼 픽셀의 위치와 값을 기록했는가? <!-- /exercise-guidance:intro-machine-learning/week-02/activity-3-record --></li>
 </ul>
 </section></main><footer class="site-footer" data-niil-frame=""><div class="footer-identity"><strong>자연모사 인공지능 연구실</strong><span>광운대학교</span></div><div class="footer-meta"><a href="/niil/courses/reuse.html">저자·이용 안내</a><small>© NiiL</small></div></footer></body></html>
