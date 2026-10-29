@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/chorok-daddy/courses",
-  "revision": "ba267cf6a9084303fbbbd1b90c202d887035def8",
+  "revision": "d7774550e698accfe49b701bc492df1bf56beabe",
   "files": {
     "assets/site.css": "d682a3ff5e5e12bee3b935462177dc1ff3e4ebc85a56d2e00f63a5b1e830524d",
     "niil/courses/CITATION.cff": "eb9d9cc1a252f3f5a040e20e82aed32aa4f7f51bdf1a388194897a8d41afcd65",
@@ -745,7 +745,9 @@
     "niil/courses/control-2/compensator-design/lesson.preview.html": "04e696b36bd89785e47fe2611078cd87ed36251add250f44c072dd3762c30a30",
     "niil/courses/control-2/compensator-design/practice.ipynb": "21025c8368a4ad053a27d3b409a292b547b95062e89e8f96b78d985ba0f9465d",
     "niil/courses/control-2/compensator-design/practice.preview.html": "9d80dd4274272bccf05b8d70827cc613a01f26bab6b801283d61d85e52565480",
-    "niil/courses/control-2/final-exam/index.html": "97809991e02427dca2e4b1e3c05f58ad8fdd0a9428e6f4ab3071194c3f9073ed",
+    "niil/courses/control-2/exam-format/matlab.html": "e3f104db73b7e435e40c01d42105d49c703cbe7dd541c1d6320cfac7ffd4336b",
+    "niil/courses/control-2/exam-format/python.html": "ee6e5fc04daeae213166a04ec6abbe7040db2ced923da9a2f35dbfa135979b05",
+    "niil/courses/control-2/final-exam/index.html": "c8f52886f8ffd4d5b5b2c41f598e385f604fab140c2789d0dcadb75791e46af0",
     "niil/courses/control-2/frequency-response/W10_FrequencyResponse.ipynb": "456c55cef44eb17c7e970252c39321ded2500fd8775987002109b899289eee88",
     "niil/courses/control-2/frequency-response/W10_FrequencyResponse.preview.html": "4d15288cafa5e0ed220cf7c714b2778adc73887aedfdc63cbafdddc95904c64f",
     "niil/courses/control-2/frequency-response/assignment.html": "c9a63399a51c7bcb4a32274b72149eb4814fd55e2d3b25978fb94f3f16fdf7b5",
@@ -771,7 +773,7 @@
     "niil/courses/control-2/laplace-transform/lesson.preview.html": "a30b55233e017935b97ff8047bcfc88c73cbb0a38be52b4c964cc2d16332fb15",
     "niil/courses/control-2/laplace-transform/practice.ipynb": "406c12f56598f3c4d55082f3092e70bfaaa5b44721164571e17549e662435159",
     "niil/courses/control-2/laplace-transform/practice.preview.html": "8bcd8279c8603746af7b2fc653aeadc8ff877edd98145e34c72e5384b5eb43f1",
-    "niil/courses/control-2/midterm/index.html": "5f8305eaf90e2c12251360772b1047451aae31d8f69c6c448acc0e428ae8e972",
+    "niil/courses/control-2/midterm/index.html": "f0d0571514b911e08b40635bd6493235d91e6c825a58f3ca10b4d42e368e6bb0",
     "niil/courses/control-2/pid-control/PID.png": "34e074fc3efca4855ecbdda2089e283a8dce97a246e816fe643d0f5494762573",
     "niil/courses/control-2/pid-control/W7_PIDController.ipynb": "b3292b0c75a486f70671665741bc469ffd426472751a815521d199670090d076",
     "niil/courses/control-2/pid-control/W7_PIDController.preview.html": "2428259edbc653a69c84e0ad46f85022dc10ff07782db488e548d70cfd1c562f",
