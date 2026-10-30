@@ -11,8 +11,9 @@
 <li>Code Cell 실행: ▶ 또는 <code>Shift+Enter</code>, 위에서부터 순서대로.</li>
 <li>Text Cell 작성: 더블클릭 → <code>직접 입력</code> 작성 → <code>Shift+Enter</code>.</li>
 <li>직접 작성 셀: 본인 코드 입력.</li>
-<li>값 변경 후: 해당 셀과 뒤의 관련 셀 다시 실행. <!-- /exercise-guidance:ai-applications/image-classification/execution --></li>
+<li>값 변경 후: 해당 셀과 뒤의 관련 셀 다시 실행.</li>
 </ul>
+<p>로컬 실행 준비 - PyTorch·torchvision: <a href="https://pytorch.org/get-started/previous-versions/" rel="noopener noreferrer" target="_blank">호환 버전</a>을 함께 설치. Python 3.11 · PyTorch 2.12.1 · torchvision 0.27.1에서 실행 확인. - MNIST: 처음 실행할 때 인터넷 연결 필요. 다운로드 위치: <code>mnist_data</code>. - Mac의 python.org Python에서 <code>CERTIFICATE_VERIFY_FAILED</code> 발생 시: Applications의 해당 Python 폴더에서 <code>Install Certificates.command</code> 실행 후 재시도. <!-- /exercise-guidance:ai-applications/image-classification/execution --></p>
 </section><section class="notebook-cell">
 <h2 id="mnist와-실행-규모">1. MNIST와 실행 규모</h2>
 <p>이번 실습은 QUICK_RUN=True를 유지해 학습 1200개·평가 300개로 진행합니다. 최초 실행은 MNIST를 다운로드하므로 인터넷이 필요합니다. 전체 데이터로 학습할 때는 사용한 표본 수를 함께 기록하세요.</p>
