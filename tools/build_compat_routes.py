@@ -38,7 +38,7 @@ def main():
     (ROOT/'niil/assets/legacy-routes.js').write_text(router)
     error=BeautifulSoup((ROOT/'404.html').read_text(),'html.parser')
     error.select_one('script[src^="/niil/assets/legacy-routes.js"]')['src']='/niil/assets/legacy-routes.js?v='+hashlib.sha256(router.encode()).hexdigest()[:12]
-    (ROOT/'404.html').write_text(str(error)+'\n')
+    (ROOT/'404.html').write_text(str(error).rstrip()+'\n')
     manifest = json.loads((ROOT / 'tools/course-compatibility.json').read_text())
     for item in manifest['files']:
         new = ROOT / item['new'].lstrip('/')
