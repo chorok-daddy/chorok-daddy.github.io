@@ -5,9 +5,15 @@
       document.documentElement.dataset.selectedRuntime = value;
       languagePicker.querySelectorAll('input').forEach(input => { input.checked = input.value === value; });
     };
-    selectLanguage('python');
+    const initialRuntime = new URLSearchParams(location.search).get('runtime');
+    selectLanguage(initialRuntime === 'matlab' ? 'matlab' : 'python');
     languagePicker.addEventListener('change', event => {
-      if (event.target.matches('input[name="lab-language"]')) selectLanguage(event.target.value);
+      if (!event.target.matches('input[name="lab-language"]')) return;
+      selectLanguage(event.target.value);
+      const url = new URL(location.href);
+      url.searchParams.set('runtime', event.target.value);
+      history.replaceState(null, '', url.pathname + url.search + url.hash);
+      window.dispatchEvent(new Event('course-runtime-change'));
     });
   }
   const embedded = new URLSearchParams(location.search).get('embedded') === '1';
@@ -24,12 +30,18 @@
     });
     return;
   }
+  const english = document.documentElement.lang.toLowerCase().startsWith('en');
+  const text = (ko, en) => english ? en : ko;
   let dialog, frame, trigger;
   function prepare() {
     dialog = document.createElement('dialog');
     dialog.className = 'course-overlay';
     dialog.setAttribute('aria-labelledby','course-overlay-title');
     dialog.innerHTML = '<header class="overlay-bar"><strong id="course-overlay-title">학습자료</strong><a class="overlay-run" target="_blank" rel="noopener noreferrer" hidden>Colab 실행 ↗</a><button type="button" class="overlay-close" aria-label="자료 닫기">닫기 ×</button></header><div class="overlay-content"></div>';
+    dialog.querySelector('#course-overlay-title').textContent = text('학습자료', 'Study material');
+    const close = dialog.querySelector('.overlay-close');
+    close.textContent = text('닫기 ×', 'Close ×');
+    close.setAttribute('aria-label', text('자료 닫기', 'Close material'));
     document.body.append(dialog);
     dialog.querySelector('button').addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', e => {
@@ -59,14 +71,14 @@
     const run = dialog.querySelector('.overlay-run');
     const runUrl = a.dataset.colabUrl || a.dataset.matlabUrl;
     run.hidden = !runUrl;
-    run.textContent = a.dataset.matlabUrl ? 'MATLAB 실행 ↗' : 'Colab 실행 ↗';
+    run.textContent = a.dataset.matlabUrl ? text('MATLAB 실행 ↗', 'Run in MATLAB ↗') : text('Colab 실행 ↗', 'Run in Colab ↗');
     if (runUrl) run.href = runUrl; else run.removeAttribute('href');
-    dialog.querySelector('#course-overlay-title').textContent = a.dataset.courseOverlay || '학습자료';
+    dialog.querySelector('#course-overlay-title').textContent = a.dataset.courseOverlay || text('학습자료', 'Study material');
     url.searchParams.set('embedded','1');
     if (a.dataset.documentVersion) url.searchParams.set('v',a.dataset.documentVersion);
     frame = document.createElement('iframe');
     frame.src = url.href;
-    frame.title = a.dataset.courseOverlay || '학습자료';
+    frame.title = a.dataset.courseOverlay || text('학습자료', 'Study material');
     dialog.querySelector('.overlay-content').replaceChildren(frame);
     dialog.showModal();
     document.documentElement.classList.add('course-dialog-open');
