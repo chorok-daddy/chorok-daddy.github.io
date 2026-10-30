@@ -3,11 +3,12 @@
 import json,re
 from pathlib import Path
 from bs4 import BeautifulSoup
+from publication_layout import localized
 ROOT=Path(__file__).resolve().parents[1]
 def data(name):return json.loads((ROOT/'niil/content'/name).read_text())
 def page(path):return BeautifulSoup((ROOT/path.lstrip('/')/'index.html').read_text(),'html.parser')
 projects=data('projects.json');routes=data('routes.json');locales=data('project-locales.json')
-for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
+for lang,prefix in [('ko','/niil/ko/'),('en','/niil/en/')]:
  catalog=page(prefix+'research/')
  assert catalog.html['lang']==lang
  rows=catalog.select('[data-project]');assert len(rows)==len(projects)
@@ -19,7 +20,7 @@ for lang,prefix in [('ko','/niil/'),('en','/niil/en/')]:
   summary=p['summary'] if lang=='ko' else locales[p['key']]['summary_en']
   assert detail.select_one('.lede').get_text()==summary
   assert summary in row.get_text()
-  target=routes[p['page_id']].replace('/niil/','/niil/en/',1) if lang=='ko' else routes[p['page_id']]
+  target=localized(routes[p['page_id']],'en' if lang=='ko' else 'ko')
   assert detail.select_one('[data-language="'+('en' if lang=='ko' else 'ko')+'"]')['href']==target
   assert not detail.select('.project-phases')
   assert '광운대학교 연구책임자' not in detail.get_text()

@@ -8,7 +8,7 @@
       "title": "인공지능응용",
       "title_en": "AI Applications",
       "source": "ai-applications",
-      "web_path": "/niil/courses/ai-applications/",
+      "web_path": "/niil/ko/courses/ai-applications/",
       "published": true,
       "offering": {
         "academic_year": 2026,
@@ -1051,7 +1051,7 @@
       "title": "제어공학1",
       "title_en": "Control Engineering I",
       "source": "control-1",
-      "web_path": "/niil/courses/control-1/",
+      "web_path": "/niil/ko/courses/control-1/",
       "published": true,
       "offering": {
         "academic_year": 2026,
@@ -1530,7 +1530,7 @@
       "title": "제어공학2",
       "title_en": "Control Engineering II",
       "source": "control-2",
-      "web_path": "/niil/courses/control-2/",
+      "web_path": "/niil/ko/courses/control-2/",
       "published": true,
       "offering": {
         "semester": null,
@@ -1974,7 +1974,7 @@
       "title": "로봇기초실습",
       "title_en": "Robot Basic Lab",
       "source": "robot-basic-lab",
-      "web_path": "/niil/courses/robot-basic-lab/",
+      "web_path": "/niil/ko/courses/robot-basic-lab/",
       "published": true,
       "offering": {
         "semester": null,
@@ -2422,7 +2422,7 @@
       "title": "마이크로프로세서응용설계",
       "title_en": "Microprocessor Applications",
       "source": "microprocessor",
-      "web_path": "/niil/courses/microprocessor/",
+      "web_path": "/niil/ko/courses/microprocessor/",
       "published": true,
       "offering": {
         "semester": null,
@@ -2871,7 +2871,7 @@
       "title": "머신러닝의 이해",
       "title_en": "Introduction to Machine Learning",
       "source": "intro-machine-learning",
-      "web_path": "/niil/courses/intro-machine-learning/",
+      "web_path": "/niil/ko/courses/intro-machine-learning/",
       "published": true,
       "offering": {
         "semester": null,
@@ -3350,7 +3350,7 @@
       "title": "전기공학머신러닝실습",
       "title_en": "Machine Learning Lab",
       "source": "machine-learning-lab",
-      "web_path": "/niil/courses/machine-learning-lab/",
+      "web_path": "/niil/ko/courses/machine-learning-lab/",
       "published": true,
       "offering": {
         "semester": null,
@@ -3499,7 +3499,7 @@
       "title": "전기공학을 위한 강화학습",
       "title_en": "Reinforcement Learning for Electrical Engineering",
       "source": "reinforcement-learning",
-      "web_path": "/niil/courses/reinforcement-learning/",
+      "web_path": "/niil/ko/courses/reinforcement-learning/",
       "published": true,
       "offering": {
         "semester": null,
@@ -3926,7 +3926,7 @@
       "title": "전기공학세미나",
       "title_en": "Electrical Engineering Seminar",
       "source": "ee-seminar",
-      "web_path": "/niil/courses/ee-seminar/",
+      "web_path": "/niil/ko/courses/ee-seminar/",
       "published": true,
       "offering": {
         "semester": null,

@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 from xml.etree import ElementTree as ET
 from bs4 import BeautifulSoup
+from publication_layout import localized,neutral
 
 ROOT=Path(__file__).resolve().parents[1]
 SITE=ROOT/'niil';BASE='https://chorok-daddy.github.io'
@@ -21,7 +22,7 @@ def excerpt(text,length=170):
     return text if len(text)<=length else text[:length].rsplit(' ',1)[0]+'…'
 
 faculty=next(m for m in MEMBERS if m['role']['en']=='Professor')
-PROFILE=canonical(ROUTES[faculty['id']])
+PROFILE=canonical(localized(ROUTES[faculty['id']],'ko'))
 PERSON_ID=BASE+PROFILE+'#person';ORG_ID=BASE+'/niil/#organization'
 member_paths={canonical(ROUTES[m['id']]):m for m in MEMBERS}
 verification_file=ROOT/'tools/search-console.json'
@@ -40,12 +41,12 @@ for file in sorted(SITE.rglob('*.html')):
     if not doc.head:continue
     path=canonical('/'+file.relative_to(ROOT).as_posix())
     lang='en' if path.startswith('/niil/en/') else 'ko'
-    ko_path=path.replace('/niil/en/','/niil/',1)
+    ko_path=neutral(path)
     def meta(name,value,prop=False):
         key='property' if prop else 'name'
         for old in doc.head.find_all('meta',attrs={key:name}):old.decompose()
         doc.head.append(doc.new_tag('meta',attrs={key:name,'content':value}))
-    if verification and path=='/niil/':meta('google-site-verification',verification)
+    if verification and path in ('/niil/','/niil/ko/'):meta('google-site-verification',verification)
     redirect=doc.select_one('meta[http-equiv="refresh"]')
     if redirect:
         meta('robots','noindex,follow')

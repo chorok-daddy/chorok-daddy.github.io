@@ -4,8 +4,9 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SITE=ROOT/'niil'
 def owns(name):
+    if name=='niil/index.html':return False
     if not name.startswith('niil/') or not name.endswith('.html'):return False
-    for prefix in ('niil/courses/','niil/en/courses/'):
+    for prefix in ('niil/ko/courses/','niil/en/courses/'):
         if name.startswith(prefix):return name.removeprefix(prefix) in ('index.html','reuse.html')
     return not name.startswith(('niil/assets/','niil/content/'))
 def finish(generated):

@@ -11,10 +11,10 @@ menu?.addEventListener('click', () => {
 const params = new URLSearchParams(location.search);
 function refreshLanguageLinks() {
   document.querySelectorAll('[data-language]').forEach(link => {
-    if (link.hasAttribute('data-course-language')) return;
-    const url = new URL(link.href);
-    url.search = params.toString();
-    url.hash = location.hash;
+    const current = new URL(location.href);
+    const url = new URL(window.NiiLRoutes.localized(current.href, link.dataset.language), location.origin);
+    url.searchParams.delete('v');
+    url.searchParams.delete('lang');
     link.href = url.pathname + url.search + url.hash;
   });
 }
@@ -54,6 +54,7 @@ bindFilters({search:'#project-search',controls:[['#project-topic','topic','topic
 bindFilters({search:'#publication-search',controls:[['#publication-year','year','year'],['#publication-type','type','type']],items:'[data-publication]',count:'#publication-count',empty:'#publication-empty',koUnit:'편',enUnit:'publication'});
 refreshLanguageLinks();
 window.addEventListener('hashchange', refreshLanguageLinks);
+window.addEventListener('course-runtime-change', refreshLanguageLinks);
 const toc = document.querySelector('.toc');
 if (toc) document.querySelectorAll('.prose h2, .prose h3').forEach((heading, index) => {
   if (heading.closest('details')) return;

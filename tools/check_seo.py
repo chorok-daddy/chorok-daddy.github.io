@@ -22,7 +22,7 @@ for item in root:
  assert doc.select_one('meta[property="og:url"]')['content']==url,url
  for link in item.findall('x:link',ns):assert link.attrib['href'] in urls,link.attrib
  for block in doc.select('script[type="application/ld+json"]'):json.loads(block.string)
-faculty=BeautifulSoup((ROOT/'niil/pages/ki-baek-lee-36f11249/index.html').read_text(),'html.parser')
+faculty=BeautifulSoup((ROOT/'niil/ko/pages/ki-baek-lee-36f11249/index.html').read_text(),'html.parser')
 graph=json.loads(faculty.select_one('script[data-niil-seo]').string)['@graph']
 assert any(n['@type']=='ProfilePage' for n in graph)
 assert any(n['@type']=='Person' and 'yZ9xxNcAAAAJ' in n['sameAs'][0] for n in graph)
@@ -32,7 +32,7 @@ print(f'PASS: {len(urls)} canonical URLs, sitemap, language alternatives and JSO
 verification_file=ROOT/'tools/search-console.json'
 if verification_file.exists():
  expected=json.loads(verification_file.read_text())['google_site_verification']
- for path in ['index.html','niil/index.html']:
+ for path in ['index.html','niil/index.html','niil/ko/index.html']:
   doc=BeautifulSoup((ROOT/path).read_text(),'html.parser')
   assert doc.head.select_one('meta[name="google-site-verification"]')['content']==expected,path
  print('PASS: Search Console verification survives on root and landing page.')

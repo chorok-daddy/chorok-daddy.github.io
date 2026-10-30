@@ -1,0 +1,6 @@
+{
+  "root": "/niil/",
+  "languages": ["ko", "en"],
+  "default_language": "ko",
+  "course_assets": "/niil/assets/courses/"
+}

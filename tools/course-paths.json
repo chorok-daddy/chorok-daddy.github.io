@@ -1475,8 +1475,8 @@
     "shared/exam-format-examples.html": "exam-format-examples.html"
   },
   "web_aliases": {
-    "/niil/courses/ai-applications/data/data_linear_regression.csv": "ai-applications/linear-regression/data_linear_regression.csv",
-    "/niil/courses/ai-applications/data/data_logistic_regression.csv": "ai-applications/logistic-regression/data_logistic_regression.csv",
-    "/niil/courses/ai-applications/data/data_multinomial_classification.csv": "ai-applications/multiclass/data_multinomial_classification.csv"
+    "/niil/ko/courses/ai-applications/data/data_linear_regression.csv": "ai-applications/linear-regression/data_linear_regression.csv",
+    "/niil/ko/courses/ai-applications/data/data_logistic_regression.csv": "ai-applications/logistic-regression/data_logistic_regression.csv",
+    "/niil/ko/courses/ai-applications/data/data_multinomial_classification.csv": "ai-applications/multiclass/data_multinomial_classification.csv"
   }
 }

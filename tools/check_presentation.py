@@ -20,7 +20,7 @@ for p in (ROOT/'niil').rglob('*.html'):
  assert not notes,p
  assert 'NiiL Easter Egg' not in doc.get_text(),p
  count+=1
-for lang in ('','en/'):
+for lang in ('ko/','en/'):
  catalog=BeautifulSoup((ROOT/('niil/'+lang+'courses/index.html')).read_text(),'html.parser')
  additional=catalog.select_one('details.additional-courses')
  assert additional and not additional.has_attr('open')
@@ -34,7 +34,7 @@ for lang in ('','en/'):
 courses=json.loads((ROOT/'tools/course-catalog.json').read_text())['courses']
 for course in courses:
  if not course['published']:continue
- directory=ROOT/'niil/courses'/course['slug']
+ directory=ROOT/'niil/ko/courses'/course['slug']
  index=BeautifulSoup((directory/'index.html').read_text(),'html.parser')
  assert not index.select('.chapter-exercise')
  assert not index.select('a[href="files.html"]')
@@ -46,10 +46,10 @@ for course in courses:
  if enabled:
   assert download and download['href']=='https://github.com/chorok-daddy/courses/blob/main/'+course['slug']+'/README.md'
   assert not download.has_attr('download') and download.get_text()=='자료 받기 ↗'
-  assert (ROOT/'niil/courses/downloads'/(course['slug']+'.zip')).is_file()
+  assert (ROOT/'niil/ko/courses/downloads'/(course['slug']+'.zip')).is_file()
  else:
   assert download is None
-  assert not (ROOT/'niil/courses/downloads'/(course['slug']+'.zip')).exists()
+  assert not (ROOT/'niil/ko/courses/downloads'/(course['slug']+'.zip')).exists()
  for chapter in course['chapters']:
   assignment=directory/chapter['slug']/'assignment.html'
   entry=chapter['slug']+('/assignment.html' if assignment.is_file() else '/index.html')
@@ -88,19 +88,19 @@ for course in courses:
    page=BeautifulSoup(preview.read_text(),'html.parser')
    assert page.select_one('.mlx-document') and page.select_one('meta[name="mlx-export-run"]')['content']=='false'
    assert page.select_one('meta[name="mlx-source-sha256"]')['content']==hashlib.sha256(source.read_bytes()).hexdigest()
-for page in (ROOT/'niil/courses').rglob('*.html'):
+for page in (ROOT/'niil/ko/courses').rglob('*.html'):
  doc=BeautifulSoup(page.read_text(),'html.parser')
  assert not doc.select('.course-author'),page
- if page.name.endswith('.preview.html') or page.name=='assignment.html' or len(page.relative_to(ROOT/'niil/courses').parts)>2:
+ if page.name.endswith('.preview.html') or page.name=='assignment.html' or len(page.relative_to(ROOT/'niil/ko/courses').parts)>2:
   for a in doc.select('main a[href^="https://"]'):assert a.get('target')=='_blank',page
  assert '이기백' not in doc.title.get_text() and 'Ki-Baek' not in doc.title.get_text(),page
 print(f'PASS: {count} content footers, dialogs, exercise entry points, concise course titles and alumni cleanup')
 
-assert '전체 페이지' not in (ROOT/'niil/courses/assets/course-ui.js').read_text()
-for lang in ('','en/'):
+assert '전체 페이지' not in (ROOT/'niil/assets/courses/course-ui.js').read_text()
+for lang in ('ko/','en/'):
  text=(ROOT/('niil/'+lang+'research/index.html')).read_text()
  assert '이기백 교수가 발명에 참여한' not in text and 'Patents co-invented by' not in text
 
 css=(ROOT/'niil/assets/niil.css').read_text()
 assert css.count('NiiL Easter Egg')==1 and EASTER_EGG_TEXT in css
-assert 'NiiL Easter Egg' not in (ROOT/'niil/courses/assets/course-ui.css').read_text()
+assert 'NiiL Easter Egg' not in (ROOT/'niil/assets/courses/course-ui.css').read_text()
