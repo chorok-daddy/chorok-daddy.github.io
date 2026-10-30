@@ -22,6 +22,8 @@ def extract(archive,destination):
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--source',type=Path,help='Local courses checkout; imports HEAD objects, not working files')
+    ap.add_argument('--publication-output',type=Path,help='Also emit the generated English GitHub tree')
+    ap.add_argument('--prepared-export',type=Path,help='Import a locally validated publication snapshot')
     ap.add_argument('--locked',action='store_true',help='Reproduce the recorded revision')
     args=ap.parse_args()
     if not args.source and not args.locked:ap.error('Choose --source or --locked')
@@ -36,21 +38,30 @@ def main():
         if run(['git','status','--porcelain'],source).strip():raise SystemExit('Commit course source changes before importing')
     with tempfile.TemporaryDirectory(prefix='niil-course-source-') as temp:
         temp=Path(temp);snapshot=temp/'source';snapshot.mkdir();output=temp/'output'
-        available=False
-        if (source/'.git').exists():
-            origin=run(['git','remote','get-url','origin'],source).decode().strip().removesuffix('.git')
-            if origin not in (REPOSITORY,'git@github.com:chorok-daddy/courses'):raise SystemExit('Unexpected course repository origin')
-            available=subprocess.run(['git','cat-file','-e',revision+'^{commit}'],cwd=source,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0
-        if available:
-            archive=run(['git','archive','--format=tar',revision],source)
-            with tarfile.open(fileobj=io.BytesIO(archive)) as tf:extract(tf,snapshot)
+        if args.prepared_export:
+            if args.locked:raise SystemExit('Prepared export requires --source')
+            prepared=json.loads(args.prepared_export.read_text())
+            if prepared['source_revision']!=revision:raise SystemExit('Prepared revision differs from source HEAD')
+            output=args.prepared_export.resolve().parent/'web'
+            files=prepared['web_files']
         else:
-            archive=run(['gh','api','repos/chorok-daddy/courses/tarball/'+revision])
-            unpack=temp/'unpack';unpack.mkdir()
-            with tarfile.open(fileobj=io.BytesIO(archive),mode='r:gz') as tf:extract(tf,unpack)
-            snapshot=next(unpack.iterdir())
-        result=run(['python3',str(snapshot/'tools/export_site.py'),'--output',str(output)])
-        files=json.loads(result)
+            available=False
+            if (source/'.git').exists():
+                origin=run(['git','remote','get-url','origin'],source).decode().strip().removesuffix('.git')
+                if origin not in (REPOSITORY,'git@github.com:chorok-daddy/courses'):raise SystemExit('Unexpected course repository origin')
+                available=subprocess.run(['git','cat-file','-e',revision+'^{commit}'],cwd=source,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0
+            if available:
+                archive=run(['git','archive','--format=tar',revision],source)
+                with tarfile.open(fileobj=io.BytesIO(archive)) as tf:extract(tf,snapshot)
+            else:
+                archive=run(['gh','api','repos/chorok-daddy/courses/tarball/'+revision])
+                unpack=temp/'unpack';unpack.mkdir()
+                with tarfile.open(fileobj=io.BytesIO(archive),mode='r:gz') as tf:extract(tf,unpack)
+                snapshot=next(unpack.iterdir())
+            command=['python3',str(snapshot/'tools/export_site.py'),'--output',str(output),'--source-revision',revision]
+            if args.publication_output:command+=['--publication-output',str(args.publication_output.resolve())]
+            result=run(command)
+            files=json.loads(result)
         if not all(allowed(p) for p in set(files)|set(previous.get('files',{}))):raise SystemExit('Unsafe export path')
         if args.locked and files!=previous['files']:raise SystemExit('Pinned export no longer matches recorded hashes')
         for name,digest in files.items():

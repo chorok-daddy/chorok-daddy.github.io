@@ -102,4 +102,5 @@
   }
   languageLinks();
   window.addEventListener('hashchange', languageLinks);
+  window.addEventListener('course-runtime-change', languageLinks);
 })();

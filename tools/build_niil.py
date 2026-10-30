@@ -336,7 +336,7 @@ for LANG in ('en','ko'):
             cards+='<a class="course-card-link" href="/niil/courses/'+course['slug']+'/index.html"><span class="course-card-copy"><strong>'+esc(title)+'</strong><span>'+esc(caption)+'</span></span><span class="card-arrow" aria-hidden="true">→</span></a>'
         return '<div class="course-cards">'+cards+'</div>'
     additional=sum(c.get('catalog_group','additional')=='additional' for c in COURSE_CATALOG)
-    course_heading='<header class="wrap publication-heading course-heading"><div><h1>'+tr('Course','강의자료')+'</h1></div><a class="repository-link" href="https://github.com/chorok-daddy/courses">GitHub <span aria-hidden="true">↗</span></a></header>'
+    course_heading='<header class="wrap publication-heading course-heading"><div><h1>'+tr('Course','강의자료')+'</h1></div><a class="repository-link" href="https://github.com/chorok-daddy/'+('courses_en' if LANG=='en' else 'courses')+'">GitHub <span aria-hidden="true">↗</span></a></header>'
     course_content=course_heading+'<section class="wrap section compact course-catalog">'+course_cards('primary')+'<details class="additional-courses"><summary>'+tr('Courses under revision','개편 중인 과목')+' <span>'+str(additional)+'</span></summary>'+course_cards('additional')+'</details></section>'
     emit('/niil/courses/',tr('Course','강의자료'),course_content,'teaching')
     route_redirect('/niil/teaching/','/niil/courses/')
@@ -416,7 +416,7 @@ for course_file in sorted([*(SITE/'courses').rglob('*.html'),*(SITE/'en/courses'
     bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=20261030-language')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
-    locale_script=doc.new_tag('script',src='/niil/assets/course-language.js?v=20261030-content2',defer=True)
+    locale_script=doc.new_tag('script',src='/niil/assets/course-language.js?v=20261030-publication',defer=True)
     locale_script['data-niil-frame']='';doc.head.append(locale_script)
     course_file.write_text(str(doc))
 subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)

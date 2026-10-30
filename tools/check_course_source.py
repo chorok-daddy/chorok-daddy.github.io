@@ -17,7 +17,8 @@ for name,digest in lock['files'].items():
         checked+=1
 for lang in ('','en/'):
     doc=BeautifulSoup((ROOT/('niil/'+lang+'courses/index.html')).read_text(),'html.parser')
-    assert len(doc.select('main a[href="https://github.com/chorok-daddy/courses"]'))==1
+    repository='https://github.com/chorok-daddy/'+('courses_en' if lang else 'courses')
+    assert len(doc.select(f'main a[href="{repository}"]'))==1
     assert not doc.select('main a[href$=".zip"]')
     assert not doc.select('main a[href*="github.com/chorok-daddy/course-"]')
 catalog=json.loads((ROOT/'tools/course-catalog.json').read_text())
@@ -50,9 +51,9 @@ for prefix in ['niil/courses','niil/en/courses']:
             for a in doc.select('a[download][href]'):
                 if urlsplit(a['href']).path.endswith(('.ipynb','.mlx')):assert urlsplit(a['href']).path.startswith('/niil/en/courses/'),(file,a)
             for a in doc.select('[data-colab-url]'):
-                assert '/blob/main/en/' in a['data-colab-url'],(file,a)
+                assert '/github/chorok-daddy/courses_en/blob/main/' in a['data-colab-url'],(file,a)
             for a in doc.select('[data-matlab-url]'):
-                assert parse_qs(urlsplit(a['data-matlab-url']).query).get('file',[''])[0].startswith('en/'),(file,a)
+                assert parse_qs(urlsplit(a['data-matlab-url']).query).get('repo')==['chorok-daddy/courses_en'] and not parse_qs(urlsplit(a['data-matlab-url']).query).get('file',[''])[0].startswith('en/'),(file,a)
         framed+=1
 english=BeautifulSoup((ROOT/'niil/en/courses/index.html').read_text(),'html.parser')
 for link in english.select('.course-card-link'):assert urlsplit(link['href']).path.startswith('/niil/en/courses/'),link
