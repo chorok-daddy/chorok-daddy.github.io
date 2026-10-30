@@ -4,3 +4,8 @@ __pycache__/
 
 # Local agent instructions
 AGENTS.md
+
+# Local authoring, policy, translation and build tooling
+/tools/
+/templates/
+/niil/content/

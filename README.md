@@ -4,4 +4,3 @@
 
 - [연구실 홈페이지](https://chorok-daddy.github.io/niil/)
 - [강의자료](https://chorok-daddy.github.io/niil/ko/courses/)
-- [강의자료 저장소](https://github.com/chorok-daddy/courses)

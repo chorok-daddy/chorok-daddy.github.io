@@ -40,3 +40,5 @@ body.niil-course{display:block;background:var(--paper);color:var(--ink)}
 
 .niil-course .translation-note{font-size:.8rem;color:var(--muted);margin:.3rem 0 1.3rem}
 .niil-course .mlx-document .rtcContent p{white-space:normal;overflow-wrap:anywhere}
+
+.course-acquisition{margin:1.25rem 0 1.75rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.course-acquisition p{margin:0;color:var(--muted,#626b64);font-size:.9rem;max-width:42rem}.course-acquisition .button{white-space:nowrap}@media(max-width:600px){.course-acquisition{align-items:flex-start;flex-direction:column;gap:.65rem}}
