@@ -13,11 +13,11 @@
 <h2 id="한-파일의-변경-추적">한 파일의 변경 추적</h2>
 <!-- exercise-guidance:microprocessor/git-collaboration/activity-1 -->
 <h3 id="시작-조건">시작 조건</h3>
-<p>코드가 만든 임시 저장소의 README.md에서 Condition: baseline을 Condition: test로 바꿉니다.</p>
+<p><code>repo</code>는 Notebook 커널이 실행되는 컴퓨터의 임시 저장소입니다. 그 안의 <code>README.md</code>에서 <code>Condition: baseline</code>을 <code>Condition: test</code>로 바꿉니다.</p>
 <h3 id="진행-방법">진행 방법</h3>
 <ol type="1">
-<li>기준 Commit을 확인한 뒤 문장 한 줄만 수정하세요.</li>
-<li>git diff와 git status를 확인하고 변경 전후를 기록하세요.</li>
+<li>기준 Commit을 확인한 뒤 같은 Notebook의 새 코드 셀에서 <code>repo/'README.md'</code>를 읽고 해당 문장 한 줄만 바꾸어 저장하세요. 파일 경로는 <code>repo</code>를 기준으로 사용합니다.</li>
+<li>제공된 <code>git(*args)</code> 함수를 코드 셀에서 호출해 diff와 status를 기록하세요. 예를 들어 <code>print(git('diff'))</code>로 변경 내용을 표시할 수 있습니다.</li>
 <li>변경을 Commit한 뒤 직전 Commit과의 차이를 다시 확인하세요.</li>
 </ol>
 <h3 id="남길-결과">남길 결과</h3>

@@ -41,8 +41,10 @@
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>
-<li>기준·학습 정책의 평가 표. Reference Angular Velocity별 추종 그림. <!-- /exercise-guidance:reinforcement-learning/week-07/activity-1 --></li>
+<li>기준·학습 정책의 평가 표. Reference Angular Velocity별 추종 그림.</li>
 </ul>
+<p><code>motor_evaluate</code>의 기존 평가 루프 안에서 Step 직후의 <code>env.t*0.1</code>, <code>env.omega</code>, <code>env.reference</code>를 List에 보존하세요. 기존 <code>seed=100</code> 평가에서 Reference별로 시간 [s]–Angular Velocity [rad/s] 추종 그림을 만들고 목표선을 함께 표시합니다. 같은 루프의 기록을 사용하므로 학습이나 평가를 추가로 실행할 필요는 없습니다.</p>
+<p>합성 모델에서 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi><mo>∈</mo><mo form="prefix" stretchy="false">[</mo><mi>−</mi><mn>1</mn><mo>,</mo><mn>1</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">a\in[-1,1]</annotation></semantics></math></span>인 Action은 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi><mo>=</mo><mn>2</mn><mi>a</mi><mo>∈</mo><mo form="prefix" stretchy="false">[</mo><mi>−</mi><mn>2</mn><mo>,</mo><mn>2</mn><mo form="postfix" stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">u=2a\in[-2,2]</annotation></semantics></math></span>인 모델 입력에 대응합니다. <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>u</mi><annotation encoding="application/x-tex">u</annotation></semantics></math></span>의 물리 단위는 지정하지 않았습니다. <!-- /exercise-guidance:reinforcement-learning/week-07/activity-1 --></p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>"""Synthetic motor; not a hardware interface. dt=0.1 s, scalar speed and bounded input."""
 import numpy as np
 class Motor:
@@ -223,8 +225,9 @@ for name,policy in [('zero',zero_torque),('random',None),('sac',lambda o:model.p
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
 <li>MDP 설계 표, Transition 예 3개, 비교 실험 계획.</li>
-<li>실제 연구 자료가 없으면 적용 사례의 합성 조건으로 설계합니다. <!-- /exercise-guidance:reinforcement-learning/week-07/activity-3 --></li>
+<li>실제 연구 자료가 없으면 적용 사례의 합성 조건으로 설계합니다.</li>
 </ul>
+<p>앞서 선택한 연구 문제와 설계 표를 이어서 사용해도 됩니다. 이번 활동에서 배운 개념으로 기존 항목과 Transition 예를 다시 검토하고, 변경한 항목이나 그대로 둔 이유를 갱신하세요. <!-- /exercise-guidance:reinforcement-learning/week-07/activity-3 --></p>
 </section><section class="notebook-cell">
 <h2 id="결과-기록자가-점검-2">결과 기록·자가 점검</h2>
 <!-- exercise-guidance:reinforcement-learning/week-07/activity-3-record -->

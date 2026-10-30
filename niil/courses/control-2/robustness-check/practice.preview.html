@@ -94,7 +94,7 @@ print('largest error:',max(records,key=lambda r:r[4]))
 </ol>
 <h3 id="남길-결과-2">남길 결과</h3>
 <ul>
-<li>출력·입력 곡선, 2 s 이후의 RMS 추종 오차·포화 비율과 적분 간격 비교. <!-- /exercise-guidance:control-2/robustness-check/activity-3 --></li>
+<li>출력·입력 곡선, RMS 추종 오차(2 s 이후)·입력 포화 비율(전체 0–6 s 기록)과 적분 간격 비교. <!-- /exercise-guidance:control-2/robustness-check/activity-3 --></li>
 </ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>def delayed(delay,dt=.002):
     times=np.arange(0,6+dt/2,dt);x=np.zeros(2);commands=[];ys=[];us=[]

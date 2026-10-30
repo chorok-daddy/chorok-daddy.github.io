@@ -12,7 +12,8 @@
 </section><section class="notebook-cell">
 <h2 id="전처리와-평가를-묶기">전처리와 평가를 묶기</h2>
 <!-- exercise-guidance:intro-machine-learning/week-12/learning-2 -->
-<p>Standardization은 학습 자료에서 fit하고 평가 자료에는 같은 변환만 적용합니다. scikit-learn Pipeline으로 변환과 모델을 묶으면 분리·교차검증에서 이 순서를 유지하기 쉽습니다. <!-- /exercise-guidance:intro-machine-learning/week-12/learning-2 --></p>
+<p>Standardization은 학습 자료에서 fit하고 평가 자료에는 같은 변환만 적용합니다. scikit-learn Pipeline으로 변환과 모델을 묶으면 분리·교차검증에서 이 순서를 유지하기 쉽습니다.</p>
+<p><code>ConvergenceWarning</code>은 지정된 반복 안에 최적화의 수렴 기준을 만족하지 못했다는 뜻입니다. 이번 비교에서는 지정된 <code>max_iter</code>를 유지하고 경고 여부와 점수를 함께 기록합니다. 경고가 있는 실행의 점수만으로 모델의 우열을 단정하기 어렵습니다. <!-- /exercise-guidance:intro-machine-learning/week-12/learning-2 --></p>
 </section><section class="notebook-cell">
 <h2 id="풀이-예제">풀이 예제</h2>
 <!-- exercise-guidance:intro-machine-learning/week-12/learning-example -->
@@ -26,6 +27,15 @@ X,y=load_iris(return_X_y=True)
 Xtr,Xte,ytr,yte=train_test_split(X,y,test_size=.3,random_state=7,stratify=y)
 scaler=StandardScaler().fit(Xtr);Xtr=scaler.transform(Xtr);Xte=scaler.transform(Xte)
 </code></pre></section><section class="notebook-cell">
+<!-- exercise-guidance:intro-machine-learning/week-12/learning-worked-model -->
+<p>위에서 준비한 분할·Standardization 결과로 한 모델을 학습하고 평가합니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a aria-hidden="true" href="#cb1-1" tabindex="-1"></a>model <span class="op">=</span> LogisticRegression(max_iter<span class="op">=</span><span class="dv">500</span>)</span>
+<span id="cb1-2"><a aria-hidden="true" href="#cb1-2" tabindex="-1"></a>model.fit(Xtr, ytr)</span>
+<span id="cb1-3"><a aria-hidden="true" href="#cb1-3" tabindex="-1"></a>prediction <span class="op">=</span> model.predict(Xte)</span>
+<span id="cb1-4"><a aria-hidden="true" href="#cb1-4" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Train Accuracy:"</span>, model.score(Xtr, ytr))</span>
+<span id="cb1-5"><a aria-hidden="true" href="#cb1-5" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Test Accuracy:"</span>, model.score(Xte, yte))</span></code></pre></div>
+<!-- /exercise-guidance:intro-machine-learning/week-12/learning-worked-model -->
+</section><section class="notebook-cell">
 <h2 id="참고-예제">참고 예제</h2>
 <!-- exercise-guidance:intro-machine-learning/week-12/learning-references -->
 <details class="learning-references">

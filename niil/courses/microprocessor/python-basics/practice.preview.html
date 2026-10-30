@@ -18,8 +18,9 @@
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>
-<li>5행 기록 표, 요약 통계 4개, 함수 코드. <!-- /exercise-guidance:microprocessor/python-basics/activity-1 --></li>
+<li>5행 기록 표, 요약 통계 4개, 함수 코드.</li>
 </ul>
+<p><code>summarize(rows)</code>의 입력은 <code>time</code>·<code>temperature</code>를 가진 Dictionary의 List로 통일합니다. 통계에는 <code>temperature</code>를 사용하고 유효 표본 수·평균·최솟값·최댓값을 같은 반환 필드로 정리하세요. <!-- /exercise-guidance:microprocessor/python-basics/activity-1 --></p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>records=[(0,21.),(1,21.5),(2,None),(3,22.),(4,20.5)]
 valid=[value for _,value in records if value is not None]
 print('valid count',len(valid),'mean',sum(valid)/len(valid))
@@ -39,7 +40,7 @@ print('valid count',len(valid),'mean',sum(valid)/len(valid))
 <h2 id="경계값과-빈-입력">경계값과 빈 입력</h2>
 <!-- exercise-guidance:microprocessor/python-basics/activity-2 -->
 <h3 id="시작-조건-1">시작 조건</h3>
-<p>같은 함수에 [], [(0,None)], [(0,25.0)]을 각각 넣습니다.</p>
+<p>코드의 <code>cases</code>에 있는 세 입력을 각각 활동 1과 같은 Dictionary List로 변환한 뒤 <code>summarize</code>에 넣습니다. 빈 List는 그대로 두고, 각 쌍의 첫 값은 <code>time</code>, 둘째 값은 <code>temperature</code>에 대응시킵니다.</p>
 <h3 id="진행-방법-1">진행 방법</h3>
 <ol type="1">
 <li>유효 표본이 0개일 때 평균을 None으로 돌려주도록 정하세요.</li>
@@ -71,7 +72,7 @@ print('valid count',len(valid),'mean',sum(valid)/len(valid))
 <p>두 장치 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>A</mi><mo>=</mo><mrow><mo form="prefix" stretchy="true">[</mo><mtable><mtr><mtd columnalign="center" style="text-align: center"><mn>21</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>22</mn></mtd><mtd columnalign="center" style="text-align: center"><mn>23</mn></mtd></mtr></mtable><mo form="postfix" stretchy="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">A=\begin{bmatrix}21&amp;22&amp;23\end{bmatrix}</annotation></semantics></math></span>, B=[19,None,20,21]을 비교합니다. 원본과 같은 온도 단위입니다.</p>
 <h3 id="진행-방법-2">진행 방법</h3>
 <ol type="1">
-<li>같은 summarize 함수로 두 장치를 처리하세요.</li>
+<li>장치별 온도 List를 <code>time</code>·<code>temperature</code>가 있는 Dictionary List로 바꾸어 같은 <code>summarize</code> 함수에 넣으세요. 이 자료에는 시각이 없으므로 <code>time=None</code>으로 두고 온도만 요약합니다.</li>
 <li>장치별 유효 표본 수·평균·범위를 한 표에 적으세요.</li>
 <li>표본 수와 결측 유무가 다른 자료를 비교할 때 확인할 점을 간단히 정리하세요.</li>
 </ol>
