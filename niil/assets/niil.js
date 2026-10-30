@@ -11,6 +11,7 @@ menu?.addEventListener('click', () => {
 const params = new URLSearchParams(location.search);
 function refreshLanguageLinks() {
   document.querySelectorAll('[data-language]').forEach(link => {
+    if (link.hasAttribute('data-course-language')) return;
     const url = new URL(link.href);
     url.search = params.toString();
     url.hash = location.hash;

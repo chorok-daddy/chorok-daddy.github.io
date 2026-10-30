@@ -135,6 +135,9 @@ LANG='en'
 def tr(en,ko):return ko if LANG=='ko' else en
 def local(path):
     if path in ('/niil/courses/','/niil/courses/reuse.html'):return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
+    if LANG=='en' and path.startswith('/niil/courses/') and urlsplit(path).path.endswith(('/', '.html')):
+        u=urlsplit(path)
+        return urlunsplit(('', '',u.path,'lang=en'+('&'+u.query if u.query else ''),u.fragment))
     if path.startswith('/niil/') and not path.startswith(('/niil/assets/','/niil/courses/','/niil/en/')):
         return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
     return path
@@ -187,7 +190,7 @@ def shell(title,content,section='',desc='',path='/niil/'):
     english=path.replace('/niil/','/niil/en/',1);korean=path
     toggle=f'''<nav class="language-switch" aria-label="{tr("Language","언어")}"><a data-language="ko" lang="ko" href="{korean}" {current_language if LANG=='ko' else ''}>한국어</a><span aria-hidden="true">/</span><a data-language="en" lang="en" href="{english}" {current_language if LANG=='en' else ''}>EN</a></nav>'''
     base='https://chorok-daddy.github.io'
-    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=mlx-preview1"><script src="/niil/assets/niil.js?v=20261026-outputs1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
+    return f'''<!doctype html><html lang="{LANG}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · NiiL</title><meta name="description" content="{esc(desc or tr('Nature-inspired Intelligence Lab at Kwangwoon University','광운대학교 자연모사 인공지능 연구실'))}"><meta name="robots" content="index,follow"><link rel="canonical" href="{base+local(path)}"><link rel="alternate" hreflang="en" href="{base+english}"><link rel="alternate" hreflang="ko" href="{base+korean}"><link rel="alternate" hreflang="x-default" href="{base+korean}"><link rel="stylesheet" href="/niil/assets/niil.css?v=mlx-preview1"><script src="/niil/assets/niil.js?v=20261030-course-language1" defer></script></head><body>{EASTER_EGG_HTML}<a class="skip" href="#main">{tr('Skip to content','본문 바로가기')}</a><header class="site-header"><a class="brand" href="{local('/niil/')}" aria-label="NiiL {tr('home','홈')}">NiiL<span class="brand-dot">●</span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">{tr('Menu','메뉴')} ☰</button><nav id="site-nav" aria-label="{tr('Main navigation','주 메뉴')}">{nav}</nav>{toggle}</header><main id="main">{soup}</main>{footer_html(section,path)}</body></html>'''
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
     if path=='/niil/courses/':
@@ -386,8 +389,17 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.h1.get_text() if doc.h1 else doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
     doc.head.append(structured)
     frame=BeautifulSoup(shell(doc.h1.get_text() if doc.h1 else doc.title.get_text(),'','teaching'),'html.parser')
-    # Course documents retain their original language; the bilingual catalog has the switch.
-    frame.select_one('.language-switch').decompose()
+    # Keep the interface locale on the same original course document.
+    # A UI locale is not an English translation of the Korean teaching body.
+    course_path='/'+course_file.relative_to(ROOT).as_posix()
+    for link in frame.select('.language-switch [data-language]'):
+        link['data-course-language']=link['data-language']
+        link['href']=course_path+('?lang=en' if link['data-language']=='en' else '')
+    if course:
+        doc.body['data-course-title-en']=course['title_en']
+        if course_file == SITE/'courses'/course['slug']/'index.html':doc.body['data-course-home']=''
+        for link in doc.select('nav.breadcrumb a'):link['data-course-label-en']=course['title_en']
+
     for selector in ['.skip','.site-header','footer']:
         element=frame.select_one(selector);element['data-niil-frame']=''
         if selector=='.skip':element['href']='#'+doc.select_one('main')['id']
@@ -398,6 +410,8 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=mlx-preview1')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
+    locale_script=doc.new_tag('script',src='/niil/assets/course-language.js?v=20261030-1',defer=True)
+    locale_script['data-niil-frame']='';doc.head.append(locale_script)
     course_file.write_text(str(doc))
 subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)
 subprocess.run(['python3',str(ROOT/'tools/build_seo.py')],check=True)
