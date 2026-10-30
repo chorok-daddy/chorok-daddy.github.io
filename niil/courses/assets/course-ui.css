@@ -68,5 +68,12 @@ html[data-selected-runtime="matlab"] div[data-runtime="matlab"] { display:block 
 .mlx-document table.mlx-record-table { display:table; table-layout:fixed; width:100%; }
 .mlx-document table.mlx-record-table td { width:50%; overflow-wrap:anywhere; }
 
+
+/* Language-aware controls for the shared reading view. */
+html[lang^="en"] body[data-study-tools] main details > summary::after { content: "Expand"; }
+html[lang^="en"] body[data-study-tools] main details[open] > summary::after { content: "Collapse"; }
+html[lang^="en"] body[data-study-tools] main details.check > summary::after { content: "Show answer"; }
+html[lang^="en"] body[data-study-tools] main details.check[open] > summary::after { content: "Hide answer"; }
+
 /* Semester review layout */
 .semester-plan{list-style:none;padding:0}.schedule-week{display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:1rem;padding:1.3rem 0;border-bottom:1px solid #dce2e8}.schedule-week h2{font-size:1.12rem;margin:0 0 .45rem}.schedule-week p{margin:.25rem 0;color:#546171}.schedule-number{font-size:.9rem;color:#546171;padding-top:.15rem}.schedule-exam{background:#f2f5f8;padding-left:.6rem;padding-right:.6rem;border-radius:.5rem}.schedule-week h2 a{text-decoration:none}.schedule-week h2 a:hover{text-decoration:underline}.schedule-week .chapter-arrow{margin-left:.5em;font-size:.85em;color:#65756a}.schedule-support{margin:.6rem 0 0;font-size:.85rem}.schedule-support summary{cursor:pointer;color:#546171}.schedule-support .schedule-resources{margin-top:.25rem}.schedule-followup{margin-top:.7rem}.schedule-resource-label{font-size:.75rem;color:#65756a}.schedule-followup .schedule-resources{margin-top:.15rem}.schedule-resources{font-size:.85rem;margin-top:.6rem;line-height:1.8}.schedule-overview{overflow-x:auto}.schedule-overview table{width:100%;border-collapse:collapse}.schedule-overview th,.schedule-overview td{padding:.9rem;text-align:left;vertical-align:top;border-bottom:1px solid #dce2e8}.schedule-overview td{min-width:15rem}.schedule-overview th{min-width:8rem}@media(max-width:480px){.schedule-week{grid-template-columns:2.4rem minmax(0,1fr);gap:.6rem}.schedule-resources a{overflow-wrap:anywhere}}
