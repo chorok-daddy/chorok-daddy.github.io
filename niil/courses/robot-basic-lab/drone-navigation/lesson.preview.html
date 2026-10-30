@@ -16,7 +16,8 @@
 </section><section class="notebook-cell">
 <h2 id="body-frame과-world-frame">Body Frame과 World Frame</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-1 -->
-<p>기체의 앞쪽을 x, 왼쪽을 y로 정하면, yaw 회전 뒤의 전진은 World Frame에서 다른 방향이 됩니다. yaw=90°일 때 동체 전방 이동은 세계 y 방향으로 이어집니다. 회전과 이동의 순서는 일반적으로 바꿔도 같지 않습니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-1 --></p>
+<p>기체의 앞쪽을 x, 왼쪽을 y로 정하면, yaw 회전 뒤의 전진은 World Frame에서 다른 방향이 됩니다. yaw=90°일 때 동체 전방 이동은 세계 y 방향으로 이어집니다.</p>
+<p>회전과 이동의 순서는 일반적으로 바꿔도 같지 않습니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-1 --></p>
 </section><section class="notebook-cell">
 <h2 id="path와-오차를-함께-보기">Path와 오차를 함께 보기</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-2 -->
@@ -24,7 +25,8 @@
 </section><section class="notebook-cell">
 <h2 id="matlab과-python의-tello-명령-비교">MATLAB과 Python의 Tello 명령 비교</h2>
 <!-- exercise-guidance:robot-basic-lab/drone-navigation/learning-3 -->
-<p>기존 MATLAB 자료는 Ryze Tello 지원 패키지를 사용합니다. Python에서는 DJITelloPy로 같은 동작을 표현할 수 있습니다. MATLAB의 거리 인자는 m, Python move_forward의 인자는 cm이며 회전 API의 단위와 방향도 확인해야 합니다.</p>
+<p>기존 MATLAB 자료는 Ryze Tello 지원 패키지를 사용합니다. Python에서는 DJITelloPy로 같은 동작을 표현할 수 있습니다.</p>
+<p>MATLAB의 거리 인자는 m, Python move_forward의 인자는 cm이며 회전 API의 단위와 방향도 확인해야 합니다.</p>
 <p>예: 0.5 m 전진은 MATLAB의 moveforward(r,‘Distance’,0.5)와 Python의 tello.move_forward(50)에 대응합니다. 이 호출은 비행 중인 기체에 보내는 명령이므로 기본 예제에서는 명령 목록과 단위 변환만 확인합니다. <!-- /exercise-guidance:robot-basic-lab/drone-navigation/learning-3 --></p>
 </section><section class="notebook-cell">
 <h2 id="풀이-예제">풀이 예제</h2>

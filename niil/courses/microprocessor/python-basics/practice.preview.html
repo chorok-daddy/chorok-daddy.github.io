@@ -18,9 +18,11 @@
 </ol>
 <h3 id="남길-결과">남길 결과</h3>
 <ul>
-<li>5행 기록 표, 요약 통계 4개, 함수 코드.</li>
+<li><p>5행 기록 표, 요약 통계 4개, 함수 코드.</p></li>
+<li><p><code>summarize(rows)</code> 입력: <code>time</code>·<code>temperature</code>를 가진 Dictionary의 List.</p></li>
+<li><p>통계 대상: <code>temperature</code>.</p></li>
+<li><p>반환 필드: 유효 표본 수·평균·최솟값·최댓값. 같은 필드 유지. <!-- /exercise-guidance:microprocessor/python-basics/activity-1 --></p></li>
 </ul>
-<p><code>summarize(rows)</code>의 입력은 <code>time</code>·<code>temperature</code>를 가진 Dictionary의 List로 통일합니다. 통계에는 <code>temperature</code>를 사용하고 유효 표본 수·평균·최솟값·최댓값을 같은 반환 필드로 정리하세요. <!-- /exercise-guidance:microprocessor/python-basics/activity-1 --></p>
 </section><section class="notebook-cell"><pre class="notebook-code"><code>records=[(0,21.),(1,21.5),(2,None),(3,22.),(4,20.5)]
 valid=[value for _,value in records if value is not None]
 print('valid count',len(valid),'mean',sum(valid)/len(valid))

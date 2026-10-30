@@ -17,12 +17,18 @@
 </section><section class="notebook-cell">
 <h2 id="계수-배열을-transfer-function으로-읽기">계수 배열을 Transfer Function으로 읽기</h2>
 <!-- exercise-guidance:control-2/transfer-functions/learning-1 -->
-<p>[2]/[5,1]은 H(s)=2/(5s+1)입니다. 배열은 높은 차수부터 씁니다. 분모의 근은 Pole, 분자의 근은 Zero입니다. 이 예의 Pole은 −0.2이고 유한 Zero는 없습니다. 분모의 상수항이 0이 아니므로 DC Gain은 2입니다.</p>
-<p><span class="math display"><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mfrac><mn>2</mn><mrow><mn>5</mn><mi>s</mi><mo>+</mo><mn>1</mn></mrow></mfrac></mrow><annotation encoding="application/x-tex">H(s)=\frac{2}{5s+1}</annotation></semantics></math></span> <!-- /exercise-guidance:control-2/transfer-functions/learning-1 --></p>
+<ul>
+<li>계수 배열: 차수가 높은 항부터.</li>
+<li><code>num=[2]</code>, <code>den=[5,1]</code>: <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo form="prefix" stretchy="false">(</mo><mi>s</mi><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>2</mn><mi>/</mi><mo form="prefix" stretchy="false">(</mo><mn>5</mn><mi>s</mi><mo>+</mo><mn>1</mn><mo form="postfix" stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H(s)=2/(5s+1)</annotation></semantics></math></span>.</li>
+<li>Pole: 분모의 근. 이 예에서는 <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>−</mi><mn>0.2</mn></mrow><annotation encoding="application/x-tex">-0.2</annotation></semantics></math></span>.</li>
+<li>Zero: 분자의 근. 이 예에서는 유한 Zero 없음.</li>
+<li>DC Gain: <span class="math inline"><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo form="prefix" stretchy="false">(</mo><mn>0</mn><mo form="postfix" stretchy="false">)</mo><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">H(0)=2</annotation></semantics></math></span>. 분모의 상수항이 0이 아닙니다. <!-- /exercise-guidance:control-2/transfer-functions/learning-1 --></li>
+</ul>
 </section><section class="notebook-cell">
 <h2 id="pole과-실제-응답-연결하기">Pole과 실제 응답 연결하기</h2>
 <!-- exercise-guidance:control-2/transfer-functions/learning-2 -->
-<p>음의 실수 Pole −0.2에 대응하는 exp(−0.2t)의 Time Constant는 5초입니다. 계수로 구한 근과 Time Response를 함께 보면 계산이 물리적으로 무엇을 뜻하는지 확인할 수 있습니다. 직렬은 곱, 병렬은 합이며, 음의 단위 Feedback은 H/(1+H)로 분모까지 바꿉니다. <!-- /exercise-guidance:control-2/transfer-functions/learning-2 --></p>
+<p>음의 실수 Pole −0.2에 대응하는 exp(−0.2t)의 Time Constant는 5초입니다. 계수로 구한 근과 Time Response를 함께 보면 계산이 물리적으로 무엇을 뜻하는지 확인할 수 있습니다.</p>
+<p>직렬은 곱, 병렬은 합이며, 음의 단위 Feedback은 H/(1+H)로 분모까지 바꿉니다. <!-- /exercise-guidance:control-2/transfer-functions/learning-2 --></p>
 </section><section class="notebook-cell">
 <h2 id="공통-인자의-상쇄">공통 인자의 상쇄</h2>
 <!-- exercise-guidance:control-2/transfer-functions/learning-3 -->
