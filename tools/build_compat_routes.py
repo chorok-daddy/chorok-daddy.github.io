@@ -5,6 +5,7 @@ Edit course content in the courses source repository; niil/courses is generated.
 manifest/files together at the approved 2026-12-31 cutoff, never the canonical files.
 """
 import html
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -31,12 +32,13 @@ def redirect(path, target, anchors=()):
 
 def main():
     redirect('/index.html', '/niil/')
-    # Prior Korean links remain valid; English now has an explicit /en/ prefix.
-    for path in (ROOT / 'niil').rglob('*.html'):
-        rel = path.relative_to(ROOT / 'niil')
-        if rel.parts[0] in ('en', 'ko', 'courses', 'assets'):
-            continue
-        redirect('/niil/ko/' + rel.as_posix(), '/niil/' + rel.as_posix())
+    legacy=json.loads((ROOT/'tools/legacy-routes.json').read_text())
+    template=(ROOT/'tools/legacy-router.js').read_text()
+    router=template.replace('__LEGACY_ROUTES__',json.dumps(legacy['redirects'],ensure_ascii=False,separators=(',',':')))
+    (ROOT/'niil/assets/legacy-routes.js').write_text(router)
+    error=BeautifulSoup((ROOT/'404.html').read_text(),'html.parser')
+    error.select_one('script[src^="/niil/assets/legacy-routes.js"]')['src']='/niil/assets/legacy-routes.js?v='+hashlib.sha256(router.encode()).hexdigest()[:12]
+    (ROOT/'404.html').write_text(str(error)+'\n')
     manifest = json.loads((ROOT / 'tools/course-compatibility.json').read_text())
     for item in manifest['files']:
         new = ROOT / item['new'].lstrip('/')

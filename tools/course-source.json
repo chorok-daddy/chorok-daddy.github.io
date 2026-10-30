@@ -678,7 +678,6 @@
     "niil/courses/ai-applications/text-classification/index.html": "e9e0102b0a9f9f8019ff94fe023b789f67821e4fa54da7db4b39af1daef0c59d",
     "niil/courses/assets/course-ui.css": "b97974d667e835ba222747a9368797660e5a6554679ffc1fb507942870daa19e",
     "niil/courses/assets/course-ui.js": "3a95e8c677603a152e2e027a03da911aeae79a9c4a2d0c917cf4adade8dbcc1f",
-    "niil/courses/assets/meta/cache/render.logtmp": "c14e584fca839bc5aa36319d66b6b37ef70d3f6bec453b9abd6a063659660c7a",
     "niil/courses/assets/site.css": "c11e50628803de19697e692d5cabd6cd7fba65e2e17a4891eff4f78ab44e8812",
     "niil/courses/assets/study-ui.js": "c0ef478714352f13af57101dcf72f1e7a9d15f96b1cb5714426ba3971ca30830",
     "niil/courses/control-1/course-setup/Control_Engineering_1_Week01_CourseSetup.mlx": "f5ea371c0c8751e5a1afa890f712cfec17083ccb77a4854d9fec37e52878ff67",
@@ -2653,7 +2652,6 @@
     "niil/en/courses/robot-basic-lab/vision-control/practice.preview.html": "e95e64c85d69b0ee2d77361a391285d12e87e2dd7492a5f084fab71071e3adb6",
     "niil/en/courses/robot-basic-lab/vision-control/tello_image_processing.mlx": "7aa9f65b8e8791f13586234f899e0beb8a3e3e328b2c5042203b6f2b0aa5a9f4",
     "niil/en/courses/robot-basic-lab/vision-control/tello_image_processing.mlx.preview.html": "ee378a40972d25874a440a856ee36ade862e03b21d2085788951b5b520b9eeb4",
-    "site-catalog.json": "4e436af898fe920f438dc79033655d5a2752cfe66ed29559cf0c748738343227",
     "tools/course-catalog.json": "7779dd81b5ae1f01063fbe5be266367ed698c03bc10a90f9ac837b9f163d3540",
     "tools/course-paths.json": "c027c81fdb10d56a61a4636c0e44e386af6b6bcf54f53f40cdc6a0ec4993b6b1"
   }

@@ -60,10 +60,15 @@ for course in courses:
    split=bool(lesson.get('learning_notebook'))
    if split:
     for role,word in [('learning','학습용'),('practice','실습용')]:
-     links=doc.select('[data-course-overlay][data-notebook-role="'+role+'"]');assert len(links)==1,(assignment,role)
-     link=links[0];assert link.has_attr('data-course-overlay') and word in link.get_text(),assignment
-     target=assignment.parent/link['href'];assert target.is_file(),target
-     download=link.find_next_sibling('a');assert word in download.get_text() and download.has_attr('download'),assignment
+     links=doc.select('[data-course-overlay][data-notebook-role="'+role+'"]')
+     paired=doc.select_one('[data-lab-language]') is not None
+     assert len(links)==(2 if paired else 1),(assignment,role)
+     if paired:assert {a.get('data-runtime') for a in links}=={'python','matlab'},(assignment,role)
+     for link in links:
+      assert word in link.get_text(),assignment
+      target=assignment.parent/link['href'];assert target.is_file(),target
+      download=link.find_next_sibling('a');assert word in download.get_text() and download.has_attr('download'),assignment
+      if paired:assert download.get('data-runtime')==link['data-runtime'],assignment
    else:assert doc.select_one('a[data-course-overlay][href="index.html"]'),assignment
    study=BeautifulSoup((directory/chapter['slug']/'index.html').read_text(),'html.parser')
    if not study.select_one('meta[http-equiv="refresh"]'):assert not study.select('a[href^="assignment.html"]'),assignment

@@ -5,6 +5,8 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 LOCK=ROOT/'tools/course-source.json'
 REPOSITORY='https://github.com/chorok-daddy/courses'
+# Obsolete publication metadata; no HTML, native file or archive is excluded.
+UNPUBLISHED={'site-catalog.json','niil/courses/assets/meta/cache/render.logtmp'}
 def run(args,cwd=None):return subprocess.check_output(args,cwd=cwd)
 def allowed(name):
     p=Path(name)
@@ -62,6 +64,7 @@ def main():
             if args.publication_output:command+=['--publication-output',str(args.publication_output.resolve())]
             result=run(command)
             files=json.loads(result)
+        files={name:digest for name,digest in files.items() if name not in UNPUBLISHED}
         if not all(allowed(p) for p in set(files)|set(previous.get('files',{}))):raise SystemExit('Unsafe export path')
         if args.locked and files!=previous['files']:raise SystemExit('Pinned export no longer matches recorded hashes')
         for name,digest in files.items():

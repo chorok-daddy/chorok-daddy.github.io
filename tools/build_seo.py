@@ -11,7 +11,6 @@ SITE=ROOT/'niil';BASE='https://chorok-daddy.github.io'
 ROUTES=json.loads((SITE/'content/routes.json').read_text())
 MEMBERS=json.loads((SITE/'content/members.json').read_text())
 COURSES=[c for c in json.loads((ROOT/'tools/course-catalog.json').read_text())['courses'] if c['published']]
-PAGES=json.loads((SITE/'content/pages.json').read_text())
 
 def canonical(path):
     return path[:-len('index.html')] if path.endswith('/index.html') else path
@@ -24,7 +23,6 @@ def excerpt(text,length=170):
 faculty=next(m for m in MEMBERS if m['role']['en']=='Professor')
 PROFILE=canonical(ROUTES[faculty['id']])
 PERSON_ID=BASE+PROFILE+'#person';ORG_ID=BASE+'/niil/#organization'
-archives={canonical(ROUTES[p['id']]):p['title'] for p in PAGES if p['id'] in ROUTES}
 member_paths={canonical(ROUTES[m['id']]):m for m in MEMBERS}
 verification_file=ROOT/'tools/search-console.json'
 verification=json.loads(verification_file.read_text()).get('google_site_verification') if verification_file.exists() else None
@@ -57,7 +55,6 @@ for file in sorted(SITE.rglob('*.html')):
         file.write_text(str(doc));continue
     for old in doc.head.select('[data-niil-seo]'):old.decompose()
     h1=doc.find('h1');name=clean(h1.get_text(' ',strip=True)) if h1 else clean(doc.title.get_text())
-    if name in ('Original course material','강의자료 원문'):name=archives.get(ko_path,name)
     member=member_paths.get(ko_path)
     course=next((c for c in COURSES if ko_path.startswith('/niil/courses/'+c['slug']+'/')),None)
     if ko_path=='/niil/':
