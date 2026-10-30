@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build the isolated NiiL site from the preserved public Notion content."""
-import html, json, re, subprocess
+import argparse, hashlib, html, json, re, subprocess
 from urllib.parse import urlsplit,urlunsplit,unquote,quote
 from pathlib import Path
 from bs4 import BeautifulSoup, Comment
@@ -9,7 +9,17 @@ from easter_egg import EASTER_EGG_HTML,write_note
 ROOT = Path(__file__).resolve().parents[1]
 SITE = ROOT / 'niil'
 write_note(SITE,'assets/niil.css')
-subprocess.run(['python3',str(ROOT/'tools/sync_courses.py'),'--locked'],check=True)
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--prepared-courses',action='store_true',help='Use freshly imported courses after verifying every pinned file hash')
+args=parser.parse_args()
+if args.prepared_courses:
+    lock=json.loads((ROOT/'tools/course-source.json').read_text())
+    for name,digest in lock['files'].items():
+        path=ROOT/name
+        if not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest()!=digest:
+            raise SystemExit('Prepared course import changed: '+name)
+else:
+    subprocess.run(['python3',str(ROOT/'tools/sync_courses.py'),'--locked'],check=True)
 COURSE_INVENTORY=json.loads((ROOT/'tools/course-catalog.json').read_text())['courses']
 COURSE_CATALOG=[c for c in COURSE_INVENTORY if c['published']]
 COURSE_PATHS=json.loads((ROOT/'tools/course-paths.json').read_text())['files']
