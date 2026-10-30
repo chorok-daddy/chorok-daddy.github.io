@@ -72,12 +72,14 @@ for file in sorted(SITE.rglob('*.html')):
         description='Course notes, notebooks, exercises and datasets by Ki-Baek Lee, Kwangwoon University.' if lang=='en' else '광운대학교 이기백 교수의 공개 강의자료. 과목별 학습자료, 실습 안내, Notebook·MATLAB 파일과 데이터를 제공합니다.'
     elif course:
         root=ko_path==f'/niil/courses/{course["slug"]}/'
-        title=(f'{course["title"]} | NiiL' if root else f'{name} | {course["title"]}')
-        if not root and course['title'] in name:title=f'{name} | NiiL'
-        description=(f'광운대학교 이기백 교수의 {course["title"]} 강의. '+('PyTorch·Notebook을 활용한 인공지능 실습과 주차별 학습자료.' if course['slug']=='ai-applications' else ('MATLAB·Simulink를 활용한 제어 시스템 모델링과 응답·안정성 실습.' if course['slug']=='control-1' else '학습자료와 실습 파일.'))) if root else f'{course["title"]}: {name}. '
+        course_name=course['title_en'] if lang=='en' else course['title']
+        title=f'{course_name} | NiiL' if root else f'{name} | {course_name}'
+        if not root and course_name in name:title=f'{name} | NiiL'
+        description=(f'{course_name}: learning materials, practice notebooks and MATLAB files.' if lang=='en' else f'{course_name}: 학습자료와 실습 파일.') if root else f'{course_name}: {name}. '
         if not root:
-            paragraphs=doc.select('main p:not(.course-credit):not(.source-note)')
+            paragraphs=doc.select('main p:not(.course-credit):not(.source-note):not(.translation-note)')
             if paragraphs:description+=paragraphs[0].get_text(' ',strip=True)
+
     else:
         title=f'{name} | Kwangwoon University NiiL' if lang=='en' else f'{name} | 광운대학교 NiiL'
         descriptions={

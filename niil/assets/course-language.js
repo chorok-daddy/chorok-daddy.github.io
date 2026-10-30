@@ -1,7 +1,16 @@
-/* Interface locale for original course documents. Teaching text keeps its source language. */
+/* Locale routing for complete Korean/English course documents and popup controls. */
 (() => {
   if (!document.body.classList.contains('niil-course')) return;
-  const english = new URL(location.href).searchParams.get('lang') === 'en';
+  const current = new URL(location.href);
+  const english = current.pathname.startsWith('/niil/en/courses/');
+  // Preserve old shared UI-locale URLs, now opening the actual English body.
+  if (!english && current.searchParams.get('lang') === 'en') {
+    current.pathname = current.pathname.replace('/niil/courses/', '/niil/en/courses/');
+    current.searchParams.delete('lang');
+    location.replace(current.href);
+    return;
+  }
+  document.documentElement.lang = english ? 'en' : 'ko';
   document.documentElement.dataset.uiLanguage = english ? 'en' : 'ko';
   const labels = new Map(Object.entries({
     '연구':'Research', '논문':'Publications', '구성원':'People', '강의자료':'Course',
@@ -41,7 +50,8 @@
     if (path === '/niil/courses/' || path === '/niil/courses/index.html' || path === '/niil/courses/reuse.html') {
       if (english) url.pathname = path.replace('/niil/', '/niil/en/');
     } else if (path.startsWith('/niil/courses/') && (path.endsWith('.html') || path.endsWith('/'))) {
-      if (english) url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+      if (english) url.pathname = path.replace('/niil/courses/', '/niil/en/courses/');
+      url.searchParams.delete('lang');
     } else if (english && path.startsWith('/niil/') && !path.startsWith('/niil/en/') && !path.startsWith('/niil/assets/') && !path.startsWith('/niil/courses/') && (path.endsWith('/') || path.endsWith('.html'))) {
       url.pathname = path.replace('/niil/', '/niil/en/');
     }
@@ -51,7 +61,10 @@
     document.querySelectorAll('[data-course-language]').forEach(link => {
       const url = new URL(location.href);
       const target = link.dataset.courseLanguage;
-      if (target === 'en') url.searchParams.set('lang', 'en'); else url.searchParams.delete('lang');
+      const source = url.pathname.replace('/niil/en/courses/', '/niil/courses/');
+      url.pathname = target === 'en' ? source.replace('/niil/courses/', '/niil/en/courses/') : source;
+      url.searchParams.delete('lang');
+      url.searchParams.delete('v');
       link.href = url.pathname + url.search + url.hash;
       if ((target === 'en') === english) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
     });

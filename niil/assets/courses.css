@@ -37,3 +37,6 @@ body.niil-course{display:block;background:var(--paper);color:var(--ink)}
 .course-embedded .course-author{display:none!important}
 .niil-course main .chapter-list>li{grid-template-columns:40px minmax(0,1fr)}
 @media(max-width:600px){.niil-course main .chapter-list>li{grid-template-columns:25px minmax(0,1fr)}}
+
+.niil-course .translation-note{font-size:.8rem;color:var(--muted);margin:.3rem 0 1.3rem}
+.niil-course .mlx-document .rtcContent p{white-space:normal;overflow-wrap:anywhere}

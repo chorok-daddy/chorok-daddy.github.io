@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 
-<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해</title><link data-course-ui="" href="../../assets/course-ui.css?v=88f01e786b73" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=88f01e786b73"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261030-course-language1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="True" src="/niil/assets/course-language.js?v=20261030-1"></script><meta content="머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…" name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" rel="canonical"/><meta content="[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해" property="og:title"/><meta content="머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…" property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해" name="twitter:title"/><meta content="머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…" name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html", "name": "[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해", "description": "머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course" data-course-title-en="Introduction to Machine Learning"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav><nav aria-label="언어" class="language-switch"><a aria-current="true" data-course-language="ko" data-language="ko" href="/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" lang="ko">한국어</a><span aria-hidden="true">/</span><a data-course-language="en" data-language="en" href="/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html?lang=en" lang="en">EN</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a data-course-label-en="Introduction to Machine Learning" href="/niil/courses/intro-machine-learning/index.html">머신러닝의 이해</a></nav><h1>[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍</h1><nav class="notebook-actions"><a download="" href="INT_ML_W11.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/intro-machine-learning/week-11/INT_ML_W11.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해</title><link data-course-ui="" href="../../assets/course-ui.css?v=88f01e786b73" rel="stylesheet"/><script data-course-ui="" defer="" src="../../assets/course-ui.js?v=88f01e786b73"></script><meta content="Ki-Baek Lee (이기백)" data-niil-frame="" name="author"/><script data-niil-frame="" type="application/ld+json">{"@context": "https://schema.org", "@type": "LearningResource", "name": "[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html", "author": {"@type": "Person", "name": "Ki-Baek Lee", "alternateName": "이기백", "affiliation": {"@type": "Organization", "name": "Kwangwoon University · NiiL"}, "@id": "https://chorok-daddy.github.io/niil/pages/ki-baek-lee-36f11249/#person"}, "license": "https://creativecommons.org/licenses/by/4.0/", "creditText": "Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained."}</script><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" hreflang="ko" rel="alternate"/><link href="https://chorok-daddy.github.io/niil/en/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" hreflang="en" rel="alternate"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" hreflang="x-default" rel="alternate"/><link data-niil-frame="" href="/niil/assets/niil.css?v=mlx-preview1" rel="stylesheet"/><script data-niil-frame="" defer="" src="/niil/assets/niil.js?v=20261030-course-language1"></script><link data-niil-frame="" href="/niil/assets/courses.css?v=20261030-language" rel="stylesheet"/><script data-niil-frame="" defer="True" src="/niil/assets/course-language.js?v=20261030-content2"></script><meta content="머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…" name="description"/><meta content="index,follow" name="robots"/><link href="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" rel="canonical"/><meta content="[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해" property="og:title"/><meta content="머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…" property="og:description"/><meta content="https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" property="og:url"/><meta content="website" property="og:type"/><meta content="NiiL · Kwangwoon University" property="og:site_name"/><meta content="ko_KR" property="og:locale"/><meta content="summary" name="twitter:card"/><meta content="[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해" name="twitter:title"/><meta content="머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…" name="twitter:description"/><script data-niil-seo="" type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://chorok-daddy.github.io/niil/#organization", "name": "Nature-inspired Intelligence Lab (NiiL)", "alternateName": "자연모사 인공지능 연구실", "url": "https://chorok-daddy.github.io/niil/", "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Kwangwoon University", "alternateName": "광운대학교"}}, {"@type": "WebPage", "@id": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html#webpage", "url": "https://chorok-daddy.github.io/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html", "name": "[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍 | 머신러닝의 이해", "description": "머신러닝의 이해: [11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍. 안녕하세요! 11주차 수업에 오신 것을 환영합니다. 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는 Supervised Learning (e.g., 선형/Logistic…", "inLanguage": "ko", "isPartOf": {"@id": "https://chorok-daddy.github.io/niil/#website"}}]}</script></head><body class="course-home niil-course" data-course-title-en="Introduction to Machine Learning"><a class="skip" data-niil-frame="" href="#main">본문 바로가기</a><header class="site-header" data-niil-frame=""><a aria-label="NiiL 홈" class="brand" href="/niil/">NiiL<span class="brand-dot">●</span></a><button aria-controls="site-nav" aria-expanded="false" class="menu-toggle" type="button">메뉴 ☰</button><nav aria-label="주 메뉴" id="site-nav"><a href="/niil/research/">연구</a><a href="/niil/publications/">논문</a><a href="/niil/members/">구성원</a><a aria-current="page" href="/niil/courses/">강의자료</a><a href="/niil/contact/">문의·지원</a></nav><nav aria-label="언어" class="language-switch"><a aria-current="true" data-course-language="ko" data-language="ko" href="/niil/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" lang="ko">한국어</a><span aria-hidden="true">/</span><a data-course-language="en" data-language="en" href="/niil/en/courses/intro-machine-learning/week-11/INT_ML_W11.preview.html" lang="en">EN</a></nav></header><main class="directory" id="main"><nav aria-label="현재 과목" class="breadcrumb" data-niil-frame=""><a data-course-label-en="Introduction to Machine Learning" href="/niil/courses/intro-machine-learning/index.html">머신러닝의 이해</a></nav><h1>[11주차] 정답 없는 데이터와 마주하기: Unsupervised Learning 🔍</h1><nav class="notebook-actions"><a download="" href="INT_ML_W11.ipynb">Colab 노트북 다운로드</a><a href="https://colab.research.google.com/github/chorok-daddy/courses/blob/main/intro-machine-learning/week-11/INT_ML_W11.ipynb#copy=true" rel="noopener noreferrer" target="_blank">Colab 실행 ↗</a></nav><section class="notebook-cell">
 <p>안녕하세요! 11주차 수업에 오신 것을 환영합니다.<br/>
 지금까지 우리는 ’정답(y)’이 주어진 상태에서 모델을 학습시키는<br/>
 <strong>Supervised Learning</strong> (e.g., 선형/Logistic Regression, Decision Tree)을 다루었습니다.</p>
 <p>오늘은 Machine Learning의 또 다른 큰 축인 <strong>Unsupervised Learning</strong> 을 배웁니다.<br/>
 Unsupervised Learning은 <strong>정답(레이블)이 없는 데이터</strong>가 주어졌을 때,<br/>
 데이터 자체에 내재된 <strong>숨겨진 구조나 패턴</strong>을 찾아내는 방식입니다.</p>
-<p>오늘은 Unsupervised Learning의 두 가지 대표적인 기법,<br/>
-1. <strong>K-Means 군집화 (Clustering)</strong>: 데이터의 숨겨진 그룹을 찾는 기법<br/>
-2. <strong>주성분 분석 (PCA)</strong>: 데이터의 차원을 축소하여 시각화하는 기법<br/>
-에 대해 학습하고 <code>scikit-learn</code>으로 직접 구현해 보겠습니다.</p>
+<p>오늘은 Unsupervised Learning의 두 가지 대표적인 기법,</p>
+<ol type="1">
+<li><strong>K-Means 군집화 (Clustering)</strong>: 데이터의 숨겨진 그룹을 찾는 기법<br/>
+</li>
+<li><strong>주성분 분석 (PCA)</strong>: 데이터의 차원을 축소하여 시각화하는 기법<br/>
+에 대해 학습하고 <code>scikit-learn</code>으로 직접 구현해 보겠습니다.</li>
+</ol>
 </section><section class="notebook-cell">
 <h2 id="모듈-1-k-means-군집화-clustering">🧺 모듈 1: K-Means 군집화 (Clustering)</h2>
-<p><strong>군집화(Clustering)란?</strong><br/>
-- 정답 레이블이 없는 데이터들을 <strong>서로 비슷한 것들끼리</strong> 그룹으로 묶는 작업입니다.<br/>
-- <strong>비유</strong>: 여러분에게 빨강, 파랑, 노랑 양말이 마구 섞인 양말 서랍이 주어졌을 때,<br/>
+<p><strong>군집화(Clustering)란?</strong></p>
+<ul>
+<li>정답 레이블이 없는 데이터들을 <strong>서로 비슷한 것들끼리</strong> 그룹으로 묶는 작업입니다.<br/>
+</li>
+<li><strong>비유</strong>: 여러분에게 빨강, 파랑, 노랑 양말이 마구 섞인 양말 서랍이 주어졌을 때,<br/>
 각 양말에 ’빨강’이라는 정답 라벨이 없어도, 여러분은 자연스럽게<br/>
-색깔과 모양이 비슷한 것끼리 세 개의 무더기로 나눌 수 있습니다. 이것이 군집화입니다.</p>
-<p><strong>K-Means 알고리즘의 직관적 이해</strong>:<br/>
-- K-Means는 K개의 그룹(Cluster)을 찾는 가장 유명한 알고리즘입니다. - <strong>작동 원리 (비유: ‘조별 과제 조장 정하기’)</strong>:<br/>
-1. <strong>초기화</strong><br/>
-K명의 조장(Centroid)을 무작위로 교실 아무 데나 배치합니다. 2. <strong>할당 (Assign)</strong><br/>
-모든 학생(데이터)이 자신에게 <strong>가장 가까운</strong> 조장과 조를 구성합니다. 3. <strong>업데이트 (Update)</strong><br/>
+색깔과 모양이 비슷한 것끼리 세 개의 무더기로 나눌 수 있습니다. 이것이 군집화입니다.</li>
+</ul>
+<p><strong>K-Means 알고리즘의 직관적 이해</strong>:</p>
+<ul>
+<li>K-Means는 K개의 그룹(Cluster)을 찾는 가장 유명한 알고리즘입니다.</li>
+<li><strong>작동 원리 (비유: ‘조별 과제 조장 정하기’)</strong>:
+<ol type="1">
+<li><strong>초기화</strong><br/>
+K명의 조장(Centroid)을 무작위로 교실 아무 데나 배치합니다.</li>
+<li><strong>할당 (Assign)</strong><br/>
+모든 학생(데이터)이 자신에게 <strong>가장 가까운</strong> 조장과 조를 구성합니다.</li>
+<li><strong>업데이트 (Update)</strong><br/>
 각 조장들은 자신에게 모인 조원들의 <strong>정중앙(평균 위치)</strong> 으로 이동합니다.<br/>
-- [<strong>반복</strong>]<br/>
-이제 조장의 위치가 바뀌었으므로, 다시 (2)의 방식으로 조를 재구성합니다. - [<strong>수렴</strong>]<br/>
-조장들의 위치가 바뀌지 않을 때 까지(안정화) 2~3단계를 반복합니다.</p>
+</li>
+</ol>
+<ul>
+<li>[<strong>반복</strong>]<br/>
+이제 조장의 위치가 바뀌었으므로, 다시 (2)의 방식으로 조를 재구성합니다.</li>
+<li>[<strong>수렴</strong>]<br/>
+조장들의 위치가 바뀌지 않을 때 까지(안정화) 2~3단계를 반복합니다.</li>
+</ul></li>
+</ul>
 </section><section class="notebook-cell">
 <h3 id="k-means-실습-1-가상-데이터로-원리-확인">K-Means 실습 1: 가상 데이터로 원리 확인</h3>
 <p><code>scikit-learn</code>을 이용해 K-Means 알고리즘을 직접 적용해 보겠습니다.<br/>
@@ -116,13 +133,27 @@ print("정답(레이블) 없이도 데이터의 분포만으로 그룹을 성공
 <h2 id="모듈-2-최적의-k값-찾기-엘보우-메소드">🧐 모듈 2: 최적의 K값 찾기 (엘보우 메소드)</h2>
 <p>방금 우리는 정답이 3개인 것을 알고 <code>n_clusters=3</code>으로 설정했습니다.<br/>
 하지만 실제 Unsupervised Learning 상황에서는 <strong>K값이 몇 개가 적절한지 모릅니다.</strong></p>
-<p><strong>K값을 어떻게 선택할까요?</strong><br/>
-- <strong>관성 (Inertia)</strong>: 각 데이터 포인트가 자신이 속한 그룹의 중심(Centroid)으로부터<br/>
-얼마나 떨어져 있는지를 나타내는 값입니다. (제곱 거리의 총합) - Inertia 값이 <strong>작을수록</strong> 데이터들이 중심에 잘 뭉쳐있다는 의미입니다. - <strong>Inertia의 특성</strong>: - K=1 (그룹 1개): 모든 데이터가 하나의 중심을 공유하므로 Inertia가 <strong>최대</strong>. - K=N (데이터 개수만큼): 모든 데이터가 자기 자신이 중심이므로 Inertia는 <strong>0</strong>.<br/>
-(하지만 의미 없음)</p>
-<p><strong>엘보우 메소드 (Elbow Method)</strong>: - K를 1부터 10까지 늘려가면서, 각 K값에 대한 Inertia를 계산하여 그래프로 그립니다. - 그래프가 <strong>급격히 꺾이는 지점 (팔꿈치, Elbow)</strong> 이 나타나는데,<br/>
+<p><strong>K값을 어떻게 선택할까요?</strong></p>
+<ul>
+<li><strong>관성 (Inertia)</strong>: 각 데이터 포인트가 자신이 속한 그룹의 중심(Centroid)으로부터<br/>
+얼마나 떨어져 있는지를 나타내는 값입니다. (제곱 거리의 총합)
+<ul>
+<li>Inertia 값이 <strong>작을수록</strong> 데이터들이 중심에 잘 뭉쳐있다는 의미입니다.</li>
+</ul></li>
+<li><strong>Inertia의 특성</strong>:
+<ul>
+<li>K=1 (그룹 1개): 모든 데이터가 하나의 중심을 공유하므로 Inertia가 <strong>최대</strong>.</li>
+<li>K=N (데이터 개수만큼): 모든 데이터가 자기 자신이 중심이므로 Inertia는 <strong>0</strong>.<br/>
+(하지만 의미 없음)</li>
+</ul></li>
+</ul>
+<p><strong>엘보우 메소드 (Elbow Method)</strong>:</p>
+<ul>
+<li>K를 1부터 10까지 늘려가면서, 각 K값에 대한 Inertia를 계산하여 그래프로 그립니다.</li>
+<li>그래프가 <strong>급격히 꺾이는 지점 (팔꿈치, Elbow)</strong> 이 나타나는데,<br/>
 이 지점이 K를 늘릴 때 얻는 <strong>효율(Inertia 감소)이 급격히 줄어드는 지점</strong>이므로,<br/>
-<strong>최적의 K값 후보</strong>로 간주할 수 있습니다.</p>
+<strong>최적의 K값 후보</strong>로 간주할 수 있습니다.</li>
+</ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># K값을 1부터 10까지 변화시키며 Inertia를 저장할 리스트
 inertia_list = []
 k_range = range(1, 11)
@@ -159,18 +190,36 @@ print("   최적의 클러스터 개수는 3개라고 판단할 수 있습니다
 </pre></section><section class="notebook-cell">
 <h2 id="모듈-3-차원-축소와-pca">📉 모듈 3: 차원 축소와 PCA</h2>
 <p>이제 Unsupervised Learning의 두 번째 주제인 <strong>차원 축소(Dimensionality Reduction)</strong> 로 넘어갑니다.</p>
-<p><strong>차원이란?</strong><br/>
-- 데이터가 가진 특징(Feature)의 개수입니다.<br/>
-- 붓꽃(Iris) 데이터: 4개의 특징 (sepal length/width, petal length/width)<br/>
--&gt; <strong>4차원 데이터</strong></p>
-<p><strong>왜 차원을 축소할까요?</strong> 1. <strong>시각화</strong>: 인간은 3차원까지만 인지할 수 있습니다.<br/>
-- 4차원, 100차원 데이터는 시각화가 불가능합니다. - 데이터를 2차원이나 3차원으로 압축하면, 데이터의 분포를 눈으로 확인할 수 있습니다. 2. <strong>차원의 저주 (Curse of Dimensionality)</strong>: 차원이 너무 높아지면(특징이 너무 많으면)<br/>
+<p><strong>차원이란?</strong></p>
+<ul>
+<li>데이터가 가진 특징(Feature)의 개수입니다.<br/>
+</li>
+<li>붓꽃(Iris) 데이터: 4개의 특징 (sepal length/width, petal length/width)<br/>
+-&gt; <strong>4차원 데이터</strong></li>
+</ul>
+<p><strong>왜 차원을 축소할까요?</strong></p>
+<ol type="1">
+<li><strong>시각화</strong>: 인간은 3차원까지만 인지할 수 있습니다.<br/>
+</li>
+</ol>
+<ul>
+<li>4차원, 100차원 데이터는 시각화가 불가능합니다.</li>
+<li>데이터를 2차원이나 3차원으로 압축하면, 데이터의 분포를 눈으로 확인할 수 있습니다.</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>차원의 저주 (Curse of Dimensionality)</strong>: 차원이 너무 높아지면(특징이 너무 많으면)<br/>
 데이터가 존재하는 공간은 매우 넓어지는 데 비해 데이터는 희박해져(sparse)<br/>
-오히려 모델의 성능이 저하될 수 있습니다. (e.g., 불필요한 노이즈 특징)</p>
-<p><strong>주성분 분석 (PCA, Principal Component Analysis)</strong>: - 차원 축소를 위한 가장 대표적인 기법입니다. - <strong>핵심 아이디어</strong>: 데이터가 가장 <strong>널리 퍼져있는(분산이 큰)</strong> 방향을<br/>
+오히려 모델의 성능이 저하될 수 있습니다. (e.g., 불필요한 노이즈 특징)</li>
+</ol>
+<p><strong>주성분 분석 (PCA, Principal Component Analysis)</strong>:</p>
+<ul>
+<li>차원 축소를 위한 가장 대표적인 기법입니다.</li>
+<li><strong>핵심 아이디어</strong>: 데이터가 가장 <strong>널리 퍼져있는(분산이 큰)</strong> 방향을<br/>
 새로운 <strong>‘축(주성분, Principal Component)’</strong> 으로 찾고,<br/>
-원본 데이터를 이 새로운 축에 <strong>사영(projection)</strong> 시켜 차원을 줄입니다. - <strong>비유</strong>: 3D 물체(e.g., 손)를 2D로 표현할 때, 손바닥 정면에서 빛을 쏴서<br/>
-손의 모양이 가장 잘 드러나는 <strong>그림자(Shadow)</strong> 를 찾는 것과 같습니다.</p>
+원본 데이터를 이 새로운 축에 <strong>사영(projection)</strong> 시켜 차원을 줄입니다.</li>
+<li><strong>비유</strong>: 3D 물체(e.g., 손)를 2D로 표현할 때, 손바닥 정면에서 빛을 쏴서<br/>
+손의 모양이 가장 잘 드러나는 <strong>그림자(Shadow)</strong> 를 찾는 것과 같습니다.</li>
+</ul>
 </section><section class="notebook-cell">
 <h3 id="중요-pca를-위한-데이터-전처리-스케일링">[중요] PCA를 위한 데이터 전처리: 스케일링</h3>
 <p>PCA는 데이터의 <strong>분산(Variance)</strong> 을 기반으로 작동합니다.<br/>
@@ -231,9 +280,11 @@ PCA 변환 후 Shape: (150, 2)
 <h3 id="pca-실습-2-결과-해석">PCA 실습 2: 결과 해석</h3>
 <p>PCA로 차원을 축소하면 <strong>정보 손실</strong>이 발생합니다.<br/>
 얼마나 많은 정보가 보존되었는지 확인하는 것이 중요합니다.</p>
-<p><strong><code>explained_variance_ratio_</code></strong>:<br/>
-- PCA 모델이 찾은 각 주성분(PC1, PC2, …)이<br/>
-원본 데이터의 분산(정보량)을 <strong>몇 퍼센트나 설명하는지</strong> 알려줍니다.</p>
+<p><strong><code>explained_variance_ratio_</code></strong>:</p>
+<ul>
+<li>PCA 모델이 찾은 각 주성분(PC1, PC2, …)이<br/>
+원본 데이터의 분산(정보량)을 <strong>몇 퍼센트나 설명하는지</strong> 알려줍니다.</li>
+</ul>
 </section><section class="notebook-cell"><pre class="notebook-code"><code># PCA의 '설명된 분산' 비율 확인
 variance_ratio = pca.explained_variance_ratio_
 

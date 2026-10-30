@@ -135,9 +135,8 @@ LANG='en'
 def tr(en,ko):return ko if LANG=='ko' else en
 def local(path):
     if path in ('/niil/courses/','/niil/courses/reuse.html'):return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
-    if LANG=='en' and path.startswith('/niil/courses/') and urlsplit(path).path.endswith(('/', '.html')):
-        u=urlsplit(path)
-        return urlunsplit(('', '',u.path,'lang=en'+('&'+u.query if u.query else ''),u.fragment))
+    if LANG=='en' and path.startswith('/niil/courses/') and urlsplit(path).path.endswith(('/', '.html', '.ipynb', '.mlx')):
+        return path.replace('/niil/courses/','/niil/en/courses/',1)
     if path.startswith('/niil/') and not path.startswith(('/niil/assets/','/niil/courses/','/niil/en/')):
         return path.replace('/niil/','/niil/en/',1) if LANG=='en' else path
     return path
@@ -194,7 +193,7 @@ def shell(title,content,section='',desc='',path='/niil/'):
 def emit(path,title,content,section=''):
     page=shell(title,content,section,path=path)
     if path=='/niil/courses/':
-        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=mlx-preview1"></head>')
+        page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/courses.css?v=20261030-language"></head>')
     if path=='/niil/photos/':
         page=page.replace('</head>','<link rel="stylesheet" href="/niil/assets/photos.css?v=20261026-2"></head>')
     write(local(path),page)
@@ -362,9 +361,10 @@ for LANG in ('en','ko'):
 (SITE/'content/routes.json').write_text(json.dumps(ROUTES,ensure_ascii=False,indent=2)+'\n')
 # Keep canonical course documents intact, adding the same site frame on every build.
 # Quarto scripts, styles, anchor IDs and relative download paths remain in place.
-LANG='ko'
-for course_file in sorted((SITE/'courses').rglob('*.html')):
-    if course_file in (SITE/'courses/index.html',SITE/'courses/reuse.html'):continue
+for course_file in sorted([*(SITE/'courses').rglob('*.html'),*(SITE/'en/courses').rglob('*.html')]):
+    LANG='en' if course_file.is_relative_to(SITE/'en/courses') else 'ko'
+    course_root=SITE/('en/courses' if LANG=='en' else 'courses')
+    if course_file in (course_root/'index.html',course_root/'reuse.html'):continue
     doc=BeautifulSoup(course_file.read_text(),'html.parser')
     if not doc.body or doc.select_one('meta[http-equiv="refresh"]'):continue
     for old in doc.select('[data-niil-frame], [data-course-shell], .skip-site'):old.decompose()
@@ -378,10 +378,10 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         if not breadcrumb.get_text(strip=True):breadcrumb.decompose()
     main=doc.select_one('main')
     if main is not None and not main.get('id'):main['id']='main'
-    course=next((c for c in COURSE_CATALOG if course_file.is_relative_to(SITE/'courses'/c['slug'])),None)
-    if course and course_file != SITE/'courses'/course['slug']/'index.html':
-        back=doc.new_tag('nav',attrs={'class':'breadcrumb','aria-label':'현재 과목','data-niil-frame':''})
-        anchor=doc.new_tag('a',href='/niil/courses/'+course['slug']+'/index.html');anchor.string=course['title'];back.append(anchor);main.insert(0,back)
+    course=next((c for c in COURSE_CATALOG if course_file.is_relative_to(course_root/c['slug'])),None)
+    if course and course_file != course_root/course['slug']/'index.html':
+        back=doc.new_tag('nav',attrs={'class':'breadcrumb','aria-label':tr('Current course','현재 과목'),'data-niil-frame':''})
+        anchor=doc.new_tag('a',href=local('/niil/courses/'+course['slug']+'/index.html'));anchor.string=course['title_en'] if LANG=='en' else course['title'];back.append(anchor);main.insert(0,back)
     source_url='https://chorok-daddy.github.io/'+course_file.relative_to(ROOT).as_posix()
     author_meta=doc.new_tag('meta',attrs={'name':'author','content':'Ki-Baek Lee (이기백)','data-niil-frame':''})
     doc.head.append(author_meta)
@@ -389,15 +389,21 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
     structured.string=json.dumps({'@context':'https://schema.org','@type':'LearningResource','name':doc.h1.get_text() if doc.h1 else doc.title.get_text(),'url':source_url,'author':{'@type':'Person','name':'Ki-Baek Lee','alternateName':'이기백','affiliation':{'@type':'Organization','name':'Kwangwoon University · NiiL'}},'license':'https://creativecommons.org/licenses/by/4.0/','creditText':'Teaching content: Ki-Baek Lee, CC BY 4.0. Original exercise code: MIT; see course LICENSE.md. Third-party terms retained.'},ensure_ascii=False)
     doc.head.append(structured)
     frame=BeautifulSoup(shell(doc.h1.get_text() if doc.h1 else doc.title.get_text(),'','teaching'),'html.parser')
-    # Keep the interface locale on the same original course document.
-    # A UI locale is not an English translation of the Korean teaching body.
+    # Each locale has a real body and matching original-format downloads.
     course_path='/'+course_file.relative_to(ROOT).as_posix()
+    korean_path=course_path.replace('/niil/en/courses/','/niil/courses/',1)
+    english_path=korean_path.replace('/niil/courses/','/niil/en/courses/',1)
     for link in frame.select('.language-switch [data-language]'):
         link['data-course-language']=link['data-language']
-        link['href']=course_path+('?lang=en' if link['data-language']=='en' else '')
+        link['href']=english_path if link['data-language']=='en' else korean_path
+    for old in doc.head.select('link[rel=alternate][hreflang]'):old.decompose()
+    for language,path in [('ko',korean_path),('en',english_path),('x-default',korean_path)]:
+        doc.head.append(doc.new_tag('link',rel='alternate',hreflang=language,href='https://chorok-daddy.github.io/'+path.lstrip('/')))
+    doc.html['lang']=LANG
+
     if course:
         doc.body['data-course-title-en']=course['title_en']
-        if course_file == SITE/'courses'/course['slug']/'index.html':doc.body['data-course-home']=''
+        if course_file == course_root/course['slug']/'index.html':doc.body['data-course-home']=''
         for link in doc.select('nav.breadcrumb a'):link['data-course-label-en']=course['title_en']
 
     for selector in ['.skip','.site-header','footer']:
@@ -407,10 +413,10 @@ for course_file in sorted((SITE/'courses').rglob('*.html')):
         else:doc.body.insert(0 if selector=='.skip' else 1,element)
     for element in frame.head.select('link[rel="stylesheet"],script[src]'):
         element['data-niil-frame']='';doc.head.append(element)
-    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=mlx-preview1')
+    bridge=doc.new_tag('link',rel='stylesheet',href='/niil/assets/courses.css?v=20261030-language')
     bridge['data-niil-frame']='';doc.head.append(bridge)
     doc.body['class']=list(dict.fromkeys(doc.body.get('class',[])+['niil-course']))
-    locale_script=doc.new_tag('script',src='/niil/assets/course-language.js?v=20261030-1',defer=True)
+    locale_script=doc.new_tag('script',src='/niil/assets/course-language.js?v=20261030-content2',defer=True)
     locale_script['data-niil-frame']='';doc.head.append(locale_script)
     course_file.write_text(str(doc))
 subprocess.run(['python3',str(ROOT/'tools/build_compat_routes.py')],check=True)

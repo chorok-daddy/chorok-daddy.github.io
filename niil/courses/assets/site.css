@@ -17,6 +17,8 @@
 .opening-digest .digest-toggle{float:right;font-size:.9rem;font-weight:400}
 .opening-digest .digest-toggle::after{content:"펼치기 ＋"}
 .opening-digest details[open] .digest-toggle::after{content:"접기 −"}
+html[lang="en"] .opening-digest .digest-toggle::after{content:"Expand ＋"}
+html[lang="en"] .opening-digest details[open] .digest-toggle::after{content:"Collapse −"}
 .opening-digest .digest-answer{padding:0 1rem .8rem;border-top:1px solid #d6e2e8}
 .opening-digest .digest-answer p{margin:.8rem 0 0}
 .opening-digest .digest-next{display:inline-block;margin-top:.6rem;font-weight:600}
